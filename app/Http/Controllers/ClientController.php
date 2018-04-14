@@ -507,19 +507,19 @@ class ClientController extends Controller
 
     }
 
-    public function editProfile($slug){
-        $title = 'Edit';
-        $profile = User::find($slug);
-        return view('client.editClient',compact('title','profile'));
-    }
+    // public function editProfile($slug){
+    //     $title = 'Edit';
+    //     $profile = User::find($slug);
+    //     return view('client.editClient',compact('title','profile'));
+    // }
 
-    public function updateProfile($slug){
-        $profile = User::find($slug);
-        $profile -> website = request('website');
-        $profile -> github_profile = request('github_profile');
-        $profile -> save();
-        session()->flash('message','Profile updated');
-        return back();
-    }
+    // public function updateProfile($slug){
+    //     $profile = User::find($slug);
+    //     $profile -> website = request('website');
+    //     $profile -> github_profile = request('github_profile');
+    //     $profile -> save();
+    //     session()->flash('message','Profile updated');
+    //     return back();
+    // }
 
 }

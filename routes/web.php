@@ -31,8 +31,8 @@ Route::get('/cookiePolicy', 'ClientController@cookiePolicy');
 Route::get('/license', 'ClientController@license');
 Route::get('/{slug}/projects', 'ClientController@userProfile');
 Route::get('/{slug}/photos', 'ClientController@userProfilePhotos');
-Route::get('/{slug}/editProfile', 'ClientController@editProfile');
-Route::post('/updateProfile/{slug}', 'ClientController@updateProfile');
+// Route::get('/{slug}/editProfile', 'ClientController@editProfile');
+// Route::post('/updateProfile/{slug}', 'ClientController@updateProfile');
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
