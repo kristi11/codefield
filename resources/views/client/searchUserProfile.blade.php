@@ -10,13 +10,13 @@
 			<a href="{{ url('/'.$data->slug.'/u/projects') }}" 
 				class="btn btn-simple btn-default">Projects
 				@if( $countUserProjects != 0 ) 
-					<span class="label label-danger">{{$countUserProjects}}</span>
+					<span class="label label-danger">{{$countUProjects}}</span>
 				@endif
 			</a>
 			<a href="{{ url('/'.$data->slug.'/u/photos') }}"
 			 class="btn btn-simple btn-default">Photos
 			 @if( $countUserPhotos != 0 ) 
-			 	<span class="label label-danger">{{$countUserPhotos}}</span>
+			 	<span class="label label-danger">{{$countUPhotos}}</span>
 			 @endif
 			</a>
 		</div>			

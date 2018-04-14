@@ -61,6 +61,8 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('countUserProjects',count(\App\SubmitRequest::where('user_id',Auth::id())->get()));
             $view->with('countUserPhotos',count(\App\Gallery::where('user_id',Auth::id())->get()));
+            $view->with('countUProjects',count(\App\SubmitRequest::where('id','user_id')->get()));
+            $view->with('countUPhotos',count(\App\Gallery::where('id','user_id')->get()));
          });
 
     }
