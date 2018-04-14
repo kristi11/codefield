@@ -513,7 +513,7 @@ class ClientController extends Controller
     }
 
     public function updateProfile($slug){
-        $profile = User::findOrFail($slug);
+        $profile = User::updateOrCreate($slug);
         $profile -> website = request('website');
         $profile -> github_profile = request('github_profile');
         $profile -> save();
