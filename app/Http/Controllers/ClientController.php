@@ -509,7 +509,9 @@ class ClientController extends Controller
 
         public function searchUserProfile($slug){
         $title = 'Profile';
-        $data = Gallery::where('user_id',user()->id)->latest()->get();
+                 $user = User::where('slug',$slug)->first();
+
+        $data = Gallery::where('user_id',$user->id)->latest()->get();
         dd($data);
         // $user = User::where('slug',$slug)->first();
         //     if (count($data)<=0) {
