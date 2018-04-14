@@ -59,7 +59,7 @@ public function __construct()
         $zip_files_storage = 'storage/zip_files/';
         $project =  new Project;
         $project -> user_id = auth()->id();
-        $project -> title = request('title');
+        $project -> title = str_slug(request('title'));
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> views = '0';
@@ -136,7 +136,7 @@ public function __construct()
         $profiles_storage = public_path('storage/avatars/');
         $project =  Project::findOrFail($id);
         $project -> user_id = auth()->id();
-        $project -> title = request('title');
+        $project -> title = str_slug(request('title'));
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> alternative_text = config('app.name').' '.request('title').' '.'project';

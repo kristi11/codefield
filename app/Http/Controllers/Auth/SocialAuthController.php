@@ -68,7 +68,9 @@ class SocialAuthController extends Controller
     		'avatar' => $SocialUser->avatar,
     		'profile' => Hash::make('no pic'),
     		'password' => Hash::make('no need for password token based'),
-            'email_notifications' => 1
+        'website' => 'add a website',
+        'github_profile' => 'add github profile',
+        'email_notifications' => 1
     	])->save();
         $user->assignRole('user');
         \Mail::to($user)->send(new Welcome($user));

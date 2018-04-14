@@ -514,15 +514,10 @@ class ClientController extends Controller
     }
 
     public function updateProfile($slug){
-        $profile = User::updateOrCreate([
-            'profile' => Hash::make('no pic'),
-            'password' => Hash::make('no need for password token based'),
-            'website' => request('website'),
-            'github_profile' => request('github_profile')
-        ]) -> save();
-        // $profile -> website = request('website');
-        // $profile -> github_profile = request('github_profile');
-        // $profile -> save();
+        $profile = User::find($slug);
+        $profile -> website = request('website');
+        $profile -> github_profile = request('github_profile');
+        $profile -> save();
         session()->flash('message','Profile updated');
         return back();
     }
