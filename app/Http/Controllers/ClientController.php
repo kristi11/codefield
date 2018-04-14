@@ -507,9 +507,10 @@ class ClientController extends Controller
 
     }
 
-        public function searchUserProfile($slug){
+        public function searchUserProfile($id,$slug){
         $title = 'Profile';
-        $data = Gallery::where('slug',$slug)->latest()->get();
+        // $user = User::find($id);
+        $data = Gallery::where('id','user_id')->latest()->get();
             if (count($data)<=0) {
                 $p = "User hasn't added any photos yet";
                 return view('client.partials.userPhotos',compact('title','data','p'));
