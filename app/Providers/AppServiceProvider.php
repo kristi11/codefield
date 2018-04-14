@@ -32,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
 
          view()->composer(['admin.sidebar','admin.empty_projects','admin.gallery','admin.projects','admin.trash','admin.administrators','admin.Subscribers','admin.add','auth.register','auth.login','admin.create','admin.edit','admin.mdl-bootstrap','admin.edit_admin','admin.edit_admin_pic','admin.update_admin_password','admin.edit_tag','admin.edit_category','admin.editUploads','admin.pending_projects',
             'admin.submitted_projects','auth.passwords.email','auth.passwords.reset','client.home','client.showWidget','client.showImage','client.clientGallery','client.googleFonts',
-            'client.submit_request','client.submits','client.addPhotos','client.userProfile','policies.mitLicense'],function($view){
+            'client.submit_request','client.submits','client.addPhotos','client.userProfile','client.editClient',
+            'policies.mitLicense'],function($view){
             $view->with('item',\App\App_color::firstOrFail());
          });
 
