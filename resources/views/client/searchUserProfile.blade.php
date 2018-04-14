@@ -20,8 +20,8 @@
 			 @endif
 			</a>
 		</div>			
-			@yield('userProjects')
-			@yield('userPhotos')
+			@yield('uProjects')
+			@yield('uPhotos')
 	</div>
 </div>
 @endsection

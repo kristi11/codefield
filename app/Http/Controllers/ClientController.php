@@ -513,11 +513,11 @@ class ClientController extends Controller
         $data = Gallery::where('id','user_id')->latest()->get();
             if (count($data)<=0) {
                 $p = "User hasn't added any photos yet";
-                return view('client.partials.userPhotos',compact('title','data','p'));
+                return view('client.partials.uPhotos',compact('title','data','p'));
             }
             else
             {
-                return view('client.partials.userPhotos',compact('title','data'));
+                return view('client.partials.uPhotos',compact('title','data'));
             }
 
     }
