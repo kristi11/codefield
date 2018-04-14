@@ -12,7 +12,7 @@
 			 class="btn btn-simple btn-default">Photos</a>
 		</div>			
 			@yield('userProjects')
-			<div class="col-xs-12">@yield('userPhotos')</div>	
+			@yield('userPhotos')
 	</div>
 </div>
 @endsection
