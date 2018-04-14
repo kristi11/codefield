@@ -509,19 +509,18 @@ class ClientController extends Controller
 
         public function searchUserProfile($slug){
         $title = 'Profile';
-                 $user = User::where('slug',$slug)->first();
-
+        $user = User::where('slug',$slug)->first();
         $data = Gallery::where('user_id',$user->id)->latest()->get();
         dd($data);
         // $user = User::where('slug',$slug)->first();
-        //     if (count($data)<=0) {
-        //         $p = "User hasn't added any photos yet";
-        //         return view('client.partials.uPhotos',compact('title','data','p','user'));
-        //     }
-        //     else
-        //     {
-        //         return view('client.partials.uPhotos',compact('title','data','user'));
-        //     }
+            if (count($data)<=0) {
+                $p = "User hasn't added any photos yet";
+                return view('client.partials.uPhotos',compact('title','data','p','user'));
+            }
+            else
+            {
+                return view('client.partials.uPhotos',compact('title','data','user'));
+            }
 
     }
 
