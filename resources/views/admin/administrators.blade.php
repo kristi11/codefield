@@ -7,9 +7,9 @@
     <div  class="card card-profile">
       <div class="card-avatar">
         @if(strlen($admin->profile)<10)
-          <img class="img" src="{{ url('storage/default_profile/default_profile_pic.png') }}" alt="RekStudio admin">
+          <img class="img" src="{{ url('storage/default_profile/default_profile_pic.png') }}" alt="Codefield admin">
         @else
-          <img class="img" src="{{ url('storage/profiles/'.$admin->profile) }}" alt="RekStudio admin">
+          <img class="img" src="{{ url('storage/profiles/'.$admin->profile) }}" alt="Codefield admin">
         @endif
         </div>
       <div class="content">
