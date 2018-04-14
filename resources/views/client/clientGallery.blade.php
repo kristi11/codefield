@@ -62,6 +62,9 @@
 									rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
 									<i style="color: black" class="material-icons">favorite_border</i></a>
 								@endif
+								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('addToFavorties/'.$img->id) }}"
+									rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
+									<i style="color: black" class="material-icons">{{$img->user->name}}</i></a>
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->gallery_image) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
