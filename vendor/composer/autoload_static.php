@@ -413,7 +413,7 @@ class ComposerStaticInitb14748fca89dd2941f62e11d020a450c
 
     public static $classMap = array (
         'AddColumnsToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_13_190721_add_columns_to_users_table.php',
-<<<<<<< HEAD
+        'AddSlugToUsers' => __DIR__ . '/../..' . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
         'AlgoliaSearch\\AlgoliaConnectionException' => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/AlgoliaConnectionException.php',
         'AlgoliaSearch\\AlgoliaException' => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/AlgoliaException.php',
         'AlgoliaSearch\\Client' => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/Client.php',
@@ -482,9 +482,6 @@ class ComposerStaticInitb14748fca89dd2941f62e11d020a450c
         'App\\Subscriber' => __DIR__ . '/../..' . '/app/Subscriber.php',
         'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-=======
-        'AddSlugToUsers' => __DIR__ . '/../..' . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
->>>>>>> c4a7183aacd638eab207832207ed6fb9bce97771
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Barryvdh\\Debugbar\\Console\\ClearCommand' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',

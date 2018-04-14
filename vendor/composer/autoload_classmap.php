@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColumnsToUsersTable' => $baseDir . '/database/migrations/2018_04_13_190721_add_columns_to_users_table.php',
-<<<<<<< HEAD
+    'AddSlugToUsers' => $baseDir . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
     'AlgoliaSearch\\AlgoliaConnectionException' => $vendorDir . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/AlgoliaConnectionException.php',
     'AlgoliaSearch\\AlgoliaException' => $vendorDir . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/AlgoliaException.php',
     'AlgoliaSearch\\Client' => $vendorDir . '/algolia/algoliasearch-client-php/src/AlgoliaSearch/Client.php',
@@ -76,9 +76,6 @@ return array(
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
     'App\\Tag' => $baseDir . '/app/Tag.php',
     'App\\User' => $baseDir . '/app/User.php',
-=======
-    'AddSlugToUsers' => $baseDir . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
->>>>>>> c4a7183aacd638eab207832207ed6fb9bce97771
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Barryvdh\\Debugbar\\Console\\ClearCommand' => $vendorDir . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
