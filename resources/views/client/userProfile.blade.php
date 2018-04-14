@@ -11,18 +11,12 @@
 			<a href="{{ url(Auth::user()->provider_id.'/photos') }}"
 			 class="btn btn-simple btn-default">Photos</a>
 		</div>
-{{-- 			@if(url() == url('/'.Auth::user()->provider_id.'/projects'))
- --}}			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-8 col-md-offset-2">
 			<div class="card-content table-responsive">
-{{-- 			@include('client.partials.userProjects')
- --}}			@yield('userProjects')
+			@yield('userProjects')
 			</div>
 			</div>
-{{-- 			@elseif(url() == url('/'.Auth::user()->provider_id.'/photos'))
- --}}				{{-- @include('client.partials.userPhotos') --}}
- @yield('userPhotos')
-{{-- 			@endif
- --}}		
+			<div class="col-xs-12">@yield('userPhotos')</div>	
 	</div>
 </div>
 @endsection
