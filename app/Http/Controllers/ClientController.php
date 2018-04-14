@@ -507,4 +507,18 @@ class ClientController extends Controller
 
     }
 
+    public function editProfile($slug){
+        $profile = User::findOrFail($slug);
+        return view('client.editClient',compact('profile'));
+    }
+
+    public function updateProfile($slug){
+        $profile = User::findOrFail($slug);
+        $profile -> website = request('website');
+        $profile -> github_profile = request('github_profile');
+        $profile -> save();
+        session()->flash('message','Profile updated');
+        return back();
+    }
+
 }
