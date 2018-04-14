@@ -508,7 +508,7 @@ class ClientController extends Controller
     }
 
     public function editProfile($slug){
-        $profile = User::findOrFail($slug);
+        $profile = User::find($slug);
         return view('client.editClient',compact('profile'));
     }
 
