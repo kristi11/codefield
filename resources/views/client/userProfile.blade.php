@@ -10,12 +10,8 @@
 				class="btn btn-simple btn-default">Projects</a>
 			<a href="{{ url(Auth::user()->provider_id.'/photos') }}"
 			 class="btn btn-simple btn-default">Photos</a>
-		</div>
-			<div class="col-md-8 col-md-offset-2">
-			<div class="card-content table-responsive">
+		</div>			
 			@yield('userProjects')
-			</div>
-			</div>
 			<div class="col-xs-12">@yield('userPhotos')</div>	
 	</div>
 </div>

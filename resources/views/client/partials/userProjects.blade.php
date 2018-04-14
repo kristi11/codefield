@@ -3,6 +3,8 @@
 @if(count($data)<=0)
  <h3>{{$p}}</h3>
  @else
+<div class="col-md-8 col-md-offset-2">
+<div class="card-content table-responsive">
  <table class="table">
 	<thead class="text-default">
 		<tr>
@@ -33,5 +35,7 @@
 		@endforeach
 	</tbody>
 </table>
+</div>
+</div>
 @endif
 @endsection
