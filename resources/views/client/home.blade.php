@@ -68,7 +68,7 @@
        <li{{ setActive('/photos') }}>
         <a href="{{ asset('/photos') }}">
           <i class="material-icons">image</i>
-          <p>Photos <span class="label label-{{$item->font_color}}">{{ $countImages }}</span></p>
+          <p>Photos <span class="label label-{{$item->font_color}}">{{-- {{ $countImages }} --}}</span></p>
         </a>
       </li>
 
