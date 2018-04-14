@@ -511,7 +511,7 @@ class ClientController extends Controller
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
         $data = Gallery::where('user_id',$user->id)->latest()->get();
-        dd($data);
+        // dd($data);
         // $user = User::where('slug',$slug)->first();
             if (count($data)<=0) {
                 $p = "User hasn't added any photos yet";
