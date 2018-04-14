@@ -239,7 +239,7 @@ class HomeController extends Controller
             $gallery->delete();
             $gallery->favorites()->delete();
             // Storage::move('galleries/'.$gallery->image, 'trash/'.$gallery->image);
-            Storage::move('storage/galleries/'.$gallery->gallery_image, 'storage/trash/'.$gallery->gallery_image);
+            Storage::move('storage/gallery_thumbnails/'.$gallery->gallery_image, 'storage/trash/'.$gallery->gallery_image);
             session()->flash('message','Image sent to Trash');
             return back();
         }
