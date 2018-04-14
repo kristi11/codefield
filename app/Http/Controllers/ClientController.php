@@ -514,7 +514,7 @@ class ClientController extends Controller
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
         $data = Gallery::where('user_id',$user->id)->latest()->get();
             if (count($data)<=0) {
-                $p = $user->name. "hasn't added any photos yet";
+                $p = $user->name.' '."hasn't added any photos yet";
                 return view('client.partials.uPhotos',compact('title','data','p','user','countUProjects','countUPhotos'));
             }
             else
