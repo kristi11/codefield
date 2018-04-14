@@ -62,7 +62,7 @@ class SocialAuthController extends Controller
         
             if ($user->exists) return $user;
     	$user->fill([
-            'name' => $SocialUser->nickname?:$SocialUser->name,
+        'name' => str_slug($SocialUser->nickname?:$SocialUser->name),
     		'email' => $SocialUser->email,
     		'avatar' => $SocialUser->avatar,
     		'profile' => Hash::make('no pic'),

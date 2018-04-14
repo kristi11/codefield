@@ -3,7 +3,8 @@
 <div class="col-xs-12">
 	<div class="card text-center">
 		<div class="card-content">
-			<span><h2>{{ Auth::user()->name }}</h2> <a href="">Edit</a></span>
+			<h2>{{ Auth::user()->name }}</h2>
+			<a href="{{ url('editUserProfile/'.Auth::user()->provider_id) }}">Edit</a>
 			<h5>{{ Auth::user()->website }}</h5>
 			<h5>{{ Auth::user()->github_profile }}</h5>
 			<a href="{{ url('/'.Auth::user()->provider_id.'/projects') }}" 
