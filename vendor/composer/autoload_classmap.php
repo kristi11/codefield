@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddColumnsToUsersTaable' => $baseDir . '/database/migrations/2018_04_13_190651_add_columns_to_users_taable.php',
     'AddColumnsToUsersTable' => $baseDir . '/database/migrations/2018_04_13_190721_add_columns_to_users_table.php',
+    'AddSlugToUsers' => $baseDir . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'CSSmin' => $vendorDir . '/mrclay/minify/min/lib/CSSmin.php',

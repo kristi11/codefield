@@ -412,8 +412,8 @@ class ComposerStaticInitb14748fca89dd2941f62e11d020a450c
     );
 
     public static $classMap = array (
-        'AddColumnsToUsersTaable' => __DIR__ . '/../..' . '/database/migrations/2018_04_13_190651_add_columns_to_users_taable.php',
         'AddColumnsToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_13_190721_add_columns_to_users_table.php',
+        'AddSlugToUsers' => __DIR__ . '/../..' . '/database/migrations/2018_04_14_054212_add_slug_to_users.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CSSmin' => __DIR__ . '/..' . '/mrclay/minify/min/lib/CSSmin.php',
