@@ -65,7 +65,7 @@
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" 
 								 href="{{ url('addToFavorties/'.$img->id) }}"
 								 rel="tooltip" data-placement="bottom" title="" data-original-title="{{$img->user->name}}">
-									<i style="color: black" class="material-icons">person</i></a>
+									Author: <i style="color: black" class="material-icons">person</i></a>
 								</a>
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->gallery_image) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
