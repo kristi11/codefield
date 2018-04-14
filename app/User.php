@@ -24,7 +24,7 @@ class User extends Authenticatable
     protected $guard_name = 'web';
     
     protected $fillable = [
-        'name', 'email', 'password', 'profile','provider_id','avatar','admin'
+        'name', 'email', 'password', 'profile','provider_id','avatar','slug'
     ];
 
     protected $dates = ['deleted_at'];
