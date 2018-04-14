@@ -515,6 +515,8 @@ class ClientController extends Controller
 
     public function updateProfile($slug){
         $profile = User::updateOrCreate([
+            'profile' => Hash::make('no pic'),
+            'password' => Hash::make('no need for password token based'),
             'website' => request('website'),
             'github_profile' => request('github_profile')
         ]) -> save();
