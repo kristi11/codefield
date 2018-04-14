@@ -228,6 +228,7 @@
                    @yield('submits')
                    @yield('addPhotos')
                    @yield('userProfile')
+                   @yield('editClient')
 {{--                    @yield('userProjects')
                    @yield('userPhotos') --}}
 {{--                   </div>
