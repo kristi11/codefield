@@ -507,7 +507,7 @@ class ClientController extends Controller
 
     }
 
-        public function searchUserProfile($slug){
+        public function searchUserProfile($id,$slug){
         $title = 'Profile';
         $userData = User::find($id)->where('slug',$slug)->first();
         $data = Gallery::where('user_id',$userData)->latest()->get();
