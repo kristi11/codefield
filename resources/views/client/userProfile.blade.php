@@ -6,7 +6,7 @@
 			<h2>{{ Auth::user()->name }}</h2>
 			{{--<a href="{{ url(Auth::user()->slug.'/editProfile') }}">Edit</a>--}}			
  			{{-- <h5>{{ Auth::user()->website }}</h5> --}}
-			<h5><i class="material-icons">email</i> {{ Auth::user()->email }}</h5>
+			<h5>{{ Auth::user()->email }}</h5>
 			<a href="{{ url('/'.Auth::user()->slug.'/projects') }}" 
 				class="btn btn-simple btn-default">Projects
 				@if( $countUserProjects != 0 ) 
