@@ -62,12 +62,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('countUserPhotos',count(\App\Gallery::where('user_id',Auth::id())->get()));
          });
 
-          view()->composer('client.searchUserProfile',function($view){
-            $user = \App\User::where('slug',$slug)->first();
-            $view->with('countUProjects',count(\App\SubmitRequest::where('user_id',$user->id)->get()));
-            $view->with('countUPhotos',count(\App\Gallery::where('user_id',$user->id)->get()));
-         });
-
     }
 
     /**
