@@ -479,7 +479,7 @@ class ClientController extends Controller
         return view('policies.mitLicense',compact('title'));
     }
 
-    public function userProfile($provider_id){
+    public function userProfile($slug){
         $title = "Profile";
         $data = SubmitRequest::where('user_id',auth()->id())->latest()->get();
             if (count($data)<=0) {
@@ -493,7 +493,7 @@ class ClientController extends Controller
 
     }
 
-    public function userProfilePhotos($provider_id){
+    public function userProfilePhotos($slug){
         $title = 'Profile';
         $data = Gallery::where('user_id',auth()->id())->latest()->get();
             if (count($data)<=0) {

@@ -29,8 +29,8 @@ Route::get('/privacyPolicy', 'ClientController@privacyPolicy');
 Route::get('/termsAndConditions', 'ClientController@termsAndConditions');
 Route::get('/cookiePolicy', 'ClientController@cookiePolicy');
 Route::get('/license', 'ClientController@license');
-Route::get('/{provider_id}/projects', 'ClientController@userProfile');
-Route::get('/{provider_id}/photos', 'ClientController@userProfilePhotos');
+Route::get('/{slug}/projects', 'ClientController@userProfile');
+Route::get('/{slug}/photos', 'ClientController@userProfilePhotos');
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');

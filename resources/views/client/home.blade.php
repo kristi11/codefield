@@ -33,7 +33,7 @@
             <img class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
          {{--  @endif --}}
       </div>
-          <div class="space-10"><a href="{{ url('/'.Auth::user()->provider_id.'/projects') }}"> {{Auth::user()->name}}</a> </div>
+          <div class="space-10"><a href="{{ url('/'.Auth::user()->slug.'/projects') }}"> {{Auth::user()->name}}</a> </div>
       </div> 
 
 
