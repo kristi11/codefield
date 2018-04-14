@@ -514,10 +514,13 @@ class ClientController extends Controller
     }
 
     public function updateProfile($slug){
-        $profile = User::updateOrCreate($slug);
-        $profile -> website = request('website');
-        $profile -> github_profile = request('github_profile');
-        $profile -> save();
+        $profile = User::updateOrCreate([
+            'website' => request('website'),
+            'github_profile' => request('github_profile')
+        ]) -> save();
+        // $profile -> website = request('website');
+        // $profile -> github_profile = request('github_profile');
+        // $profile -> save();
         session()->flash('message','Profile updated');
         return back();
     }
