@@ -507,6 +507,20 @@ class ClientController extends Controller
 
     }
 
+        public function searchUserProfile($slug){
+        $title = 'Profile';
+        $data = Gallery::where('slug',$slug)->latest()->get();
+            if (count($data)<=0) {
+                $p = "User hasn't added any photos yet";
+                return view('client.partials.userPhotos',compact('title','data','p'));
+            }
+            else
+            {
+                return view('client.partials.userPhotos',compact('title','data'));
+            }
+
+    }
+
     // public function editProfile($slug){
     //     $title = 'Edit';
     //     $profile = User::find($slug);

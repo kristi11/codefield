@@ -63,7 +63,7 @@
 									<i style="color: black" class="material-icons">favorite_border</i></a>
 								@endif
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" 
-								 href="{{ url($img->user->slug.'/photos') }}"
+								 href="{{ url($img->user->slug.'/u/photos') }}"
 								 rel="tooltip" data-placement="bottom" title="" data-original-title="{{$img->user->name}}">
 									<i style="color: black" class="material-icons">person</i></a>
 								</a>

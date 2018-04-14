@@ -31,6 +31,7 @@ Route::get('/cookiePolicy', 'ClientController@cookiePolicy');
 Route::get('/license', 'ClientController@license');
 Route::get('/{slug}/projects', 'ClientController@userProfile');
 Route::get('/{slug}/photos', 'ClientController@userProfilePhotos');
+Route::get('/{slug}/u/photos', 'ClientController@searchUserProfile');
 // Route::get('/{slug}/editProfile', 'ClientController@editProfile');
 // Route::post('/updateProfile/{slug}', 'ClientController@updateProfile');
 
