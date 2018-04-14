@@ -9,6 +9,7 @@
         "algolia/algoliasearch-client-php": "^1.20",
         "barryvdh/laravel-debugbar": "^2.4",
         "christiankuri/laravel-favorite": "^1.2",
+        "doctrine/dbal": "^2.7",
         "htmlmin/htmlmin": "^5.6",
         "intervention/image": "^2.3",
         "kitetail/zttp": "^0.3.0",
