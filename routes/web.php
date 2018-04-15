@@ -49,7 +49,7 @@ Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProvider
 	Route::post('/admin/administratorsPassword/{id}', 'HomeController@updatePassword');
 // });
 
-Route::get('admin/pts', 'ProjectsController@projects');
+Route::get('admin/proj', 'ProjectsController@projects');
 Route::get('/admin/projects/create', 'ProjectsController@create');
 Route::get('/admin/projects/{id}/edit', 'ProjectsController@edit');
 Route::get('/admin/projects/{id}/editUploads', 'ProjectsController@editUploads');
