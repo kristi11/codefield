@@ -96,7 +96,7 @@
       <li{{ setActive('/license') }}>
         <a href="{{ asset('/license') }}">
           <i class="material-icons">book</i>
-          <p>License</p>
+          <p>Licenses</p>
         </a>
       </li>
 
