@@ -524,6 +524,23 @@ class ClientController extends Controller
 
     }
 
+        public function searchUserProjects($slug){
+        $title = 'Profile';
+        $user = User::where('slug',$slug)->first();
+        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
+        $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
+        $data = Project::where('user_id',$user->id)->latest()->get();
+            if (count($data)<=0) {
+                $p = $user->name.' '."hasn't added any photos yet";
+                return view('client.partials.uPhotos',compact('title','data','p','user','countUProjects','countUPhotos'));
+            }
+            else
+            {
+                return view('client.partials.uPhotos',compact('title','data','user','countUProjects','countUPhotos'));
+            }
+
+    }
+
     // public function editProfile($slug){
     //     $title = 'Edit';
     //     $profile = User::find($slug);
