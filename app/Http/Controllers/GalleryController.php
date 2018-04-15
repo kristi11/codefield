@@ -154,6 +154,7 @@ class GalleryController extends Controller
             // Storage::move('galleries/'.$gallery->image, 'trash/'.$gallery->image);
             Storage::delete('storage/galleries/'.$gallery->gallery_image);
             Storage::delete('storage/gallery_thumbnails/'.$gallery->gallery_image);
+            session()->flash('message','Photo deleted');
             return back();
         } 
 }
