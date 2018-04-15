@@ -3,6 +3,7 @@
 <div class="col-xs-12">
 	<div class="card text-center">
 		<div class="card-content">
+			<img class="img-raised rounded-circle img-fluid" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
 			<h2>{{ $user->name }}</h2>
 			{{--<a href="{{ url(Auth::user()->slug.'/editProfile') }}">Edit</a>--}}			
  			{{-- <h5>{{ Auth::user()->website }}</h5> --}}
