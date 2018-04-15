@@ -510,7 +510,7 @@ class ClientController extends Controller
         public function searchUserProfile($slug){
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
-        // $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
+        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
         $data = Gallery::where('user_id',$user->id)->latest()->Paginate(50);
             if (count($data)<=0) {
@@ -528,7 +528,7 @@ class ClientController extends Controller
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
         $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
-        // $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
+        $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
         $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(25);
             if (count($data)<=0) {
                 $p = $user->name.' '."hasn't submitted any projects yet";
