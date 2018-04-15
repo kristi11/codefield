@@ -481,7 +481,7 @@ class ClientController extends Controller
 
     public function userProfile($slug){
         $title = "Profile";
-        $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(1);
+        $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(25);
             if (count($data)<=0) {
                 $p = "You haven't submitted any projects yet";
                 return view('client.partials.userProjects',compact('title','data','p'));
@@ -495,7 +495,7 @@ class ClientController extends Controller
 
     public function userProfilePhotos($slug){
         $title = 'Profile';
-        $data = Gallery::where('user_id',auth()->id())->latest()->Paginate(1);
+        $data = Gallery::where('user_id',auth()->id())->latest()->Paginate(50);
             if (count($data)<=0) {
                 $p = "You haven't added any photos yet";
                 return view('client.partials.userPhotos',compact('title','data','p'));
@@ -512,7 +512,7 @@ class ClientController extends Controller
         $user = User::where('slug',$slug)->first();
         $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
-        $data = Gallery::where('user_id',$user->id)->latest()->Paginate(1);
+        $data = Gallery::where('user_id',$user->id)->latest()->Paginate(50);
             if (count($data)<=0) {
                 $p = $user->name.' '."hasn't added any photos yet";
                 return view('client.partials.uPhotos',compact('title','data','p','user','countUProjects','countUPhotos'));
@@ -529,7 +529,7 @@ class ClientController extends Controller
         $user = User::where('slug',$slug)->first();
         $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
-        $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(1);
+        $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(25);
             if (count($data)<=0) {
                 $p = $user->name.' '."hasn't submitted any projects yet";
                 return view('client.partials.uProjects',compact('title','data','p','user','countUProjects','countUPhotos'));
