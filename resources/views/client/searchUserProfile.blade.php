@@ -23,5 +23,6 @@
 			@yield('uProjects')
 			@yield('uPhotos')
 	</div>
+	<div class="text-center">{{ $data->links('admin.mdl-bootstrap') }}</div>
 </div>
 @endsection
