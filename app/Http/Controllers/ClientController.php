@@ -529,7 +529,7 @@ class ClientController extends Controller
         $user = User::where('slug',$slug)->first();
         $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
-        $data = SubmitRequest::where('user_id',$user->id)->latest()->get();
+        $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(1);
             if (count($data)<=0) {
                 $p = $user->name.' '."hasn't submitted any projects yet";
                 return view('client.partials.uProjects',compact('title','data','p','user','countUProjects','countUPhotos'));

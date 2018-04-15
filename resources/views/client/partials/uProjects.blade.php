@@ -38,4 +38,5 @@
 </div>
 </div>
 @endif
+<div class="text-center">{{ $data->links('admin.mdl-bootstrap') }}</div>
 @endsection
