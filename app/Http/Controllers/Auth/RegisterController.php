@@ -68,6 +68,7 @@ class RegisterController extends Controller
         return User::create([
             'profile' => $data['profile'],
             'name' => $data['name'],
+            'slug' => str_slug($SocialUser->nickname?:$SocialUser->name).'-'.uniqid(),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'provider_id' => bcrypt('no github id needed'),
