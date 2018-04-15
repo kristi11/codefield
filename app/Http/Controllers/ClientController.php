@@ -28,7 +28,7 @@ class ClientController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['role:admin'],['except'=>['dashboard','privacyPolicy','termsAndConditions','cookiePolicy']]);
+        $this->middleware(['role:user'],['except'=>['dashboard','privacyPolicy','termsAndConditions','cookiePolicy']]);
     }
 
     public function dashboard()
