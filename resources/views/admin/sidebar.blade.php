@@ -59,8 +59,8 @@
         </a>
       </li>
 @can('edit_projects')
-      <li{{ setActive('admin/pts') }}>
-        <a href="{{ asset('admin/pts') }}">
+      <li{{ setActive('admin/proj') }}>
+        <a href="{{ asset('admin/proj') }}">
           <i class="material-icons">insert_drive_file</i>
           <p>Projects <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
         </a>
