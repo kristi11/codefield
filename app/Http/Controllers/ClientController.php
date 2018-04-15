@@ -510,9 +510,9 @@ class ClientController extends Controller
         public function searchUserProfile($slug){
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
-        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->Paginate(1));
+        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
-        $data = Gallery::where('user_id',$user->id)->latest()->get();
+        $data = Gallery::where('user_id',$user->id)->latest()->Paginate(1);
             if (count($data)<=0) {
                 $p = $user->name.' '."hasn't added any photos yet";
                 return view('client.partials.uPhotos',compact('title','data','p','user','countUProjects','countUPhotos'));
