@@ -62,12 +62,12 @@
       <li{{ setActive('admin/projects') }}>
         <a href="{{ asset('admin/projects') }}">
           <i class="material-icons">insert_drive_file</i>
-          <p>Projects <span class="label label-{{$item->font_color}}">{{-- {{$countProjects}} --}}</span></p>
+          <p>Projects <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
         </a>
       </li>
 @endcan
 
-@can('edit_projects')
+
       <li{{ setActive('admin/submitted_projects') }}>
         <a href="{{ asset('admin/submitted_projects') }}">
           <i class="material-icons">note_add</i>
@@ -78,7 +78,7 @@
           </p>
         </a>
       </li>
-@endcan
+
 
 @can('edit_gallery')
        <li{{ setActive('admin/gallery') }}>
