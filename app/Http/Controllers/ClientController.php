@@ -481,7 +481,7 @@ class ClientController extends Controller
 
     public function userProfile($slug){
         $title = "Profile";
-        $data = SubmitRequest::where('user_id',auth()->id())->latest()->get();
+        $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(1);
             if (count($data)<=0) {
                 $p = "You haven't submitted any projects yet";
                 return view('client.partials.userProjects',compact('title','data','p'));
@@ -495,7 +495,7 @@ class ClientController extends Controller
 
     public function userProfilePhotos($slug){
         $title = 'Profile';
-        $data = Gallery::where('user_id',auth()->id())->latest()->get();
+        $data = Gallery::where('user_id',auth()->id())->latest()->Paginate(1);
             if (count($data)<=0) {
                 $p = "You haven't added any photos yet";
                 return view('client.partials.userPhotos',compact('title','data','p'));
@@ -510,7 +510,7 @@ class ClientController extends Controller
         public function searchUserProfile($slug){
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
-        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
+        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->Paginate(1));
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
         $data = Gallery::where('user_id',$user->id)->latest()->get();
             if (count($data)<=0) {
