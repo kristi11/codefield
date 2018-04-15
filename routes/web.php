@@ -56,7 +56,7 @@ Route::get('/admin/projects/{id}/editUploads', 'ProjectsController@editUploads')
 Route::delete('/admin/projects/{id}', 'ProjectsController@destroy');
 Route::delete('/admin/deleted_projects/{id}', 'ProjectsController@permanently_delete_project');
 Route::post('/admin/deleted_projects/{id}', 'ProjectsController@restore_deleted_project');
-Route::get('/projects/{id}', 'ProjectsController@show');
+// Route::get('/projects/{id}', 'ProjectsController@show');
 Route::get('search', 'ProjectsController@search');
 
 Route::get('/admin/settings', 'SettingsController@index');
