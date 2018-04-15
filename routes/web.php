@@ -40,7 +40,7 @@ Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProvider
 
 // Route::middleware('optimizeImages')->group(function () {
 	Route::post('addToGallery', 'GalleryController@store');
-	Route::post('/admin/projects', 'ProjectsController@store');
+	Route::post('/admin/projects/store', 'ProjectsController@store');
 	Route::put('/admin/projects/{id}', 'ProjectsController@update');
 	Route::put('/admin/projectUploads/{id}', 'ProjectsController@updateUploads');
 	Route::post('images', 'SettingsController@upload');

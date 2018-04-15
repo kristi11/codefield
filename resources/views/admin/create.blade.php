@@ -8,7 +8,7 @@
     <h4 class="title">New project</h4>
   </div>
 <div class="card-content">
-    <form method="POST" action="{{ asset('/admin/projects') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ asset('/admin/projects/store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       @include('errors')
       
