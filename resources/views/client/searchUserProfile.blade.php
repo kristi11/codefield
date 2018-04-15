@@ -4,7 +4,7 @@
 	<div class="card text-center">
 		<div class="card-content">
 			<div class="user">
-			<img class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
+			<img style="height:100px;width: 100px;" class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
 		</div>
 			<h2>{{ $user->name }}</h2>
 			{{--<a href="{{ url(Auth::user()->slug.'/editProfile') }}">Edit</a>--}}			

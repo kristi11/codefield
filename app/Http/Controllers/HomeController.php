@@ -121,7 +121,7 @@ class HomeController extends Controller
         // $profile->store('profiles');
         $admins->profile = $profile->hashName();
         $image = Image::make($profile->getRealPath());
-        $image->resize(null, 150, function ($constraint) {
+        $image->resize(null, 240, function ($constraint) {
         $constraint->aspectRatio();})->save($profiles_storage.$profile->hashName());
         $admins->save();
         $request->session()->flash('success', 'Profile pic changed');
