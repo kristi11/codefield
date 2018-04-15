@@ -90,21 +90,21 @@ public function __construct()
     }
 
     public function projects(){
-     //    // return session('message');
-     //    $title = 'Projects';
-     //    $paginationNr = PaginationCounter::first();
-     //    $projectsNr = $paginationNr->projects;
+        // return session('message');
+        $title = 'Projects';
+        $paginationNr = PaginationCounter::first();
+        $projectsNr = $paginationNr->projects;
         
-    	// $projects = Project::orderBy('id', 'desc')->Paginate($projectsNr);
-     //    if (count($projects)<=0)
-     //    {
-     //        return view('admin.empty_projects',compact('title'));
-     //    }
-     //    else if (Auth::user()->hasPermissionTo('edit_projects')) {
+    	$projects = Project::orderBy('id', 'desc')->Paginate($projectsNr);
+        if (count($projects)<=0)
+        {
+            return view('admin.empty_projects',compact('title'));
+        }
+        else if (Auth::user()->hasPermissionTo('edit_projects')) {
 
-     //            return view('admin.projects',compact('projects','title'));
-     //    }
-     //    else return view('admin.noPermission',compact('title'));
+                return view('admin.projects',compact('projects','title'));
+        }
+        else return view('admin.noPermission',compact('title'));
     }
 
     public function edit($id)
