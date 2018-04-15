@@ -7,13 +7,13 @@
 			<h1 class="text-center">Projects license</h1>
 
 			<p class="text-center">
-				All the projects on this site are under the MIT license.
+				<b> All the projects on this site are under the MIT license.</b>
 			</p>
 
 			<h1 class="text-center">Photos license</h1>
 
 			<p class="text-center">
-				All the photos on this site are under the Codefield license which can be found below.
+				<b>All the photos on this site are under the Codefield license which can be found below.</b>
 			</p>
 		</div>
 	</div>
@@ -37,7 +37,7 @@
 
 	<div class="card">
 		<div class="card-content">
-			<h1 class="text-center">MIT License</h1>
+			<h1 class="text-center">Codefield License</h1>
 
 			<p class="text-center">
 				Copyright &copy; <script>document.write(new Date().getFullYear())</script> {{config('app.name')}} <br>
@@ -48,11 +48,13 @@
 				This means that Photos on the Service come with a very broad copyright license under the Codefield License. This is why we say that they are “Free to Use” Note that the Codefield License does not include the right to use:
 			<ol>
 				<li>
-				Trademarks, logos, or brands that appear in Photos
+					Trademarks, logos, or brands that appear in Photos
 				</li>
-				People’s photos if they are recognizable in the Photos
 				<li>
-				Works of art or authorship that appear in Photos
+					People’s photos if they are recognizable in the Photos
+				</li>
+				<li>
+					Works of art or authorship that appear in Photos
 				</li>
 			</ol>
 				If you download photos with any of these depicted in them, you may need the permission of the brand owner of the brand or work of authorship or individual depending on how you use the Photo.
