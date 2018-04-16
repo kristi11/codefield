@@ -541,6 +541,11 @@ class ClientController extends Controller
 
     }
 
+    public function guidelines(){
+        $title = 'Photo guidelines';
+        return view('policies.guidelines',compact('title'));
+    }
+
     // public function editProfile($slug){
     //     $title = 'Edit';
     //     $profile = User::find($slug);

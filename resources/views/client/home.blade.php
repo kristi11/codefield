@@ -3,40 +3,26 @@
 @section('client_sidebar')
 
 <div class="wrapper" id="app">
-
   @if (Auth::guest())
-  
     <a class="" href="{{ route('notLoggedIn') }}"></a>
-   
   @else
   @if($flash = session('message'))
     <div class="text-center"> @include('flashMessages.flashMessage')</div>
   @endif
-{{-- <flash message="{{ session('flash') }}"></flash> --}}
 <div class="sidebar" data-color="{{ $item->app_color }}" data-image="/img/sidebar-3.jpg">
-
   <div class="logo">
     <a href="" class="simple-text">
       <img alt="Codefield Brand" src="/storage/codefield_logo/menu_logo.png">
       <span style="position: relative;top: 2px;">{{ config('app.name') }}</span>
     </a>
   </div>
-
   <div class="sidebar-wrapper">
-
     <div class="user">
       <div class="">
-
-         {{--  @if(strlen(Auth::user()->profile)<10)
-            <img class="photo" src="{{ url('storage/app/default_profile/default_profile_pic.png') }}" alt="RekStudio admin">
-          @else --}}
             <img class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
-         {{--  @endif --}}
       </div>
           <div class="space-10"><a href="{{ url('/'.Auth::user()->slug.'/projects') }}"> {{Auth::user()->name}}</a> </div>
       </div> 
-
-
     <ul class="nav">
       <li {{ setActive('/') }}>
         <a href="{{ url('/') }}">
@@ -44,7 +30,6 @@
           <p>Dashboard</p>
         </a>
       </li>
-
 {{--       <li {{ setActive('/submits') }}>
         <a href="{{ url('/submits') }}">
           <i class="material-icons">work</i>
@@ -100,21 +85,22 @@
         </a>
       </li>
 
+      <li{{ setActive('/guidelines') }}>
+        <a href="{{ asset('/guidelines') }}">
+          <i class="material-icons">subject</i>
+          <p>Guidelines</p>
+        </a>
+      </li>
+
       <li class="active">
         <a href="#">
         <p>Live chat with us or contact us at support@codefield.io</p>
       </a>
       </li>
-     
   </div>
   <div class="sidebar-background" style="background-image: url('/img/sidebar-3.jpg') "></div>
-
-
 </div>
-
-
 <div class="main-panel">
-
       <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -128,12 +114,12 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-               {{-- <li>
+               <li>
                 <a href="{{ url('/addPhotos') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Add images">
                   <i class="material-icons">add_a_photo</i>
                   <p class="hidden-lg hidden-md">Add photos</p>
                 </a>
-              </li> --}}
+              </li>
               <li>
                 <a href="{{ url('submit_project') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Submit a project">
                   <i class="material-icons">send</i>
@@ -187,7 +173,6 @@
                   </ul>
               </li> --}}
             </ul>
-
             <form class="navbar-form navbar-right" role="search" method="GET" action="{{ url('clientSearch') }}">
                 <div class="form-group form-search is-empty">
                     <input type="text" name="query" id="query" class="form-control" placeholder="Search" required="" aria-label="search">
@@ -204,41 +189,32 @@
               </div>
             </div>
             </form>
-
           </div>
         </div>
       </nav>
-
           <div class="content">
               <div class="row">
-{{--                   <div class="row">
- --}}              @yield('dashboard')
-                   @yield('widgets')
-                   @yield('empty')
-                   @yield('showWidget')
-                   @yield('gallery')
-                   @yield('showImage')
-                   @yield('googleFonts')
-                   @yield('favorites')
-                   @yield('noCategories')
-                   @yield('noProjectCategories')
-                   @yield('clientSearchResults')
-                   @yield('license')
-                   @yield('submit_request')
-                   @yield('submits')
-                   @yield('addPhotos')
-                   @yield('userProfile')
-                   @yield('editClient')
-{{--                    @yield('userProjects')
-                   @yield('userPhotos') --}}
-{{--                   </div>
- --}}              </div>
+                @yield('dashboard')
+                @yield('widgets')
+                @yield('empty')
+                @yield('showWidget')
+                @yield('gallery')
+                @yield('showImage')
+                @yield('googleFonts')
+                @yield('favorites')
+                @yield('noCategories')
+                @yield('noProjectCategories')
+                @yield('clientSearchResults')
+                @yield('license')
+                @yield('submit_request')
+                @yield('submits')
+                @yield('addPhotos')
+                @yield('userProfile')
+                @yield('editClient')
+                @yield('guidelines')
+              </div>
           </div>
-     
       </div>
-
-
-
 @endif
 </div>
 <!-- Load Facebook SDK for JavaScript -->

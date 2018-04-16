@@ -13,7 +13,7 @@
 			<h1 class="text-center">Photos license</h1>
 
 			<p class="text-center">
-				<b>All the photos on this site are under the Codefield license which can be found below.</b>
+				<b>All the photos on this site are under the {{ucfirst(config('app.name'))}} license which can be found below.</b>
 			</p>
 		</div>
 	</div>
@@ -37,15 +37,15 @@
 
 	<div class="card">
 		<div class="card-content">
-			<h1 class="text-center">Codefield License</h1>
+			<h1 class="text-center">{{ucfirst(config('app.name'))}} License</h1>
 
 			<p class="text-center">
 				Copyright &copy; <script>document.write(new Date().getFullYear())</script> {{config('app.name')}} <br>
 			</p>
 			<p class="text-center">
-				Codefield grants you an irrevocable, nonexclusive copyright license to download, copy, modify, distribute, perform, and use photos from Codefield for free, including for commercial purposes, without permission from or attributing the photographer or Codefield, but this license does not include the right to compile,mass download,scrap photos from Codefield to replicate a similar or competing service.
+				{{ucfirst(config('app.name'))}} grants you an irrevocable, nonexclusive copyright license to download, copy, modify, distribute, perform, and use photos from {{ucfirst(config('app.name'))}} for free, including for commercial purposes, without permission from or attributing the photographer or {{ucfirst(config('app.name'))}}, but this license does not include the right to compile,mass download,scrap photos from {{ucfirst(config('app.name'))}} to replicate a similar or competing service.
 
-				This means that Photos on the Service come with a very broad copyright license under the Codefield License. This is why we say that they are “Free to Use” Note that the Codefield License does not include the right to use:
+				This means that Photos on the Service come with a very broad copyright license under the {{ucfirst(config('app.name'))}} License. This is why we say that they are “Free to Use” Note that the {{ucfirst(config('app.name'))}} License does not include the right to use:
 			<ol>
 				<li>
 					Trademarks, logos, or brands that appear in Photos
