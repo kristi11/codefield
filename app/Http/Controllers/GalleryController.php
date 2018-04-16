@@ -70,7 +70,7 @@ class GalleryController extends Controller
 
         foreach ($files as $file) {
             if ($file->getClientSize() < 3145728) {
-                session()->flash('message','At least one of your photos is too small! Please choose a larger one');
+                session()->flash('message','Photos should be at least 3 Mb');
                 return back();               
             }else
         $gallery = new Gallery;
