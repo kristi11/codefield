@@ -5,13 +5,15 @@
 	<div class="card">
 		<div class="card-content">
 			<h1 class="text-center">Projects license</h1>
-
 			<p class="text-center">
 				<b> All the projects on this site are under the MIT license.</b>
 			</p>
+		</div>
+	</div>
 
+	<div class="card">
+		<div class="card-content">
 			<h1 class="text-center">Photos license</h1>
-
 			<p class="text-center">
 				<b>All the photos on this site are under the {{ucfirst(config('app.name'))}} license which can be found below.</b>
 			</p>
