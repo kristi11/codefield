@@ -1,5 +1,5 @@
 @extends('client.home')
-@section('giudelines')
+@section('guidelines')
 
 <div class="col-xs-12">
 	<div class="card">
