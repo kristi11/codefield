@@ -543,7 +543,7 @@ class ClientController extends Controller
 
     public function guidelines(){
         $title = 'Photo guidelines';
-        return view('policies.guidelines',compact('title'));
+        return view('policies.photoGuidelines',compact('title'));
     }
 
     // public function editProfile($slug){
