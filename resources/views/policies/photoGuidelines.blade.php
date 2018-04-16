@@ -4,7 +4,7 @@
 <div class="col-md-10 col-md-offset-1">
 	<div class="card">
 		<div class="card-content">
-			<h1>Photo Submission Guidelines</h1>
+			<h1 class="text-center">Photo Submission Guidelines</h1>
 
 			<h4>Please acknowledge that photos uploaded on {{config('app.name')}} not following the guidelines will be eventually deleted. So follow these guidelines to make sure your photos stay for a long time.</h4>
 
