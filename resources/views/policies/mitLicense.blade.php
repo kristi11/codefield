@@ -48,17 +48,21 @@
 				{{ucfirst(config('app.name'))}} grants you an irrevocable, nonexclusive copyright license to download, copy, modify, distribute, perform, and use photos from {{ucfirst(config('app.name'))}} for free, including for commercial purposes, without permission from or attributing the photographer or {{ucfirst(config('app.name'))}}, but this license does not include the right to compile,mass download,scrap photos from {{ucfirst(config('app.name'))}} to replicate a similar or competing service.
 
 				This means that Photos on the Service come with a very broad copyright license under the {{ucfirst(config('app.name'))}} License. This is why we say that they are “Free to Use” Note that the {{ucfirst(config('app.name'))}} License does not include the right to use:
-			<ol>
-				<li>
-					Trademarks, logos, or brands that appear in Photos
-				</li>
-				<li>
-					People’s photos if they are recognizable in the Photos
-				</li>
-				<li>
-					Works of art or authorship that appear in Photos
-				</li>
-			</ol>
+			</h5>
+			<h5>
+				<ol>
+					<li>
+						Trademarks, logos, or brands that appear in Photos
+					</li>
+					<li>
+						People’s photos if they are recognizable in the Photos
+					</li>
+					<li>
+						Works of art or authorship that appear in Photos
+					</li>
+				</ol>
+			</h5>
+			<h5>
 				If you download photos with any of these depicted in them, you may need the permission of the brand owner of the brand or work of authorship or individual depending on how you use the Photo.
 			</h5>
 		</div>
