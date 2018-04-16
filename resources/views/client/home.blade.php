@@ -21,7 +21,13 @@
       <div class="">
             <img class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
       </div>
-          <div class="space-10"><a href="{{ url('/'.Auth::user()->slug.'/projects') }}"> {{Auth::user()->name}}</a> </div>
+          <div class="space-10">
+            <a class="btn btn-simple btn-sm {{ $item->font_color }}" 
+              type="button" 
+              href="{{ url('/'.Auth::user()->slug.'/projects') }}">
+               {{Auth::user()->name}}
+           </a> 
+          </div>
       </div> 
     <ul class="nav">
       <li {{ setActive('/') }}>
