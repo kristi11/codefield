@@ -8,22 +8,22 @@
 
 			<h4>Please acknowledge that photos uploaded on {{config('app.name')}} not following the guidelines will be eventually deleted. So follow these guidelines to make sure your photos stay for a long time.</h4>
 
-			<h4>Photos should be at least 3 Megabytes or our system will automatically reject them.We do this to ensure you upload high quality photos</h4>
+			<h4>Photos should be at least 3 Megabytes or our system will automatically reject them.We do this to ensure you upload high quality photos.</h4>
 
 			<h4>Photo standarts</h4>
-			<p>Please make sure that uploaded photos are not:</p>
+			<p>Please make sure that uploaded photos:</p>
 			<ul>
 				<li>
-					Blurry or unclear
+					Are not blurry or unclear
 				</li>
 				<li>
-					Taken in a bad angle
+					Are not taken in a bad angle
 				</li>
 				<li>
-					Over edited
+					Are not over edited
 				</li>
 				<li>
-					Visually similar
+					Are not visually similar
 				</li>
 				<li>
 					Do not contain nudity
@@ -32,7 +32,7 @@
 					Do not contain violent or graphic imagery
 				</li>
 				<li>
-					do not have borders, graphics or text overlayed on them
+					Do not have borders, graphics or text overlayed on them
 				</li>
 			</ul>
 
