@@ -1,4 +1,5 @@
 const { mix } = require('laravel-mix');
+  var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -37,3 +38,27 @@ mix.js('resources/assets/js/app.js', 'public/js')
     
 
   // 	],'public/js/app.js');
+mix.webpackConfig({
+    plugins: [
+    new SWPrecacheWebpackPlugin({
+        cacheId: 'pwa',
+        filename: 'service-worker.js',
+        staticFileGlobs: ['public/**/*.{css,eot,svg,ttf,woff,woff2,js,html}'],
+        minify: true,
+        stripPrefix: 'public/',
+        handleFetch: true,
+        staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
+        runtimeCaching: [
+            {
+                urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
+                handler: 'cacheFirst'
+            },
+            {
+                urlPattern: /^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/,
+                handler: 'cacheFirst'
+            }
+        ],
+        importScripts: ['./js/push_message.js']
+    })
+    ]
+});

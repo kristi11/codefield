@@ -3,7 +3,6 @@ let webpack = require('webpack');
 let Mix = require('laravel-mix').config;
 let plugins = require('laravel-mix').plugins;
 const glob = require('glob');
-let SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin'); 
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const PurifyCSSPlugin = require('purifycss-webpack');
 
@@ -269,28 +268,6 @@ module.exports.devServer = {
  | extensions, for versioning, OS notifications, and much more.
  |
  */
- module.exports.plugins.push(
-    new SWPrecacheWebpackPlugin({
-        cacheId: 'pwa',
-        filename: 'service-worker.js',
-        staticFileGlobs: ['public/**/*.{css,eot,svg,ttf,woff,woff2,js,html}'],
-        minify: true,
-        stripPrefix: 'public/',
-        handleFetch: true,
-        staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
-        runtimeCaching: [
-            {
-                urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
-                handler: 'cacheFirst'
-            },
-            {
-                urlPattern: /^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/,
-                handler: 'cacheFirst'
-            }
-        ],
-        importScripts: ['./js/push_message.js']
-    })
-);
 
 module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.ProvidePlugin(Mix.autoload || {
