@@ -10,5 +10,5 @@ var precache = function() {
   });
 }
 self.addEventListener('install', function(event) {
-  event.waitUntill(precache());
-)};
+  event.waitUntil(precache());
+};
