@@ -59,6 +59,6 @@ mix.webpackConfig({
             }
         ],
         importScripts: ['./js/push_message.js']
-    })
+    });
     ]
 });
