@@ -40,6 +40,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
   // 	],'public/js/app.js');
 mix.webpackConfig({
     plugins: [
+   plugins.push(
     new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',
@@ -59,6 +60,7 @@ mix.webpackConfig({
             }
         ],
         importScripts: ['./js/push_message.js']
-    });
+    })
+);
     ]
 });
