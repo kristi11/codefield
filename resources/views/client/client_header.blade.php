@@ -63,7 +63,7 @@
 {{--     <script src='https://www.google.com/recaptcha/api.js'></script>
  --}}
  <script>
-   if (‘serviceWorker’ in navigator) {
+   if ("serviceWorker" in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('./service-worker.js');
   })
