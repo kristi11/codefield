@@ -11,5 +11,4 @@ var precache = function() {
 }
 self.addEventListener('install', function(event) {
   event.waitUntil(precache());
-)
-};
+});
