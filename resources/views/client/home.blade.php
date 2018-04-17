@@ -222,7 +222,7 @@
 @endif
 </div>
 <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
+{{-- <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -236,6 +236,6 @@
   page_id="200471593898409"
   theme_color="#13cf13"
   greeting_dialog_display="hide">
-</div>
+</div> --}}
 @endsection
 
