@@ -12,8 +12,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#4caf50"/>
     <meta name="description" content="{{config("app.name")}} is a small platform helping developers and designers find tools that will make completing their next project a whole lot easier.From simple html templates to different more complex projects(laravel,php,C#,vue js,adobe CC and much much more..),google fonts,High quality images you'll find them all in here..and more and more content is added every day.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="manifest" href="{{url('/manifest.json')}}">
     <title>{{ config('app.name', 'Codefield') }}</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
