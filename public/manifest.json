@@ -1,9 +1,9 @@
 {
   "short_name": "Codefield",
   "name": "Codefield",
-  "theme_color": "#4caf50",
-  "background_color": "#4caf50",
-  "display": "fullscreen",
+  "theme_color": "#F8F9FA",
+  "background_color": "#F8F9FA",
+  "display": "standalone",
   "icons": [
     {
       "src": "icons/icon_48_48_dpi.png",
