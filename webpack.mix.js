@@ -48,6 +48,10 @@ mix.webpackConfig({
         stripPrefix: 'public/',
         handleFetch: true,
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
+        dynamicUrlToDependencies: {
+          '/': ['resources/views/client/client.blade.php','resources/views/client/home.blade.php',
+          'resources/views/client/client_header.blade.php','resources/views/client/client_footer.blade.php']
+        },
         navigateFallback: '/',
         runtimeCaching: [
             {
