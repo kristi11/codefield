@@ -51,7 +51,7 @@ mix.webpackConfig({
         dynamicUrlToDependencies: {
           '/': ['resources/views/client/client.blade.php','resources/views/client/home.blade.php',
           'resources/views/client/client_header.blade.php','resources/views/client/client_footer.blade.php'],
-          '/submit_request' : ['resources/views/client/submit_request.blade.php']
+          '/submit_project' : ['resources/views/client/submit_request.blade.php']
         },
         navigateFallback: '/',
         runtimeCaching: [
