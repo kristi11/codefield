@@ -48,6 +48,7 @@ mix.webpackConfig({
         stripPrefix: 'public/',
         handleFetch: true,
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
+        navigateFallback: '/',
         runtimeCaching: [
             {
                 urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
@@ -58,7 +59,7 @@ mix.webpackConfig({
                 handler: 'cacheFirst'
             }
         ],
-        importScripts: ['./js/push_message.js']
+        // importScripts: ['./js/push_message.js']
     })
     ]
 });
