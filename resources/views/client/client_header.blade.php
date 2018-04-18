@@ -62,11 +62,11 @@
     </script>
 {{--     <script src='https://www.google.com/recaptcha/api.js'></script>
  --}}
- {{-- <script>
+ <script>
    if ("serviceWorker" in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('./service-worker.js');
   })
 }
- </script> --}}
+ </script>
 </head>
