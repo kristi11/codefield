@@ -64,7 +64,7 @@
  --}}
  {{-- , importScripts("js/push_message.js") --}}
  {{-- && 'PushManager' in window --}}
- {{-- <script>
+ <script>
   if ('serviceWorker' in navigator ) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
@@ -76,5 +76,5 @@
         });
     });
 }
- </script> --}}
+ </script>
 </head>
