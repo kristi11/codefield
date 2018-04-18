@@ -2,6 +2,18 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 // @import "variables";
 @import "node_modules/flexbin/flexbin.scss";
+/* Define the "system" font family */
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+/* Now, let's apply it on an element */
+body {
+  font-family: "system";
+}
 html{-webkit-backface-visibility: hidden;}
 .md-space-up{
   padding-top: 1px;
