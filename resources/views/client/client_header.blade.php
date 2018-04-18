@@ -62,8 +62,10 @@
     </script>
 {{--     <script src='https://www.google.com/recaptcha/api.js'></script>
  --}}
+ {{-- , importScripts("js/push_message.js") --}}
+ {{-- && 'PushManager' in window --}}
  <script>
-  if ('serviceWorker' in navigator && 'PushManager' in window) {
+  if ('serviceWorker' in navigator ) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
             // Registration was successful

@@ -810,4 +810,4 @@ self.addEventListener("install", function(e) {
                 }()
             }, {}]
         }, {}, [13])(13)
-    }), toolbox.router.get(/^https:\/\/fonts\.googleapis\.com\//, toolbox.cacheFirst, {}), toolbox.router.get(/^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/, toolbox.cacheFirst, {}), importScripts("js/push_message.js");
+    }), toolbox.router.get(/^https:\/\/fonts\.googleapis\.com\//, toolbox.cacheFirst, {}), toolbox.router.get(/^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/, toolbox.cacheFirst, {});
