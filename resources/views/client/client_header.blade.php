@@ -22,8 +22,16 @@
     <link href="/css/app.css" rel="stylesheet" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
 {{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
- --}}    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Alfa Slab One|Material+Icons' rel="stylesheet" >
+ --}}    
+ <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Alfa Slab One|Material+Icons' rel="stylesheet">
     <meta property="og:image" content="{{url('storage/codefield_logo/29695003_1752978298091934_4637625344562561024_n.png')}}" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-180.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 {{--     <script>
 !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
 </script> --}}
