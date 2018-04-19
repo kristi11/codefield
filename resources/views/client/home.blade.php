@@ -9,7 +9,7 @@
   @if($flash = session('message'))
     <div class="text-center"> @include('flashMessages.flashMessage')</div>
   @endif
-<div class="sidebar" data-color="{{ $item->app_color }}" data-background-color="#fff" {{-- data-image="/img/sidebar-3.jpg" --}}>
+<div class="sidebar" data-color="{{ $item->app_color }}" data-image="/img/sidebar-3.jpg">
   <div class="logo">
     <a href="" class="simple-text">
       <img alt="Codefield Brand" src="/storage/codefield_logo/menu_logo.png">
