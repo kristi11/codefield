@@ -99,7 +99,7 @@
 @foreach ($latestDbImages as $firstTwoImages)
 	<div class="col-sm-6 space-5">
 		<div class="card nospace">
-			<a href="{{ url('gallery/'.$firstTwoImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+			<a href="{{ url('photos/'.$firstTwoImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 170px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$firstTwoImages->gallery_image)}}"
                 alt="{{$firstTwoImages->alternative_text}}">
@@ -112,7 +112,7 @@
 @foreach ($secondDownDbImages as $theRestImages)
 	<div class="col-sm-4 space-5">
 		<div class="card nospace">
-			<a href="{{ url('gallery/'.$theRestImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+			<a href="{{ url('photos/'.$theRestImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 141px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$theRestImages->gallery_image)}}"
                 alt="{{$theRestImages->alternative_text}}">
