@@ -23,7 +23,7 @@
       </li>
     </ul>
     <br>
-</div>
+
 
 @foreach ($widgets as $widget)
 <div class="{{$class}}">
@@ -95,4 +95,5 @@
             </div>
 @endforeach
 <div class="col-xs-12 text-center">{{ $widgets->links('admin.mdl-bootstrap') }}</div>
+</div>
 @endsection
