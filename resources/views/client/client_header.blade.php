@@ -68,24 +68,5 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-{{--     <script src='https://www.google.com/recaptcha/api.js'></script>
- --}}
- {{-- , importScripts("js/push_message.js") --}}
- {{-- && 'PushManager' in window --}}
- <script>
-  if ('serviceWorker' in navigator ) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-}
- </script>
- <script>
-  document.addEventListener('touchstart', handler, true);
- </script>
+{{--<script src='https://www.google.com/recaptcha/api.js'></script>--}}
 </head>

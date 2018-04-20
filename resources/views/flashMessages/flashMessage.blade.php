@@ -7,7 +7,7 @@
 	@media (max-width: 468px){
 			.n-poz{
 			position: fixed;
-			right: 10%;
+			right: 8%;
 			bottom: 0px;
 			text-align: center;
 			z-index: 9999;
@@ -20,7 +20,7 @@
 	@media (min-width: 469px) and (max-width: 767px){
 			.n-poz{
 			position: fixed;
-			right: 9%;
+			right: 8%;
 			bottom: 0px;
 			text-align: center;
 			z-index: 9999;
