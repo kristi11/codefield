@@ -180,7 +180,7 @@ class ClientController extends Controller
 
             $paginationNr = PaginationCounter::first();
             $galleryNr = $paginationNr->gallery;
-            $tags = Tag::select('name','id')->get();
+            $tags = Tag::has('Galleries')->select('name','id')->get();
 
             if (count($tag->Galleries)>0) {
                 $gallery = $tag->Galleries()->with('favorites')->Paginate($galleryNr);
@@ -197,7 +197,7 @@ class ClientController extends Controller
     $title = 'Newest images';
     $paginationNr = PaginationCounter::first();
     $galleryNr = $paginationNr->gallery;
-    $tags = Tag::select('name','id')->get();
+    $tags = Tag::has('Galleries')->select('name','id')->get();
     $gallery = Gallery::with('favorites')->latest()->Paginate($galleryNr);
     return view('client.clientGallery',compact('gallery','title','tags'));
     }
@@ -207,7 +207,7 @@ class ClientController extends Controller
     $title = 'Oldest images';
     $paginationNr = PaginationCounter::first();
     $galleryNr = $paginationNr->gallery;
-    $tags = Tag::select('name','id')->get();
+    $tags = Tag::has('Galleries')->select('name','id')->get();
     $gallery = Gallery::with('favorites')->orderBy('id','ASC')->Paginate($galleryNr);
     return view('client.clientGallery',compact('gallery','title','tags'));
     }
@@ -217,7 +217,7 @@ class ClientController extends Controller
     $title = 'Most popular';
     $paginationNr = PaginationCounter::first();
     $galleryNr = $paginationNr->gallery;
-    $tags = Tag::select('name','id')->get();
+    $tags = Tag::has('Galleries')->select('name','id')->get();
     $gallery = Gallery::with('favorites')->orderBy('views','DESC')->Paginate($galleryNr);
     return view('client.clientGallery',compact('gallery','title','tags'));
     }
@@ -227,7 +227,7 @@ class ClientController extends Controller
     $title = 'Trending';
     $paginationNr = PaginationCounter::first();
     $galleryNr = $paginationNr->gallery;
-    $tags = Tag::select('name','id')->get();
+    $tags = Tag::has('Galleries')->select('name','id')->get();
     $gallery = Gallery::with('favorites')->where('updated_at', '>=', Carbon::now()->subHours(72))->orderBy('views', 'DESC')->Paginate($galleryNr);
     return view('client.clientGallery',compact('gallery','title','tags'));
     }
@@ -360,7 +360,7 @@ class ClientController extends Controller
             $title = 'Most downloaded';
             $paginationNr = PaginationCounter::first();
             $widgetsNr = $paginationNr->projects;
-            $categories = Category::select('name','id')->get();
+            $categories = Category::has('projects')->select('name','id')->get();
             $widgets = Project::with('favorites')->orderBy('downloads','DESC')->Paginate($widgetsNr);
             if (count($widgets)==1) 
         {
@@ -384,7 +384,7 @@ class ClientController extends Controller
         $title = 'Most viewed';
         $paginationNr = PaginationCounter::first();
         $widgetsNr = $paginationNr->projects;
-        $categories = Category::select('name','id')->get();
+        $categories = Category::has('projects')->select('name','id')->get();
         $widgets = Project::with('favorites')->orderBy('views','DESC')->Paginate($widgetsNr);
         if (count($widgets)==1) 
         {
@@ -408,7 +408,7 @@ class ClientController extends Controller
 
             $paginationNr = PaginationCounter::first();
             $projectsNr = $paginationNr->projects;
-            $categories = Category::select('name','id')->get();
+            $categories = Category::has('projects')->select('name','id')->get();
             $widgets = $category->projects()->with('favorites')->Paginate($projectsNr);
             if (count($category->projects)<=0) {
                  $title = 'No Projects';
