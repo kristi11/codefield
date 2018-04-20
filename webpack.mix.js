@@ -49,10 +49,7 @@ mix.webpackConfig({
         handleFetch: true,
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
         dynamicUrlToDependencies: {
-          '/': ['resources/views/client/home.blade.php','resources/views/client/signIn.blade.php',
-          'resources/views/errors.blade.php','resources/views/flashMessages/flashMessage.blade.php'],
-          '/{slug}/projects' : 'resources/views/client/userProfile.blade.php',
-          '/{slug}/photos' : 'resources/views/client/userProfile.blade.php'
+          '/': 'resources/views/**/*'
         },
         navigateFallback: '/',
         runtimeCaching: [
