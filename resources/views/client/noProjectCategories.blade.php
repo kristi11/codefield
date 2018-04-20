@@ -1,5 +1,6 @@
 @extends('client.home')
 	@section('noProjectCategories')
+  <div class="col-xs-12">
 			<ul class="nav nav-pills " role="tablist">
       <li class="dropdown">
         <a href="#" role="tab" href="#"  data-toggle="dropdown">
@@ -28,4 +29,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 	@endsection
