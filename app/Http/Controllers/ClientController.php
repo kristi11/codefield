@@ -66,7 +66,7 @@ class ClientController extends Controller
            $title = 'Projects';
         $paginationNr = PaginationCounter::first();
         $projectsNr = $paginationNr->projects;
-        $categories = Category::select('name','id')->get();
+        $categories = Category::has('projects')->select('name','id')->get();
         $class = 'col-lg-6 col-md-6 col-sm-6';
         $widgets = Project::with('favorites')->orderBy('id', 'desc')->Paginate($projectsNr);
 
