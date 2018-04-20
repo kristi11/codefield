@@ -9,7 +9,9 @@
 			</a>
 			<ul class="dropdown-menu">
 				@foreach ($tags as $tag)
-					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>		
+				@while($tag->has('Galleries'))
+					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
+					@endwhile		
 				@endforeach
 			</ul>
 		</li>
