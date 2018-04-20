@@ -54,7 +54,7 @@ mix.webpackConfig({
           '/submit_project' : ['resources/views/client/submit_request.blade.php'],
           '/addPhotos' : ['resources/views/client/addPhotos.blade.php'],
           '/clientLogout' : ['resources/views/auth/login.blade.php'],
-          '/clientSearch' : ['resources/views/auth/clientSearchResults.blade.php'],
+          '/clientSearch' : ['resources/views/client/clientSearchResults.blade.php'],
           '/projects' : ['resources/views/client/widgets.blade.php'],
           '/photos' :['resources/views/client/clientGallery.blade.php'],
           '/photos/{gallery_image)' :['resources/views/client/showImage.blade.php'],
@@ -74,11 +74,11 @@ mix.webpackConfig({
           '/cookiePolicy' : ['resources/views/policies/cookiePolicy.blade.php'],
           '/license' : ['resources/views/policies/mitLicense.blade.php'],
           '/guidelines' : ['resources/views/policies/photoGuidelines.blade.php'],
-          '/{slug}/projects' : ['resources/views/policies/client.partials.userProjects.blade.php'],
-          '/{slug}/photos' : ['resources/views/policies/client.partials.userPhotos.blade.php'],
-          '/{slug}/photos' : ['resources/views/policies/client.partials.userPhotos.blade.php'],
-          '/{slug}/u/photos' : ['resources/views/policies/client.partials.uPhotos.blade.php'],
-          '/{slug}/u/projects' : ['resources/views/policies/client.partials.uProjects.blade.php']
+          '/{slug}/projects' : ['resources/views/client/partials/userProjects.blade.php'],
+          '/{slug}/photos' : ['resources/views/client/partials/userPhotos.blade.php'],
+          '/{slug}/photos' : ['resources/views/client/partials/userPhotos.blade.php'],
+          '/{slug}/u/photos' : ['resources/views/client/partials/uPhotos.blade.php'],
+          '/{slug}/u/projects' : ['resources/views/client/partials/uProjects.blade.php']
         },
         navigateFallback: '/',
         runtimeCaching: [
