@@ -106,7 +106,7 @@ class ClientController extends Controller
         $galleryNr = $paginationNr->gallery;
         $tags = Tag::select('name','id')->get();
 
-       $gallery = Gallery::with('favorites')->orderBy('id', 'desc')->Paginate($galleryNr);
+       $gallery = Gallery::has('Galleries')->with('favorites')->orderBy('id', 'desc')->Paginate($galleryNr);
                
 
         if (count($gallery)<=0)
