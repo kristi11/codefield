@@ -78,10 +78,10 @@ class GalleryController extends Controller
         $gallery -> alternative_text = Auth::user()->name.' '.'photos on'.' '.config('app.name');
         $gallery -> gallery_image = hash_file('sha256', $file);
         $image = Image::make($file->getRealPath());
-        $image->save($thumbnail_storage.hash_file('sha256', $file))->resize(600, null, function ($constraint) {
+        $image->save($gallery_storage.hash_file('sha256', $file))->resize(600, null, function ($constraint) {
         $constraint->aspectRatio();
         // $constraint->upsize();
-        })->save($gallery_storage.hash_file('sha256', $file));
+        })->save($thumbnail_storage.hash_file('sha256', $file));
        $gallery->downloads = 0;
         $gallery->save();
         $tag = $request->input('tags');
