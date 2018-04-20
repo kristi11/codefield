@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Gallery;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -56,7 +57,7 @@ class TagController extends Controller
     {
        
         $title = 'Add tags';
-        $tags = Tag::select('name','id')->get();
+        $tags = Tag::has('Galleries')->select('name','id')->get();
 
         return view('admin.add',compact('title','tags'));
     
