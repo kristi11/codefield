@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="text/javascript" async="">
     WebFontConfig = {
         google: 
         { families: [@foreach($result->items as $font)'{{$font->family}}',@endforeach] }
