@@ -240,8 +240,8 @@ class ClientController extends Controller
     {
     $title = 'Google Fonts';
     $result = Cache::remember(auth()->user()->id.'google_fonts', 60, function () use($title)  {
-    $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c";
-     return json_decode(file_get_contents( $url )->Paginate(10));
+    $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c"->Paginate(10);
+     return json_decode(file_get_contents( $url ));
      });
     // foreach ( $result->items as $font )
     // {
