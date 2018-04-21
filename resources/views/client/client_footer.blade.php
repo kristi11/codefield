@@ -1,4 +1,3 @@
-<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='725f2cfbfefd69b0567c105f4377efe0a73844b86ff6bbddf5acea5d5207ac68';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 {{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
@@ -9,12 +8,12 @@
 <script src="/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
-<script>
+<script async>
 	$(function() {
     $("div#photo").show();
 })
 </script>
-<script>
+<script async>
 $('.reksearchloader').click(function(){
 // var query;
 //     query = document.getElementById("query").value;
@@ -31,14 +30,14 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>';
 this.form.submit();
 });
 </script>
-<script type="text/javascript">
+<script>
     $("#tags").select2({
         placeholder:'Choose a category',
         width:'100%',
     });
 </script>
 
-<script>
+<script async>
 $('#gallery_upload').click(function(){
 var x; var y;
     x = document.getElementById("gallery_image").value;
