@@ -241,7 +241,7 @@ class ClientController extends Controller
     $title = 'Google Fonts';
     $result = Cache::remember(auth()->user()->id.'google_fonts', 60, function () use($title)  {
     $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c";
-     return json_decode(file_get_contents( $url ));
+     return json_decode(file_get_contents( $url ))->Paginate(10);
      });
     // foreach ( $result->items as $font )
     // {
@@ -254,7 +254,7 @@ class ClientController extends Controller
     //         'files'  => $font->files
     //     ];
     // }
-    return view ('client.googleFonts',compact('result','title'));
+    return view ('client.googleFonts',compact('result','title'))->render();
        
 
     }
