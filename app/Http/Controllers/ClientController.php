@@ -254,7 +254,7 @@ class ClientController extends Controller
     //         'files'  => $font->files
     //     ];
     // }
-    return view ('client.googleFonts',compact('result','title'));
+    return view ('client.googleFonts',compact('result','title'))->render();
        
 
     }
