@@ -52,15 +52,12 @@
         <script type="application/ld+json">
         {
           "@context" : "http://schema.org",
-          "@type" : "Product",
+          "@type" : "organization",
           "name" : "Codefield",
           "url" : "https://codefield.io/",
-          "brand" : {
-            "@type" : "Brand",
-            "name" : "Codefield",
-            "logo" : "https://codefield.io/storage/codefield_logo/signin_logo.png"
-          },
-          "description": "Codefield is a small platform helping developers and designers find tools that will make completing their next project a whole lot easier.From simple html templates to different more complex projects(laravel,php,C#,vue js,adobe CC and much much more..),google fonts,High quality images you'll find them all in here..and more and more content is added every day."
+          "logo" : "https://codefield.io/storage/codefield_logo/signin_logo.png",
+          "description": "Codefield is a small platform helping developers and designers find tools that will make completing their next project a whole lot easier.From simple html templates to different more complex projects(laravel,php,C#,vue js,adobe CC and much much more..),google fonts,High quality images you'll find them all in here..and more and more content is added every day.",
+            "sameAs" : "https://www.facebook.com/codefieldcommunity/"
         }
         </script>
     <script>

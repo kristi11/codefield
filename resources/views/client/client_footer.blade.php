@@ -1,5 +1,6 @@
+<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='725f2cfbfefd69b0567c105f4377efe0a73844b86ff6bbddf5acea5d5207ac68';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="/js/app.js"></script>
+<script src="/js/app.js"></script>
 {{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
  --}}
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
