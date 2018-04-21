@@ -49,7 +49,7 @@ mix.webpackConfig({
         handleFetch: true,
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
         dynamicUrlToDependencies: {
-          '/': ['resources/views/client/home.blade.php','resources/views/client/signIn.blade.php',
+          '/': ['resources/views/client/home.blade.php',
           'resources/views/errors.blade.php','resources/views/flashMessages/flashMessage.blade.php'],
           '/submit_project' : ['resources/views/client/submit_request.blade.php'],
           '/addPhotos' : ['resources/views/client/addPhotos.blade.php'],
