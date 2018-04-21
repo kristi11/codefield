@@ -26,7 +26,7 @@
 				</p>
 				
 				<p>
-					If you're not familiar with GitHub and have some work you want to submit contact us and we will help your get your work uploaded on our platform.Best way is through the messenger plugin on your page.
+					If you're not familiar with GitHub and have some work you want to submit contact us and we will help your get your work uploaded on our platform.
 				</p>
 				<p>
 					We are excited to see some amazing work.
