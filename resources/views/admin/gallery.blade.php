@@ -1,7 +1,7 @@
 @extends('admin.sidebar')
 @section('gallery')
 <div class="col-xs-12">
-	<div class="col-xs-12 text-right">
+{{-- 	<div class="col-xs-12 text-right">
 <form  method="POST" action="{{ url('empty_gallery') }}">
 			{{ method_field('DELETE') }}
 			{{ csrf_field() }}
@@ -9,7 +9,7 @@
 				Empty gallery
 			</button>
 		</form>
-</div>
+</div> --}}
 	<div class="card">
 		<div class="card-content">
 			<div class="flexbin flexbin-margin" >
