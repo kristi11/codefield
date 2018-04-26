@@ -30,11 +30,11 @@
 		{{ csrf_field() }}
 		<div class="card-content text-center">
 			<div class="btn btn-primary btn-simple">
-			<input type="file" name="gallery_image[]" id="gallery_image" required="" 
+			<input type="file" name="gallery_image[]" id="gallery_image" 
 			value="{{ old('gallery_image') }}"
 			class="filestyle" data-buttonText="Choose photos" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-primary" multiple="multiple">
 			</div>
-			<select class="form-control" name="tags[]" id="tags" multiple="multiple" required="">
+			<select class="form-control" name="tags[]" id="tags" multiple="multiple">
 			<option value=""></option>
 				@foreach($tags as $tag)
 					<option value="{{$tag->id}}">{{$tag->name}}</option>
