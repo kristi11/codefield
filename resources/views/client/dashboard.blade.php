@@ -102,6 +102,8 @@
 			<a href="{{ url('photos/'.$firstTwoImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 170px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$firstTwoImages->gallery_image)}}"
+                srcset="{{url('storage/gallery_thumbnails/'.$firstTwoImages->gallery_image.' 600w')}}" 
+                sizes="(max-width:600px) 600w">
                 alt="{{$firstTwoImages->alternative_text}}">
 			</a>
 		</div>
@@ -115,6 +117,8 @@
 			<a href="{{ url('photos/'.$theRestImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 141px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$theRestImages->gallery_image)}}"
+                srcset="{{url('storage/gallery_thumbnails/'.$theRestImages->gallery_image.' 600w')}}" 
+                sizes="(max-width:600px) 600w">
                 alt="{{$theRestImages->alternative_text}}">
 			</a>
 		</div>
