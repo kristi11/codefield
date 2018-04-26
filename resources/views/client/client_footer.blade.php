@@ -37,7 +37,7 @@ this.form.submit();
     });
 </script>
 
-{{-- <script async>
+<script async>
 $('#gallery_upload').click(function(){
 var x; var y;
     x = document.getElementById("gallery_image").value;
@@ -52,4 +52,4 @@ var x; var y;
 this.disabled=true;
 this.innerHTML='Working on it..';
 this.form.submit();
-}); --}}
+});

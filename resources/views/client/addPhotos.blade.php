@@ -42,7 +42,7 @@
 			</select>
 		</div>
 		<div class="card-footer text-right">
-			<button id="gallery_upload" class="btn btn-{{$item->font_color}}" type="submit" data-disable-with="Working on it..">Add photo(s)</button>
+			<button onclick="this.disabled=true;this.form.submit();"  class="btn btn-{{$item->font_color}}" type="submit" data-disable-with="Working on it..">Add photo(s)</button>
 			<div class="clearfix"></div>
 		</div>
 	</form>

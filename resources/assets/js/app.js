@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-require('jquery-ujs'); 
+// require('jquery-ujs'); 
 
 
 // /**
