@@ -10,8 +10,8 @@
           <picture>
             <img style="max-height:800px;height:100%;object-fit: cover;" class="img-responsive img-rounded" 
             src="{{asset('storage/galleries/'.$gallery->gallery_image)}}" 
-            srcset="{{asset('storage/gallery_thumbnails/'.$gallery->gallery_image)}} 800w" 
-            sizes="(max-width:800px) 800w"
+{{--             srcset="{{asset('storage/gallery_thumbnails/'.$gallery->gallery_image)}} 800w" 
+            sizes="(max-width:800px) 800w" --}}
             alt="{{$gallery->alternative_text}}">
           </picture>
         </div>
