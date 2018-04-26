@@ -41,7 +41,7 @@ this.form.submit();
 $('#gallery_upload').click(function(){
 var x; var y;
     x = document.getElementById("gallery_image").value;
-    y = document.getElementById("tags").value;
+    y = document.getElementById("tags2").value;
     if (x == "") {
     	alert('Choose Photo(s)')
         return false;
