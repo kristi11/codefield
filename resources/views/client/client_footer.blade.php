@@ -13,6 +13,21 @@
     $("div#photo").show();
 })
 </script>
+<script >
+    /** 
+ * Disable submit button 
+ */ 
+$(function(){ 
+      $('input:submit').click(function(){ 
+            $(this).val('Loading...'); 
+            $(this).attr('disabled', 'disabled'); 
+            $(this).parents('form').submit(); 
+      }); 
+}); 
+$(window).load(function(){ 
+      $('input:submit').removeAttr('disabled'); 
+});
+</script>
 <script async>
 $('.reksearchloader').click(function(){
 // var query;
