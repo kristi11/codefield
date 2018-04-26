@@ -119,11 +119,13 @@ class ClientController extends Controller
     }
 
     public function showImage($gallery_image){
-        // $timer = 720;
-        // $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$gallery_image.'client_gallery');
-        // return Cache::remember($cacheKey, $timer, function () use($gallery_image) {
+        $timer = 720;
+        $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$gallery_image.'client_gallery');
+        $gallery = Cache::remember($cacheKey, $timer, function () use($gallery_image) {
+                   return Gallery::where('gallery_image', $gallery_image)->first();
+        });
         $title = 'Photo details';
-        $gallery = Gallery::where('gallery_image', $gallery_image)->first();
+        // $gallery = Gallery::where('gallery_image', $gallery_image)->first();
         $gallery_image = $gallery->gallery_image;
         $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
         $size = number_format($file_size / 1048576,2);
@@ -139,7 +141,7 @@ class ClientController extends Controller
                 $gallery->increment('views');
             }
         return view('client.showImage',compact('gallery','title','size','category','w','h','type'))->render();
-        // });
+        
     }
 
 
