@@ -1,20 +1,3 @@
-<script>
-$('#gallery_upload_kt').click(function(){
-var x; var y;
-    x = document.getElementById("gallery_image").value;
-    y = document.getElementById("tags").value;
-    if (x == "") {
-        alert('Choose Photo(s)')
-        return false;
-    }else if (y == "") {
-        alert('Choose Category')
-        return false;
-    };
-this.disabled=true;
-this.innerHTML='Working on it..';
-this.form.submit();
-});
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 {{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
@@ -54,3 +37,20 @@ this.form.submit();
     });
 </script>
 
+<script>
+$('#gallery_upload_kt').click(function(){
+var x; var y;
+    x = document.getElementById("gallery_image").value;
+    y = document.getElementById("tags").value;
+    if (x == "") {
+    	alert('Choose Photo(s)')
+        return false;
+    }else if (y == "") {
+    	alert('Choose Category')
+        return false;
+    };
+this.disabled=true;
+this.innerHTML='Working on it..';
+this.form.submit();
+});
+</script>
