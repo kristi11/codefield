@@ -25,7 +25,7 @@
 </div>
 
 
-	<div class="card" id="photo" style="display:none;" >		
+	<div class="card" id="photo" {{-- style="display:none;"  --}}>		
 	<form method="POST" action="{{ url('addToGallery') }}" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="card-content text-center">
