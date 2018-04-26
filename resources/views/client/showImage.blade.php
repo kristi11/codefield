@@ -7,8 +7,13 @@
       {{ csrf_field() }}
         
         <div class="card-header card-chart">
-          <img style="height:100%;object-fit: cover;" class="img-responsive img-rounded" src="{{asset('storage/galleries/'.$gallery->gallery_image)}}"
-          alt="{{$gallery->alternative_text}}">
+          <picture>
+            <img style="height:100%;object-fit: cover;" class="img-responsive img-rounded" 
+            src="{{asset('storage/galleries/'.$gallery->gallery_image)}}" 
+            srcset="{{asset('storage/gallery_thumbnails/'.$gallery->gallery_image)}} 600w" 
+            sizes="(max-width:600px) 600w"
+            alt="{{$gallery->alternative_text}}">
+          </picture>
         </div>
       <div class="card-content">
       	<div class="row text-center">
