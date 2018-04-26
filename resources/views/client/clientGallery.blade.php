@@ -38,7 +38,7 @@
 						{{-- <a href=""> --}}							
 							<img style="width: auto;max-width: 600px;" class="image size fit"
 							src="{{asset('storage/gallery_thumbnails/'.$img->gallery_image)}}"
-							srcset="{{asset('storage/gallery_thumbnails/'.$gallery->gallery_image.' 600w')}}" 
+							srcset="{{asset('storage/gallery_thumbnails/'.$img->gallery_image.' 600w')}}" 
             				sizes="(max-width:600px) 600w"
 							alt="{{$img->alternative_text}}">
 						{{-- </a> --}}
