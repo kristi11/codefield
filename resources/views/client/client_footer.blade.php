@@ -37,8 +37,8 @@ this.form.submit();
     });
 </script>
 
-<script async>
-$('#gallery_upload').click(function(){
+<script>
+$('#gallery_upload_kt').click(function(){
 var x; var y;
     x = document.getElementById("gallery_image").value;
     y = document.getElementById("tags").value;
