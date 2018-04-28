@@ -884,10 +884,4 @@ if (! function_exists('view')) {
 
         return $factory->make($view, $data, $mergeData);
     }
-
-    function setActive($path)
-{
-    return Request::is($path . '*') ? ' class=active' :  '';
-}
-
 }

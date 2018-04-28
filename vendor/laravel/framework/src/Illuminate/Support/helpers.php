@@ -1036,7 +1036,7 @@ if (! function_exists('with')) {
         return $object;
     }
 }
-// function setActive($path)
-// {
-//     return Request::is($path . '*') ? ' class=active' :  '';
-// }
+function setActive($path)
+{
+    return Request::is($path . '*') ? ' class=active' :  '';
+}
