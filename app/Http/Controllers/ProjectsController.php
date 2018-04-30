@@ -86,7 +86,7 @@ public function __construct()
         }
         
         session()->flash('message',"{$project->title}".' created');
-    	return redirect('/admin/projects');
+    	return back();
     }
 
     public function projects(){
