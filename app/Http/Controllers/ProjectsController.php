@@ -274,18 +274,20 @@ public function __construct()
 
     public function approve_project($id){
         $project = SubmitRequest::findOrFail($id);
+        $user = User::where('id',$project->user_id)->first();
         $project -> status = 'approved';
         $project -> save();
-        Auth::user()->notify(new ProjectApproved($project));
+        $user->notify(new ProjectApproved($project));
         session()->flash('message','Project approved');
         return back();
     }
 
     public function reject_project($id){
         $project = SubmitRequest::findOrFail($id);
+        $user = User::where('id',$project->user_id)->first();
         $project -> status = 'rejected';
         $project -> save();
-        Auth::user()->notify(new ProjectRejected($project));
+        $user->notify(new ProjectRejected($project));
         session()->flash('message','Project rejected');
         return back();
     }
