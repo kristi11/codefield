@@ -29,7 +29,7 @@
 	        <div class="card-footer">
 	            <div class="stats">
 	                <i class="material-icons text-primary">navigate_next</i>
-	                <a class="text-gray" href="{{ url('admin/projects') }}">See more</a>
+	                <a class="text-gray" href="{{ url('admin/proj') }}">See more</a>
 	            </div>
 	        </div>
 	    </div>
