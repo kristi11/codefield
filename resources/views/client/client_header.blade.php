@@ -20,7 +20,7 @@
     <link rel="manifest" href="{{url('/manifest.json')}}">
     <title>{{ config('app.name', 'Codefield') }}</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/material-dashboard.css" rel="stylesheet" type="text/css">
+    <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
 {{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
