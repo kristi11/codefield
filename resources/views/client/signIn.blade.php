@@ -19,7 +19,7 @@
           </button>
           <div class="logo">
             <h4 style="font-weight: bold;" class="simple-text">
-              <img alt="Codefield" src="{{asset('public/storage/codefield_logo/menu_logo.png')}}">
+              <img alt="Codefield" src="{/storage/codefield_logo/menu_logo.png">
               <span style="position: relative;top: 2px;">{{ config('app.name') }}</span>
             </h4>
           </div>
