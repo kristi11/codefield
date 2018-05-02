@@ -83,7 +83,7 @@
     <div  class="card card-profile">
     <div class="content">
         <h1 class="card-title" style="font-family: 'Alfa Slab One', serif;">What you get</h1>
-            <div class="card-content table-responsive text-left ht" style="">
+            <div class="card-content table-responsive text-left ht">
                 <table class="table table-hover" >
                     <tbody>
                         <tr>
