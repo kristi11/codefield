@@ -17,7 +17,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">{{config('app.name')}}</a>
+          <div class="logo">
+            <h4 style="font-weight: bold;" class="simple-text">
+              <img alt="Codefield" src="{{asset('public/storage/codefield_logo/menu_logo.png')}}">
+              <span style="position: relative;top: 2px;">{{ config('app.name') }}</span>
+            </h4>
+          </div>
+        </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 {{--             <img alt="Codefield Brand" src="{{asset('/public/img/whitebg.jpg')}}">
