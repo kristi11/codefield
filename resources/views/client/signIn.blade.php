@@ -20,8 +20,8 @@
           <a class="navbar-brand" href="#">{{config('app.name')}}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <img alt="Codefield Brand" src="{{asset('/public/img/whitebg.jpg')}}">
-          <ul class="nav navbar-nav">
+{{--             <img alt="Codefield Brand" src="{{asset('/public/img/whitebg.jpg')}}">
+ --}}   <ul class="nav navbar-nav">
         <h1 class="card-title text-center" style="font-family: 'Alfa Slab One', serif;">Services</h1>
             <table class="table table-hover" >
                 <tbody>
