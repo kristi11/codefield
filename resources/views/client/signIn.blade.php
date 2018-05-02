@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="logo">
-            <h4 style="font-weight: bold; padding-left: 10px;" class="simple-text">
+            <h4 style="font-weight: bold; padding-left: 15px;" class="simple-text">
               <img alt="Codefield" src="/storage/codefield_logo/menu_logo.png">
               <span style="position: relative;top: 2px;">{{ config('app.name') }}</span>
             </h4>
