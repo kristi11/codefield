@@ -22,6 +22,7 @@ use App\Notifications\EmailNotificationsEnabled;
 use App\Notifications\EmailNotificationsDisabled;
 use Illuminate\Support\Facades\Hash;
 use App\SubmitRequest;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ClientController extends Controller
 {
