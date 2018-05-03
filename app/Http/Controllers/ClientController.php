@@ -239,22 +239,30 @@ class ClientController extends Controller
     public function googleFonts()
     {
     $title = 'Google Fonts';
-    $result = Cache::remember(auth()->user()->id.'google_fonts', 60, function () use($title)  {
-    $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c";
-     return json_decode(file_get_contents( $url ));
-     });
-    // foreach ( $result->items as $font )
-    // {
-    //     $font_list = [
-    //         'font_name' => $font->family,
-    //         'category' => $font->category,
-    //         'variants' => implode(', ', $font->variants),
-    //         'subsets' => $font->subsets,
-    //         'version'  => $font->version,
-    //         'files'  => $font->files
-    //     ];
-    // }
-    return view ('client.googleFonts',compact('result','title'))->render();
+    // $result = Cache::remember(auth()->user()->id.'google_fonts', 60, function () use($title)  {
+    // $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c";
+    //  return json_decode(file_get_contents( $url ));
+    //  });
+         // Set default page
+    $page = request()->has('page') ? request('page') : 1;
+
+    // Set default per page
+    $perPage = request()->has('per_page') ? request('per_page') : 15;
+
+    // Offset required to take the results
+    $offset = ($page * $perPage) - $perPage;
+        $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c";
+         $newCollection = collect(json_decode(file_get_contents( $url ),true)['items']);
+         // Set custom pagination to result set
+    $results = new LengthAwarePaginator(
+         $newCollection->slice($offset, $perPage),
+         $newCollection->count(),
+         $perPage,
+         $page,
+         ['path' => request()->url(), 'query' => request()->query()]
+    );
+    // dd(json_decode(file_get_contents( $url ),true));
+        return view ('client.googleFonts',compact('results','title'));
        
 
     }

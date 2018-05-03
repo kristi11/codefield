@@ -36,15 +36,15 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  @foreach($result->items as $font)
+		  @foreach($results->items() as $font)
 
 		    <tr>
-		      <td>{{$font->family }}</td>
-		      <td <p style="font-family: '{{$font->family}}',serif;font-size: 22px">Lorem ipsum</p></td>
-		      <td>{{implode(', ', $font->variants) }}</td>
-		      <td>{{$font->category }}</td>
-		      <td>{{implode(', ', $font->subsets) }}</td>
-		      <td>{{$font->version }}</td>
+		      <td>{{$font['family'] }}</td>
+		      <td <p style="font-family: '{{$font['family']}}',serif;font-size: 22px">Lorem ipsum</p></td>
+		      <td>{{implode(', ', $font['variants']) }}</td>
+		      <td>{{$font['category'] }}</td>
+		      <td>{{implode(', ', $font['subsets']) }}</td>
+		      <td>{{$font['version'] }}</td>
 		    </tr>
 		   @endforeach		   
 		  </tbody>

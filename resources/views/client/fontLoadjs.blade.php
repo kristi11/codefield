@@ -1,7 +1,7 @@
 <script type="text/javascript" async="">
     WebFontConfig = {
         google: 
-        { families: [@foreach($result->items as $font)'{{$font->family}}',@endforeach] }
+        { families: [@foreach($results->items() as $font)'{{$font['family']}}',@endforeach] }
     };
     (function() {
         var wf = document.createElement('script');
