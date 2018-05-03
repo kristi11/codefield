@@ -53,7 +53,7 @@
 	</div>
 	{{-- </div> --}}
 </div>
-<div class="text-center">{{ $result->links('admin.mdl-bootstrap') }}</div>
-
+{{-- <div class="text-center">{{ $result->links('admin.mdl-bootstrap') }}</div>
+ --}}
 @include('client.fontLoadjs')
 @endsection
