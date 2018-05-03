@@ -7,6 +7,33 @@
         height: 100vh;
         margin-top: 0px;
     }
+    .scroll {
+      background-color: #fff;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+      text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+.navbar .navbar-nav > ul {
+  background-color: #fff;
+}
+
+@media (min-width: 1000px){
+  .ipro{
+    display: none;
+}
+.ht{
+  max-height: 464px;
+}
+}
+@media (min-width: 1199px){
+.ht{
+  max-height: 438px;
+}
+}
 </style>
 <nav class="navbar hidden-md hidden-lg">
       <div class="container">
