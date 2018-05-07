@@ -10,8 +10,7 @@
   </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=5.0' />
     <meta name="msvalidate.01" content="29855839FCF9DC0E756B92C82A65EBAB" />
     <meta name="yandex-verification" content="49d23e85fa023f71" />
     <meta name="theme-color" content="#4caf50"/>

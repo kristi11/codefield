@@ -46,7 +46,7 @@ class ProjectRejected extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->greeting('Hello!')
                     ->subject('Project Rejected')
-                    ->line("Unfortunately we weren't able to approve your project.Please make any necesary changes to your code and try again.Also make sure your Github repository link is correct.This may be one of the reasons your project could not be approved.If you have any questions please don't hesitate to contact us.")
+                    ->line("Unfortunately we weren't able to approve your project.Please make any necesary changes to your code and try again. If you are submitting a HTML template please make sure that the template is at least responsive.We try to have high quality projects on our platform. Also make sure your Github repository link is correct. This may be one of the reasons your project could not be approved. If you have any questions or think that your project was wrongfully rejected please don't hesitate to contact us at support@codefield.io . We will be more than happy to guide you and help you get your project approved.")
                     ->action('Go to your dashboard', url('/'));
     }
 
