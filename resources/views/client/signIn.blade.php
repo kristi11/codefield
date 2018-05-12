@@ -16,7 +16,9 @@
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   }
-
+.scroll::-webkit-scrollbar {
+    display: none;
+}
 .navbar .navbar-nav > ul {
   background-color: #fff;
 }
