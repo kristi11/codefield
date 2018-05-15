@@ -40,7 +40,7 @@
 						<source 
 							media="max-width: 768px" 
 							srcset="{{asset('storage/gallery_thumbnails/'.$img->gallery_image.' 768w')}}">	
-						<img style="width: auto;max-width: 600px;"
+						<img {{-- style="width: auto;max-width: 600px;" --}}
 							class="image size fit"
 							src="{{asset('storage/gallery_thumbnails/'.$img->gallery_image)}}"
 							alt="{{$img->alternative_text}}">
