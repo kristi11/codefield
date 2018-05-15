@@ -35,12 +35,16 @@
 				@foreach ($gallery as $img)
 				
 					<span class="c" >
-						{{-- <a href=""> --}}							
-							<img style="width: auto;max-width: 600px;" class="image size fit"
+						{{-- <a href=""> --}}
+						<picture>
+						<source 
+							media="max-width: 768px" 
+							srcset="{{asset('storage/gallery_thumbnails/'.$img->gallery_image.' 768w')}}">	
+						<img style="width: auto;max-width: 600px;"
+							class="image size fit"
 							src="{{asset('storage/gallery_thumbnails/'.$img->gallery_image)}}"
-							srcset="{{asset('storage/gallery_thumbnails/'.$img->gallery_image.' 600w')}}" 
-            				sizes="(max-width:600px) 600w"
 							alt="{{$img->alternative_text}}">
+						</picture>
 						{{-- </a> --}}
 						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->gallery_image) }}"
