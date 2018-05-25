@@ -29,7 +29,7 @@ class ClientController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['role:user'],['except'=>['dashboard','privacyPolicy','termsAndConditions','cookiePolicy']]);
+        $this->middleware(['role:user'],['except'=>['signIn','dashboard','privacyPolicy','termsAndConditions','cookiePolicy']]);
     }
 
     public function dashboard()
@@ -54,10 +54,12 @@ class ClientController extends Controller
           else  return view('client.signIn');
     }
 
- //    public function signIn()
- //    {
-	// 	        return view('client.signIn');
-	// }
+    public function signIn()
+    {
+		$projects = Project::orderBy('id', 'desc')->limit(4)->get();
+        $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
+        return view ('client.signIn', compact('projects','photos'));
+	}
 
 	public function widgets(){
 
