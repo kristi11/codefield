@@ -57,6 +57,6 @@ class GuestController extends Controller
                 session()->push('visited_images', $gallery_image);
                 $gallery->increment('views');
             }
-        return view('client.showImage',compact('gallery','size','w','h','type'))->render();
+        return view('guest.g_photo',compact('gallery','size','w','h','type'))->render();
     }
 }

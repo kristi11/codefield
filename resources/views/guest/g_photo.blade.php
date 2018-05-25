@@ -39,11 +39,11 @@
            <p class="category">Dimensions: {{ $w.'x'.$h.' px' }}</p>                
            <p class="category">Size: {{$size.' Mb'}}</p>
            <p class="category">Type: {{$type}}</p>
-           <p class="category">Category:
+           {{-- <p class="category">Category:
                @foreach($category as $c)
                  <a href="{{ url('category/'.$c->name) }}"> {{ $c->name }}</a>
                @endforeach
-           </p>
+           </p> --}}
            <p class="category">
             Posted  {{ $gallery->created_at->diffForHumans() }}
            </p>
