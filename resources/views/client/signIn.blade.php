@@ -131,6 +131,11 @@ display: none;
     margin-top: 4.5em;
     margin-bottom: 1.5em;
 }
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 198px;
+}
 </style>
 <div class="wrapper">
     <div class="header">
