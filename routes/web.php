@@ -1,8 +1,8 @@
 <?php
 Auth::routes();
-Route::get('/', 'GuestController@signIn');
-Route::get('/g_project/{title}', 'GuestController@g_project');
-Route::get('/g_photo/{gallery_image}', 'GuestController@g_photo');
+Route::get('/', 'ClientController@signIn');
+Route::get('/g_project/{title}', 'ClientController@g_project');
+Route::get('/g_photo/{gallery_image}', 'ClientController@g_photo');
 Route::get('/dashboard', 'ClientController@dashboard');
 Route::get('/projects', 'ClientController@widgets');
 Route::get('/projects/{title}', 'ClientController@showWidget');
