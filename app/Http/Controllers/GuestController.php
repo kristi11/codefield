@@ -15,10 +15,10 @@ class GuestController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     public function signIn() {
     	$projects = Project::orderBy('id', 'desc')->limit(4)->get();
