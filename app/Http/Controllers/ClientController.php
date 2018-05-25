@@ -54,10 +54,10 @@ class ClientController extends Controller
           else  return view('client.signIn');
     }
 
-    public function signIn()
-    {
-		        return view('client.signIn');
-	}
+ //    public function signIn()
+ //    {
+	// 	        return view('client.signIn');
+	// }
 
 	public function widgets(){
 
