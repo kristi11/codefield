@@ -37,8 +37,8 @@ a {
            </a> 
       </div> 
     <ul class="nav">
-      <li {{ setActive('/dashboard') }}>
-        <a href="{{ url('/dashboard') }}">
+      <li {{ setActive('/') }}>
+        <a href="{{ url('/') }}">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
         </a>
