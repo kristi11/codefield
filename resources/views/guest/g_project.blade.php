@@ -38,7 +38,8 @@
            </p> --}}
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <p class="category">{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!} ...Sign in to read more</p>
+      <p class="category">{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!} 
+        <a href="/#signIn">...Sign in to read more</a></p>
       <div class="text-right">
       <a href="/#signIn" class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
         Sign in to download
