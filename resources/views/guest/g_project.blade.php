@@ -38,7 +38,7 @@
            </p> --}}
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <p class="category">{!! Purify::clean($widget->body) !!}.</p>
+      <p class="category">{!! ucwords(substr(Purify::clean($widget->body),0,-100)) !!}...</p>
       <div class="text-right">
       <a href="/#signIn" class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
         Sign in to download
