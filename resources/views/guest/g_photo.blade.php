@@ -1,5 +1,5 @@
 @extends('client.client')
-@section('g_photos')
+@section('g_photo')
 
 <div style="margin-top: 5em;" class="wrapper">
 <div class="col-md-8 col-md-offset-2">

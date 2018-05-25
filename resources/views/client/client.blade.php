@@ -7,6 +7,10 @@
 
           @yield('signIn')
 
+          @yield('g_project')
+
+          @yield('g_photo')
+
           @yield('client_sidebar')
 
           @include('client.client_footer')
