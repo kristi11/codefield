@@ -14,7 +14,8 @@
     <meta name="msvalidate.01" content="29855839FCF9DC0E756B92C82A65EBAB" />
     <meta name="yandex-verification" content="49d23e85fa023f71" />
     <meta name="theme-color" content="#4caf50"/>
-    <meta name="description" content="{{config("app.name")}} is a small platform helping developers and designers find tools that will make completing their next project a whole lot easier.From simple html templates to different more complex projects(laravel,php,C#,vue js,adobe CC and much much more..),google fonts,High quality images you'll find them all in here..and more and more content is added every day.">
+    <meta name="keywords" content="download everything for free,share your work,share your photography,gain exposure on the web,build your portfolio,work with API,progressive web apps">
+    <meta name="description" content="{{config("app.name")}} is a small new platform helping developers,designers and even photographers find tools that will make completing their next project a whole lot easier. From photos to simple html templates to different more complex projects you'll find it all in here.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="manifest" href="{{url('/manifest.json')}}">
     <title>{{ config('app.name', 'Codefield') }}</title>
@@ -57,7 +58,7 @@
           "name" : "Codefield",
           "url" : "https://codefield.io/",
           "logo" : "https://codefield.io/storage/codefield_logo/signin_logo.png",
-          "description": "Codefield is a small platform helping developers and designers find tools that will make completing their next project a whole lot easier.From simple html templates to different more complex projects(laravel,php,C#,vue js,adobe CC and much much more..),google fonts,High quality images you'll find them all in here..and more and more content is added every day.",
+          "description": "Codefield is a small new platform helping developers,designers and even photographers find tools that will make completing their next project a whole lot easier. From photos to simple html templates to different more complex projects you'll find it all in here.",
             "sameAs" : "https://www.facebook.com/codefieldcommunity/"
         }
         </script>
