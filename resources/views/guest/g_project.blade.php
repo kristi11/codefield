@@ -4,7 +4,7 @@
 <style>
   a:active, a:hover {
    color: #4caf50;
-   opacity: 0.5;
+   opacity: 0.8;
 }
 
 a {
