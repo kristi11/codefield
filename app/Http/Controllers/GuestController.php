@@ -33,7 +33,7 @@ class GuestController extends Controller
 
     public function g_project($title) {
         $widget = Project::where('title', $title)->first();
-        $file_size = Storage::size('storage/zip_files/'.$widget->zip_file.'.zip');
+        $file_size = Storage::size('storage/zip_files/'.$widget->zip_file);
         $size = number_format($file_size / 1048576,2);
         if (!in_array($widget->id, session('visited_projects', []))) 
             {
@@ -46,7 +46,7 @@ class GuestController extends Controller
     public function g_photo($gallery_image) {
         $gallery = Gallery::where('gallery_image', $gallery_image)->first();
         // $gallery_image = $gallery->gallery_image;
-        $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image.'.jpeg');
+        $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
         $size = number_format($file_size / 1048576,2);
         $path = public_path('storage/galleries/');
         list($width,$height) = getimagesize($path.$gallery_image);
