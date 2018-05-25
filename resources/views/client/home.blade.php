@@ -1,7 +1,16 @@
 
 @extends('client.client')
 @section('client_sidebar')
+<style>
+  a:active, a:hover {
+   color: #4caf50;
+   opacity: 0.5;
+}
 
+a {
+    color: #4caf50;
+}
+</style>
 <div class="wrapper" id="app">
   @if (Auth::guest())
     <a class="" href="{{ route('notLoggedIn') }}"></a>
