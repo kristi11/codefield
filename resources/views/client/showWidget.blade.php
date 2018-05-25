@@ -1,6 +1,15 @@
 @extends('client.home')
 @section('showWidget')
+<style>
+  a:active, a:hover {
+   color: #4caf50;
+   opacity: 0.5;
+}
 
+a {
+    color: #4caf50;
+}
+</style>
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
     <form method="POST" action="{{ url('w/'.$widget->id) }}">
