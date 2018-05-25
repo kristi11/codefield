@@ -51,7 +51,7 @@ class ClientController extends Controller
         //         $countFavorites;
                 return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages'));
           }
-          else  return view('client.signIn');
+          else  return view('client.signIn',compact('projects','photos'));
     }
 
     public function signIn()
