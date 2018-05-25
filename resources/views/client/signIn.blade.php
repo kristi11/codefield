@@ -136,6 +136,12 @@ display: none;
     height: auto;
     max-height: 198px;
 }
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: Circular,Helvetica,Arial,sans-serif;
+  /*font-weight: 600;*/
+  color: #222326;
+  line-height: 1.5em;
+}
 </style>
 <div class="wrapper">
     <div class="header">
