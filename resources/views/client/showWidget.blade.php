@@ -46,7 +46,7 @@ a {
            </p>
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <p class="category">{!! Purify::clean($widget->body) !!}.</p>
+      <p>{!! Purify::clean($widget->body) !!}.</p>
       <div class="text-right">
       <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
         Download
