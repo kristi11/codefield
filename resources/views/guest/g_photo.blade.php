@@ -64,9 +64,9 @@
                             
                             
  </div>
-<div class="col-xs-12">
+{{-- <div class="col-xs-12">
 @include('guest.partials.footer')
-</div>        
+</div>  --}}       
 </div>
 
 @endsection
