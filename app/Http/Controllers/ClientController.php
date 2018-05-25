@@ -34,11 +34,11 @@ class ClientController extends Controller
 
     public function dashboard()
     {
-        // if (Auth::check() && (Auth::user()->hasRole('user'))) {
-        //     # code...
+        if (Auth::check() && (Auth::user()->hasRole('user'))) {
+            # code...
         
-                // $projects = Project::orderBy('id', 'desc')->limit(4)->get();
-                // $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
+                $projects = Project::orderBy('id', 'desc')->limit(4)->get();
+                $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
                 $title = 'Dashboard';
                 // $favorites = Favorite::where('user_id',Auth::id())->get();
                 $latestDbItem = Project::orderBy('created_at', 'desc')->take(2)->get();
@@ -51,8 +51,8 @@ class ClientController extends Controller
         // else
         //         $countFavorites;
                 return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages'));
-          // }
-          // else  return view('client.signIn',compact('projects','photos'));
+          }
+          else  return view('client.signIn',compact('projects','photos'));
     }
 
  //    public function signIn()

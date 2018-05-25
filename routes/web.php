@@ -3,7 +3,7 @@ Auth::routes();
 Route::get('/', 'ClientController@signIn');
 Route::get('/g_project/{title}', 'ClientController@g_project');
 Route::get('/g_photo/{gallery_image}', 'ClientController@g_photo');
-Route::get('/dashboard', 'ClientController@dashboard');
+Route::get('/', 'ClientController@dashboard');
 Route::get('/projects', 'ClientController@widgets');
 Route::get('/projects/{title}', 'ClientController@showWidget');
 Route::get('photos', 'ClientController@gallery');
