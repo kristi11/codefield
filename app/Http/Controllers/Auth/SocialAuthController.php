@@ -52,7 +52,7 @@ class SocialAuthController extends Controller
 		auth()->login($user,true);
 
 
-		return redirect('/');
+		return redirect('/dashboard');
          
     }
 
