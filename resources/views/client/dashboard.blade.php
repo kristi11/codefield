@@ -263,7 +263,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 
 
 <div class="container-fluid hidden-sm hidden-md hidden-lg">
-    <h2>Latest Projects</h2>
+    <h4>Latest Projects</h4>
 </div>
 <div class="card-content table-responsive hidden-sm hidden-md hidden-lg">
     <table class="table text-center">
@@ -289,6 +289,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="card-content">
                   <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+                  @if($widget->views == 0)
+                    <h5 class="category">No views</h5>
+                  @elseif($widget->views == 1)
+                    <h5 class="category">{{$widget->views}} download</h5>
+                  @else
+                    <h5 class="category">{{$widget->views}} views</h5>
+                  @endif
+
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
                   @elseif($widget->downloads == 1)
@@ -310,7 +318,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 </div>
 
 <div class="container-fluid hidden-sm hidden-md hidden-lg">
-    <h2>Latest photos</h2>
+    <h4>Latest photos</h4>
 </div>
 <div class="card-content table-responsive hidden-sm hidden-md hidden-lg">
     <table class="table text-center">
