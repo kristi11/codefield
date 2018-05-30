@@ -282,7 +282,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('projects/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>           
                 </div>
@@ -326,7 +326,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @foreach ($photos as $p)
 <td>
     <div class="card nospace">
-        <a href="{{ url('g_photo/'.$p->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+        <a href="{{ url('photos/'.$p->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
             <img style="max-height:198px;" class="img-responsive img-raised fit" 
             src="{{url('storage/gallery_thumbnails/'.$p->gallery_image)}}"
             alt="{{$p->alternative_text}}">
