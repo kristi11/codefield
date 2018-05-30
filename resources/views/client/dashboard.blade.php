@@ -1,5 +1,140 @@
 @extends('client.home')
 @section('dashboard')
+<style>
+.header {
+    background: #FF4E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F9D423, #FF4E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F9D423, #FF4E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+     .off-canvas-sidebar .nav {
+        background-color: white;
+        height: 100vh;
+        margin-top: 0px;
+    }
+    .scroll {
+      background-color: #fff;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+      text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+   .scroll2 {
+        text-align: center;
+        white-space: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .scroll::-webkit-scrollbar {
+    display: none;
+}
+.scroll2::-webkit-scrollbar {
+    display: none;
+}
+.table-responsive::-webkit-scrollbar {
+    display: none;
+}
+  .table-responsive {
+    padding: 1em;
+    border: none;
+  }
+  .table>tbody>tr>td, 
+  .table>tbody>tr>th, 
+  .table>tfoot>tr>td, 
+  .table>tfoot>tr>th, 
+  .table>thead>tr>td, 
+  .table>thead>tr>th {
+    border: none;
+    min-width: 20em;
+    max-width: 20em;
+}
+.space {
+    padding: 2em;
+}
+@media screen and (max-width: 767px) {
+.table-responsive>.table>tbody>tr>td, 
+.table-responsive>.table>tbody>tr>th, 
+.table-responsive>.table>tfoot>tr>td, 
+.table-responsive>.table>tfoot>tr>th, 
+.table-responsive>.table>thead>tr>td, 
+.table-responsive>.table>thead>tr>th {
+    white-space: normal; 
+    min-width: 20em;
+    max-width: 20em;
+}
+}
+.cd-size {
+    min-width: 20em;
+    height: 14em;
+}
+.navbar .navbar-nav > ul {
+  background-color: #fff;
+}
+.brand {
+    padding: 0;
+    margin: 0;
+    font-size: 16vw;
+    text-align: center;
+    color: white;
+    font-family: Baloo,sans-serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.description {
+    padding: 0;
+    margin: 0;
+    font-size: 2vw;
+    text-align: center;
+    color: white;
+    font-family: Baloo,sans-serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding-bottom: 2.5em;
+}
+@media (min-width: 1000px){
+  .ipro{
+    display: none;
+}
+.ht{
+  max-height: 464px;
+}
+}
+@media (min-width: 1199px){
+.ht{
+  max-height: 438px;
+}
+}
+.hidden-mobile {
+
+}
+.hidden-tablet {
+
+}
+@media (max-width: 550px) {
+    .hidden-mobile {
+        display: none;
+    }
+    .description {
+    font-size: 4vw;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+}
+@media (min-width: 550px) and (max-width: 768px) {
+.hidden-tablet {
+display: none;
+}
+}
+.space-ud {
+    margin-top: 4.5em;
+    margin-bottom: 1.5em;
+}
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
+  font-family: Circular,Helvetica,Arial,sans-serif;
+  color: #222326;
+  line-height: 1.5em;
+}
+</style>
 <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
         <div class="card-header" data-background-color="purple">
