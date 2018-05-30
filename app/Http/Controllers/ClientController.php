@@ -39,6 +39,8 @@ class ClientController extends Controller
         
                 $title = 'Dashboard';
                 // $favorites = Favorite::where('user_id',Auth::id())->get();
+                $widgets = Project::latest()->limit(5)->get();
+                $photos = Gallery::latest()->limit(5)->get();
                 $latestDbItem = Project::orderBy('created_at', 'desc')->take(2)->get();
                 $secondDownDbItem = Project::orderBy('created_at', 'desc')->skip(2)->take(3)->get();
                 $latestDbImages = Gallery::orderBy('created_at', 'desc')->take(2)->get();
@@ -48,7 +50,7 @@ class ClientController extends Controller
         //         }
         // else
         //         $countFavorites;
-                return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages'));
+                return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages','widgets','photos'));
           }
 
           else  
