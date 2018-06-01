@@ -13,6 +13,7 @@
   "devDependencies": {
     "apache-server-configs": "^2.14.0",
     "axios": "^0.17.1",
+    "image-trace-loader": "^0.1.0",
     "laravel-mix": "^0.8.1",
     "lodash": "^4.17.4",
     "sw-precache-webpack-plugin": "^0.11.5",
