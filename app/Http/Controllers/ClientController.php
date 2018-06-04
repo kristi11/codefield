@@ -605,7 +605,7 @@ public function signIn() {
         $path = public_path('storage/galleries/');
         list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
-        $type=header('Content-Type: image/jpeg');
+        $type=IMAGETYPE_JPEG;
         if (!in_array($gallery->gallery_image, session('visited_images', []))) 
             {
                 session()->push('visited_images', $gallery_image);
