@@ -140,7 +140,7 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
         // $type=pathinfo($path.$gallery_image, PATHINFO_EXTENSION);
-        $type='jpeg';
+        $type=IMAGETYPE_JPEG;
         if (!in_array($gallery_image, session('visited_images', []))) 
             {
                 session()->push('visited_images', $gallery_image);
