@@ -6,20 +6,12 @@
 <div class="flexbin flexbin-margin" >
 	@foreach ($data as $d)
 		<span class="c" >
-			<picture>
-	            <source
-	            media = "(min-width:860px)"
-	            srcset="{{asset('storage/large_photos/'.$d->gallery_image.' 860w')}}">
-	            <source 
-	            media = "(min-width:420px)"
-	            srcset = "{{asset('storage/medium_photos/'.$d->gallery_image.' 640w')}}" >
-	            <source 
-	            media = "(max-width:420px)"
-	            srcset = "{{asset('storage/mobile_photos/'.$d->gallery_image.' 420w')}}" >
-	            <img style="width: auto;max-width: 600px;" class="img-responsive img-rounded" 
-	            src="{{asset('storage/medium_photos/'.$d->gallery_image)}}" 
-	            alt="{{$d->alternative_text}}">
-          	</picture>
+			<img style="width: auto;max-width: 600px;" class="image size fit" 
+			src="{{asset('storage/medium_photos/'.$d->gallery_image)}}"
+			srcset="{{asset('storage/large_photos/'.$d->gallery_image.' 860w')}}"
+			srcset="{{asset('storage/medium_photos/'.$d->gallery_image.' 640w')}}"
+			srcset="{{asset('storage/mobile_photos/'.$d->gallery_image.' 420w')}}" 
+            >
 			<div class="middle text-center">
 				<div class="row" >
 					<button hidden="">
