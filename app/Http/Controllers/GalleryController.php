@@ -64,9 +64,9 @@ class GalleryController extends Controller
             'tags'    => 'required'
         ]);
        
-        $gallery_storage = public_path('storage/galleries/');
+        $gallery_storage = 'galleries/';
         $large_photos_storage = public_path('storage/large_photos/');
-        $thumbnail_storage = public_path('storage/gallery_thumbnails/');
+        $thumbnail_storage = 'gallery_thumbnails/';
         $mobile_photos_storage = 'mobile_photos/';
         $tiny_photos_storage = public_path('storage/tiny_photos/');
         $files = request()-> file('gallery_image');
@@ -87,9 +87,11 @@ class GalleryController extends Controller
 
         $image->resize(640, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($thumbnail_storage.$file->hashName())->resize(420, null, function ($constraint) {
-        $constraint->aspectRatio();
-        })->save($mobile_photos_storage.$file->hashName());
+        })->save($thumbnail_storage.$file->hashName());
+
+        // ->resize(420, null, function ($constraint) {
+        // $constraint->aspectRatio();
+        // })->save($mobile_photos_storage.$file->hashName());
 
         // $image->resize(10, null, function ($constraint) {
         // $constraint->aspectRatio();
