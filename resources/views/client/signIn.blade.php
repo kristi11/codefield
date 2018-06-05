@@ -294,7 +294,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 <td>
     <div class="card nospace">
         <a href="{{ url('g_photo/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-            <img height="198px" class="img-responsive img-raised fit" 
+            <img style="height:198px;" class="img-responsive img-raised fit" 
             src="{{url('storage/gallery_thumbnails/'.$p->gallery_image)}}"
             alt="{{$p->alternative_text}}">
         </a>
