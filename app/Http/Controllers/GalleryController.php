@@ -66,7 +66,7 @@ class GalleryController extends Controller
        
         $gallery_storage = public_path('storage/galleries/');
         $large_photos_storage = public_path('storage/large_photos/');
-        $thumbnail_storage = public_path('storage/gallery_thumbnails/');
+        $medium_photos_storage = public_path('storage/medium_photos/');
         $mobile_photos_storage = public_path('storage/mobile_photos/');
         $tiny_photos_storage = public_path('storage/tiny_photos/');
         $files = request()-> file('gallery_image');
@@ -83,10 +83,14 @@ class GalleryController extends Controller
         $gallery -> gallery_image = $file->hashName();
         $image = Image::make($file->getRealPath());
         $image->save($gallery_storage.$file->hashName())
-        
+
+        ->resize(860, null, function ($constraint) {
+        $constraint->aspectRatio();
+        })->save($large_photos_storage.$file->hashName())
+
         ->resize(640, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($thumbnail_storage.$file->hashName())
+        })->save($medium_photos_storage.$file->hashName())
 
         ->resize(420, null, function ($constraint) {
         $constraint->aspectRatio();
@@ -94,7 +98,7 @@ class GalleryController extends Controller
 
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($tiny_photos_storage.$file->hashName());
+        })->blur(30)->save($tiny_photos_storage.$file->hashName());
 
 
         $gallery->downloads = 0;
