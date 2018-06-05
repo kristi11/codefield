@@ -18,11 +18,17 @@ a {
         
         <div class="card-header card-chart">
           <picture>
+            <source
+            media = "(min-width:860px)"
+            srcset="{{asset('storage/large_photos/'.$gallery->gallery_image.' 860w')}}">
+            <source 
+            media = "(min-width:420px)"
+            srcset = "{{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" >
+            <source 
+            media = "(max-width:420px)"
+            srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
             <img style="height:100%;object-fit: cover;" class="img-responsive img-rounded" 
-            src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
-            srcset="{{asset('storage/large_photos/'.$gallery->gallery_image, '860w')}},
-                    {{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" 
-            sizes="(max-width:600px) 600w"
+            src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
             alt="{{$gallery->alternative_text}}">
           </picture>
         </div>
