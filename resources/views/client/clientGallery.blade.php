@@ -37,8 +37,8 @@
 					<span class="c" >
 						{{-- <a href=""> --}}						
 							<img style="width: auto;max-width: 600px;" class="image size fit"
-							src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
-							srcset="{{asset('storage/tiny_photos/'.$img->gallery_image.' 600w')}}" 
+							src="{{asset('storage/gallery_thumbnails/'.$img->gallery_image)}}"
+							srcset="{{asset('storage/gallery_thumbnails/'.$img->gallery_image.' 600w')}}" 
 							alt="{{$img->alternative_text}}">
 						{{-- </a> --}}
 						<div class="middle text-center">
