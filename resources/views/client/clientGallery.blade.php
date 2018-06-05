@@ -42,7 +42,7 @@
 							alt="{{$img->alternative_text}}">
 						{{-- </a> --}}
 						<div class="middle text-center">
-								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->gallery_image) }}"
+								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="See more..">
 									<i style="color: black" class="material-icons">remove_red_eye</i>
 								</a>

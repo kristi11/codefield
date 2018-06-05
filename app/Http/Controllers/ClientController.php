@@ -126,24 +126,24 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
 
     }
 
-    public function showImage($gallery_image){
+    public function showImage($unique_id){
         // $timer = 720;
-        // $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$gallery_image.'client_gallery');
-        // return Cache::remember($cacheKey, $timer, function () use($gallery_image) {
+        // $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$unique_id.'client_gallery');
+        // return Cache::remember($cacheKey, $timer, function () use($unique_id) {
         $title = 'Photo details';
-        $gallery = Gallery::where('gallery_image', $gallery_image)->first();
-        $gallery_image = $gallery->gallery_image;
-        $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
+        $gallery = Gallery::where('unique_id', $unique_id)->first();
+        $unique_id = $gallery->unique_id;
+        $file_size = Storage::size('storage/galleries/'.$gallery->unique_id);
         $size = number_format($file_size / 1048576,2);
         $category = $gallery->tags;
         $path = public_path('storage/galleries/');
-        list($width,$height) = getimagesize($path.$gallery_image);
+        list($width,$height) = getimagesize($path.$unique_id);
         $w = $width; $h = $height;
-        // $type=pathinfo($path.$gallery_image, PATHINFO_EXTENSION);
+        // $type=pathinfo($path.$unique_id, PATHINFO_EXTENSION);
         $type='jpeg';
-        if (!in_array($gallery_image, session('visited_images', []))) 
+        if (!in_array($unique_id, session('visited_images', []))) 
             {
-                session()->push('visited_images', $gallery_image);
+                session()->push('visited_images', $unique_id);
                 $gallery->increment('views');
             }
         return view('client.showImage',compact('gallery','title','size','category','w','h','type'))->render();
