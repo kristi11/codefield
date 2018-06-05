@@ -132,12 +132,12 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         // return Cache::remember($cacheKey, $timer, function () use($unique_id) {
         $title = 'Photo details';
         $gallery = Gallery::where('unique_id', $unique_id)->first();
-        $unique_id = $gallery->unique_id;
+        $gallery_image = $gallery->gallery_image;
         $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
         $size = number_format($file_size / 1048576,2);
         $category = $gallery->tags;
         $path = public_path('storage/galleries/');
-        list($width,$height) = getimagesize($path.$unique_id);
+        list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
         // $type=pathinfo($path.$unique_id, PATHINFO_EXTENSION);
         $type='jpeg';
