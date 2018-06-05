@@ -84,9 +84,6 @@ class GalleryController extends Controller
         $image = Image::make($file->getRealPath());
 
         $image->save($gallery_storage.$file->hashName())
-        ->resize(860, null, function ($constraint) {
-        $constraint->aspectRatio();
-        })->save($large_photos_storage.$file->hashName())
         ->resize(640, null, function ($constraint) {
         $constraint->aspectRatio();
         })->save($thumbnail_storage.$file->hashName())
