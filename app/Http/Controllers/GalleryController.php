@@ -89,13 +89,13 @@ class GalleryController extends Controller
         $constraint->aspectRatio();
         })->save($thumbnail_storage.$file->hashName());
 
-        $image->resize(420, null, function ($constraint) {
-        $constraint->aspectRatio();
-        })->save($mobile_photos_storage.$file->hashName());
+        // $image->resize(420, null, function ($constraint) {
+        // $constraint->aspectRatio();
+        // })->save($mobile_photos_storage.$file->hashName());
         
-        $image->resize(10, null, function ($constraint) {
-        $constraint->aspectRatio();
-        })->save($tiny_photos_storage.$file->hashName());
+        // $image->resize(10, null, function ($constraint) {
+        // $constraint->aspectRatio();
+        // })->save($tiny_photos_storage.$file->hashName());
 
 
         $gallery->downloads = 0;
