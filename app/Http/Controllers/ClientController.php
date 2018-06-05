@@ -138,8 +138,7 @@ class ClientController extends Controller
         $path = public_path('storage/galleries/');
         list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
-        // $type=pathinfo($path.$unique_id, PATHINFO_EXTENSION);
-        $type='jpeg';
+        $type=pathinfo($path.$unique_id, PATHINFO_EXTENSION);
         if (!in_array($gallery_image, session('visited_images', []))) 
             {
                 session()->push('visited_images', $gallery_image);
