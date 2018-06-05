@@ -53,11 +53,11 @@ mix.webpackConfig({
             {
                 urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
                 handler: 'cacheFirst'
-            },
-            {
-                urlPattern: /^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/,
-                handler: 'cacheFirst'
             }
+            // {
+            //     urlPattern: /^https:\/\/www\.thecocktaildb\.com\/images\/media\/drink\/(\w+)\.jpg/,
+            //     handler: 'cacheFirst'
+            // }
         ],
         // importScripts: ['./js/push_message.js']
     })
