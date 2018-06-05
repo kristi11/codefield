@@ -28,41 +28,17 @@
 	</ul>
 	
 	<div class="card">
-		<div class="card-content">
-
-					
+		<div class="card-content">			
 			<div class="flexbin flexbin-margin" >
 				@foreach ($gallery as $img)
-				{{-- <picture>
-            <source
-            media = "(min-width:860px)"
-            srcset="{{asset('storage/large_photos/'.$gallery->gallery_image.' 860w')}}">
-            <source 
-            media = "(min-width:420px)"
-            srcset = "{{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" >
-            <source 
-            media = "(max-width:420px)"
-            srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
-            <img style="width: auto;max-width: 600px;" class="img-responsive img-rounded" 
-            src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
-            alt="{{$gallery->alternative_text}}">
-          </picture> --}}
 					<span class="c" >
 						{{-- <a href=""> --}}						
-						<picture>
-				            <source
-				            media = "(min-width:860px)"
-				            srcset="{{asset('storage/large_photos/'.$img->gallery_image.' 860w')}}">
-				            <source 
-				            media = "(min-width:420px)"
-				            srcset = "{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}" >
-				            <source 
-				            media = "(max-width:420px)"
-				            srcset = "{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" >
-				            <img style="width: auto;max-width: 600px;" class="img-responsive img-rounded" 
-				            src="{{asset('storage/medium_photos/'.$img->gallery_image)}}" 
-				            alt="{{$img->alternative_text}}">
-			          	</picture>
+						<img style="width: auto;max-width: 600px;" class="image size fit" 
+						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
+						srcset="{{asset('storage/large_photos/'.$img->gallery_image.' 860w')}}"
+						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
+						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
+			            >
 						{{-- </a> --}}
 						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"
