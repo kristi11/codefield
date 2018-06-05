@@ -598,7 +598,7 @@ public function signIn() {
 
     public function g_photo($unique_id) {
         $gallery = Gallery::where('unique_id', $unique_id)->first();
-        // $gallery_image = $gallery->gallery_image;
+        $gallery_image = $gallery->gallery_image;
         $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
         $size = number_format($file_size / 1048576,2);
         $path = public_path('storage/galleries/');
