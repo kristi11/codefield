@@ -52,11 +52,10 @@ class ClientController extends Controller
         //         $countFavorites;
                 return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages','projects','photos'));
           }
-
           else  
-$projects = Project::orderBy('id', 'desc')->limit(4)->get();
+                $projects = Project::orderBy('id', 'desc')->limit(4)->get();
                 $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
-            return view('client.signIn',compact('projects','photos'));
+                return view('client.signIn',compact('projects','photos'));
     }
 
  //    public function signIn()
@@ -71,7 +70,7 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         // $cacheKey = md5(vsprintf('%s.%s', [auth()->user()->id,auth()->user()->email]))
 
        // return Cache::remember(auth()->user()->id.'articles.all', 60, function ()  {
-           $title = 'Projects';
+        $title = 'Projects';
         $paginationNr = PaginationCounter::first();
         $projectsNr = $paginationNr->projects;
         $categories = Category::has('projects')->select('name','id')->get();
@@ -141,9 +140,9 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         $w = $width; $h = $height;
         // $type=pathinfo($path.$unique_id, PATHINFO_EXTENSION);
         $type='jpeg';
-        if (!in_array($unique_id, session('visited_images', []))) 
+        if (!in_array($gallery_image, session('visited_images', []))) 
             {
-                session()->push('visited_images', $unique_id);
+                session()->push('visited_images', $gallery_image);
                 $gallery->increment('views');
             }
         return view('client.showImage',compact('gallery','title','size','category','w','h','type'))->render();
@@ -176,7 +175,7 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         $data = Gallery::find($id);
         $path = public_path('storage/galleries/'.$data->gallery_image);
         $data->increment('downloads');
-        $type='jpeg';
+        $type= pathinfo($path, PATHINFO_EXTENSION);
         $name = $data->alternative_text.'.'.$type;
         return response()->download($path,$name);
         return back();
@@ -303,7 +302,7 @@ $projects = Project::orderBy('id', 'desc')->limit(4)->get();
 
     public function removeFavorites($id)
     {
-        $user = Auth::user($id);
+    $user = Auth::user($id);
     $img = Gallery::find($id);
     // $widget = Project::find($id);
     if ($img) {
@@ -597,8 +596,8 @@ public function signIn() {
         return view('guest.g_project',compact('widget','size'))->render();
     }
 
-    public function g_photo($gallery_image) {
-        $gallery = Gallery::where('gallery_image', $gallery_image)->first();
+    public function g_photo($unique_id) {
+        $gallery = Gallery::where('unique_id', $unique_id)->first();
         // $gallery_image = $gallery->gallery_image;
         $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
         $size = number_format($file_size / 1048576,2);

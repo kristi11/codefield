@@ -12,7 +12,7 @@
             sizes="(max-width:600px) 600w">
 			<div class="middle text-center">
 				<a 	type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" 
-					href="{{ url('photos/'.$d->gallery_image) }}" 
+					href="{{ url('photos/'.$d->unique_id) }}" 
 					rel="tooltip" 
 					data-placement="bottom" title="" 
 					data-original-title="See more..">
@@ -35,7 +35,7 @@
 					rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
 					<i style="color: black" class="material-icons">favorite_border</i></a>
 				@endif
-				<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$d->gallery_image) }}">
+				<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$d->unique_id) }}">
 				<i style="color: white" class="material-icons">more_horiz</i></a>		
 			</div>
 		</span>
