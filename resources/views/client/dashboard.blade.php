@@ -234,7 +234,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @foreach ($latestDbImages as $firstTwoImages)
 	<div class="col-sm-6 space-5">
 		<div class="card nospace">
-			<a href="{{ url('photos/'.$firstTwoImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+			<a href="{{ url('photos/'.$firstTwoImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 170px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$firstTwoImages->gallery_image)}}"
                 srcset="{{url('storage/gallery_thumbnails/'.$firstTwoImages->gallery_image.' 600w')}}" 
@@ -249,7 +249,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @foreach ($secondDownDbImages as $theRestImages)
 	<div class="col-sm-4 space-5">
 		<div class="card nospace">
-			<a href="{{ url('photos/'.$theRestImages->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+			<a href="{{ url('photos/'.$theRestImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 141px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/gallery_thumbnails/'.$theRestImages->gallery_image)}}"
                 srcset="{{url('storage/gallery_thumbnails/'.$theRestImages->gallery_image.' 600w')}}" 
@@ -326,7 +326,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @foreach ($photos as $p)
 <td>
     <div class="card nospace">
-        <a href="{{ url('photos/'.$p->gallery_image) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
+        <a href="{{ url('photos/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
             <img style="max-height:198px;" class="img-responsive img-raised fit" 
             src="{{url('storage/gallery_thumbnails/'.$p->gallery_image)}}"
             alt="{{$p->alternative_text}}">
