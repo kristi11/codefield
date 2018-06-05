@@ -237,9 +237,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 			<a href="{{ url('photos/'.$firstTwoImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 170px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/medium_photos//'.$firstTwoImages->gallery_image)}}"
-                srcset="{{url('storage/medium_photos//'.$firstTwoImages->gallery_image.' 640w')}}" 
-                sizes="(max-width:640px) 640w"
-                alt="{{$firstTwoImages->alternative_text}}">
+        srcset="{{url('storage/medium_photos/'.$firstTwoImages->gallery_image.' 860w')}}" 
+        srcset="{{url('storage/medium_photos/'.$firstTwoImages->gallery_image.' 640w')}}" 
+        alt="{{$firstTwoImages->alternative_text}}">
 			</a>
 		</div>
 	</div>
@@ -252,9 +252,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 			<a href="{{ url('photos/'.$theRestImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
 				<img style="max-height: 141px;" class="img-responsive img-raised fit" 
 				src="{{url('storage/medium_photos/'.$theRestImages->gallery_image)}}"
-                srcset="{{url('storage/medium_photos/'.$theRestImages->gallery_image.' 640w')}}" 
-                sizes="(max-width:640px) 640w"
-                alt="{{$theRestImages->alternative_text}}">
+        srcset="{{url('storage/medium_photos/'.$theRestImages->gallery_image.' 860w')}}" 
+        srcset="{{url('storage/medium_photos/'.$theRestImages->gallery_image.' 640w')}}" 
+        alt="{{$theRestImages->alternative_text}}">
 			</a>
 		</div>
 	</div>
@@ -328,7 +328,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
     <div class="card nospace">
         <a href="{{ url('photos/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
             <img style="max-height:198px;" class="img-responsive img-raised fit" 
-            src="{{url('storage/medium_photos/'.$p->gallery_image)}}"
+            src="{{url('storage/mobile_photos/'.$p->gallery_image.' 420w')}}"
             alt="{{$p->alternative_text}}">
         </a>
     </div>

@@ -8,7 +8,7 @@
 		<span class="c" >
 			<img style="width: auto;max-width: 600px;" class="image size fit" 
 			src="{{asset('storage/medium_photos/'.$d->gallery_image)}}"
-			srcset="{{asset('storage/large_photos/'.$d->gallery_image.' 860w')}}"
+			srcset="{{asset('storage/medium_photos/'.$d->gallery_image.' 860w')}}"
 			srcset="{{asset('storage/medium_photos/'.$d->gallery_image.' 640w')}}"
 			srcset="{{asset('storage/mobile_photos/'.$d->gallery_image.' 420w')}}" 
             >
