@@ -68,7 +68,7 @@
 								 rel="tooltip" data-placement="bottom" title="" data-original-title="{{$img->user->name}}">
 									<i style="color: black" class="material-icons">person</i></a>
 								</a>
-								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->gallery_image) }}">
+								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
 						</div>
