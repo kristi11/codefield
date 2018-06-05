@@ -21,10 +21,10 @@ a {
         <div class="card-header card-chart">
           <picture>
             <img style="height:100%;object-fit: cover;" class="img-responsive img-rounded" 
-            src="{{asset('storage/galleries/'.$gallery->gallery_image)}}" 
-            srcset="{{asset('storage/galleries/'.$gallery->gallery_image)}},
-                    {{asset('storage/gallery_thumbnails/'.$gallery->gallery_image.' 600w')}}" 
-            sizes="(max-width:600px) 600w"
+            src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
+            srcset="{{asset('storage/large_photos/'.$gallery->gallery_image)}},
+                    {{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" 
+            sizes="(max-width:640px) 640w"
             alt="{{$gallery->alternative_text}}">
           </picture>
         </div>
