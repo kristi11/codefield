@@ -60,7 +60,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {  
         $this->validate(request(), [
-            'gallery_image'    => 'required|mimes:jpg,jpeg,png,webp',
+            'gallery_image'    => 'required',
             'tags'    => 'required'
         ]);
        
