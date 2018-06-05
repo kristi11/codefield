@@ -82,20 +82,19 @@ class GalleryController extends Controller
         $gallery -> alternative_text = Auth::user()->name.' '.'photos on'.' '.config('app.name');
         $gallery -> gallery_image = $file->hashName();
         $image = Image::make($file->getRealPath());
-
-       
-
-        // $image->resize(640, null, function ($constraint) {
-        // $constraint->aspectRatio();
-        // })->save($thumbnail_storage.$file->hashName())
-
-         $image->save($gallery_storage.$file->hashName())->resize(420, null, function ($constraint) {
+        $image->save($gallery_storage.$file->hashName())
+        
+        ->resize(640, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($mobile_photos_storage.$file->hashName());
+        })->save($thumbnail_storage.$file->hashName())
 
-        // $image->resize(10, null, function ($constraint) {
-        // $constraint->aspectRatio();
-        // })->save($tiny_photos_storage.$file->hashName());
+        ->resize(420, null, function ($constraint) {
+        $constraint->aspectRatio();
+        })->save($mobile_photos_storage.$file->hashName())
+
+        ->resize(10, null, function ($constraint) {
+        $constraint->aspectRatio();
+        })->save($tiny_photos_storage.$file->hashName());
 
 
         $gallery->downloads = 0;
