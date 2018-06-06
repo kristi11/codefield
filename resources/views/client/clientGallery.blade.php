@@ -33,7 +33,12 @@
 				@foreach ($gallery as $img)
 					<span class="c" >
 						{{-- <a href=""> --}}						
-						<progressive-img style="width: auto;max-width: 600px;" {{-- class="image size fit" --}} id="progressive-img"
+						<progressive-img
+ @onLoad="onLoad"
+  @onLoadPlaceholder="onLoadPlaceholder"
+  @onError="onError"
+  @onErrorPlaceholder="onErrorPlaceholder"
+						 style="width: auto;max-width: 600px;" {{-- class="image size fit" --}} id="progressive-img"
 						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
