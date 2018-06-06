@@ -39,7 +39,7 @@
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
 						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
 			            >
-						</div>	
+							
 						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="See more..">
@@ -70,6 +70,7 @@
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
+						</div>
 						</div>
 					</span>
 				@endforeach
