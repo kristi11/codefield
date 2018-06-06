@@ -294,7 +294,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 <td>
     <div class="card nospace">
         <a href="{{ url('g_photo/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-           <img style="width: auto;max-width: 600px;" class="lazyload" 
+           <img style="height: 198px;" class="lazyload" 
             src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
             alt="{{$p->alternative_text}}"
             data-sizes="auto"
