@@ -294,10 +294,16 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 <td>
     <div class="card nospace">
         <a href="{{ url('g_photo/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-            <img style="height:198px;" class="img-responsive img-raised fit" 
-            src="{{url('storage/mobile_photos/'.$p->gallery_image)}}"
-            alt="{{$p->alternative_text}}">
-        </a>
+           <img style="width: auto;max-width: 600px;" class="lazyload" 
+            src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
+            alt="{{$p->alternative_text}}"
+            data-sizes="auto"
+            data-src="{{asset('storage/medium_photos/'.$p->gallery_image)}}"
+            data-srcset="{{asset('storage/medium_photos/'.$p->gallery_image.' 860w')}},
+            {{asset('storage/medium_photos/'.$p->gallery_image.' 640w')}},
+            {{asset('storage/mobile_photos/'.$p->gallery_image.' 420w')}}"
+          >
+        </a>     
     </div>
 </td>
 @endforeach
