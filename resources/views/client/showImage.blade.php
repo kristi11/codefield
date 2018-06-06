@@ -20,15 +20,16 @@ a {
           <picture>
             <source
             media = "(min-width:860px)"
-            srcset="{{asset('storage/large_photos/'.$gallery->gallery_image.' 860w')}}">
+            data-srcset="{{asset('storage/large_photos/'.$gallery->gallery_image.' 860w')}}">
             <source 
             media = "(min-width:420px)"
-            srcset = "{{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" >
+            data-srcset = "{{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" >
             <source 
             media = "(max-width:420px)"
-            srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
-            <img style="height:100%;object-fit: cover;" class="img-responsive img-rounded" 
-            src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
+            data-srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
+            <img style="height:100%;object-fit: cover;" class="lazyload" 
+            src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
+            data-src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
             alt="{{$gallery->alternative_text}}">
           </picture>
         </div>
