@@ -33,12 +33,12 @@
 				@foreach ($gallery as $img)
 					<span class="c" >
 						{{-- <a href=""> --}}						
-						<img style="width: auto;max-width: 600px;" class="image size fit" 
-						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
+						<progressive-img style="width: auto;max-width: 600px;" class="image size fit" 
+						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
 						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
-			            >
+			            />
 						{{-- </a> --}}
 						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"

@@ -20,6 +20,9 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 // Vue.use(require('vue-resource'));
+import VueProgressiveImage from 'vue-progressive-image'
+
+Vue.use(VueProgressiveImage)
 const app = new Vue({
     el: '#app',
 });
