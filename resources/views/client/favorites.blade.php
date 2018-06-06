@@ -72,35 +72,46 @@
 		<div class="card fe_pr">
       <div class="pr_img">
         <div class="ct-chart" id="dailySalesChart">
-				<img style="max-height: 190px;object-fit: cover;" src="{{url('storage/gallery_thumbnails/'.$g->gallery_image)}}" alt="{{$g->alternative_text}}" class="img-rounded img-responsive">
+				  <picture>
+            <source
+            media = "(min-width:860px)"
+            srcset="{{asset('storage/medium_photos/'.$g->gallery_image.' 860w')}}">
+            <source 
+            media = "(min-width:420px)"
+            srcset = "{{asset('storage/medium_photos/'.$g->gallery_image.' 640w')}}" >
+            <source 
+            media = "(max-width:420px)"
+            srcset = "{{asset('storage/mobile_photos/'.$g->gallery_image.' 420w')}}" >
+            <img style="max-height: 190px;object-fit: cover;" class="img-responsive img-rounded" 
+            src="{{asset('storage/medium_photos/'.$g->gallery_image)}}" 
+            alt="{{$g->alternative_text}}">
+          </picture>
 			</div>
+    </div>	
+		  <div class="row">
+        <div class="text-center">
+          <a href="{{ url('photos/'.$g->gallery_image) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+          <i class="material-icons">search</i>
+          </a>
+         
+          <button hidden="">
+          <form action="{{ url('i/'.$g->id) }}" method="POST" >
+          {{ csrf_field() }}
+          <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
+          <i class="material-icons">file_download</i>
+          </button>
+          </form> 
+          </button>
+               {{-- <a href="{{ $g->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial" rel="noopener">
+          <i class="material-icons">videocam</i>
+          </a> --}}
+        <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$g->id) }}"
+          rel="tooltip" data-placement="bottom" title="" data-original-title="Remove from favorites">
+          <i class="material-icons">favorite</i></a>
+      </div>
     </div>
-			
-						                <div class="row">
-                <div class="text-center">
-                  <a href="{{ url('photos/'.$g->gallery_image) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
-                  <i class="material-icons">search</i>
-                  </a>
-                 
-                  <button hidden="">
-                  <form action="{{ url('i/'.$g->id) }}" method="POST" >
-                  {{ csrf_field() }}
-                  <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
-                  <i class="material-icons">file_download</i>
-                  </button>
-                  </form> 
-                  </button>
-                       {{-- <a href="{{ $g->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial" rel="noopener">
-                  <i class="material-icons">videocam</i>
-                  </a> --}}
-                <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$g->id) }}"
-                  rel="tooltip" data-placement="bottom" title="" data-original-title="Remove from favorites">
-                  <i class="material-icons">favorite</i></a>
-
-                </div>
-                </div>
-                <div class="card-content">
-                  <h4 class="title" id="title">Favorited image</h4>
+      <div class="card-content">
+        <h4 class="title" id="title">Favorited image</h4>
         @if($g->views == 0)
           <p class="category">No views</p>
         @elseif($g->views == 1)
