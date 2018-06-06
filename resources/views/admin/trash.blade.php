@@ -94,11 +94,14 @@
 	@foreach ($deleted_images as $image)
 <div class="col-xs-6 col-sm-3 col-md-6 col-lg-3 text-center">
 <div class="card fe_pr">
-	 <div class="card-header" data-background-color="{{ $item->app_color }}">
-	 		<i class="material-icons">image</i>
-	 </div>
-<div class="card-content">						
+	<div class="pr_img">
+	<img style="height: 100px; object-fit: cover;" src="{{ url('storage/mobile_photos/'.$image->unique_id) }}">
+	</div>
+
+<div class="card-content">
+						
 	<button hidden="">
+
 		<form method="POST" action="{{ url('/admin/trash/'.$image->id) }}">
 			{{ csrf_field() }}
 			<button class="btn btn-success btn-simple btn-xs" type="submit" rel="tooltip" data-placement="bottom" data-original-title="Restore"
@@ -107,6 +110,7 @@
 			</button>
 		</form>
 		</button>
+
 		<button hidden="">
 			<form method="POST" action="{{ url('/admin/trash/'.$image->id) }}">
 				{{ method_field('DELETE') }}
