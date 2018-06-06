@@ -20,28 +20,12 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 // Vue.use(require('vue-resource'));
-import VueProgressiveImage from 'vue-progressive-image'
+// import VueProgressiveImage from 'vue-progressive-image'
 
-Vue.use(VueProgressiveImage)
-const app = new Vue({
-    el: '#progressive-img',
-});
-export default {
-  methods: {
-    onLoad () {
-      // main image is loaded
-    },
-    onLoadPlaceholder () {
-      // placeholder image is loaded
-    },
-    onError (error) {
-      // main image error
-    },
-    onErrorPlaceholder (error) {
-      // placeholder image error
-    }
-  }
-}
+// Vue.use(VueProgressiveImage)
+// const app = new Vue({
+//     el: '#progressive-img',
+// });
 // import Turbolinks from 'turbolinks';
 // Turbolinks.start();
 
