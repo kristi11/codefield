@@ -34,7 +34,7 @@
 					<span class="c" >
 						{{-- <a href=""> --}}						
 						<img style="width: auto;max-width: 600px;" class="image size fit" 
-						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
+						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
 						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
@@ -80,5 +80,14 @@
 </div>
 
 <div class="col-xs-12 text-center">{{ $gallery->links('admin.mdl-bootstrap') }}</div>
-
+<script>
+window.addEventListener('load', function(){
+    var allimages= document.getElementsByTagName('img');
+    for (var i=0; i<allimages.length; i++) {
+        if (allimages[i].getAttribute('srcset')) {
+            allimages[i].setAttribute('src', allimages[i].getAttribute('srcset'));
+        }
+    }
+}, false)
+</script>
 @endsection
