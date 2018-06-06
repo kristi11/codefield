@@ -123,7 +123,7 @@ window.onload = function() {
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
-						</div> --}}
+						{{-- </div>  --}}
 					</span>
 				@endforeach
 			</div>
