@@ -24,7 +24,7 @@ import VueProgressiveImage from 'vue-progressive-image'
 
 Vue.use(VueProgressiveImage)
 const app = new Vue({
-    el: '#app',
+    el: '#progressive-img',
 });
 // import Turbolinks from 'turbolinks';
 // Turbolinks.start();
