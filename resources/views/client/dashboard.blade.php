@@ -235,7 +235,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 	<div class="col-sm-6 space-5">
 		<div class="card nospace">
 			<a href="{{ url('photos/'.$firstTwoImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-				 <img style="width: auto;max-width: 600px;" class="lazyload" 
+				 <img style="max-height: 170px;" class="lazyload" 
             src="{{asset('storage/tiny_photos/'.$firstTwoImages->gallery_image)}}" 
             alt="{{$firstTwoImages->alternative_text}}"
             data-sizes="auto"
@@ -254,7 +254,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 	<div class="col-sm-4 space-5">
 		<div class="card nospace">
 			<a href="{{ url('photos/'.$theRestImages->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-				<img style="width: auto;max-width: 600px;" class="lazyload" 
+				<img style="max-height: 141px;" class="lazyload" 
             src="{{asset('storage/tiny_photos/'.$theRestImages->gallery_image)}}" 
             alt="{{$theRestImages->alternative_text}}"
             data-sizes="auto"
@@ -335,7 +335,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 <td>
     <div class="card nospace">
         <a href="{{ url('photos/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-            <img style="width: auto;max-width: 600px;" class="lazyload" 
+            <img style="max-height: 198px;" class="lazyload" 
             src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
             alt="{{$p->alternative_text}}"
             data-sizes="auto"
