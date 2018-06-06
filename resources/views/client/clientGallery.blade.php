@@ -93,7 +93,7 @@ window.onload = function() {
 			            <div style="padding-bottom: 66.6%;"></div>
 			       		</div>
 						{{-- </a> --}}
-						<div class="middle text-center">
+{{-- 						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="See more..">
 									<i style="color: black" class="material-icons">remove_red_eye</i>
@@ -123,7 +123,7 @@ window.onload = function() {
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
-						</div>
+						</div> --}}
 					</span>
 				@endforeach
 			</div>
