@@ -116,7 +116,7 @@
                         <tr>
                             <td>
                             	<img class="size miniImg" style="height: 15px;width: 40px;" 
-                            	src="{{url('storage/gallery_thumbnails/'.$i->gallery_image)}}">
+                            	src="{{url('storage/mobile_photos/'.$i->gallery_image)}}">
                             </td>
                             <td>{{$i->views}}</td>
                             <td>{{$i->downloads}}</td>
