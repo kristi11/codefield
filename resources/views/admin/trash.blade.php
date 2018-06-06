@@ -95,7 +95,7 @@
 <div class="col-xs-6 col-sm-3 col-md-6 col-lg-3 text-center">
 <div class="card fe_pr">
 	<div class="pr_img">
-	<img style="height: 100px; object-fit: cover;" src="{{ url('storage/mobile_photos/'.$image->unique_id) }}">
+	<img style="height: 100px; object-fit: cover;" src="{{ url('storage/mobile_photos/'.$image->gallery_image) }}">
 	</div>
 
 <div class="card-content">
