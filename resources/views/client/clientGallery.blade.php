@@ -86,9 +86,9 @@ window.onload = function() {
 						<div class="placeholder" data-large="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}">					
 						<img style="width: auto;max-width: 600px;" class="image size fit" 
 						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
-						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
+						{{-- srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
-						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
+						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}"  --}}
 			            >
 			            <div style="padding-bottom: 66.6%;"></div>
 			       		</div>
