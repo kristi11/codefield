@@ -239,7 +239,7 @@ class HomeController extends Controller
             $gallery->delete();
             $gallery->favorites()->delete();
             // Storage::move('galleries/'.$gallery->image, 'trash/'.$gallery->image);
-            Storage::move('storage/gallery_thumbnails/'.$gallery->gallery_image, 'storage/trash/'.$gallery->gallery_image);
+            // Storage::move('storage/gallery_thumbnails/'.$gallery->gallery_image, 'storage/trash/'.$gallery->gallery_image);
             session()->flash('message','Image sent to Trash');
             return back();
         }
@@ -247,7 +247,10 @@ class HomeController extends Controller
     public function permanently_delete_image($id){
         $deleted_images = Gallery::onlyTrashed()->find($id);
         Storage::delete('storage/trash/'.$deleted_images->gallery_image);
-        Storage::delete('storage/gallery_thumbnails/'.$deleted_images->gallery_image);
+        Storage::delete('storage/tiny_photos/'.$deleted_images->gallery_image);
+        Storage::delete('storage/mobile_photos/'.$deleted_images->gallery_image);
+        Storage::delete('storage/medium_photos/'.$deleted_images->gallery_image);
+        Storage::delete('storage/large_photos/'.$deleted_images->gallery_image);
         Storage::delete('storage/galleries/'.$deleted_images->gallery_image);
         $deleted_images->forceDelete();
         $deleted_images->favorites()->forceDelete();
@@ -257,10 +260,9 @@ class HomeController extends Controller
 
     public function restore_deleted_image($id){
         $deleted_images = Gallery::onlyTrashed()->find($id);
-        Storage::move('storage/trash/'.$deleted_images->gallery_image, 'storage/gallery_thumbnails/'.$deleted_images->gallery_image);
-                $deleted_images -> restore();
-                $deleted_images->favorites()->restore();
-
+        // Storage::move('storage/trash/'.$deleted_images->gallery_image, 'storage/gallery_thumbnails/'.$deleted_images->gallery_image);
+        $deleted_images -> restore();
+        $deleted_images->favorites()->restore();
         // Storage::move('trash/'.$deleted_images->zip_file, 'zip_files/'.$deleted_images->zip_file);
         session()->flash('message','Image restored');
         return back();
