@@ -1,55 +1,5 @@
 @extends('client.home')
 @section('gallery')
-<style> 
-.placeholder {
-  background-color: #f6f6f6;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-
-.placeholder img {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: opacity 1s linear;
-}
-
-.placeholder img.loaded {
-  opacity: 1;
-}
-
-.img-small {
-  filter: blur(50px);
-  /* this is needed so Safari keeps sharp edges */
-  transform: scale(1);
-}
-</style>
-<script>
-window.onload = function() {
-  
-  var placeholder = document.querySelector('.placeholder'),
-      small = placeholder.querySelector('.img-small')
-  
-  // 1: load small image and show it
-  var img = new Image();
-  img.src = small.src;
-  img.onload = function () {
-   small.classList.add('loaded');
-  };
-  
-  // 2: load large image
-  var imgLarge = new Image();
-  imgLarge.src = placeholder.dataset.large; 
-  imgLarge.onload = function () {
-    imgLarge.classList.add('loaded');
-  };
-  placeholder.appendChild(imgLarge);
-}
-</script>
 <div class="col-xs-12">
 	<ul class="nav nav-pills " role="tablist">
 
@@ -79,21 +29,18 @@ window.onload = function() {
 	
 	<div class="card">
 		<div class="card-content">			
-			<div class="" >
+			<div class="flexbin flexbin-margin" >
 				@foreach ($gallery as $img)
-					<span class="" >
-						{{-- <a href=""> --}}	
-						<div class="placeholder" data-large="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}">					
+					<span class="c" >
+						{{-- <a href=""> --}}						
 						<img style="width: auto;max-width: 600px;" class="image size fit" 
-						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
-						{{-- srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
+						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
+						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
-						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}"  --}}
+						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
 			            >
-			            <div style="padding-bottom: 66.6%;"></div>
-			       		</div>
 						{{-- </a> --}}
-{{-- 						<div class="middle text-center">
+						<div class="middle text-center">
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('photos/'.$img->unique_id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="See more..">
 									<i style="color: black" class="material-icons">remove_red_eye</i>
@@ -123,7 +70,7 @@ window.onload = function() {
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
 								<i style="color: white" class="material-icons">more_horiz</i></a>		
 							{{-- </div> --}}
-						{{-- </div>  --}}
+						</div>
 					</span>
 				@endforeach
 			</div>
