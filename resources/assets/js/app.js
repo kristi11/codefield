@@ -20,9 +20,9 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 // Vue.use(require('vue-resource'));
-// const app = new Vue({
-//     el: '#app',
-// });
+const app = new Vue({
+    el: '#app',
+});
 // import Turbolinks from 'turbolinks';
 // Turbolinks.start();
 
