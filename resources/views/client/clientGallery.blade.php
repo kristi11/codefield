@@ -79,7 +79,7 @@ window.onload = function() {
 	
 	<div class="card">
 		<div class="card-content">			
-			<div class="flexbin flexbin-margin" >
+			<div class="" >
 				@foreach ($gallery as $img)
 					<span class="c" >
 						{{-- <a href=""> --}}	
