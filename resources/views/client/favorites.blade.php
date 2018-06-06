@@ -90,7 +90,7 @@
     </div>	
 		  <div class="row">
         <div class="text-center">
-          <a href="{{ url('photos/'.$g->gallery_image) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+          <a href="{{ url('photos/'.$g->unique_id) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
           <i class="material-icons">search</i>
           </a>
          
