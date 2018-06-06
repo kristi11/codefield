@@ -81,7 +81,7 @@ window.onload = function() {
 		<div class="card-content">			
 			<div class="" >
 				@foreach ($gallery as $img)
-					<span class="c" >
+					<span class="" >
 						{{-- <a href=""> --}}	
 						<div class="placeholder" data-large="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}">					
 						<img style="width: auto;max-width: 600px;" class="image size fit" 
