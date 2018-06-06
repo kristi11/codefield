@@ -34,7 +34,7 @@
 					<span class="c" >
 						{{-- <a href=""> --}}						
 						<progressive-img style="width: auto;max-width: 600px;" class="image size fit" id="progressive-img"
-						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
+						src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}}"
 						srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}}"
 						srcset="{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}" 
