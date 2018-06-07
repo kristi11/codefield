@@ -8,7 +8,7 @@
       <div class="pr_img">
         <div class="ct-chart" id="dailySalesChart">
 				<img 
-          style="max-height: 190px;object-fit: cover;"
+          style="height: 190px;object-fit: cover;"
           class="lazyload img-rounded img-responsive fit"
           src="{{url('storage/avatars/'.'placeholder-'.$widget->image)}}" 
           data-src="{{url('storage/avatars/'.$widget->image)}}" 
@@ -86,7 +86,7 @@
             <source 
             media = "(max-width:420px)"
             data-srcset = "{{asset('storage/mobile_photos/'.$g->gallery_image.' 420w')}}" >
-            <img style="max-height: 190px;object-fit: cover;" 
+            <img style="height: 190px;object-fit: cover;" 
             class="lazyload img-responsive img-rounded" 
             src="{{asset('storage/tiny_photos/'.$g->gallery_image)}}" 
             data-src="{{asset('storage/medium_photos/'.$g->gallery_image)}}" 
