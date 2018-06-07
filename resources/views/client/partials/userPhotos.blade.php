@@ -6,7 +6,7 @@
 <div class="flexbin flexbin-margin" >
 	@foreach ($data as $d)
 		<span class="c" >
-			<img style="width: auto;max-width: 600px;" class="lazyload blur-up" 
+			<img style="object-fit:cover;width: auto;max-width: 600px;" class="lazyload blur-up" 
 				src="{{asset('storage/tiny_photos/'.$d->gallery_image)}}" 
 				data-sizes="auto"
 				data-src="{{asset('storage/medium_photos/'.$d->gallery_image)}}"

@@ -249,7 +249,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
                   <picture>
-                   <img style="max-height: 300px;" class="lazyload blur-up img-responsive img-rounded fit" 
+                   <img style="object-fit:cover;max-height: 300px;" class="lazyload blur-up img-responsive img-rounded fit" 
                    src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
                    data-src="{{asset('storage/avatars/'.$widget->image)}}"
                    alt="{{$widget->alternative_text}}">
@@ -295,7 +295,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 <td>
     <div class="card nospace">
         <a href="{{ url('g_photo/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-           <img style="height: 198px;" class="lazyload blur-up" 
+           <img style="object-fit:cover;height: 198px;" class="lazyload blur-up" 
             src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
             alt="{{$p->alternative_text}}"
             data-sizes="auto"
