@@ -51,14 +51,12 @@
               font-style: normal;
             }
             .blur-up {
-              -webkit-filter: blur(0.5px);
-              filter: blur(0.5px);
-              transition: filter 400ms, -webkit-filter 400ms;
+             opacity: 0;
+    transition: opacity 400ms;
             }
 
             .blur-up.lazyloaded {
-              -webkit-filter: blur(0);
-              filter: blur(0);
+              opacity: 1;
             }
         </style>
         <script type="application/ld+json">
