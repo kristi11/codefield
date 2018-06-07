@@ -50,6 +50,16 @@
               font-weight: normal;
               font-style: normal;
             }
+            .blur-up {
+              -webkit-filter: blur(5px);
+              filter: blur(5px);
+              transition: filter 400ms, -webkit-filter 400ms;
+            }
+
+            .blur-up.lazyloaded {
+              -webkit-filter: blur(0);
+              filter: blur(0);
+            }
         </style>
         <script type="application/ld+json">
         {
