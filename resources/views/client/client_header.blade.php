@@ -50,13 +50,6 @@
               font-weight: normal;
               font-style: normal;
             }
-            .lazyload,
-.lazyloading {
-  opacity: 0;
-}
-.lazyloaded {
-  opacity: 1;
-  transition: opacity 300ms;}
             .blur-up {
               -webkit-filter: blur(5px);
               filter: blur(5px);
