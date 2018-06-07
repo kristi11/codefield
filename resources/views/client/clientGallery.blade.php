@@ -33,7 +33,7 @@
 				@foreach ($gallery as $img)
 					<span class="c" >
 						{{-- <a href=""> --}}						
-						<img style="width: auto;max-width: 600px;" class="lazyload" 
+						<img style="width: auto;max-width: 600px;" class="lazyload blur-up" 
 						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}" 
 						data-sizes="auto"
 						data-src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"

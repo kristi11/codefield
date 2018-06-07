@@ -5,17 +5,14 @@
    color: #4caf50;
    opacity: 0.8;
 }
-
 a {
     color: #4caf50;
 }
 </style>
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
-    <form method="POST" action="{{ url('i/'.$gallery->id) }}">
-     
-      {{ csrf_field() }}
-        
+    <form method="POST" action="{{ url('i/'.$gallery->id) }}">    
+      {{ csrf_field() }}        
         <div class="card-header card-chart">
           <picture>
             <source
@@ -27,7 +24,7 @@ a {
             <source 
             media = "(max-width:420px)"
             data-srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
-            <img style="height:100%;object-fit: cover;" class="lazyload" 
+            <img style="height:100%;object-fit: cover;" class="lazyload blur-up" 
             src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
             data-src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
             alt="{{$gallery->alternative_text}}">
@@ -63,11 +60,7 @@ a {
 	         	Posted  {{ $gallery->created_at->diffForHumans() }}
 	         </p>
 		</div>
-      <h4 class="title" id="title">{{ $gallery->title }}</h4>
-{{--                   <p class="category">{{ $gallery->body }}.</p>
- --}}    
-     
-      
+      <h4 class="title" id="title">{{ $gallery->title }}</h4>    
       <div class="text-right">
       <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
         Download
@@ -75,8 +68,6 @@ a {
       </div>
       </div>
     </form>
- </div>
-                            
-                            
+ </div>                          
  </div>
 @endsection

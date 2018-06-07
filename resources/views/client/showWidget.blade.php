@@ -19,7 +19,7 @@ a {
         <div class="card-header card-chart">
           <img 
             style="object-fit: cover;" 
-            class="lazyload fit img-responsive img-rounded" 
+            class="lazyload blur-up fit img-responsive img-rounded" 
             src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
             data-src="{{asset('storage/avatars/'.$widget->image)}}"
             alt="{{$widget->alternative_text}}">

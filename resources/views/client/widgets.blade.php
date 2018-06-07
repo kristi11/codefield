@@ -33,7 +33,7 @@
                   <picture>
                    <img 
                      style="max-height: 300px;" 
-                     class="lazyload img-responsive img-rounded fit" 
+                     class="lazyload blur-up img-responsive img-rounded fit" 
                      src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}" 
                      data-src="{{asset('storage/avatars/'.$widget->image)}}" 
                      alt="{{$widget->alternative_text}}">
