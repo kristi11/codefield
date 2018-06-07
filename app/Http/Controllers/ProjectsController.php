@@ -171,7 +171,7 @@ public function __construct()
         {$constraint->upsize();})->save($profiles_storage.$profile->hashName())
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(10)->save($profiles_storage.$profile->hashName().'-placeholder');
+        })->blur(10)->save($profiles_storage.'placeholder-'.$profile->hashName());
         
         // request()-> file('zip_file')->store('storage/zip_files/');
         // $project -> zip_file = request()->file('zip_file')->hashName();
