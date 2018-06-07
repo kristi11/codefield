@@ -7,12 +7,16 @@
 		<div class="card fe_pr">
       <div class="pr_img">
         <div class="ct-chart" id="dailySalesChart">
-				<img style="max-height: 190px;object-fit: cover;" src="{{url('storage/avatars/'.$widget->image)}}" 
-        alt="{{$widget->alternative_text}}" class="img-rounded img-responsive fit">
+				<img 
+          style="max-height: 190px;object-fit: cover;"
+          class="lazyload img-rounded img-responsive fit"
+          src="{{url('storage/avatars/'.'placeholder-'.$widget->image)}}" 
+          data-src="{{url('storage/avatars/'.$widget->image)}}" 
+          alt="{{$widget->alternative_text}}">
       </div>
     </div>
 		
-			                <div class="row">
+			       <div class="row">
                 <div class="text-center">
                   <a href="{{ url('projects/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
@@ -75,15 +79,17 @@
 				  <picture>
             <source
             media = "(min-width:860px)"
-            srcset="{{asset('storage/medium_photos/'.$g->gallery_image.' 860w')}}">
+            data-srcset="{{asset('storage/medium_photos/'.$g->gallery_image.' 860w')}}">
             <source 
             media = "(min-width:420px)"
-            srcset = "{{asset('storage/medium_photos/'.$g->gallery_image.' 640w')}}" >
+            data-srcset = "{{asset('storage/medium_photos/'.$g->gallery_image.' 640w')}}" >
             <source 
             media = "(max-width:420px)"
-            srcset = "{{asset('storage/mobile_photos/'.$g->gallery_image.' 420w')}}" >
-            <img style="max-height: 190px;object-fit: cover;" class="img-responsive img-rounded" 
-            src="{{asset('storage/medium_photos/'.$g->gallery_image)}}" 
+            data-srcset = "{{asset('storage/mobile_photos/'.$g->gallery_image.' 420w')}}" >
+            <img style="max-height: 190px;object-fit: cover;" 
+            class="lazyload img-responsive img-rounded" 
+            src="{{asset('storage/tiny_photos/'.$g->gallery_image)}}" 
+            data-src="{{asset('storage/medium_photos/'.$g->gallery_image)}}" 
             alt="{{$g->alternative_text}}">
           </picture>
 			</div>

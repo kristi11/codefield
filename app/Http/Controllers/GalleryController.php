@@ -98,7 +98,7 @@ class GalleryController extends Controller
 
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(30)->save($tiny_photos_storage.$file->hashName());
+        })->blur(1)->save($tiny_photos_storage.$file->hashName());
 
 
         $gallery->downloads = 0;

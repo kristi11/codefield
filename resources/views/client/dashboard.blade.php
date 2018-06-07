@@ -209,8 +209,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 	<div class="col-xs-6 col-sm-6 space-5">
 		<div class="card nospace">
 			<a href="{{ url('projects/'.$firstTwo->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $firstTwo->title }}">
-				<img class="img-responsive img-raised fit" src="{{url('storage/avatars/'.$firstTwo->image)}}"
-                alt="{{ $firstTwo->alternative_text }}">
+				<img 
+          class="lazyload img-responsive img-raised fit" 
+          src="{{url('storage/avatars/'.'placeholder-'.$firstTwo->image)}}"
+          data-src="{{url('storage/avatars/'.$firstTwo->image)}}"
+          alt="{{ $firstTwo->alternative_text }}">
 			</a>
 		</div>
 	</div>
@@ -221,7 +224,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 	<div class="col-xs-4 col-sm-4 space-5">
 		<div class="card nospace">
 			<a href="{{ url('projects/'.$theRest->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $theRest->title }}">
-				<img class="img-responsive img-raised fit" src="{{url('storage/avatars/'.$theRest->image)}}"
+				<img 
+          class="lazyload img-responsive img-raised fit" 
+          src="{{url('storage/avatars/'.'placeholder-'.$theRest->image)}}"
+          data-src="{{url('storage/avatars/'.$theRest->image)}}"
           alt="{{ $theRest->alternative_text }}">
 			</a>
 		</div>
@@ -282,9 +288,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
                   <picture>
-                   <img style="max-height: 300px;" class="img-responsive img-rounded fit" 
-                   src="{{asset('storage/avatars/'.$widget->image)}}"
-                   alt="{{$widget->alternative_text}}">
+                   <img 
+                     style="max-height: 300px;" 
+                     class="lazyload img-responsive img-rounded fit" 
+                     src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
+                     data-src="{{asset('storage/avatars/'.$widget->image)}}"
+                     alt="{{$widget->alternative_text}}">
                    </picture>
                   </div>
                 </div>
@@ -336,14 +345,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
     <div class="card nospace">
         <a href="{{ url('photos/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
             <img style="max-height: 198px;" class="lazyload img-responsive img-raised fit" 
-            src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
-            alt="{{$p->alternative_text}}"
-            data-sizes="auto"
-            data-src="{{asset('storage/medium_photos/'.$p->gallery_image)}}"
-            data-srcset="{{asset('storage/medium_photos/'.$p->gallery_image.' 860w')}},
-            {{asset('storage/medium_photos/'.$p->gallery_image.' 640w')}},
-            {{asset('storage/mobile_photos/'.$p->gallery_image.' 420w')}}"
-          >
+              src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
+              alt="{{$p->alternative_text}}"
+              data-sizes="auto"
+              data-src="{{asset('storage/medium_photos/'.$p->gallery_image)}}"
+              data-srcset="{{asset('storage/medium_photos/'.$p->gallery_image.' 860w')}},
+              {{asset('storage/medium_photos/'.$p->gallery_image.' 640w')}},
+              {{asset('storage/mobile_photos/'.$p->gallery_image.' 420w')}}"
+            >
         </a>
     </div>
 </td>
