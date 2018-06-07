@@ -51,8 +51,8 @@
               font-style: normal;
             }
             .blur-up {
-              /*-webkit-filter: blur(1px);
-              filter: blur(1px);*/
+              -webkit-filter: blur(0.5px);
+              filter: blur(0.5px);
               transition: filter 400ms, -webkit-filter 400ms;
             }
 
