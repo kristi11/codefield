@@ -10,9 +10,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
-<script>
+{{-- <script>
 lazySizes.init();
-</script>
+</script> --}}
 <script async>
 	$(function() {
     $("div#photo").show();
