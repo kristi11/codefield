@@ -29,7 +29,7 @@ a {
             <source 
             media = "(max-width:420px)"
             data-srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
-            <img style="height:100%;object-fit: cover;" class="lazyload" 
+            <img style="height:100%;object-fit: cover;" class="lazyload blur-up" 
             src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
             data-src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
             alt="{{$gallery->alternative_text}}">
