@@ -154,13 +154,13 @@ public function __construct()
     {
          $this->validate(request(), [
             'avatar'   => 'required|mimes:jpeg,png',
-            'zip_file' => 'required|mimes:zip,rar',
+            // 'zip_file' => 'required|mimes:zip,rar',
         ]);
 
         $profiles_storage = public_path('storage/avatars/');
         $project =  Project::findOrFail($id);
         Storage::delete('storage/avatars/'.$project->image);
-        Storage::delete('storage/zip_files/'.$project->zip_file);
+        // Storage::delete('storage/zip_files/'.$project->zip_file);
         $project -> user_id = auth()->id();
         request()-> file('avatar')->store('avatars');
         $project -> image = request()->file('avatar')->hashName();
@@ -172,8 +172,8 @@ public function __construct()
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
         })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);  
-        request()-> file('zip_file')->store('storage/zip_files/');
-        $project -> zip_file = request()->file('zip_file')->hashName();        
+        // request()-> file('zip_file')->store('storage/zip_files/');
+        // $project -> zip_file = request()->file('zip_file')->hashName();        
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
