@@ -34,12 +34,12 @@
 					<span class="c" >
 						{{-- <a href=""> --}}						
 						<img style="object-fit:cover;width: auto;max-width: 600px;" class="lazyload blur-up" 
-						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}" 
+						src="{{asset('storage/tiny_photos/'.'tiny-'.$img->gallery_image)}}" 
 						data-sizes="auto"
-						data-src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
-						data-srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}},
-						{{asset('storage/medium_photos/'.$img->gallery_image.' 640w')}},
-						{{asset('storage/mobile_photos/'.$img->gallery_image.' 420w')}}"
+						data-src="{{asset('storage/medium_photos/'.'medium-'.$img->gallery_image)}}"
+						data-srcset="{{asset('storage/medium_photos/'.'medium-'.$img->gallery_image.' 860w')}},
+						{{asset('storage/medium_photos/'.'medium-'.$img->gallery_image.' 640w')}},
+						{{asset('storage/mobile_photos/'.'mobile-'.$img->gallery_image.' 420w')}}"
 			            >
 						{{-- </a> --}}
 						<div class="middle text-center">
