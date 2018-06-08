@@ -153,7 +153,7 @@ public function __construct()
     public function updateUploads($id, Request $request)
     {
          $this->validate(request(), [
-            'avatar'   => 'required|mimes:jpeg,png',
+            'avatar'   => 'required|mimes:jpeg,png'
             // 'zip_file' => 'required|mimes:zip,rar',
         ]);
 
