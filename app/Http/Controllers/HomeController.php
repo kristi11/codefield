@@ -150,6 +150,9 @@ class HomeController extends Controller
             $deleted_admins = User::onlyTrashed()->get();
             $deleted_projects = Project::onlyTrashed()->get();
             $deleted_images = Gallery::onlyTrashed()->get();
+            $deleted_admins-> forceDelete();
+            $deleted_projects-> forceDelete();
+            $deleted_images-> forceDelete();
             $items = Storage::allFiles('storage/trash');
             $items2 = Storage::allFiles('storage/galleries');
             $items3 = Storage::allFiles('storage/gallery_thumbnails');
@@ -164,9 +167,6 @@ class HomeController extends Controller
             Storage::delete($items5);
             Storage::delete($items6);
             Storage::delete($items7);
-            $deleted_admins->forceDelete();
-            $deleted_projects->forceDelete();
-            $deleted_images->forceDelete();
             session()->flash('message','Trash emptied');
             return back();
         }
