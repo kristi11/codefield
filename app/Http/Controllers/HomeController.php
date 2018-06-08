@@ -149,7 +149,7 @@ class HomeController extends Controller
     public function delete_all(){
             $deleted_admins = User::onlyTrashed()->forcedelete();
             $deleted_projects = Project::onlyTrashed()->forcedelete();
-            $deleted_images = Gallery::onlyTrashed()->forcedelete();
+            $deleted_images = Gallery::onlyTrashed()->get();
             $items = Storage::allFiles('storage/trash');
             $items2 = Storage::allFiles('storage/galleries');
             $items3 = Storage::allFiles('storage/gallery_thumbnails');
@@ -164,6 +164,7 @@ class HomeController extends Controller
             Storage::delete($items5);
             Storage::delete($items6);
             Storage::delete($items7);
+            $deleted_images->forceDelete();
             session()->flash('message','Trash emptied');
             return back();
         }
@@ -179,27 +180,27 @@ class HomeController extends Controller
         }
 
     public function trash(){
-         // $title = 'Trash';
-         // $deleted_admins = User::onlyTrashed()->get();
-         // $deleted_projects = Project::onlyTrashed()->get();
-         // $deleted_images = Gallery::onlyTrashed()->get();
-         // if ((count($deleted_admins)<=0) && (count($deleted_projects)<=0) && (count($deleted_images)<=0)) {
-         //     return view('admin.empty_trash',compact('title'));
-         // }
-         // else if ((!$deleted_admins) && (!$deleted_images) && (count($deleted_projects)>0)) {
-         //              return view('admin.trash',compact('deleted_projects','title'));
+         $title = 'Trash';
+         $deleted_admins = User::onlyTrashed()->get();
+         $deleted_projects = Project::onlyTrashed()->get();
+         $deleted_images = Gallery::onlyTrashed()->get();
+         if ((count($deleted_admins)<=0) && (count($deleted_projects)<=0) && (count($deleted_images)<=0)) {
+             return view('admin.empty_trash',compact('title'));
+         }
+         else if ((!$deleted_admins) && (!$deleted_images) && (count($deleted_projects)>0)) {
+                      return view('admin.trash',compact('deleted_projects','title'));
 
-         // }
-         // else if ((count($deleted_admins)>0) && (!$deleted_projects) && (!$deleted_images)) {
-         //              return view('admin.trash',compact('deleted_admins','title'));
+         }
+         else if ((count($deleted_admins)>0) && (!$deleted_projects) && (!$deleted_images)) {
+                      return view('admin.trash',compact('deleted_admins','title'));
 
-         // }
-         // else if ((!$deleted_admins) && (!$deleted_projects) && (count($deleted_images)>0)) {
-         //              return view('admin.trash',compact('deleted_images','title'));
-         // }
-         // else
-         // return view('admin.trash',compact('deleted_admins','deleted_projects','deleted_images','title'));
-        dd(Storage::allFiles('storage/trash'));
+         }
+         else if ((!$deleted_admins) && (!$deleted_projects) && (count($deleted_images)>0)) {
+                      return view('admin.trash',compact('deleted_images','title'));
+         }
+         else
+         return view('admin.trash',compact('deleted_admins','deleted_projects','deleted_images','title'));
+        // dd(Storage::allFiles('storage/trash'));
     }
 
     public function permanently_delete_admin($id){
