@@ -243,7 +243,7 @@ class HomeController extends Controller
             $gallery = Gallery::findOrFail($id);
             $gallery->delete();
             $gallery->favorites()->delete();
-            Storage::move('galleries/'.$gallery->image, 'storage/trash/'.$gallery->image);
+            Storage::move('storage/galleries/'.$gallery->image, 'storage/trash/'.$gallery->image);
             Storage::move('storage/large_photos/'.'large-'.$gallery->gallery_image, 
                             'storage/trash/'.'large-'.$gallery->gallery_image);
             Storage::move('storage/medium_photos/'.'medium-'.$gallery->gallery_image, 
