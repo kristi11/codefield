@@ -149,7 +149,7 @@ class HomeController extends Controller
     public function delete_all(){
             $deleted_admins = User::onlyTrashed()->get();
             $deleted_projects = Project::onlyTrashed()->get();
-            $deleted_images = Gallery::onlyTrashed()->get();
+            $deleted_images = Gallery::latest()->get();
             $deleted_admins-> forceDelete();
             $deleted_projects-> forceDelete();
             $deleted_images-> forceDelete();
