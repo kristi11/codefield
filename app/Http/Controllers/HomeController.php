@@ -199,7 +199,7 @@ class HomeController extends Controller
          // }
          // else
          // return view('admin.trash',compact('deleted_admins','deleted_projects','deleted_images','title'));
-        dd(Storage::allFiles('storage/galleries'));
+        dd(Storage::allFiles('storage/large_photos'));
     }
 
     public function permanently_delete_admin($id){
