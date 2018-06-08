@@ -162,7 +162,7 @@ public function __construct()
         Storage::delete('storage/avatars/'.$project->image);
         // Storage::delete('storage/zip_files/'.$project->zip_file);
         $project -> user_id = auth()->id();
-        request()-> file('avatar')->store('avatars');
+        request()-> file('avatar')->store('storage/avatars');
         $project -> image = request()->file('avatar')->hashName();
         $profile = request()->file('avatar');
         $project->image = $profile->hashName();
