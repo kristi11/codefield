@@ -179,27 +179,27 @@ class HomeController extends Controller
         }
 
     public function trash(){
-         // $title = 'Trash';
-         // $deleted_admins = User::onlyTrashed()->get();
-         // $deleted_projects = Project::onlyTrashed()->get();
-         // $deleted_images = Gallery::onlyTrashed()->get();
-         // if ((count($deleted_admins)<=0) && (count($deleted_projects)<=0) && (count($deleted_images)<=0)) {
-         //     return view('admin.empty_trash',compact('title'));
-         // }
-         // else if ((!$deleted_admins) && (!$deleted_images) && (count($deleted_projects)>0)) {
-         //              return view('admin.trash',compact('deleted_projects','title'));
+         $title = 'Trash';
+         $deleted_admins = User::onlyTrashed()->get();
+         $deleted_projects = Project::onlyTrashed()->get();
+         $deleted_images = Gallery::onlyTrashed()->get();
+         if ((count($deleted_admins)<=0) && (count($deleted_projects)<=0) && (count($deleted_images)<=0)) {
+             return view('admin.empty_trash',compact('title'));
+         }
+         else if ((!$deleted_admins) && (!$deleted_images) && (count($deleted_projects)>0)) {
+                      return view('admin.trash',compact('deleted_projects','title'));
 
-         // }
-         // else if ((count($deleted_admins)>0) && (!$deleted_projects) && (!$deleted_images)) {
-         //              return view('admin.trash',compact('deleted_admins','title'));
+         }
+         else if ((count($deleted_admins)>0) && (!$deleted_projects) && (!$deleted_images)) {
+                      return view('admin.trash',compact('deleted_admins','title'));
 
-         // }
-         // else if ((!$deleted_admins) && (!$deleted_projects) && (count($deleted_images)>0)) {
-         //              return view('admin.trash',compact('deleted_images','title'));
-         // }
-         // else
-         // return view('admin.trash',compact('deleted_admins','deleted_projects','deleted_images','title'));
-        dd(Storage::allFiles('galleries'));
+         }
+         else if ((!$deleted_admins) && (!$deleted_projects) && (count($deleted_images)>0)) {
+                      return view('admin.trash',compact('deleted_images','title'));
+         }
+         else
+         return view('admin.trash',compact('deleted_admins','deleted_projects','deleted_images','title'));
+        // dd(Storage::allFiles('storage/galleries'));
     }
 
     public function permanently_delete_admin($id){
