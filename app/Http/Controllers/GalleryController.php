@@ -83,23 +83,23 @@ class GalleryController extends Controller
         $gallery -> gallery_image = $file->hashName();
         $image = Image::make($file->getRealPath());
 
-        $image->save($gallery_storage.$file->hashName())
+        $image->save($gallery_storage.$file->hashName(),100)
 
         ->resize(860, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($large_photos_storage.'large-'.$file->hashName(),100)
+        })->save($large_photos_storage.$file->hashName(),85)
 
         ->resize(640, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($medium_photos_storage.'medium-'.$file->hashName(),85)
+        })->save($medium_photos_storage.$file->hashName(),85)
 
         ->resize(420, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->save($mobile_photos_storage.'mobile-'.$file->hashName(),85)
+        })->save($mobile_photos_storage.$file->hashName(),85)
 
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(1)->save($tiny_photos_storage.'tiny-'.$file->hashName(),85);
+        })->blur(1)->save($tiny_photos_storage.$file->hashName(),85);
 
         $gallery->downloads = 0;
         $gallery->save();
@@ -169,11 +169,11 @@ class GalleryController extends Controller
             $gallery = Gallery::findOrFail($id);
             $gallery->forceDelete();
             $gallery->favorites()->delete();
-            Storage::delete('storage/galleries/'.$deleted_images->gallery_image);
-            Storage::delete('storage/large_photos/'.'large-'.$deleted_images->gallery_image);
-            Storage::delete('storage/medium_photos/'.'medium-'.$deleted_images->gallery_image);
-            Storage::delete('storage/mobile_photos/'.'mobile-'.$deleted_images->gallery_image);
-            Storage::delete('storage/tiny_photos/'.'tiny-'.$deleted_images->gallery_image);
+            Storage::delete('storage/galleries/'.$gallery->gallery_image);
+            Storage::delete('storage/large_photos/'.$gallery->gallery_image);
+            Storage::delete('storage/medium_photos/'.$gallery->gallery_image);
+            Storage::delete('storage/mobile_photos/'.$gallery->gallery_image);
+            Storage::delete('storage/tiny_photos/'.$gallery->gallery_image);
             session()->flash('message','Photo deleted');
             return back();
         } 

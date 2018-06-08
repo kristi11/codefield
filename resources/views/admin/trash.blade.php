@@ -1,7 +1,7 @@
 @extends('admin.sidebar')
 @section('trash')
 <div class="col-xs-12">
-	<div class="col-xs-12 text-right">
+	{{-- <div class="col-xs-12 text-right">
 		<form  method="POST" action="{{ url('delete_all') }}">
 			{{ method_field('DELETE') }}
 			{{ csrf_field() }}
@@ -13,7 +13,7 @@
 				Empty trash
 			</button>
 		</form>
-	</div>
+	</div> --}}
 <div class="row">
 @foreach ($deleted_admins as $user)
 	<div class="col-xs-6 col-sm-3 col-md-6 col-lg-3 text-center">
@@ -123,7 +123,7 @@
 	<div class="card fe_pr">
 		<div class="pr_img">
 			<img style="height: 100px; object-fit: cover;" 
-			src="{{ url('storage/trash/'.$image->gallery_image) }}">
+			src="{{ url('storage/mobile_photos/'.$image->gallery_image) }}">
 		</div>
 		<div class="card-content">					
 			<button hidden="">
