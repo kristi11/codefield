@@ -123,7 +123,7 @@
 	<div class="card fe_pr">
 		<div class="pr_img">
 			<img style="height: 100px; object-fit: cover;" 
-			src="{{ Storage::get('storage/mobile_photos/'.$image->gallery_image) }}">
+			src="{{ Storage::url('storage/mobile_photos/'.$image->gallery_image) }}">
 		</div>
 		<div class="card-content">					
 			<button hidden="">
