@@ -70,10 +70,10 @@ public function __construct()
         $project->image = $profile->hashName();
         $image = Image::make($profile->getRealPath());
         $image->fit(640, 360, function ($constraint) 
-        { $constraint->upsize();})->save($profiles_storage.$profile->hashName())
+        { $constraint->upsize();})->save($profiles_storage.$profile->hashName(),85)
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName());
+        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
 
 
 
@@ -168,10 +168,10 @@ public function __construct()
         $project->image = $profile->hashName();
         $image = Image::make($profile->getRealPath());
         $image->fit(640, 360, function ($constraint) 
-        {$constraint->upsize();})->save($profiles_storage.$profile->hashName())
+        {$constraint->upsize();})->save($profiles_storage.$profile->hashName(),85)
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName());  
+        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);  
         request()-> file('zip_file')->store('storage/zip_files/');
         $project -> zip_file = request()->file('zip_file')->hashName();        
         $project -> save();
