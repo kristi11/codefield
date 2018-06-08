@@ -151,6 +151,11 @@ class HomeController extends Controller
             $deleted_projects = Project::onlyTrashed()->forcedelete();
             $deleted_images = Gallery::onlyTrashed()->forcedelete();
             $items = Storage::allFiles('trash');
+            $items = Storage::allFiles('galleries');
+            $items = Storage::allFiles('large_photos');
+            $items = Storage::allFiles('medium_photos');
+            $items = Storage::allFiles('mobile_photos');
+            $items = Storage::allFiles('tiny_photos');
             Storage::delete($items);
             session()->flash('message','Trash emptied');
             return back();
@@ -238,8 +243,15 @@ class HomeController extends Controller
             $gallery = Gallery::findOrFail($id);
             $gallery->delete();
             $gallery->favorites()->delete();
-            // Storage::move('galleries/'.$gallery->image, 'trash/'.$gallery->image);
-            // Storage::move('storage/gallery_thumbnails/'.$gallery->gallery_image, 'storage/trash/'.$gallery->gallery_image);
+            Storage::move('galleries/'.$gallery->image, 'storage/trash/'.$gallery->image);
+            Storage::move('storage/large_photos/'.'large-'.$gallery->gallery_image, 
+                            'storage/trash/'.'large-'.$gallery->gallery_image);
+            Storage::move('storage/medium_photos/'.'medium-'.$gallery->gallery_image, 
+                            'storage/trash/'.'medium-'.$gallery->gallery_image);
+            Storage::move('storage/mobile_photos/'.'mobile-'.$gallery->gallery_image, 
+                            'storage/trash/'.'mobile-'.$gallery->gallery_image);
+            Storage::move('storage/tiny_photos/'.'tiny-'.$gallery->gallery_image, 
+                            'storage/trash/'.'tiny-'.$gallery->gallery_image);
             session()->flash('message','Image sent to Trash');
             return back();
         }
@@ -247,11 +259,10 @@ class HomeController extends Controller
     public function permanently_delete_image($id){
         $deleted_images = Gallery::onlyTrashed()->find($id);
         Storage::delete('storage/trash/'.$deleted_images->gallery_image);
-        Storage::delete('storage/tiny_photos/'.$deleted_images->gallery_image);
-        Storage::delete('storage/mobile_photos/'.$deleted_images->gallery_image);
-        Storage::delete('storage/medium_photos/'.$deleted_images->gallery_image);
-        Storage::delete('storage/large_photos/'.$deleted_images->gallery_image);
-        Storage::delete('storage/galleries/'.$deleted_images->gallery_image);
+        Storage::delete('storage/trash/'.'large-'.$deleted_images->gallery_image);
+        Storage::delete('storage/trash/'.'medium-'.$deleted_images->gallery_image);
+        Storage::delete('storage/trash/'.'mobile-'.$deleted_images->gallery_image);
+        Storage::delete('storage/trash/'.'tiny-'.$deleted_images->gallery_image);
         $deleted_images->forceDelete();
         $deleted_images->favorites()->forceDelete();
         session()->flash('message','Image was permanently deleted');
@@ -260,7 +271,20 @@ class HomeController extends Controller
 
     public function restore_deleted_image($id){
         $deleted_images = Gallery::onlyTrashed()->find($id);
-        // Storage::move('storage/trash/'.$deleted_images->gallery_image, 'storage/gallery_thumbnails/'.$deleted_images->gallery_image);
+        Storage::move('storage/trash/'.$deleted_images->image, 'storage/galleries/'.$deleted_images->image);
+
+            Storage::move('storage/trash/'.'large-'.$deleted_images->gallery_image, 
+                            'storage/large_photos/'.'large-'.$deleted_images->gallery_image);
+
+            Storage::move('storage/trash/'.'medium-'.$deleted_images->gallery_image, 
+                            'storage/medium_photos/'.'medium-'.$deleted_images->gallery_image);
+
+            Storage::move('storage/trash/'.'mobile-'.$deleted_images->gallery_image, 
+                            'storage/mobile_photos/'.'mobile-'.$deleted_images->gallery_image);
+
+            Storage::move('storage/trash/'.'tiny-'.$deleted_images->gallery_image, 
+                            'storage/tiny_photos/'.'tiny-'.$deleted_images->gallery_image);
+
         $deleted_images -> restore();
         $deleted_images->favorites()->restore();
         // Storage::move('trash/'.$deleted_images->zip_file, 'zip_files/'.$deleted_images->zip_file);

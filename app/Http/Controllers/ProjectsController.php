@@ -195,6 +195,8 @@ public function __construct()
         $project->delete();
         $project->favorites()->delete();
         public_path(Storage::move('storage/avatars/'.$project->image, 'storage/trash/'.$project->image));
+        public_path(Storage::move('storage/avatars/'.'placeholder-'.$project->image, 
+                                    'storage/trash/'.'placeholder-'.$project->image));
         public_path(Storage::move('storage/zip_files/'.$project->zip_file, 'storage/trash/'.$project->zip_file));
         session()->flash('message',"{$project->title}".' sent to Trash');
         if (request()->expectsJson()){
@@ -209,6 +211,7 @@ public function __construct()
         $deleted_projects->forceDelete();
         $deleted_projects->favorites()->forceDelete();
         Storage::delete('storage/trash/'.$deleted_projects->image);
+        Storage::delete('storage/trash/'.'placeholder-'.$deleted_projects->image);
         Storage::delete('storage/trash/'.$deleted_projects->zip_file);
         session()->flash('message',"{$deleted_projects->title}".' was permanently deleted');
         return back();
@@ -219,6 +222,8 @@ public function __construct()
         $deleted_projects -> restore();
         $deleted_projects -> favorites() -> restore();
         Storage::move('storage/trash/'.$deleted_projects->image, 'storage/avatars/'.$deleted_projects->image);
+        Storage::move('storage/trash/'.'placeholder-'.$deleted_projects->image, 
+                        'storage/avatars/'.'placeholder-'.$deleted_projects->image);
         Storage::move('storage/trash/'.$deleted_projects->zip_file, 'storage/zip_files/'.$deleted_projects->zip_file);
         session()->flash('message',"{$deleted_projects->title}".' restored');
         return back();

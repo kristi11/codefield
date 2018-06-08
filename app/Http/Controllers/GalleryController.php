@@ -169,9 +169,11 @@ class GalleryController extends Controller
             $gallery = Gallery::findOrFail($id);
             $gallery->forceDelete();
             $gallery->favorites()->delete();
-            // Storage::move('galleries/'.$gallery->image, 'trash/'.$gallery->image);
-            Storage::delete('storage/galleries/'.$gallery->gallery_image);
-            Storage::delete('storage/gallery_thumbnails/'.$gallery->gallery_image);
+            Storage::delete('storage/galleries/'.$deleted_images->gallery_image);
+            Storage::delete('storage/large_photos/'.'large-'.$deleted_images->gallery_image);
+            Storage::delete('storage/medium_photos/'.'medium-'.$deleted_images->gallery_image);
+            Storage::delete('storage/mobile_photos/'.'mobile-'.$deleted_images->gallery_image);
+            Storage::delete('storage/tiny_photos/'.'tiny-'.$deleted_images->gallery_image);
             session()->flash('message','Photo deleted');
             return back();
         } 
