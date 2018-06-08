@@ -150,12 +150,12 @@ class HomeController extends Controller
             $deleted_admins = User::onlyTrashed()->forcedelete();
             $deleted_projects = Project::onlyTrashed()->forcedelete();
             $deleted_images = Gallery::onlyTrashed()->forcedelete();
-            $items = Storage::allFiles('trash');
-            $items = Storage::allFiles('galleries');
-            $items = Storage::allFiles('large_photos');
-            $items = Storage::allFiles('medium_photos');
-            $items = Storage::allFiles('mobile_photos');
-            $items = Storage::allFiles('tiny_photos');
+            $items = Storage::allFiles('storage/trash');
+            $items = Storage::allFiles('storage/galleries');
+            $items = Storage::allFiles('storage/large_photos');
+            $items = Storage::allFiles('storage/medium_photos');
+            $items = Storage::allFiles('storage/mobile_photos');
+            $items = Storage::allFiles('storage/tiny_photos');
             Storage::delete($items);
             session()->flash('message','Trash emptied');
             return back();
