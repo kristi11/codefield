@@ -157,7 +157,13 @@ class HomeController extends Controller
             $items5 = Storage::allFiles('storage/medium_photos');
             $items6 = Storage::allFiles('storage/mobile_photos');
             $items7 = Storage::allFiles('storage/tiny_photos');
-            Storage::delete($items,$items2,$items3,$items4,$items5,$items6,$items7);
+            Storage::delete($items);
+            Storage::delete($items2);
+            Storage::delete($items3);
+            Storage::delete($items4);
+            Storage::delete($items5);
+            Storage::delete($items6);
+            Storage::delete($items7);
             session()->flash('message','Trash emptied');
             return back();
         }
