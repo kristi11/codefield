@@ -318,8 +318,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @include('guest.partials.footer')
 </div>
 <script>
-  $(window).load(function() {
-  $("h4").removeClass("preload");
+  $(document).ready(function() {
+  $(".preload").removeClass("preload");
 });
 </script>
 @endsection
