@@ -1,7 +1,7 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/app.js"></script>
-{{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
- --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ --}}<script src="/js/app.js"></script>
+<script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/js/material.min.js" type="text/javascript"></script>
 <script src="/js/material-dashboard.min.js" type="text/javascript"></script>
