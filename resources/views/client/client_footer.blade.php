@@ -12,7 +12,7 @@
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
 <script>
   $(document).ready(function() {
-  $(".preload").removeClass("preload");
+  $(".preload").removeClass("preload").addClass("title");
 });
 </script>
 {{-- <script>
