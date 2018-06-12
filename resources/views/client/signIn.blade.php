@@ -136,6 +136,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
   color: #222326;
   line-height: 1.5em;
 }
+
+.test3:empty{
+  background-color: red;
+}
 </style>
 <div class="wrapper">
     <div class="header">
@@ -258,7 +262,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple test3" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>           
                 </div>
