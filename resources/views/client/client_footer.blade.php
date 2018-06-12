@@ -1,7 +1,7 @@
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- --}}<script src="/js/app.js"></script>
-<script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/app.js"></script>
+{{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+ --}}
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/js/material.min.js" type="text/javascript"></script>
 <script src="/js/material-dashboard.min.js" type="text/javascript"></script>
@@ -10,9 +10,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
-<script type="text/javascript">
-$(window).load(function() {
-    $("#overlay").fadeOut("slow");
+<script>
+  $(document).ready(function() {
+  $(".preload").removeClass("preload");
 });
 </script>
 {{-- <script>

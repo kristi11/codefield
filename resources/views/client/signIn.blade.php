@@ -137,7 +137,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
   line-height: 1.5em;
 }
 
-#overlay{
+.preload{
   background-color: red;
 }
 </style>
@@ -268,7 +268,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 </div>
                 <div class="card-content">
-                  <div class="#overlay">
+                  <div class="preload">
                   <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
                 </div>
                 
