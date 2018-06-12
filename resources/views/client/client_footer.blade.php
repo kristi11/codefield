@@ -11,8 +11,8 @@
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
 <script>
-  $(window).load(function() {
-  $(".preload").fadeOut();
+  $(document).ready(function() {
+  $(".preload").removeClass("preload");
 });
 </script>
 {{-- <script>
