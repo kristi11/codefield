@@ -157,6 +157,7 @@ public function __construct()
         $profiles_storage = public_path('storage/avatars/');
         $project =  Project::findOrFail($id);
         Storage::delete('storage/avatars/'.$project->image);
+        Storage::delete('storage/avatars/'.'placeholder-'.$project->image);
         Storage::delete('storage/zip_files/'.$project->zip_file);
         $project -> user_id = auth()->id();
         request()-> file('avatar')->store('storage/avatars');
