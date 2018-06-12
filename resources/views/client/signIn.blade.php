@@ -137,7 +137,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
   line-height: 1.5em;
 }
 
-.test3:empty{
+.preload{
   background-color: red;
 }
 </style>
@@ -268,7 +268,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 </div>
                 <div class="card-content">
-                  <h4 class="title test3" id="title">{{ str_limit($widget->title,30) }}</h4>
+                  <h4 class="title preload" id="title">{{ str_limit($widget->title,30) }}</h4>
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
                   @elseif($widget->downloads == 1)
@@ -317,4 +317,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 </div>
 @include('guest.partials.footer')
 </div>
+<script>
+  $(window).load(function() {
+  $("div").removeClass("preload");
+});
+</script>
 @endsection
