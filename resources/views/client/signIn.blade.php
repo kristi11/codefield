@@ -268,7 +268,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 </div>
                 <div class="card-content">
-                  <div class="preload">
+                  <div class="#overlay">
                   <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
                 </div>
                 

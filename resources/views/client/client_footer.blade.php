@@ -11,8 +11,10 @@
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
 <script>
-  $(document).ready(function() {
-  $(".preload").removeClass("preload");
+  $(window).load(function(){
+   // PAGE IS FULLY LOADED  
+   // FADE OUT YOUR OVERLAYING DIV
+   $('#overlay').fadeOut();
 });
 </script>
 {{-- <script>
