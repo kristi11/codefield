@@ -262,13 +262,13 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple test3" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>           
                 </div>
                 </div>
                 <div class="card-content">
-                  <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+                  <h4 class="title test3" id="title">{{ str_limit($widget->title,30) }}</h4>
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
                   @elseif($widget->downloads == 1)
