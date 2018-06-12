@@ -43,7 +43,8 @@ mix.webpackConfig({
     new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',
-        staticFileGlobs: ['public/**/*'],
+        staticFileGlobs: ['public/**/*.{css,eot,svg,ttf,woff,woff2,js,html,jpg,jpeg,png}',
+                          'public/storage/**/*.{css,eot,svg,ttf,woff,woff2,js,html,jpg,jpeg,png}'],
         minify: true,
         stripPrefix: 'public/',
         handleFetch: true,
