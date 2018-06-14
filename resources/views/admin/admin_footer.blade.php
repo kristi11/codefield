@@ -94,12 +94,12 @@ var title;
  var body;
   // var tutorial;
    var avatar;
-    var zip_file;
+    // var zip_file;
     title = document.getElementById("title").value;
     body = document.getElementById("body").value;
     // tutorial = document.getElementById("tutorial").value;
     avatar = document.getElementById("avatar").value;
-    zip_file = document.getElementById("zip_file").value;
+    // zip_file = document.getElementById("zip_file").value;
     if (title == "") {
     	alert('Choose Title')
         return false;
@@ -114,11 +114,11 @@ var title;
     else if (avatar == "") {
     	alert('Choose Image')
         return false;
-    }
-    else if (zip_file == "") {
-    	alert('Choose Zip file')
-        return false;
     };
+    // else if (zip_file == "") {
+    // 	alert('Choose Zip file')
+    //     return false;
+    // };
 this.disabled=true;
 this.innerHTML='Creating..';
 this.form.submit();
