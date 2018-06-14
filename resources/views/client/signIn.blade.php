@@ -265,13 +265,17 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="card-content">
                 <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+                @if($widget->zip_file)
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
                   @elseif($widget->downloads == 1)
                     <h5 class="category">{{$widget->downloads}} download</h5>
                   @else
                     <h5 class="category">{{$widget->downloads}} downloads</h5>
-                  @endif  
+                  @endif
+                  @else
+                  <h5 class="category">Not downloadable</h5>
+                  @endif
                 </div>
                 <div class="card-footer">
                   <div class="stats">

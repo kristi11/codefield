@@ -79,11 +79,11 @@ public function __construct()
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
-        foreach ($user as $u) {
-            if ($u->email_notifications != 0) {
-            $u->notify(new ProjectPublished($project));
-        }
-        }
+        // foreach ($user as $u) {
+        //     if ($u->email_notifications != 0) {
+        //     $u->notify(new ProjectPublished($project));
+        // }
+        // }
         
         session()->flash('message',"{$project->title}".' created');
     	return back();
