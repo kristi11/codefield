@@ -134,7 +134,7 @@ a {
                 </a>
               </li>
               <li>
-                <a href="{{ url('submit_product') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Submit a project">
+                <a href="{{ url('submit_product') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Submit a product">
                   <i class="material-icons">send</i>
                   <p class="hidden-lg hidden-md">Submit Product</p>
                 </a>
