@@ -117,7 +117,7 @@ Route::get('clear_routes', 'DevArtisanClearCacheController@clear_routes');
 Route::get('clear_config', 'DevArtisanClearCacheController@clear_config');
 Route::get('clear_cache', 'DevArtisanClearCacheController@clear_cache');
 
-Route::get('submit_project', 'SubmitRequestController@index');
+Route::get('submit_product', 'SubmitRequestController@index');
 Route::post('create_request', 'SubmitRequestController@store');
 // Route::get('submits', 'SubmitRequestController@show');
 
