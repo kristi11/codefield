@@ -42,7 +42,7 @@
         </div>
       
         <div class="btn btn-{{$item->font_color}} btn-simple">
-          <input type="file" name="zip_file" id="zip_file" value="{{ old('zip_file') }}" required=""
+          <input type="file" name="zip_file" id="zip_file" value="{{ old('zip_file') }}" {{-- required="" --}}
           class="filestyle" data-buttonText="choose file" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-{{$item->font_color}}">
         </div>
       </div>
