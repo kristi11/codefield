@@ -74,8 +74,11 @@ public function __construct()
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
         })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
-        request()-> file('zip_file')->store('storage/zip_files/');
+        if ($project->zip_file) {
+            request()-> file('zip_file')->store('storage/zip_files/');
         $project -> zip_file = request()->file('zip_file')->hashName();
+        }
+        
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
