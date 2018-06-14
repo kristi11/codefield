@@ -74,7 +74,7 @@ public function __construct()
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
         })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
-        if ($project->zip_file) {
+        if ( request()-> file('zip_file')) {
             request()-> file('zip_file')->store('storage/zip_files/');
         $project -> zip_file = request()->file('zip_file')->hashName();
         }
