@@ -42,15 +42,15 @@ a {
             @else
               <h5 class="category">{{$widget->downloads}} downloads</h5>
             @endif
-            <p class="category">Size: {{$size.' Mb'}}</p>
+            <h5 class="category">Size: {{$size.' Mb'}}</h5>
           @endif
           
-          <p class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</p>
-          <p class="category">Category:
+          <h5 class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</h5>
+          <h5 class="category">Category:
                @foreach($category as $c)
                  <a href="{{ url('projects/category/'.$c->name) }}"> {{ $c->name }}</a>
                @endforeach
-           </p>
+           </h5>
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
       <p>{!! Purify::clean($widget->body) !!}.</p>
