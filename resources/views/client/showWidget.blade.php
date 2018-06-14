@@ -27,11 +27,11 @@ a {
       <div class="card-content">
         <div class="row text-center">
           @if($widget->views == 0)
-            <p class="category">No views</p>
+            <h5 class="category">No views</h5>
           @elseif($widget->views == 1)
-            <p class="category">{{$widget->views}} view</p>
+            <h5 class="category">{{$widget->views}} view</h5>
           @else
-            <p class="category">{{$widget->views}} views</p>
+            <h5 class="category">{{$widget->views}} views</h5>
           @endif
 
           @if($widget->zip_file)
@@ -54,11 +54,13 @@ a {
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
       <p>{!! Purify::clean($widget->body) !!}.</p>
-      <div class="text-right">
-      <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
-        Download
-      </button>
-      </div>
+      @if($widget->zip_file)
+        <div class="text-right">
+        <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
+          Download
+        </button>
+        </div>
+      @endif
       </div>
     </form>
     <div class="card-content">

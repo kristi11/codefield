@@ -46,14 +46,16 @@
                   <i class="material-icons">search</i>
                   </a>
                  
-                  <button hidden="">
-                  <form action="{{ url('w/'.$widget->id) }}" method="POST" >
-                  {{ csrf_field() }}
-                  <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
-                  <i class="material-icons">file_download</i>
-                  </button>
-                  </form> 
-                  </button>
+                 @if($widget->zip_file)
+                    <button hidden="">
+                    <form action="{{ url('w/'.$widget->id) }}" method="POST" >
+                    {{ csrf_field() }}
+                    <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
+                    <i class="material-icons">file_download</i>
+                    </button>
+                    </form> 
+                    </button>
+                  @endif
                   @if($widget->tutorial != null)
                     <a href="{{ $widget->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" 
                       rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial">
@@ -75,11 +77,11 @@
                   <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
 {{--                   <p class="category">{{ str_limit($widget->body, 100) }}.</p>--}}
                   @if($widget->views == 0)
-                    <p class="category">No views</p>
+                    <h5 class="category">No views</h5>
                   @elseif($widget->views == 1)
-                    <p class="category">{{$widget->views}} view</p>
+                    <h5 class="category">{{$widget->views}} view</h5>
                   @else
-                    <p class="category">{{$widget->views}} views</p>
+                    <h5 class="category">{{$widget->views}} views</h5>
                   @endif
 
                   @if($widget->zip_file)
