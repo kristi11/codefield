@@ -58,7 +58,7 @@ a {
         <a href="/#signIn">...Sign in to read more</a></p>
       <div class="text-right">
       <a href="/#signIn" class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
-        Sign in to download
+        Sign in to learn more
       </a>
       </div>
       </div>
