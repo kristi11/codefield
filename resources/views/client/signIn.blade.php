@@ -274,8 +274,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                     <h5 class="category">{{$widget->downloads}} downloads</h5>
                   @endif
                   @else
-                  <h5 class="category">Not downloadable</h5>
-                  @endif
+                    <h5 class="category">Learning</h5>
+                @endif
                 </div>
                 <div class="card-footer">
                   <div class="stats">

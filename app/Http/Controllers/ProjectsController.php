@@ -76,9 +76,8 @@ public function __construct()
         })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
         if ( request()-> file('zip_file')) {
             request()-> file('zip_file')->store('storage/zip_files/');
-        $project -> zip_file = request()->file('zip_file')->hashName();
-        }
-        
+            $project -> zip_file = request()->file('zip_file')->hashName();
+        }      
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);

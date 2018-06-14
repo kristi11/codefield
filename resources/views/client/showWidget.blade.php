@@ -34,14 +34,17 @@ a {
             <p class="category">{{$widget->views}} views</p>
           @endif
 
-          @if($widget->downloads == 0)
-            <p class="category">No downloads</p>
-          @elseif($widget->downloads == 1)
-            <p class="category">{{$widget->downloads}} download</p>
-          @else
-            <p class="category">{{$widget->downloads}} downloads</p>
+          @if($widget->zip_file)
+            @if($widget->downloads == 0)
+              <h5 class="category">No downloads</h5>
+            @elseif($widget->downloads == 1)
+              <h5 class="category">{{$widget->downloads}} download</h5>
+            @else
+              <h5 class="category">{{$widget->downloads}} downloads</h5>
+            @endif
+            <p class="category">Size: {{$size.' Mb'}}</p>
           @endif
-          <p class="category">Size: {{$size.' Mb'}}</p>
+          
           <p class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</p>
           <p class="category">Category:
                @foreach($category as $c)
