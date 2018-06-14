@@ -32,7 +32,7 @@ a {
       </div>
             <a class="btn btn-simple btn-sm btn-{{ $item->font_color }}" 
               type="button" 
-              href="{{ url('/'.Auth::user()->slug.'/projects') }}">
+              href="{{ url('/'.Auth::user()->slug.'/products') }}">
                {{Auth::user()->name}}
            </a> 
       </div> 
@@ -56,10 +56,10 @@ a {
         </a>
       </li> --}}
 
-      <li{{ setActive('/projects') }}>
-        <a href="{{ asset('/projects') }}">
+      <li{{ setActive('/products') }}>
+        <a href="{{ asset('/products') }}">
           <i class="material-icons">widgets</i>
-          <p>Projects <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
+          <p>Products <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
         </a>
       </li>
 

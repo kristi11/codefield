@@ -8,7 +8,7 @@
  			{{-- <h5>{{ Auth::user()->website }}</h5> --}}
 			<h5>{{ Auth::user()->email }}</h5>
 			<a href="{{ url('/'.Auth::user()->slug.'/projects') }}" 
-				class="btn btn-simple btn-default">Projects
+				class="btn btn-simple btn-default">Products
 				@if( $countUserProjects != 0 ) 
 					<span class="label label-danger">{{$countUserProjects}}</span>
 				@endif

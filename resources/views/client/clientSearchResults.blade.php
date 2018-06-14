@@ -5,15 +5,19 @@
               <div class="card fe_pr">
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
-                  <picture>
-                   <img style="max-height: 300px;" class="img-responsive img-rounded fit" src="{{asset('storage/avatars/'.$result->image)}}" 
-                   alt="{{$result->alternative_text}}">
+                    <picture>
+                   <img 
+                     style="max-height: 300px;" 
+                     class="lazyload blur-up img-responsive img-rounded fit" 
+                     src="{{asset('storage/avatars/'.'placeholder-'.$result->image)}}" 
+                     data-src="{{asset('storage/avatars/'.$result->image)}}" 
+                     alt="{{$result->alternative_text}}">
                    </picture>
                   </div>
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('projects/'.$result->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('products/'.$result->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>
                  

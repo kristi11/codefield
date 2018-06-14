@@ -45,9 +45,9 @@ class ProjectPublished extends Notification implements ShouldQueue
     {       
         return (new MailMessage)
                     ->greeting('Hello there')
-                    ->subject('New Project:'.$this->project->title)
-                    ->line('As requested we are letting you know that a new project was published at '.config('app.name'))
-                    ->action('Check it out', url('projects/'.$this->project->title));
+                    ->subject($this->project->title)
+                    ->line('As requested we are letting you know that a new product was published at '.config('app.name'))
+                    ->action('Check it out', url('products/'.$this->project->title));
     }
 
     /**

@@ -45,8 +45,8 @@ class SubmitRequestSent extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                     ->greeting('Hello there')
-                    ->subject('Project submitted')
-                    ->line('We are letting you know that we have recieved your request and will notify you as soon as possible if your project gets approved.')
+                    ->subject('Product submitted')
+                    ->line('We are letting you know that we have recieved your request and will notify you as soon as possible if your product gets approved.')
                     ->action('Go to your dashboard', url('/'));
     }
 

@@ -45,8 +45,8 @@ class ProjectApproved extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                     ->greeting('Hello!')
-                    ->subject('Project Approved')
-                    ->line('We are letting you know that we have approved your project and it will be added on '.config('app.name').' shortly.')
+                    ->subject('Product Approved')
+                    ->line('We are letting you know that we have approved your product and it will be added on '.config('app.name').' shortly.')
                     ->action('Go to your dashboard', url('/'));
     }
 

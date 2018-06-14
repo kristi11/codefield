@@ -4,9 +4,9 @@
 <div class="col-md-10 col-md-offset-1">
 	<div class="card">
 		<div class="card-content">
-			<h1 class="text-center">Projects license</h1>
+			<h1 class="text-center">Products license</h1>
 			<p class="text-center">
-				<b> All the projects on this site are under the MIT license.</b>
+				<b> All the products on this site are under the MIT license.</b>
 			</p>
 		</div>
 	</div>

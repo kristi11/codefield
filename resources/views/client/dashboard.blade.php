@@ -141,13 +141,13 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
             <i class="material-icons">widgets</i>
         </div>
         <div class="card-content">
-            <p class="category">Projects</p>
+            <p class="category">Products</p>
             <h3 class="title">{{$countProjects}}</h3>
         </div>
         <div class="card-footer">
             <div class="stats">
                 <i class="material-icons text-primary">navigate_next</i>
-                <a class="text-gray" href="{{ url('projects') }}">See more</a>
+                <a class="text-gray" href="{{ url('products') }}">See more</a>
             </div>
         </div>
     </div>
@@ -203,12 +203,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
         </div>
     </div>
 </div>
-<p class="navbar-brand hidden-xs">Latest projects</p>
+<p class="navbar-brand hidden-xs">Latest products</p>
 <div class="col-xs-12 col-sm-12 hidden-xs">
 @foreach ($latestDbItem as $firstTwo)
 	<div class="col-xs-6 col-sm-6 space-5">
 		<div class="card nospace">
-			<a href="{{ url('projects/'.$firstTwo->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $firstTwo->title }}">
+			<a href="{{ url('products/'.$firstTwo->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $firstTwo->title }}">
 				<img 
           class="lazyload blur-up img-responsive img-raised fit" 
           src="{{url('storage/avatars/'.'placeholder-'.$firstTwo->image)}}"
@@ -223,7 +223,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 @foreach ($secondDownDbItem as $theRest)
 	<div class="col-xs-4 col-sm-4 space-5">
 		<div class="card nospace">
-			<a href="{{ url('projects/'.$theRest->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $theRest->title }}">
+			<a href="{{ url('products/'.$theRest->title) }}" rel="tooltip" data-placement="bottom" data-original-title="{{ $theRest->title }}">
 				<img 
           class="lazyload blur-up img-responsive img-raised fit" 
           src="{{url('storage/avatars/'.'placeholder-'.$theRest->image)}}"
@@ -277,7 +277,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 
 
 <div class="container-fluid hidden-sm hidden-md hidden-lg">
-    <h4>Latest Projects</h4>
+    <h4>Latest Products</h4>
 </div>
 <div class="card-content table-responsive hidden-sm hidden-md hidden-lg">
     <table class="table text-center">
@@ -299,7 +299,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('projects/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('products/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>           
                 </div>

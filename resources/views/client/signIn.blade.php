@@ -238,7 +238,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
     </table>
 </div>
 <div class="container-fluid">
-    <h2>Latest Projects</h2>
+    <h2>Latest Products</h2>
 </div>
 <div class="card-content table-responsive">
     <table class="table text-center">
@@ -258,7 +258,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 <div class="row">
                 <div class="text-center">
-                  <a href="{{ url('g_project/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
+                  <a href="{{ url('g_product/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>           
                 </div>
