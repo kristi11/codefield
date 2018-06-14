@@ -15,9 +15,11 @@
 				<p>
 					Submitting a product to {{ config('app.name') }} is a good opportunity for any developer/designer to be exposed to the world.To show other developers/designers, companies etc. what you can do.It is an opportunity for you to gain popularity amongst others which will be a huge improvement on your career.If you are ready to show your work to the world we're here to make that happen.
 				</p>
-
 				<p>
 					A product can be anything from a Github repo,a web/mobile app(this should be open source or can be freely used and distributed by others), a tutorial about something,a collection of resources etc..
+				</p>
+				<p>
+					If you have a YouTube tutorial for your product please include it in the description in the original site where your product is located and we will make sure it is published along with your work.
 				</p>
 				<p>
 					To submit a product just add your product name and the link to the product.We will review it and let you know if your product got approved or not.If approved your product along with your GitHub profile will be added on {{ config('app.name') }} and you also will be featured on our social media community pages.
