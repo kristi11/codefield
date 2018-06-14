@@ -53,7 +53,7 @@ a {
            </h5>
         </div>
       <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <p>{!! Purify::clean($widget->body) !!}.</p>
+      <h6>{!! Purify::clean($widget->body) !!}.</h6>
       @if($widget->zip_file)
         <div class="text-right">
         <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
