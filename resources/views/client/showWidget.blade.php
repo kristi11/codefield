@@ -52,8 +52,8 @@ a {
                @endforeach
            </h5>
         </div>
-      <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <h6>{!! Purify::clean($widget->body) !!}.</h6>
+      <h4 {{-- class="title" --}} id="title">{{ $widget->title }}</h4>
+      <h5>{!! Purify::clean($widget->body) !!}.</h5>
       @if($widget->zip_file)
         <div class="text-right">
         <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
