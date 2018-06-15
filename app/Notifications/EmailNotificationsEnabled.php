@@ -46,7 +46,7 @@ class EmailNotificationsEnabled extends Notification implements ShouldQueue
                     ->subject('Email notifications enabled')
                     ->greeting('Hey there '.$this->user->name)
                     ->line('We are just letting you know that you have enabled e-mail notifications')
-                    ->action('Go to Dashboard',url('/'))
+                    ->action('Go to Dashboard',secure_url('/'))
                     ->line('You are receiving this e-mail because you chose to enable e-mail notifications');
     }
 
