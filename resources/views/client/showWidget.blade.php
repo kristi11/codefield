@@ -48,7 +48,7 @@ a {
           <h5 class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</h5>
           <h5 class="category">Category:
                @foreach($category as $c)
-                 <a href="{{ url('projects/category/'.$c->name) }}"> {{ $c->name }}</a>
+                 <a href="{{ url('products/category/'.$c->name) }}"> {{ $c->name }}</a>
                @endforeach
            </h5>
         </div>
