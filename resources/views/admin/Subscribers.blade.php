@@ -7,7 +7,7 @@
 	<div class="card-header" data-background-color="{{ $item->app_color }}">
 		<h4 class="title">Subscribers list</h4>
 		<p class="category">
-			{{$countActiveNotifications}} what to recieve email notifications
+			{{$countActiveNotifications}} users want to recieve email notifications
 		</p>
 	</div>
 	<div class="card-content table-responsive">
