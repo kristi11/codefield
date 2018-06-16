@@ -6,7 +6,13 @@
 	<div class="card">
 	<div class="card-header" data-background-color="{{ $item->app_color }}">
 		<h4 class="title">Subscribers list</h4>
-		<p class="category">Paid subscribers</p>
+		<p class="category">
+			@foreach($subscribers as $subscriber)
+				@if($subscriber->email_notifications == 1)
+					{{count($subscriber->email_notifications)}} what to recieve email notifications
+				@endif
+			@endforeach
+		</p>
 	</div>
 	<div class="card-content table-responsive">
 		<table class="table">
@@ -30,9 +36,9 @@
 		      <td>{{$subscriber->created_at->diffForHumans()}}</td>
 		      <td class="text-muted">
 		      	@if($subscriber->email_notifications == 1)
-		      	yes
+		      		active
 		      	@else
-		      	no
+		      		disabled
 		      	@endif
 		      </td>
 		    </tr>
