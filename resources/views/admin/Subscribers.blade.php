@@ -28,7 +28,13 @@
 		      <td>{{$subscriber->name}}</td>
 		      <td>{{$subscriber->email}}</td>
 		      <td>{{$subscriber->created_at->diffForHumans()}}</td>
-		      <td class="text-muted">{{$subscriber->email_notifications}}</td>
+		      <td class="text-muted">
+		      	@if($subscriber->email_notifications == 1)
+		      	yes
+		      	@else
+		      	no
+		      	@endif
+		      </td>
 		    </tr>
 		   @endforeach		   
 		  </tbody>
