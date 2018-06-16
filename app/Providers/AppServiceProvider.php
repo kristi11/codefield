@@ -62,6 +62,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('countUserPhotos',count(\App\Gallery::where('user_id',Auth::id())->get()));
          });
 
+           view()->composer('admin.subscribers',function($view){
+            $view->with('countActiveNotifications',count(\App\User::where('email_notifications',1)));
+            $view->with('countUserPhotos',count(\App\Gallery::where('user_id',Auth::id())->get()));
+         });
+
     }
 
     /**

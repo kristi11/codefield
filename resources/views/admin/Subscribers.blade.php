@@ -9,7 +9,7 @@
 		<p class="category">
 			@foreach($subscribers as $subscriber)
 				@if($subscriber->email_notifications == 1)
-					{{count($subscriber->email_notifications)}} what to recieve email notifications
+					{{$countActiveNotifications}} what to recieve email notifications
 				@endif
 			@endforeach
 		</p>
