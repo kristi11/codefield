@@ -314,13 +314,17 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                     <h5 class="category">{{$widget->views}} views</h5>
                   @endif
 
+                 @if($widget->zip_file)
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
                   @elseif($widget->downloads == 1)
                     <h5 class="category">{{$widget->downloads}} download</h5>
                   @else
                     <h5 class="category">{{$widget->downloads}} downloads</h5>
-                  @endif  
+                  @endif
+                  @else
+                    <h5 class="category">Learning</h5>
+                @endif
                 </div>
                 <div class="card-footer">
                   <div class="stats">
