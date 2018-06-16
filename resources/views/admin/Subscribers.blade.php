@@ -17,7 +17,7 @@
 		      <th>Name</th>
 		      <th>E-mail</th>
 		      <th>Signed up</th>
-		      <th>Subscription status</th>
+		      <th>Notifications</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -28,7 +28,7 @@
 		      <td>{{$subscriber->name}}</td>
 		      <td>{{$subscriber->email}}</td>
 		      <td>{{$subscriber->created_at->diffForHumans()}}</td>
-		      <td class="text-muted">no subscription</td>
+		      <td class="text-muted">{{$subscriber->email_notifications}}</td>
 		    </tr>
 		   @endforeach		   
 		  </tbody>
