@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
          });
 
            view()->composer('admin.Subscribers',function($view){
-            $view->with('countActiveNotifications',count(\App\User::where('email_notifications',1)));
+            $view->with('countActiveNotifications',count(\App\User::where('email_notifications',1)->get()));
          });
 
     }
