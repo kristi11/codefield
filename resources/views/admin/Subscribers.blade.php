@@ -7,11 +7,7 @@
 	<div class="card-header" data-background-color="{{ $item->app_color }}">
 		<h4 class="title">Subscribers list</h4>
 		<p class="category">
-			@foreach($subscribers as $subscriber)
-				@if($subscriber->email_notifications == 1)
-					{{$countActiveNotifications}} what to recieve email notifications
-				@endif
-			@endforeach
+			{{$countActiveNotifications}} what to recieve email notifications
 		</p>
 	</div>
 	<div class="card-content table-responsive">
