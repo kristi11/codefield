@@ -47,7 +47,8 @@ class EmailNotificationsEnabled extends Notification implements ShouldQueue
                     ->greeting('Hey there '.$this->user->name)
                     ->line('We are just letting you know that you have enabled e-mail notifications')
                     ->action('Go to Dashboard',secure_url('/'))
-                    ->line('You are receiving this e-mail because you chose to enable e-mail notifications');
+                    ->line('You are receiving this e-mail because you chose to enable e-mail notifications')
+                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications. This is the same thing as unsubscribing from our mailing list');
     }
 
     /**
