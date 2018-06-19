@@ -47,7 +47,8 @@ class SubmitRequestSent extends Notification implements ShouldQueue
                     ->greeting('Hello there')
                     ->subject('Product submitted')
                     ->line('We are letting you know that we have recieved your request and will notify you as soon as possible if your product gets approved.')
-                    ->action('Go to your dashboard', url('/'));
+                    ->action('Go to your dashboard', url('/'))
+                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications. This is the same thing as unsubscribing from our mailing list');
     }
 
     /**

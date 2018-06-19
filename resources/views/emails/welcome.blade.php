@@ -16,7 +16,7 @@ One more thing
 When you sign up for {{config('app.name')}} by default you have e-mail notifications enabled.
 This is for your convenience so you stay informed on the latest products that we have to offer.
 If you don't want e-mail notifications you can disable them by clicking the notification icon
-on the top right corner of the page.
+on the top right corner of the page. Doing so the icon will turn from blue-ish to gray meaning you will not recieve email notifications anymore. This is the same as unsubscribing from out email list. If you change you mind you can always enable these notifications at the click of that button.
 
 @component('mail::button', ['url' => url('/')])
 Go to your dashboard

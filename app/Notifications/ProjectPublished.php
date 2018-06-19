@@ -47,7 +47,8 @@ class ProjectPublished extends Notification implements ShouldQueue
                     ->greeting('Hello there')
                     ->subject('NEW: '.$this->project->title)
                     ->line('As requested we are letting you know that a new product was published at '.config('app.name'))
-                    ->action('Check it out', url('products/'.$this->project->title));
+                    ->action('Check it out', url('products/'.$this->project->title))
+                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications. This is the same thing as unsubscribing from our mailing list');
     }
 
     /**
