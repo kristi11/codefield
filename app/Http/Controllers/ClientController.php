@@ -465,7 +465,7 @@ class ClientController extends Controller
                 session()->flash('message','Email notifications disabled');
             }
 
-                $user->update();
+                $user->save();
 
                 return back();
     }
