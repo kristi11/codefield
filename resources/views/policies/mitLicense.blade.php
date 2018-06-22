@@ -6,7 +6,7 @@
 		<div class="card-content">
 			<h1 class="text-center">Products license</h1>
 			<p class="text-center">
-				<b> All the products on this site are under the MIT license.</b>
+				<b> All the products on this site are under the MIT license unless otherwise stated by the product owner.</b>
 			</p>
 		</div>
 	</div>
