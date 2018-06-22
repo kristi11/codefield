@@ -131,7 +131,7 @@ public function __construct()
     {
          $this->validate(request(), [
             'title'    => 'required|max:255',
-            'body'     => 'required',
+            'body'     => 'required'
             // 'tutorial' => 'required|max:1000',
         ]);
 
