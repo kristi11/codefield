@@ -67,11 +67,11 @@
 			</h5>
 		</div>
 	</div>
-	<div class="alert alert-{{$item->font_color}} text-center" role="alert">
+	{{-- <div class="alert alert-{{$item->font_color}} text-center" role="alert">
       	<strong>Please do note</strong><br>
 		This service will be free until at least July 2019.<br>
 		After that if you still wish to have full access there will be a $3/month fee.
-	</div>
+	</div> --}}
 </div>
 
 @endsection
