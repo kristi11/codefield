@@ -13,13 +13,13 @@ a {
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
     <form method="POST" action="{{ url('w/'.$widget->id) }}">
-     
+
       {{ csrf_field() }}
-        
+
         <div class="card-header card-chart">
-          <img 
-            style="object-fit: cover;" 
-            class="lazyload blur-up fit img-responsive img-rounded" 
+          <img
+            style="object-fit: cover;"
+            class="lazyload blur-up fit img-responsive img-rounded"
             src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
             data-src="{{asset('storage/avatars/'.$widget->image)}}"
             alt="{{$widget->alternative_text}}">
@@ -44,7 +44,7 @@ a {
             @endif
             <h5 class="category">Size: {{$size.' Mb'}}</h5>
           @endif
-          
+
           <h5 class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</h5>
           <h5 class="category">Category:
                @foreach($category as $c)
@@ -67,8 +67,6 @@ a {
      @include('client.disqus_comments')
 </div>
  </div>
-                            
-                            
  </div>
 
 @endsection

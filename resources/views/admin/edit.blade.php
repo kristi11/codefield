@@ -12,7 +12,7 @@
     <form method="POST" action="{{ url('/admin/projects/'.$project->id) }}" enctype="multipart/form-data">
       {{ method_field('PUT') }}
       {{ csrf_field() }}
-        
+
         <div class="card-header card-chart">
           <img class="img-responsive img-rounded" src="{{url('storage/avatars/'.$project->image)}}">
         </div>
@@ -21,7 +21,7 @@
         <label class="control-label">Project title</label>
           <input type="text" name="title" id="title" value="{{ $project->title }}" class="form-control" required>
         </div>
-  <input id="body" value="{!! Purify::clean($project->body) !!}" type="hidden" name="body">
+  <input id="body" value="{!! $project->body !!}" type="hidden" name="body">
   <trix-editor input="body"></trix-editor>
 {{--       <div class="form-group label-floating">
       <label class="control-label">Body</label>
