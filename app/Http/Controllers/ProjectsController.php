@@ -48,7 +48,7 @@ public function __construct()
     public function store(Request $request){
 
         $this->validate(request(), [
-            'title'    => 'required|max:255',
+            'title'    => 'required',
             'body'     => 'required',
             // 'tutorial' => 'required|max:1000',
             'avatar'   => 'required|mimes:jpeg,png',
@@ -130,7 +130,7 @@ public function __construct()
     public function update($id, Request $request)
     {
          $this->validate(request(), [
-            'title'    => 'required|max:255',
+            'title'    => 'required',
             'body'     => 'required'
             // 'tutorial' => 'required|max:1000',
         ]);
