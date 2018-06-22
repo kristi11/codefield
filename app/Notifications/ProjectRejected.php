@@ -48,7 +48,7 @@ class ProjectRejected extends Notification implements ShouldQueue
                     ->subject('Product Rejected')
                     ->line("Unfortunately we weren't able to approve your product.Please make any necesary changes to your code and try again. If you are submitting a HTML template please make sure that the template is at least responsive.We try to have high quality products on our platform. Also make sure your Github repository link is correct (if submitting a github project). This may be one of the reasons your product could not be approved. If you have any questions or think that your product was wrongfully rejected please don't hesitate to contact us at support@codefield.io . We will be more than happy to guide you and help you get your product approved.")
                     ->action('Go to your dashboard', url('/'))
-                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications. This is the same thing as unsubscribing from our mailing list');
+                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications.');
     }
 
     /**

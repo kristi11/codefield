@@ -48,7 +48,7 @@ class ProjectApproved extends Notification implements ShouldQueue
                     ->subject('Product Approved')
                     ->line('We are letting you know that we have approved your product and it will be added on '.config('app.name').' shortly.')
                     ->action('Go to your dashboard', url('/'))
-                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications. This is the same thing as unsubscribing from our mailing list');
+                    ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications.');
     }
 
     /**
