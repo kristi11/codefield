@@ -60,6 +60,7 @@ public function __construct()
         $project =  new Project;
         $project -> user_id = auth()->id();
         $project -> title = str_slug(request('title'));
+        $project -> dsc_title = request('title');
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> views = '0';
@@ -69,7 +70,7 @@ public function __construct()
         // $profile->store('profiles');
         $project->image = $profile->hashName();
         $image = Image::make($profile->getRealPath());
-        $image->fit(640, 360, function ($constraint) 
+        $image->fit(640, 360, function ($constraint)
         { $constraint->upsize();})->save($profiles_storage.$profile->hashName(),85)
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
@@ -77,7 +78,7 @@ public function __construct()
         if ( request()-> file('zip_file')) {
             request()-> file('zip_file')->store('storage/zip_files/');
             $project -> zip_file = request()->file('zip_file')->hashName();
-        }      
+        }
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
@@ -86,7 +87,7 @@ public function __construct()
             $u->notify(new ProjectPublished($project));
         }
         }
-        
+
         session()->flash('message',"{$project->title}".' created');
     	return back();
     }
@@ -96,7 +97,7 @@ public function __construct()
         $title = 'Projects';
         $paginationNr = PaginationCounter::first();
         $projectsNr = $paginationNr->projects;
-        
+
     	$projects = Project::orderBy('id', 'desc')->Paginate($projectsNr);
         if (count($projects)<=0)
         {
@@ -139,6 +140,7 @@ public function __construct()
         $project =  Project::findOrFail($id);
         $project -> user_id = auth()->id();
         $project -> title = str_slug(request('title'));
+        $project -> dsc_title = request('title');
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> alternative_text = config('app.name').' '.request('title').' '.'project';
@@ -167,13 +169,13 @@ public function __construct()
         $profile = request()->file('avatar');
         $project->image = $profile->hashName();
         $image = Image::make($profile->getRealPath());
-        $image->fit(640, 360, function ($constraint) 
+        $image->fit(640, 360, function ($constraint)
         {$constraint->upsize();})->save($profiles_storage.$profile->hashName(),85)
         ->resize(10, null, function ($constraint) {
         $constraint->aspectRatio();
-        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);  
+        })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
         request()-> file('zip_file')->store('storage/zip_files/');
-        $project -> zip_file = request()->file('zip_file')->hashName();        
+        $project -> zip_file = request()->file('zip_file')->hashName();
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
@@ -195,7 +197,7 @@ public function __construct()
         $project->delete();
         $project->favorites()->delete();
         public_path(Storage::move('storage/avatars/'.$project->image, 'storage/trash/'.$project->image));
-        public_path(Storage::move('storage/avatars/'.'placeholder-'.$project->image, 
+        public_path(Storage::move('storage/avatars/'.'placeholder-'.$project->image,
                                     'storage/trash/'.'placeholder-'.$project->image));
         public_path(Storage::move('storage/zip_files/'.$project->zip_file, 'storage/trash/'.$project->zip_file));
         session()->flash('message',"{$project->title}".' sent to Trash');
@@ -222,7 +224,7 @@ public function __construct()
         $deleted_projects -> restore();
         $deleted_projects -> favorites() -> restore();
         Storage::move('storage/trash/'.$deleted_projects->image, 'storage/avatars/'.$deleted_projects->image);
-        Storage::move('storage/trash/'.'placeholder-'.$deleted_projects->image, 
+        Storage::move('storage/trash/'.'placeholder-'.$deleted_projects->image,
                         'storage/avatars/'.'placeholder-'.$deleted_projects->image);
         Storage::move('storage/trash/'.$deleted_projects->zip_file, 'storage/zip_files/'.$deleted_projects->zip_file);
         session()->flash('message',"{$deleted_projects->title}".' restored');
