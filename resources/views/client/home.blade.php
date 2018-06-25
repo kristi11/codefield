@@ -188,11 +188,11 @@ a {
             </ul>
             <form class="navbar-form navbar-right" role="search" method="GET" action="{{ url('clientSearch') }}">
                 <div class="form-group form-search is-empty">
-                    <input type="text" name="query" id="query" class="form-control" placeholder="Search" required="" aria-label="search">
+                    <input type="text" name="query" id="query" class="form-control" placeholder="Search Products" required="" aria-label="search">
                     <span class="material-input"></span>
                 <span class="material-input"></span></div>
                 <button type="submit" class="btn btn-white btn-round btn-just-icon hidden-xs reksearchloader" id="search_btn">
-                    <i class="material-icons">Search Products</i>
+                    <i class="material-icons">search</i>
                 </button>
                 <div style="margin-left: 0px;" class="row">
                 <div style="width: 30%;">
