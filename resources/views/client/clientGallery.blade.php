@@ -21,7 +21,7 @@
         <tr>
           <td>
                @foreach ($tags as $tag)
-					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
+					<a class="btn btn-success btn-round" href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a>
 				@endforeach
           </td>
         </tr>
