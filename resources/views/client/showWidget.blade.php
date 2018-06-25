@@ -52,7 +52,7 @@ a {
                @endforeach
            </h5>
         </div>
-      <h3 class="title" id="title">{{ $widget->dsc_title }}</h3>
+      <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <h5>{!! Purify::clean($widget->body) !!}.</h5>
       @if($widget->zip_file)
         <div class="text-right">
