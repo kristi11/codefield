@@ -30,12 +30,12 @@ a {
       <div class="">
             <img class="photo" src="{{ url(Auth::user()->avatar) }}" alt="{{Auth::user()->name}}">
       </div>
-            <a class="btn btn-simple btn-sm btn-{{ $item->font_color }}" 
-              type="button" 
+            <a class="btn btn-simple btn-sm btn-{{ $item->font_color }}"
+              type="button"
               href="{{ url('/'.Auth::user()->slug.'/products') }}">
                {{Auth::user()->name}}
-           </a> 
-      </div> 
+           </a>
+      </div>
     <ul class="nav">
       <li {{ setActive('/') }}>
         <a href="{{ url('/') }}">
@@ -47,7 +47,7 @@ a {
         <a href="{{ url('/submits') }}">
           <i class="material-icons">work</i>
           <p>Submits
-          @if( $submitted_projects != 0 )  
+          @if( $submitted_projects != 0 )
           <span class="label label-{{$item->font_color}}">
             {{ $submitted_projects }}
           </span>
@@ -81,8 +81,8 @@ a {
         <a href="{{ asset('/favorites') }}">
           <i class="material-icons">favorite</i>
           <p>Favorites
-          @if( $countFavorites != 0 ) 
-          
+          @if( $countFavorites != 0 )
+
           <span class="label label-{{$item->font_color}}">
             {{ $countFavorites }}
           </span>
@@ -192,7 +192,7 @@ a {
                     <span class="material-input"></span>
                 <span class="material-input"></span></div>
                 <button type="submit" class="btn btn-white btn-round btn-just-icon hidden-xs reksearchloader" id="search_btn">
-                    <i class="material-icons">search</i>
+                    <i class="material-icons">Search Products</i>
                 </button>
                 <div style="margin-left: 0px;" class="row">
                 <div style="width: 30%;">
