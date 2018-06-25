@@ -88,7 +88,7 @@ public function __construct()
         }
         }
 
-        session()->flash('message',"{$project->title}".' created');
+        session()->flash('message',"{$project->dsc_title}".' created');
     	return back();
     }
 
@@ -179,7 +179,7 @@ public function __construct()
         $project -> save();
         $category = $request->input('categories');
         $project->categories()->sync($category);
-        session()->flash('message',"{$project->title}".' was updated');
+        session()->flash('message',"{$project->dsc_title}".' was updated');
         return back()->withInput(Input::all());
     }
 

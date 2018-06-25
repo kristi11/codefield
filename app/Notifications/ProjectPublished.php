@@ -13,7 +13,7 @@ class ProjectPublished extends Notification implements ShouldQueue
 {
     use Queueable;
     protected $project;
-    
+
     /**
      * Create a new notification instance.
      *
@@ -42,10 +42,10 @@ class ProjectPublished extends Notification implements ShouldQueue
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {       
+    {
         return (new MailMessage)
                     ->greeting('Hello there')
-                    ->subject('NEW: '.$this->project->title)
+                    ->subject('NEW: '.$this->project->dsc_title)
                     ->line('As requested we are letting you know that a new product was published at '.config('app.name'))
                     ->action('Check it out', url('products/'.$this->project->title))
                     ->line('If you do not wish to recieve email notifications anymore you can click the notification icon on the top right corner on your account.That would be the blue-ish icon. When clicking it it will turn gray meaning that you have disabled your email notifications.');
