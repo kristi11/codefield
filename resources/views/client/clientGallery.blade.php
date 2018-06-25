@@ -20,9 +20,11 @@
       <table class="table">
         <tr>
           <td>
+          	<nav style="box-shadow: none;" class="scroll bg-light">
                @foreach ($tags as $tag)
 					<a class="btn btn-success btn-round" href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a>
 				@endforeach
+			</nav>
           </td>
         </tr>
       </table>

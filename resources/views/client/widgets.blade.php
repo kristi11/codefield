@@ -17,10 +17,12 @@
       <table class="table">
         <tr>
           <td>
-            @foreach ($categories as $category)
-               <a class="btn btn-success btn-round" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}
-               </a>
-            @endforeach
+            <nav style="box-shadow: none;" class="scroll bg-light">
+              @foreach ($categories as $category)
+                 <a class="btn btn-success btn-round" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}
+                 </a>
+              @endforeach
+            </nav>
           </td>
         </tr>
       </table>
