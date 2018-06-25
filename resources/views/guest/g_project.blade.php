@@ -15,13 +15,13 @@ a {
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
     <form method="POST" action="{{ url('w/'.$widget->id) }}">
-     
+
       {{ csrf_field() }}
-        
+
         <div class="card-header card-chart">
-          <img 
-            style="object-fit: cover;" 
-            class="lazyload blur-up fit img-responsive img-rounded" 
+          <img
+            style="object-fit: cover;"
+            class="lazyload blur-up fit img-responsive img-rounded"
             src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
             data-src="{{asset('storage/avatars/'.$widget->image)}}"
             alt="{{$widget->alternative_text}}">
@@ -53,8 +53,8 @@ a {
                @endforeach
            </p> --}}
         </div>
-      <h4 class="title" id="title">{{ $widget->title }}</h4>
-      <p>{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!} 
+      <h4 class="title" id="title">{{ $widget->dsc_title }}</h4>
+      <p>{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!}
       </p><a href="/#signIn">...Sign in to read the rest</a>
       <div class="text-right">
       <a href="/#signIn" class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
@@ -70,7 +70,7 @@ a {
 </div>
 {{-- <div class="col-xs-12">
 @include('guest.partials.footer')
-</div>    --}}     
+</div>    --}}
 </div>
 
 @endsection

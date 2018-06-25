@@ -7,35 +7,35 @@
 		<div class="card fe_pr">
       <div class="pr_img">
         <div class="ct-chart" id="dailySalesChart">
-				<img 
+				<img
           style="height: 190px;object-fit: cover;"
           class="lazyload blur-up img-rounded img-responsive fit"
-          src="{{url('storage/avatars/'.'placeholder-'.$widget->image)}}" 
-          data-src="{{url('storage/avatars/'.$widget->image)}}" 
+          src="{{url('storage/avatars/'.'placeholder-'.$widget->image)}}"
+          data-src="{{url('storage/avatars/'.$widget->image)}}"
           alt="{{$widget->alternative_text}}">
       </div>
     </div>
-		
+
    <div class="row">
       <div class="text-center">
         <a href="{{ url('products/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
         <i class="material-icons">search</i>
         </a>
-        @if($widget->zip_file) 
+        @if($widget->zip_file)
           <button hidden="">
             <form action="{{ url('w/'.$widget->id) }}" method="POST" >
               {{ csrf_field() }}
               <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
               <i class="material-icons">file_download</i>
               </button>
-            </form> 
+            </form>
           </button>
         @endif
         @if($widget->tutorial != null)
-          <a href="{{ $widget->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" 
+          <a href="{{ $widget->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple"
             rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial">
             <i class="material-icons">videocam</i>
-          </a>                  
+          </a>
         @endif
       <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
         rel="tooltip" data-placement="bottom" title="" data-original-title="Remove from favorites">
@@ -43,7 +43,7 @@
       </div>
     </div>
 			<div class="card-content">
-        <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+        <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
         @if($widget->views == 0)
           <h5 class="category">No views</h5>
         @elseif($widget->views == 1)
@@ -82,33 +82,33 @@
             <source
             media = "(min-width:860px)"
             data-srcset="{{asset('storage/medium_photos/'.$g->gallery_image.' 860w')}}">
-            <source 
+            <source
             media = "(min-width:420px)"
             data-srcset = "{{asset('storage/medium_photos/'.$g->gallery_image.' 640w')}}" >
-            <source 
+            <source
             media = "(max-width:420px)"
             data-srcset = "{{asset('storage/mobile_photos/'.$g->gallery_image.' 420w')}}" >
-            <img style="height: 190px;object-fit: cover;" 
-            class="lazyload blur-up img-responsive img-rounded" 
-            src="{{asset('storage/tiny_photos/'.$g->gallery_image)}}" 
-            data-src="{{asset('storage/medium_photos/'.$g->gallery_image)}}" 
+            <img style="height: 190px;object-fit: cover;"
+            class="lazyload blur-up img-responsive img-rounded"
+            src="{{asset('storage/tiny_photos/'.$g->gallery_image)}}"
+            data-src="{{asset('storage/medium_photos/'.$g->gallery_image)}}"
             alt="{{$g->alternative_text}}">
           </picture>
 			</div>
-    </div>	
+    </div>
 		  <div class="row">
         <div class="text-center">
           <a href="{{ url('photos/'.$g->unique_id) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
           <i class="material-icons">search</i>
           </a>
-         
+
           <button hidden="">
           <form action="{{ url('i/'.$g->id) }}" method="POST" >
           {{ csrf_field() }}
           <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
           <i class="material-icons">file_download</i>
           </button>
-          </form> 
+          </form>
           </button>
                {{-- <a href="{{ $g->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial" rel="noopener">
           <i class="material-icons">videocam</i>

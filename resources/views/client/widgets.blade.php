@@ -8,13 +8,13 @@
         </a>
         <ul class="dropdown-menu">
           @foreach ($categories as $category)
-            <li><a href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>   
+            <li><a href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
           @endforeach
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" role="tab" href="#"  data-toggle="dropdown">
-          Sort by 
+          Sort by
         </a>
         <ul class="dropdown-menu">
           <li><a href="{{ url('mostDownloadedProducts') }}">Most downloaded</a></li>
@@ -31,11 +31,11 @@
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
                   <picture>
-                   <img 
-                     style="max-height: 300px;" 
-                     class="lazyload blur-up img-responsive img-rounded fit" 
-                     src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}" 
-                     data-src="{{asset('storage/avatars/'.$widget->image)}}" 
+                   <img
+                     style="max-height: 300px;"
+                     class="lazyload blur-up img-responsive img-rounded fit"
+                     src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
+                     data-src="{{asset('storage/avatars/'.$widget->image)}}"
                      alt="{{$widget->alternative_text}}">
                    </picture>
                   </div>
@@ -45,7 +45,7 @@
                   <a href="{{ url('products/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
                   </a>
-                 
+
                  @if($widget->zip_file)
                     <button hidden="">
                     <form action="{{ url('w/'.$widget->id) }}" method="POST" >
@@ -53,14 +53,14 @@
                     <button  type="submit" class="btn btn-primary btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Download" >
                     <i class="material-icons">file_download</i>
                     </button>
-                    </form> 
+                    </form>
                     </button>
                   @endif
                   @if($widget->tutorial != null)
-                    <a href="{{ $widget->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple" 
+                    <a href="{{ $widget->tutorial }}" target="_blank" type="button" class="btn btn-info btn-simple"
                       rel="tooltip" data-placement="bottom" title="" data-original-title="See tutorial">
                       <i class="material-icons">videocam</i>
-                    </a>                  
+                    </a>
                   @endif
                   @if($widget->isFavorited())
                 <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
@@ -70,11 +70,11 @@
                   <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
                   rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
                   <i class="material-icons">favorite_border</i></a>
-                @endif                
+                @endif
                 </div>
                 </div>
                 <div class="card-content">
-                  <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+                  <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
 {{--                   <p class="category">{{ str_limit($widget->body, 100) }}.</p>--}}
                   @if($widget->views == 0)
                     <h5 class="category">No views</h5>
@@ -94,7 +94,7 @@
                     @endif
                     @else
                       <h5 class="category">Learning</h5>
-                  @endif 
+                  @endif
                 </div>
                 <div class="card-footer">
                   <div class="stats">

@@ -42,11 +42,11 @@
     padding: 1em;
     border: none;
   }
-  .table>tbody>tr>td, 
-  .table>tbody>tr>th, 
-  .table>tfoot>tr>td, 
-  .table>tfoot>tr>th, 
-  .table>thead>tr>td, 
+  .table>tbody>tr>td,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>td,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
   .table>thead>tr>th {
     border: none;
     min-width: 20em;
@@ -56,13 +56,13 @@
     padding: 2em;
 }
 @media screen and (max-width: 767px) {
-.table-responsive>.table>tbody>tr>td, 
-.table-responsive>.table>tbody>tr>th, 
-.table-responsive>.table>tfoot>tr>td, 
-.table-responsive>.table>tfoot>tr>th, 
-.table-responsive>.table>thead>tr>td, 
+.table-responsive>.table>tbody>tr>td,
+.table-responsive>.table>tbody>tr>th,
+.table-responsive>.table>tfoot>tr>td,
+.table-responsive>.table>tfoot>tr>th,
+.table-responsive>.table>thead>tr>td,
 .table-responsive>.table>thead>tr>th {
-    white-space: normal; 
+    white-space: normal;
     min-width: 20em;
     max-width: 20em;
 }
@@ -242,14 +242,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 </div>
 <div class="card-content table-responsive">
     <table class="table text-center">
-        <tr>         
+        <tr>
         @foreach ($projects as $widget)
         <td>
               <div class="card fe_pr">
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
                   <picture>
-                   <img style="object-fit:cover;max-height: 300px;" class="lazyload blur-up img-responsive img-rounded fit" 
+                   <img style="object-fit:cover;max-height: 300px;" class="lazyload blur-up img-responsive img-rounded fit"
                    src="{{asset('storage/avatars/'.'placeholder-'.$widget->image)}}"
                    data-src="{{asset('storage/avatars/'.$widget->image)}}"
                    alt="{{$widget->alternative_text}}">
@@ -260,11 +260,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 <div class="text-center">
                   <a href="{{ url('g_product/'.$widget->title) }}" type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Read more..." rel="noopener" >
                   <i class="material-icons">search</i>
-                  </a>           
+                  </a>
                 </div>
                 </div>
                 <div class="card-content">
-                <h4 class="title" id="title">{{ str_limit($widget->title,30) }}</h4>
+                <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
                 @if($widget->zip_file)
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
@@ -284,7 +284,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
               </div>
           </td>
-            @endforeach      
+            @endforeach
         </tr>
     </table>
 </div>
@@ -294,13 +294,13 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 </div>
 <div class="card-content table-responsive">
     <table class="table text-center">
-        <tr>  
+        <tr>
 @foreach ($photos as $p)
 <td>
     <div class="card nospace">
         <a href="{{ url('g_photo/'.$p->unique_id) }}" rel="tooltip" data-placement="bottom" data-original-title="See more..">
-           <img style="object-fit:cover;height: 198px;" class="lazyload blur-up" 
-            src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}" 
+           <img style="object-fit:cover;height: 198px;" class="lazyload blur-up"
+            src="{{asset('storage/tiny_photos/'.$p->gallery_image)}}"
             alt="{{$p->alternative_text}}"
             data-sizes="auto"
             data-src="{{asset('storage/medium_photos/'.$p->gallery_image)}}"
@@ -308,7 +308,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
             {{asset('storage/medium_photos/'.$p->gallery_image.' 640w')}},
             {{asset('storage/mobile_photos/'.$p->gallery_image.' 420w')}}"
           >
-        </a>     
+        </a>
     </div>
 </td>
 @endforeach
