@@ -4,19 +4,8 @@
 	<ul class="nav nav-pills " role="tablist">
 
 		<li class="dropdown">
-			<a role="tab" href="#"  data-toggle="dropdown">
-				Category 
-			</a>
-			<ul class="dropdown-menu">
-				@foreach ($tags as $tag)
-					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
-				@endforeach
-			</ul>
-		</li>
-	
-		<li class="dropdown">
 			<a href="#" role="tab" href="#"  data-toggle="dropdown">
-				Sort by 
+				Sort by
 			</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ url('trending') }}">Trending</a></li>
@@ -26,15 +15,29 @@
 			</ul>
 		</li>
 	</ul>
-	
+
+	<div class="table-responsive">
+      <table class="table">
+        <tr>
+          <td>
+            @foreach ($categories as $category)
+               @foreach ($tags as $tag)
+					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
+				@endforeach
+            @endforeach
+          </td>
+        </tr>
+      </table>
+    </div>
+
 	<div class="card">
-		<div class="card-content">			
+		<div class="card-content">
 			<div class="flexbin flexbin-margin" >
 				@foreach ($gallery as $img)
 					<span class="c" >
-						{{-- <a href=""> --}}						
-						<img style="object-fit:cover;width: auto;max-width: 600px;" class="lazyload blur-up" 
-						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}" 
+						{{-- <a href=""> --}}
+						<img style="object-fit:cover;width: auto;max-width: 600px;" class="lazyload blur-up"
+						src="{{asset('storage/tiny_photos/'.$img->gallery_image)}}"
 						data-sizes="auto"
 						data-src="{{asset('storage/medium_photos/'.$img->gallery_image)}}"
 						data-srcset="{{asset('storage/medium_photos/'.$img->gallery_image.' 860w')}},
@@ -53,7 +56,7 @@
 								<button  type="submit" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" rel="tooltip" data-placement="bottom" title="" data-original-title="Download">
 								<i style="color: black" class="material-icons">file_download</i>
 								</button>
-								</form> 
+								</form>
 								</button>
 								@if($img->isFavorited())
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('addToFavorties/'.$img->id) }}"
@@ -64,13 +67,13 @@
 									rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
 									<i style="color: black" class="material-icons">favorite_border</i></a>
 								@endif
-								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" 
+								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs"
 								 href="{{ url($img->user->slug.'/u/photos') }}"
 								 rel="tooltip" data-placement="bottom" title="" data-original-title="{{$img->user->name}}">
 									<i style="color: black" class="material-icons">person</i></a>
 								</a>
 								<a class=" hidden-sm hidden-md hidden-lg" href="{{ url('photos/'.$img->unique_id) }}">
-								<i style="color: white" class="material-icons">more_horiz</i></a>		
+								<i style="color: white" class="material-icons">more_horiz</i></a>
 							{{-- </div> --}}
 						</div>
 					</span>
