@@ -20,11 +20,9 @@
       <table class="table">
         <tr>
           <td>
-            @foreach ($categories as $category)
                @foreach ($tags as $tag)
 					<li><a href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
 				@endforeach
-            @endforeach
           </td>
         </tr>
       </table>
