@@ -53,7 +53,7 @@ a {
                @endforeach
            </p> --}}
         </div>
-      <h3 class="title" id="title">{{ $widget->dsc_title }}</h3>
+      <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <p>{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!}
       </p><a href="/#signIn">...Sign in to read the rest</a>
       <div class="text-right">
