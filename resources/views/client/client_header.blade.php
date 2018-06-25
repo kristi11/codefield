@@ -22,9 +22,9 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 {{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
- --}}    
+ --}}
  <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons' rel="stylesheet">
     <meta property="og:image" content="{{url('storage/codefield_logo/29695003_1752978298091934_4637625344562561024_n.png')}}" />
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-60.png">
@@ -60,6 +60,23 @@
               -webkit-filter: blur(0);
               filter: blur(0);
             }
+            .table-responsive::-webkit-scrollbar {
+    display: none;
+}
+  .table-responsive {
+    padding: 1em;
+    border: none;
+  }
+  .table>tbody>tr>td,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>td,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
+  .table>thead>tr>th {
+    border: none;
+    min-width: 20em;
+    max-width: 20em;
+}
         </style>
         <script type="application/ld+json">
         {
