@@ -19,7 +19,7 @@
       <div class="card-content">
         <div class="form-group label-floating">
         <label class="control-label">Project title</label>
-          <input type="text" name="title" id="title" value="{{ $project->title }}" class="form-control" required>
+          <input type="text" name="title" id="title" value="{{ $project->dsc_title }}" class="form-control" required>
         </div>
   <input id="body" value="{{ $project->body }}" type="hidden" name="body">
   <trix-editor input="body"></trix-editor>
