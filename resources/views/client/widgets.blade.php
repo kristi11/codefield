@@ -2,13 +2,13 @@
 @section('widgets')
 <div class="col-xs-12">
     <ul class="nav nav-pills " role="tablist">
-      <li class="dropdown">
-        <a href="#" role="tab" href="#"  data-toggle="dropdown">
+      <li class="hidden-xs hidden-sm hidden-md dropdown">
+        <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
          Category
         </a>
-        <ul class="dropdown-menu">
+        <ul style="width: 75vw;" class="dropdown-menu">
           @foreach ($categories as $category)
-            <li><a href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
+            <li style="display: inline-grid;padding:1em;"><a class="btn btn-round btn-success" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
           @endforeach
         </ul>
       </li>
@@ -23,7 +23,21 @@
       </li>
     </ul>
     <br>
-
+    <div class="table-responsive hidden-lg">
+      <table class="table">
+        <tr>
+          <td>
+            <nav style="box-shadow: none;" class="scroll bg-light">
+              @foreach ($categories as $category)
+                <a class="btn btn-round btn-success" href="{{ url('/products/category/'.$category->name) }}">
+                  {{$category->name}}
+                </a>
+              @endforeach
+            </nav>
+          </td>
+        </tr>
+      </table>
+    </div>
 
 @foreach ($widgets as $widget)
 <div class="{{$class}}">

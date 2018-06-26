@@ -2,33 +2,45 @@
 @section('gallery')
 <div class="col-xs-12">
 	<ul class="nav nav-pills " role="tablist">
-
-		<li class="dropdown">
-			<a href="#" role="tab" href="#"  data-toggle="dropdown">
-				Sort by
-			</a>
-			<ul class="dropdown-menu">
-				<li><a href="{{ url('trending') }}">Trending</a></li>
-				<li><a href="{{ url('mostPopular') }}">Most popular</a></li>
-				<li><a href="{{ url('newest') }}">Newest</a></li>
-				<li><a href="{{ url('oldest') }}">Oldest</a></li>
-			</ul>
-		</li>
+		<li class="hidden-xs hidden-sm hidden-md dropdown">
+		      <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
+		       Category
+		      </a>
+		      <ul style="width: 75vw;" class="dropdown-menu">
+		        @foreach ($tags as $tag)
+		          <li style="display: inline-grid;padding:1em;"><a class="btn btn-round btn-success"
+		          	href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
+		        @endforeach
+		      </ul>
+		    </li>
+			<li class="dropdown">
+				<a href="#" role="tab" href="#"  data-toggle="dropdown">
+					Sort by
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="{{ url('trending') }}">Trending</a></li>
+					<li><a href="{{ url('mostPopular') }}">Most popular</a></li>
+					<li><a href="{{ url('newest') }}">Newest</a></li>
+					<li><a href="{{ url('oldest') }}">Oldest</a></li>
+				</ul>
+			</li>
 	</ul>
 
-	<div class="table-responsive">
-      <table class="table">
-        <tr>
-          <td>
-          	<nav style="box-shadow: none;" class="scroll bg-light">
-               @foreach ($tags as $tag)
-					<a class="btn btn-success btn-round" href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a>
-				@endforeach
-			</nav>
-          </td>
-        </tr>
-      </table>
-    </div>
+	<div class="table-responsive hidden-lg">
+	    <table class="table">
+	      <tr>
+	        <td>
+	        	<nav style="box-shadow: none;" class="scroll bg-light">
+					@foreach ($tags as $tag)
+					  <a class="btn btn-round btn-success" href="{{ url('category/'.$tag->name) }}">
+					  	{{$tag->name}}
+					  </a>
+					@endforeach
+	        	</nav>
+	        </td>
+	      </tr>
+	    </table>
+  	</div>
 
 	<div class="card">
 		<div class="card-content">
