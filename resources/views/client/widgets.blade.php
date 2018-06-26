@@ -4,6 +4,16 @@
     <ul class="nav nav-pills " role="tablist">
       <li class="dropdown">
         <a href="#" role="tab" href="#"  data-toggle="dropdown">
+         Category
+        </a>
+        <ul class="dropdown-menu">
+          @foreach ($categories as $category)
+            <li><a href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
+          @endforeach
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" role="tab" href="#"  data-toggle="dropdown">
           Sort by
         </a>
         <ul class="dropdown-menu">
@@ -12,21 +22,6 @@
         </ul>
       </li>
     </ul>
-
-    <div class="table-responsive">
-      <table class="table">
-        <tr>
-          <td>
-            <nav style="box-shadow: none;" class="scroll bg-light">
-              @foreach ($categories as $category)
-                 <a class="btn btn-success btn-round" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}
-                 </a>
-              @endforeach
-            </nav>
-          </td>
-        </tr>
-      </table>
-    </div>
     <br>
 
 
