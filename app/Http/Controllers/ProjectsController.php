@@ -59,8 +59,8 @@ public function __construct()
         $zip_files_storage = 'storage/zip_files/';
         $project =  new Project;
         $project -> user_id = auth()->id();
-        $project -> title = str_slug(request('title'));
         $project -> dsc_title = request('title');
+        $project -> title = str_slug(request('title'));
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> views = '0';
