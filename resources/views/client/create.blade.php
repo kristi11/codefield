@@ -3,35 +3,39 @@
 @section('create_userProject')
 
 <div class="col-sm-8 col-sm-offset-2">
-  <ul class="nav">
-      <li>
-        <button data-toggle="collapse" href="#showTags" class="btn btn-simple btn-{{$item->font_color}}">
-          Instructions <i class="material-icons">keyboard_arrow_down</i>
-        </button>
-      </li>
-    <ul class="collapse nav" id="showTags">
-      <li>
-        <p>
-          Submitting a product to {{ config('app.name') }} is a good opportunity for any developer/designer to be exposed to the world.To show other developers/designers, companies etc. what you can do.It is an opportunity for you to gain popularity amongst others which will be a huge improvement on your career.If you are ready to show your work to the world we're here to make that happen.
-        </p>
-        <p>
-          A product can be anything from a Github repo,a web/mobile app(this should be open source or can be freely used and distributed by others), a tutorial about something,a collection of resources etc..
-        </p>
-        <p>
-          If you have a YouTube tutorial for your product please include it in the description in the original site where your product is located and we will make sure it is published along with your work.
-        </p>
-        <p>
-          To submit a product just fill in the form below.Once posted your product along with your GitHub profile will be added on {{ config('app.name') }} and also will be featured on our social media community pages.
-        </p>
-        <p>
-          Please make sure that your GitHub repository link (if submitting a Github project) is correct.
-        </p>
-        <p>
-          We are excited to see some amazing work.
-        </p>
-      </li>
-    </ul>
-  </ul>
+  <div class="card">
+    <div class="card-content">
+      <ul class="nav">
+          <li>
+            <button data-toggle="collapse" href="#showTags" class="btn btn-simple btn-{{$item->font_color}}">
+              Instructions <i class="material-icons">keyboard_arrow_down</i>
+            </button>
+          </li>
+        <ul class="collapse nav" id="showTags">
+          <li>
+            <p>
+              Submitting a product to {{ config('app.name') }} is a good opportunity for any developer/designer to be exposed to the world.To show other developers/designers, companies etc. what you can do.It is an opportunity for you to gain popularity amongst others which will be a huge improvement on your career.If you are ready to show your work to the world we're here to make that happen.
+            </p>
+            <p>
+              A product can be anything from a Github repo,a web/mobile app(this should be open source or can be freely used and distributed by others), a tutorial about something,a collection of resources etc..
+            </p>
+            <p>
+              If you have a YouTube tutorial for your product please include it in the description in the original site where your product is located and we will make sure it is published along with your work.
+            </p>
+            <p>
+              To submit a product just fill in the form below.Once posted your product along with your GitHub profile will be added on {{ config('app.name') }} and also will be featured on our social media community pages.
+            </p>
+            <p>
+              Please make sure that your GitHub repository link (if submitting a Github project) is correct.
+            </p>
+            <p>
+              We are excited to see some amazing work.
+            </p>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
 <div class="card">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New Product</h4>
