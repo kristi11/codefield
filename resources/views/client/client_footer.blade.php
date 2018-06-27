@@ -10,6 +10,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    $("#categories").select2({
+        placeholder:'Choose a category',
+        width:'100%',
+    });
+</script>
 {{-- <script>
 lazySizes.init();
 </script> --}}
@@ -56,6 +62,100 @@ var x; var y;
     };
 this.disabled=true;
 this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Working on it..';
+this.form.submit();
+});
+
+$('#p_create').click(function(){
+var title;
+ var body;
+  // var tutorial;
+   var avatar;
+    // var zip_file;
+    title = document.getElementById("title").value;
+    body = document.getElementById("body").value;
+    // tutorial = document.getElementById("tutorial").value;
+    avatar = document.getElementById("avatar").value;
+    // zip_file = document.getElementById("zip_file").value;
+    if (title == "") {
+        alert('Choose Title')
+        return false;
+    }else if (body == "") {
+        alert('Enter description')
+        return false;
+    }
+    // else if (tutorial == "") {
+    //  alert('Choose Tutorial link')
+    //     return false;
+    // }
+    else if (avatar == "") {
+        alert('Choose Image')
+        return false;
+    };
+    // else if (zip_file == "") {
+    //  alert('Choose Zip file')
+    //     return false;
+    // };
+this.disabled=true;
+this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Creating..';
+this.form.submit();
+});
+
+$('#p_edit').click(function(){
+var title;
+ var body;
+  // var tutorial;
+   var img;
+    // var zip_file;
+    title = document.getElementById("title").value;
+    body = document.getElementById("body").value;
+    // tutorial = document.getElementById("tutorial").value;
+    img = document.getElementById("img").value;
+    // zip_file = document.getElementById("zip_file").value;
+    if (title == "") {
+        alert('Choose Title')
+        return false;
+    }else if (body == "") {
+        alert('Edit description')
+        return false;
+    }
+    // else if (tutorial == "") {
+    //  alert('Choose Tutorial link')
+    //     return false;
+    // }
+    else if (img == "") {
+        alert('Choose Image')
+        return false;
+    };
+    // else if (zip_file == "") {
+    //     alert('Choose Zip file')
+    //     return false;
+    // };
+this.disabled=true;
+this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
+this.form.submit();
+});
+
+$('#p_zf').click(function(){
+    var zip_file;
+    zip_file = document.getElementById("zip_file_1").value;
+    if (zip_file == "") {
+        alert('Please choose a file to upload')
+        return false;
+    };
+this.disabled=true;
+this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
+this.form.submit();
+});
+
+$('#p_edit_1').click(function(){
+    var img;
+    img = document.getElementById("img_1").value;
+    if (img == "") {
+        alert('Please choose an image to upload')
+        return false;
+    };
+this.disabled=true;
+this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
 this.form.submit();
 });
 </script>
