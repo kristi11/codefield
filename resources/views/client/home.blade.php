@@ -128,9 +128,9 @@ a {
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                <li>
-                <a href="{{ url('/addPhotos') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Add images">
+                <a href="{{ url('/addPhotos') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Post photos">
                   <i class="material-icons">add_a_photo</i>
-                  <p class="hidden-lg hidden-md">Add photos</p>
+                  <p class="hidden-lg hidden-md">Post photos</p>
                 </a>
               </li>
               {{-- <li>
