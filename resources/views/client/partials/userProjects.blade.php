@@ -23,7 +23,7 @@
       <form action="{{ url('deleteProduct/'.$project->id) }}" method="POST" >
       {{method_field('DELETE')}}
       {{ csrf_field() }}
-      <button  type="submit" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Remove" onclick="return confirm('Send {{$project->dsc_title}} to trash?');" >
+      <button  type="submit" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="" data-original-title="Remove" onclick="return confirm('Delete {{$project->dsc_title}} ?');" >
       <i class="material-icons">close</i>
       </button>
       </form>

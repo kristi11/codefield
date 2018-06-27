@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $guard_name = 'web';
-    
+
     protected $fillable = [
         'name', 'email', 'password', 'profile','provider_id','avatar','slug'
     ];
@@ -42,15 +42,15 @@ class User extends Authenticatable
     ];
 
     public function project(){
-        $this->hasMany(Project::class);
+        return $this->hasMany(Project::class);
     }
 
     public function gallery(){
-        $this->hasMany(Gallery::class);
+       return $this->hasMany(Gallery::class);
     }
 
     public function submitRequests(){
-        $this->hasMany(SubmitRequest::class);
+       return $this->hasMany(SubmitRequest::class);
     }
 
 
