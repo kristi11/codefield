@@ -40,6 +40,13 @@
       <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
         rel="tooltip" data-placement="bottom" title="" data-original-title="Remove from favorites">
         <i class="material-icons">favorite</i></a>
+        @if($widget->user->hasPermissionTo('view_project_creator_from_client'))
+         <a type="button" class="btn btn-success btn-simple"
+         href="{{ url($widget->user->slug.'/u/products') }}"
+         rel="tooltip" data-placement="bottom" title="" data-original-title="{{$widget->user->name}}">
+          <i style="color: black" class="material-icons">person</i></a>
+         </a>
+        @endif
       </div>
     </div>
 			<div class="card-content">
@@ -116,6 +123,13 @@
         <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$g->id) }}"
           rel="tooltip" data-placement="bottom" title="" data-original-title="Remove from favorites">
           <i class="material-icons">favorite</i></a>
+           @if($g->user->hasPermissionTo('view_project_creator_from_client'))
+         <a type="button" class="btn btn-success btn-simple"
+         href="{{ url($widget->user->slug.'/u/photos') }}"
+         rel="tooltip" data-placement="bottom" title="" data-original-title="{{$widget->user->name}}">
+          <i style="color: black" class="material-icons">person</i></a>
+         </a>
+        @endif
       </div>
     </div>
       <div class="card-content">

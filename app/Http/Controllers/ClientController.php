@@ -36,7 +36,7 @@ class ClientController extends Controller
     {
         if (Auth::check() && (Auth::user()->hasRole('user'))) {
             # code...
-        
+
                 $title = 'Dashboard';
                 // $favorites = Favorite::where('user_id',Auth::id())->get();
                 $projects = Project::latest()->limit(5)->get();
@@ -52,7 +52,7 @@ class ClientController extends Controller
         //         $countFavorites;
                 return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages','projects','photos'));
           }
-          else  
+          else
                 $projects = Project::orderBy('id', 'desc')->limit(4)->get();
                 $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
                 return view('client.signIn',compact('projects','photos'));
@@ -60,12 +60,12 @@ class ClientController extends Controller
 
  //    public function signIn()
  //    {
-	// 	$projects = Project::orderBy('id', 'desc')->limit(4)->get();
+    //  $projects = Project::orderBy('id', 'desc')->limit(4)->get();
  //        $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
  //        return view ('client.signIn', compact('projects','photos'));
-	// }
+    // }
 
-	public function widgets(){
+    public function widgets(){
 
         // $cacheKey = md5(vsprintf('%s.%s', [auth()->user()->id,auth()->user()->email]))
 
@@ -78,9 +78,9 @@ class ClientController extends Controller
         $widgets = Project::with('favorites')->orderBy('id', 'desc')->Paginate($projectsNr);
 
         if (count($widgets)<=0)
-        
+
             return view('client.empty',compact('title'));
-        
+
         else
         return view('client.widgets',compact('widgets','title','categories','class'));
     // });
@@ -88,33 +88,33 @@ class ClientController extends Controller
 
     }
 
-	public function showWidget($title){
+    public function showWidget($title){
         // $timer = 720;
         // $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$title.'client_gallery');
         // return Cache::remember($cacheKey, $timer, function () use($title) {
-    	$widget = Project::where('title', $title)->first();
-    	$title = $widget->title;
+        $widget = Project::where('title', $title)->first();
+        $title = $widget->title;
         $category = $widget->categories;
-		$file_size = Storage::size('storage/zip_files/'.$widget->zip_file);
-		$size = number_format($file_size / 1048576,2);
-        if (!in_array($widget->id, session('visited_projects', []))) 
+        $file_size = Storage::size('storage/zip_files/'.$widget->zip_file);
+        $size = number_format($file_size / 1048576,2);
+        if (!in_array($widget->id, session('visited_projects', [])))
             {
                 session()->push('visited_projects', $widget->id);
                 $widget->increment('views');
             }
-		return view('client.showWidget',compact('widget','title','size','category'))->render();
+        return view('client.showWidget',compact('widget','title','size','category'))->render();
          // });
-	}
+    }
 
     public function gallery(){
-        
+
         $title = 'Photos';
         $paginationNr = PaginationCounter::first();
         $galleryNr = $paginationNr->gallery;
         $tags = Tag::has('Galleries')->select('name','id')->get();
 
        $gallery = Gallery::with('favorites')->orderBy('id', 'desc')->Paginate($galleryNr);
-               
+
 
         if (count($gallery)<=0)
         {
@@ -139,7 +139,7 @@ class ClientController extends Controller
         list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
         $type=pathinfo($path.$gallery_image, PATHINFO_EXTENSION);
-        if (!in_array($gallery_image, session('visited_images', []))) 
+        if (!in_array($gallery_image, session('visited_images', [])))
             {
                 session()->push('visited_images', $gallery_image);
                 $gallery->increment('views');
@@ -150,12 +150,12 @@ class ClientController extends Controller
 
 
 
-	public function logout(){
-    	Auth::logout();
+    public function logout(){
+        Auth::logout();
         session()->flush();
-    	return redirect('/');
-	}
-	public function download($id)
+        return redirect('/');
+    }
+    public function download($id)
     {
 
         $data = Project::find($id);
@@ -282,7 +282,7 @@ class ClientController extends Controller
             session()->flash('message','Image favorited');
         }
         else
-            { 
+            {
                 // $user->addFavorite($img);
                 session()->flash('message','Image removed from favorites');
             }
@@ -295,8 +295,8 @@ class ClientController extends Controller
             }
             else
                 { session()->flash('message','Project removed from favorites');}
-     } 
-        return back();  
+     }
+        return back();
     }
 
     public function removeFavorites($id)
@@ -311,13 +311,13 @@ class ClientController extends Controller
         //     session()->flash('message','Image removed from favorites');
         // }
         // else
-        //     { 
+        //     {
         //         $user->addFavorite($img);
         //         session()->flash('message','Image favorited');
         //     }
     }
-    
-        return back();  
+
+        return back();
     }
 
     public function favorites()
@@ -325,13 +325,13 @@ class ClientController extends Controller
     $widgets = Auth::user()->favorite(Project::class);
     $gallery = Auth::user()->favorite(Gallery::class);
     $title = 'Favorites';
-    $users = Favorite::where('user_id',Auth::id())->latest()->get(); 
+    $users = Favorite::where('user_id',Auth::id())->latest()->get();
 
     if($users->isEmpty())
         {
             return view('client.empty',compact('title'));
         }
-            return view('client.favorites',compact('widgets','gallery','title'));   
+            return view('client.favorites',compact('widgets','gallery','title'));
     }
 
     public function clientSearch(Request $request)
@@ -373,7 +373,7 @@ class ClientController extends Controller
             $widgetsNr = $paginationNr->projects;
             $categories = Category::has('projects')->select('name','id')->get();
             $widgets = Project::with('favorites')->orderBy('downloads','DESC')->Paginate($widgetsNr);
-            if (count($widgets)==1) 
+            if (count($widgets)==1)
         {
             $class = 'col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3';
             return view('client.widgets',compact('widgets','title','categories','class'));
@@ -397,7 +397,7 @@ class ClientController extends Controller
         $widgetsNr = $paginationNr->projects;
         $categories = Category::has('projects')->select('name','id')->get();
         $widgets = Project::with('favorites')->orderBy('views','DESC')->Paginate($widgetsNr);
-        if (count($widgets)==1) 
+        if (count($widgets)==1)
         {
             $class = 'col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3';
             return view('client.widgets',compact('widgets','title','categories','class'));
@@ -425,9 +425,9 @@ class ClientController extends Controller
                  $title = 'No Projects';
                 return view('client.noProjectCategories',compact('widgets','title','categories'));
 
-            }           
+            }
             else if (count($category->projects)==1) {
-                $class = 'col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3';              
+                $class = 'col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3';
                 $title = 'Category: '.$category->name.' '.'('.count($category->projects).')';
                 return view('client.widgets',compact('widgets','title','categories','class'));
             }
@@ -449,24 +449,20 @@ class ClientController extends Controller
 
     public function emailNotifications($id,Request $request)
     {
-        $user =User::find($id);
-        if ($user->email_notifications == 0) 
+        $user = User::find($id);
+        if ($user->email_notifications == 0)
             {
                 $user->email_notifications = 1;
                 $user->notify(new EmailNotificationsEnabled($user));
                 session()->flash('message','Email notifications enabled');
-                
             }
-
         elseif ($user->email_notifications == 1)
             {
                 $user->email_notifications = 0;
                 $user->notify(new EmailNotificationsDisabled($user));
                 session()->flash('message','Email notifications disabled');
             }
-
                 $user->save();
-
                 return back();
     }
 
@@ -491,18 +487,35 @@ class ClientController extends Controller
         return view('policies.mitLicense',compact('title'));
     }
 
-    public function userProfile($slug){
-        $title = "Profile";
-        $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(25);
-            if (count($data)<=0) {
-                $p = "You haven't submitted any projects yet";
-                return view('client.partials.userProjects',compact('title','data','p'));
-            }
-            else
-            {
-                return view('client.partials.userProjects',compact('title','data'));
-            }
+    // public function userProfile($slug){
+    //     $title = "Profile";
+    //     $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(25);
+    //         if (count($data)<=0) {
+    //             $p = "You haven't submitted any projects yet";
+    //             return view('client.partials.userProjects',compact('title','data','p'));
+    //         }
+    //         else
+    //         {
+    //             return view('client.partials.userProjects',compact('title','data'));
+    //         }
 
+    // }
+
+        public function userProfile($slug){
+
+        $title = 'Profile';
+        $paginationNr = PaginationCounter::first();
+        $projectsNr = $paginationNr->projects;
+        $user = User::where('slug',$slug)->first();
+        $data = Project::where('user_id',Auth::id())->latest()->Paginate($projectsNr);
+        if (count($data)<=0)
+        {
+            $p = "You haven't posted any products yet";
+            return view('client.partials.userProjects',compact('title','data','p'));
+        }
+        else
+
+            return view('client.partials.userProjects',compact('title','data'));
     }
 
     public function userProfilePhotos($slug){
@@ -522,7 +535,7 @@ class ClientController extends Controller
         public function searchUserProfile($slug){
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
-        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
+        $countUProjects = count(Project::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
         $data = Gallery::where('user_id',$user->id)->latest()->Paginate(50);
             if (count($data)<=0) {
@@ -539,11 +552,14 @@ class ClientController extends Controller
         public function searchUserProjects($slug){
         $title = 'Profile';
         $user = User::where('slug',$slug)->first();
-        $countUProjects = count(SubmitRequest::where('user_id',$user->id)->get());
+        $countUProjects = count(Project::where('user_id',$user->id)->get());
         $countUPhotos = count(Gallery::where('user_id',$user->id)->get());
-        $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(25);
+        // $data = SubmitRequest::where('user_id',$user->id)->latest()->Paginate(25);
+        $paginationNr = PaginationCounter::first();
+        $projectsNr = $paginationNr->projects;
+        $data = Project::where('user_id',$user->id)->latest()->Paginate($projectsNr);
             if (count($data)<=0) {
-                $p = $user->name.' '."hasn't submitted any projects yet";
+                $p = $user->name.' '."hasn't posted any products yet";
                 return view('client.partials.uProjects',compact('title','data','p','user','countUProjects','countUPhotos'));
             }
             else
@@ -572,7 +588,7 @@ class ClientController extends Controller
     //     session()->flash('message','Profile updated');
     //     return back();
     // }
-public function signIn() {
+    public function signIn() {
         $projects = Project::orderBy('id', 'desc')->limit(4)->get();
         $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
         return view ('client.signIn', compact('projects','photos'));
@@ -587,7 +603,7 @@ public function signIn() {
         $widget = Project::where('title', $title)->first();
         $file_size = Storage::size('storage/zip_files/'.$widget->zip_file);
         $size = number_format($file_size / 1048576,2);
-        if (!in_array($widget->id, session('visited_projects', []))) 
+        if (!in_array($widget->id, session('visited_projects', [])))
             {
                 session()->push('visited_projects', $widget->id);
                 $widget->increment('views');
@@ -604,11 +620,36 @@ public function signIn() {
         list($width,$height) = getimagesize($path.$gallery_image);
         $w = $width; $h = $height;
         $type=pathinfo($path.$gallery_image, PATHINFO_EXTENSION);
-        if (!in_array($gallery->gallery_image, session('visited_images', []))) 
+        if (!in_array($gallery->gallery_image, session('visited_images', [])))
             {
                 session()->push('visited_images', $gallery_image);
                 $gallery->increment('views');
             }
         return view('guest.g_photo',compact('gallery','size','w','h','type'))->render();
+    }
+
+    public function delete_account($id) {
+        $user = User::find($id);
+        $gallery = Gallery::where('user_id',$user->id)->get();
+        $project = Project::where('user_id',$user->id)->get();
+        $user->project()->forceDelete();
+        foreach ($project as $p) {
+            Storage::delete('storage/avatars/'.$p->image);
+            Storage::delete('storage/avatars/'.'placeholder-'.$p->image);
+            if ($p->zip_file) {
+               Storage::delete('storage/zip_files/'.$p->zip_file);
+            }
+        }
+        $user->gallery()->forceDelete();
+        foreach ($gallery as $g) {
+            Storage::delete('storage/galleries/'.$g->gallery_image);
+            Storage::delete('storage/large_photos/'.$g->gallery_image);
+            Storage::delete('storage/medium_photos/'.$g->gallery_image);
+            Storage::delete('storage/mobile_photos/'.$g->gallery_image);
+            Storage::delete('storage/tiny_photos/'.$g->gallery_image);
+        }
+        $user->favorites()->forceDelete();
+        $user->forceDelete();
+        return back();
     }
 }

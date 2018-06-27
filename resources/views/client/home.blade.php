@@ -133,10 +133,16 @@ a {
                   <p class="hidden-lg hidden-md">Add photos</p>
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="{{ url('submit_product') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Submit a product">
                   <i class="material-icons">send</i>
                   <p class="hidden-lg hidden-md">Submit Product</p>
+                </a>
+              </li> --}}
+              <li>
+                <a href="{{ url('/post') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Post a Product">
+                  <i class="material-icons">subject</i>
+                  <p class="hidden-lg hidden-md">Post a Product</p>
                 </a>
               </li>
                <li>
@@ -225,6 +231,10 @@ a {
                 @yield('userProfile')
                 @yield('editClient')
                 @yield('guidelines')
+                @yield('edit_PAvatar')
+                @yield('edit_PFile')
+                @yield('edit_userProject')
+                @yield('create_userProject')
               </div>
           </div>
       </div>

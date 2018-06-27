@@ -125,6 +125,17 @@ Route::get('admin/submitted_projects','ProjectsController@pending_projects');
 Route::get('approve_project/{id}','ProjectsController@approve_project');
 Route::get('reject_project/{id}','ProjectsController@reject_project');
 
+Route::get('/post', 'ProductsController@create');
+Route::get('Uproducts/{id}/edit', 'ProductsController@edit');
+Route::get('Uproducts/{id}/editPAvatar', 'ProductsController@editPAvatar');
+Route::get('Uproducts/{id}/editPFile', 'ProductsController@editPFile');
+Route::post('/store', 'ProductsController@store');
+Route::put('Uproducts/{id}', 'ProductsController@update');
+Route::put('updatePAvatar/{id}', 'ProductsController@updatePAvatar');
+Route::put('updatePFile/{id}', 'ProductsController@updatePFile');
+Route::delete('deleteProduct/{id}', 'ProductsController@delete_product');
+Route::delete('delete_account/{id}', 'ClientController@delete_account');
+
 Route::get('/admin/decompose','\Lubusin\Decomposer\Controllers\DecomposerController@index');
 
 // Route::get('/store', 'ProjectsController@shop');
