@@ -44,10 +44,10 @@
                   rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
                   <i class="material-icons">favorite_border</i></a>
                 @endif
-                 @if($widget->user->hasPermissionTo('view_project_creator_from_client'))
+                 @if($result->user->hasPermissionTo('view_project_creator_from_client'))
                    <a type="button" class="btn btn-success btn-simple"
                    href="{{ url($result->user->slug.'/u/products') }}"
-                   rel="tooltip" data-placement="bottom" title="" data-original-title="{{$widget->user->name}}">
+                   rel="tooltip" data-placement="bottom" title="" data-original-title="{{$result->user->name}}">
                     <i style="color: black" class="material-icons">person</i></a>
                    </a>
                   @endif
