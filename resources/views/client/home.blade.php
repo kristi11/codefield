@@ -59,21 +59,21 @@ a {
       <li{{ setActive('products') }}>
         <a href="{{ asset('/products') }}">
           <i class="material-icons">widgets</i>
-          <p>Products <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
+          <p>Products {{-- <span class="label label-{{$item->font_color}}">{{$countProjects}}</span> --}}</p>
         </a>
       </li>
 
        <li{{ setActive('photos') }}>
         <a href="{{ asset('/photos') }}">
           <i class="material-icons">image</i>
-          <p>Photos <span class="label label-{{$item->font_color}}">{{-- {{ $countImages }} --}}</span></p>
+          <p>Photos {{-- <span class="label label-{{$item->font_color}}">{{ $countImages }}</span> --}}</p>
         </a>
       </li>
 
       <li{{ setActive('googlefonts') }}>
         <a href="{{ asset('/googlefonts') }}">
           <i class="material-icons">font_download</i>
-          <p>Google fonts <span class="label label-{{$item->font_color}}">{{count($result->items)}}</span></p>
+          <p>Google fonts {{-- <span class="label label-{{$item->font_color}}">{{count($result->items)}}</span> --}}</p>
         </a>
       </li>
 
