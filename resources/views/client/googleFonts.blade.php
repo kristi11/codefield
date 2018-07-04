@@ -9,9 +9,9 @@
 				To use Google Fonts API add the stylesheet to your head section like this:
 				<pre><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name"></pre>
 				Add the web font either on your stylesheet
-				<pre>.css-selector { font-family: 'Font Name', serif; }</pre>
+				<pre>".css-selector { font-family: 'Font Name', serif; }"</pre>
 				Or inline it within your div
-				<pre><div style="font-family: 'Font Name', serif;">Your text</div></pre>
+				<pre>"<div style="font-family: 'Font Name', serif;">Your text</div>"</pre>
 			</div>
 		</div>
 				<div class="alert alert-{{ $item->font_color }}">
