@@ -30,9 +30,9 @@
 		      <th>Font family</th>
 		      <th>Example</th>
 		      <th>Variants</th>
-		      <th>Category</th>
+{{-- 		      <th>Category</th>
 		      <th>Subsets</th>
-		      <th>Version</th>
+		      <th>Version</th> --}}
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -42,9 +42,9 @@
 		      <td>{{$font['family'] }}</td>
 		      <td> <p style="font-family: '{{$font['family']}}',serif;font-size: 22px">Lorem ipsum</p></td>
 		      <td>{{implode(', ', $font['variants']) }}</td>
-		      <td>{{$font['category'] }}</td>
+{{-- 		      <td>{{$font['category'] }}</td>
 		      <td>{{implode(', ', $font['subsets']) }}</td>
-		      <td>{{$font['version'] }}</td>
+		      <td>{{$font['version'] }}</td> --}}
 		    </tr>
 		   @endforeach
 		  </tbody>
