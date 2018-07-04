@@ -16,7 +16,7 @@
 		</div>
 				<div class="alert alert-{{ $item->font_color }}">
 					When specifying a web font in a CSS style, always list at least one fallback web-safe font in order to avoid unexpected behaviors. In particular, add a CSS generic font name like <b>serif</b> or <b>sans-serif</b> to the end of the list, so the browser can fall back to its default fonts if need be.
-					For more detailed information head to the <a href="https://developers.google.com/fonts/docs/getting_started" rel="noopener" target="_blank"><b>Google Fonts</b></a> website 
+					For more detailed information head to the <a href="https://developers.google.com/fonts/docs/getting_started" rel="noopener" target="_blank"><b>Google Fonts</b></a> website
 				</div>
 			</div>
 		</div>
@@ -40,13 +40,13 @@
 
 		    <tr>
 		      <td>{{$font['family'] }}</td>
-		      <td <p style="font-family: '{{$font['family']}}',serif;font-size: 22px">Lorem ipsum</p></td>
+		      <td> <p style="font-family: '{{$font['family']}}',serif;font-size: 22px">Lorem ipsum</p></td>
 		      <td>{{implode(', ', $font['variants']) }}</td>
 		      <td>{{$font['category'] }}</td>
 		      <td>{{implode(', ', $font['subsets']) }}</td>
 		      <td>{{$font['version'] }}</td>
 		    </tr>
-		   @endforeach		   
+		   @endforeach
 		  </tbody>
 		</table>
 		</div>
