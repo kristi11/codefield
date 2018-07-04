@@ -78,7 +78,7 @@
             .table-responsive::-webkit-scrollbar {
     display: none;
 }
-  .table-responsive {
+  /*.table-responsive {
     padding: 1em;
     border: none;
   }
@@ -91,7 +91,7 @@
     border: none;
     min-width: 20em;
     max-width: 20em;
-}
+}*/
         </style>
         <script type="application/ld+json">
         {
