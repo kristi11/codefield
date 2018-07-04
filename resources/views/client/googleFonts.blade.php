@@ -7,7 +7,7 @@
 				<div class="table-responsive">
 				<div class="table">
 				To use Google Fonts API add the stylesheet to your head section like this:
-				<pre><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name"></pre>
+				<pre>&ltlink rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name"&gt&lt/pre&gt
 				Add the web font either on your stylesheet
 				<pre>".css-selector { font-family: 'Font Name', serif; }"</pre>
 				Or inline it within your div
