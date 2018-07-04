@@ -40,7 +40,7 @@
 
 		    <tr>
 		      <td>{{$font['family'] }}</td>
-		      <td> <p style="font-family: '{{$font['family']}}',serif;font-size: 22px">Lorem ipsum</p></td>
+		      <td> <h3 style="font-family: '{{$font['family']}}',serif;">Lorem ipsum</h3></td>
 		      <td>{{implode(', ', $font['variants']) }}</td>
 {{-- 		      <td>{{$font['category'] }}</td>
 		      <td>{{implode(', ', $font['subsets']) }}</td>
