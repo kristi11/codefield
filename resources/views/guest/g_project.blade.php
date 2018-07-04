@@ -55,7 +55,7 @@ a {
         </div>
       <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <p>{!! ucwords(substr(Purify::clean($widget->body),0,-150)) !!}
-      </p><a href="">...</a>{{-- <button disabled="" class="btn btn-simple btn-xs"><a href="">...</a></button> --}}
+      </p><button hidden=""><a>...</a></button>{{-- <button disabled="" class="btn btn-simple btn-xs"><a href="">...</a></button> --}}
       <div class="text-right">
       <a href="/#signIn" class="btn btn-{{$item->font_color}} pull-right" type="submit" id="p_edit">
         Sign in to learn more
