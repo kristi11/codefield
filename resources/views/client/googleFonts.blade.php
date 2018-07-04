@@ -11,7 +11,7 @@
 				Add the web font either on your stylesheet
 				<pre>".css-selector { font-family: 'Font Name', serif; }"</pre>
 				Or inline it within your div
-				<pre>"<div style="font-family: 'Font Name', serif;">Your text</div>"</pre>
+				<pre>&ltdiv style="font-family: 'Font Name', serif;"&gtYour text&lt/div&gt</pre>
 			</div>
 		</div>
 				<div class="alert alert-{{ $item->font_color }}">
