@@ -56,28 +56,28 @@ a {
         </a>
       </li> --}}
 
-      <li{{ setActive('/products') }}>
+      <li{{ setActive('products') }}>
         <a href="{{ asset('/products') }}">
           <i class="material-icons">widgets</i>
           <p>Products <span class="label label-{{$item->font_color}}">{{$countProjects}}</span></p>
         </a>
       </li>
 
-       <li{{ setActive('/photos') }}>
+       <li{{ setActive('photos') }}>
         <a href="{{ asset('/photos') }}">
           <i class="material-icons">image</i>
           <p>Photos <span class="label label-{{$item->font_color}}">{{-- {{ $countImages }} --}}</span></p>
         </a>
       </li>
 
-      <li{{ setActive('/googlefonts') }}>
+      <li{{ setActive('googlefonts') }}>
         <a href="{{ asset('/googlefonts') }}">
           <i class="material-icons">font_download</i>
           <p>Google fonts <span class="label label-{{$item->font_color}}">{{count($result->items)}}</span></p>
         </a>
       </li>
 
-      <li{{ setActive('/favorites') }}>
+      <li{{ setActive('favorites') }}>
         <a href="{{ asset('/favorites') }}">
           <i class="material-icons">favorite</i>
           <p>Favorites
@@ -91,14 +91,14 @@ a {
         </a>
       </li>
 
-      <li{{ setActive('/license') }}>
+      <li{{ setActive('license') }}>
         <a href="{{ asset('/license') }}">
           <i class="material-icons">book</i>
           <p>Licenses</p>
         </a>
       </li>
 
-      <li{{ setActive('/guidelines') }}>
+      <li{{ setActive('guidelines') }}>
         <a href="{{ asset('/guidelines') }}">
           <i class="material-icons">subject</i>
           <p>Guidelines</p>
