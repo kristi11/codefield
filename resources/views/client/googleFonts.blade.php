@@ -39,9 +39,9 @@
 		  @foreach($results->items() as $font)
 
 		    <tr>
-		      <td class="col-xs-4 col-sm-2">{{$font['family'] }}</td>
+		      <td class="col-xs-4 col-sm-2"><h5>{{$font['family'] }}</h5></td>
 		      <td class="col-xs-4 col-sm-8"> <h3 style="font-family: '{{$font['family']}}',serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3></td>
-		      <td class="col-xs-4 col-sm-2">{{implode(', ', $font['variants']) }}</td>
+		      <td class="col-xs-4 col-sm-2"><h5>{{implode(', ', $font['variants']) }}</h5></td>
 {{-- 		      <td>{{$font['category'] }}</td>
 		      <td>{{implode(', ', $font['subsets']) }}</td>
 		      <td>{{$font['version'] }}</td> --}}
