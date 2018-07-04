@@ -7,11 +7,11 @@
 				<div class="table-responsive">
 				<div class="table">
 				To use Google Fonts API add the stylesheet to your head section like this:
-				<xmp><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name"></xmp>
+				<pre><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name"></pre>
 				Add the web font either on your stylesheet
-				<xmp>.css-selector { font-family: 'Font Name', serif; }</xmp>
+				<pre>.css-selector { font-family: 'Font Name', serif; }</pre>
 				Or inline it within your div
-				<xmp><div style="font-family: 'Font Name', serif;">Your text</div></xmp>
+				<pre><div style="font-family: 'Font Name', serif;">Your text</div></pre>
 			</div>
 		</div>
 				<div class="alert alert-{{ $item->font_color }}">
