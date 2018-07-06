@@ -93,7 +93,7 @@ class ClientController extends Controller
         // $cacheKey = md5(auth()->user()->id.auth()->user()->provider_id.auth()->user()->created_at.$title.'client_gallery');
         // return Cache::remember($cacheKey, $timer, function () use($title) {
         $widget = Project::where('title', $title)->first();
-        $title = $widget->title;
+        $title = $widget->dsc_title;
         $category = $widget->categories;
         $file_size = Storage::size('storage/zip_files/'.$widget->zip_file);
         $size = number_format($file_size / 1048576,2);
