@@ -19,7 +19,7 @@
   {{-- <input id="body" value="{!! Purify::clean($project->body) !!}" type="hidden" name="body">
   <trix-editor input="body"></trix-editor> --}}
       <div class="form-group label-floating">
-      <label class="control-label">Body</label>
+      <label class="control-label">Description</label>
           <div name="body" id="body" class="form-control fr-view" required >{!! Purify::clean($project->body) !!}</div>
       </div>
         <div class="form-group label-floating">
