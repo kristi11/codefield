@@ -38,9 +38,11 @@
     </div>
     <div class="form-group text-center">
       <a class="btn btn-simple btn-danger" href="{{ url('Uproducts/'.$project->id.'/editPAvatar')}}">update image</a>
+      @if($project->zip_file)
       <a class="btn btn-simple btn-danger" href="{{ url('Uproducts/'.$project->id.'/editPFile')}}">
         update uploaded file
       </a>
+      @endif
     </div>
       <div class="text-center">
       <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
