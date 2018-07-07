@@ -38,19 +38,23 @@
 	<div class="card-content">
       <h4 class="title" id="title">{{ str_limit($project->dsc_title,30) }}</h4>
       @if($project->views == 0)
-        <p class="category">No views</p>
+        <h5 class="category">No views</h5>
       @elseif($project->views == 1)
-        <p class="category">{{$project->views}} view</p>
+        <h5 class="category">{{$project->views}} view</h5>
       @else
-        <p class="category">{{$project->views}} views</p>
+        <h5 class="category">{{$project->views}} views</h5>
       @endif
 
+     @if($project->zip_file)
       @if($project->downloads == 0)
-        <p class="category">No downloads</p>
+        <h5 class="category">No downloads</h5>
       @elseif($project->downloads == 1)
-        <p class="category">{{$project->downloads}} download</p>
+        <h5 class="category">{{$project->downloads}} download</h5>
       @else
-        <p class="category">{{$project->downloads}} downloads</p>
+        <h5 class="category">{{$project->downloads}} downloads</h5>
+      @endif
+      @else
+      <h5 class="category">Learning</h5>
       @endif
     </div>
     <div class="card-footer">
