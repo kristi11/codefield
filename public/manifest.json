@@ -57,5 +57,7 @@
     }
   ],
   "start_url": "https://codefield.io/?utm_source=homescreen",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "lang": "en",
+  "description": "Codefield is a small new platform helping developers,designers and even photographers find tools that will make completing their next project a whole lot easier. From photos to simple html templates to different more complex projects you'll find it all in here."
 }
