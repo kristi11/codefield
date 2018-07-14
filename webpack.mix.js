@@ -35,7 +35,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
   // 	'public/js/material.min.js',
   // 	'public/js/material-dashboard.js',
   // 	'public/js/bootstrap-filestyle.min.js',
-    
+
 
   // 	],'public/js/app.js');
 mix.webpackConfig({
@@ -43,11 +43,11 @@ mix.webpackConfig({
     new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',
-        staticFileGlobs: ['public/**/*.{css,eot,svg,ttf,woff,woff2,js,html,jpg,jpeg,png}'],
+        staticFileGlobs: ['public/**/**/*.{css,eot,svg,ttf,woff,woff2,js,html,jpg,jpeg,png}'],
         minify: true,
         stripPrefix: 'public/',
         handleFetch: true,
-        // dynamicUrlToDependencies: { 
+        // dynamicUrlToDependencies: {
         //     '/': ['resources/views/client/home.blade.php']
         // },
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
