@@ -9,9 +9,12 @@
     <div class="pr_img">
       <div class="ct-chart" id="dailySalesChart">
       <picture>
-       <img style="max-height: 300px;" class="img-responsive img-rounded fit"
-       src="{{url('storage/avatars/'.$project->image)}}"
-       alt="{{$project->alternative_text}}">
+       <img
+         style="max-height: 300px;"
+         class="lazyload blur-up img-responsive img-rounded fit"
+         src="{{asset('storage/avatars/'.'placeholder-'.$project->image)}}"
+         data-src="{{asset('storage/avatars/'.$project->image)}}"
+         alt="{{$project->alternative_text}}">
        </picture>
       </div>
     </div>
