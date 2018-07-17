@@ -45,8 +45,8 @@ class EmailNotificationsDisabled extends Notification implements ShouldQueue
                     ->subject('Email notifications disabled')
                     ->error()
                     ->greeting('Hey there '.$this->user->name)
-                    ->line('We noticed that you have disabled e-mail notifications.From now on you will not recieve emails on the latest products that are added on out platform.We strongly recommend that you enable these notifications to stay informed on the latest goodies that we have to offer.If you want to do so,go to your dashboard and click the notification icon to enable them.')
-                    ->action('Go to Dashboard',secure_url('/'))
+                    ->line('We noticed that you have disabled e-mail notifications.From now on you will not recieve emails on the latest products that are added on out platform.We strongly recommend that you enable these notifications to stay informed on the latest goodies that we have to offer.If you want to do so you can click the button below and then click on account settings')
+                    ->action('Manage email notifications',url('/'.$this->user->slug.'/products'))
                     ->line('You are receiving this e-mail because you chose to disable e-mail notifications');
     }
 
