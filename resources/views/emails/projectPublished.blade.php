@@ -10,7 +10,7 @@ Check it out
 If you do not wish to recieve email notifications anymore you can click the button below and then click on
 <b>Account settings</b>
 
-@component('mail::button', ['url' => url('/').'/'.$project->user->slug.'/products'])
+@component('mail::button', ['url' => url('/').'/'.$user->slug.'/products'])
 Manage email notifications
 @endcomponent
 
