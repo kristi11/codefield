@@ -9,13 +9,10 @@ that will come in handy for your different projects.<br>
 We are excited to have you as part of our community and we hope you stay with us for a very long time<br>
 
 One more thing
-When you sign up for {{config('app.name')}} by default you have e-mail notifications disabled.
-If you want to stay updated on the latest products that are added on our platform you can enable email notifications.
-To enable e-mail notifications you can click the notification icon
-on the top right corner of the page. Doing so the icon will turn from gray to blue-ish meaning you will now recieve email notifications on any products that are added on the platform. If you change you mind you can always disable these notifications at the click of that button.
+When you sign up for {{config('app.name')}} by default you have e-mail notifications enabled so you  stay up to date with the latest products that get added on {{config('app.name')}}. If you want to disable these notifications you can do so by clicking the button below and then clicking on <b>Account settings</b> on your profile.
 
-@component('mail::button', ['url' => url('/')])
-Go to your dashboard
+@component('mail::button', ['url' => url('/').'/'.$project->user->slug.'/products'])
+Manage email notifications
 @endcomponent
 
 @component('mail::panel')
