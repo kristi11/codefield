@@ -12,7 +12,7 @@ use App\PaginationCounter;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use App\Notifications\ProjectPublished;
+use App\Mail\ProjectPublished;
 use App\Notifications\ProjectApproved;
 use App\Notifications\ProjectRejected;
 use App\SubmitRequest;
@@ -85,7 +85,8 @@ public function __construct()
         $project->categories()->sync($category);
         foreach ($user as $u) {
             if ($u->email_notifications != 0) {
-            $u->notify(new ProjectPublished($project));
+            // $u->notify(new ProjectPublished($project));
+                \Mail::to($u)->send(new ProjectPublished($project));
         }
         }
 
