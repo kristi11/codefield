@@ -15,6 +15,23 @@
       </li>
 		<ul class="collapse nav" id="showTags">
 			<li>
+				<form action="{{ url('emailNotifications/'.Auth::id()) }}" method="POST" >
+	                  {{ csrf_field() }}
+	                  <div class="row text-center">
+	                  <input class="" type="hidden" name="email_notifications" />
+	                 	@if(Auth::user()->email_notifications == 0)
+			                <button type="submit" class="dropdown-toggle btn btn-simple btn-sm" rel="tooltip" data-placement="bottom" title="" data-original-title="Your email notifications are off. Click to enable them">
+			                  <i class="material-icons">notifications_off</i> Enable email notifications
+			                </button>
+	                	@else
+			                <button type="submit" class="dropdown-toggle btn btn-simple btn-sm btn-info" rel="tooltip" data-placement="bottom" title="" data-original-title="Your email notifications are on. Click to disable them">
+			                  <i class="material-icons">notifications_active</i> Disable email notifications
+			                </button>
+	                	@endif
+	            	</div>
+	            </form>
+			</li>
+			<li>
 				<form method="POST" action="{{ url('delete_account/'.Auth::id()) }}">
 					{{method_field('DELETE')}}
 					{{ csrf_field() }}
