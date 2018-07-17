@@ -11,7 +11,7 @@ We are excited to have you as part of our community and we hope you stay with us
 One more thing
 When you sign up for {{config('app.name')}} by default you have e-mail notifications enabled so you  stay up to date with the latest products that get added on {{config('app.name')}}. If you want to disable these notifications you can do so by clicking the button below and then clicking on <b>Account settings</b> on your profile.
 
-@component('mail::button', ['url' => url('/').'/'.$project->user->slug.'/products'])
+@component('mail::button', ['url' => url('/').'/'.$user->slug.'/products'])
 Manage email notifications
 @endcomponent
 
