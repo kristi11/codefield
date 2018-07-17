@@ -31,6 +31,6 @@ class ProjectPublished extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->subject('NEW: '.$this->project->dsc_title)
-                    ->markdown('mail.projectPublished');
+                    ->markdown('emails.projectPublished');
     }
 }
