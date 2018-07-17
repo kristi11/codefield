@@ -86,7 +86,7 @@ public function __construct()
         foreach ($user as $u) {
             if ($u->email_notifications != 0) {
             // $u->notify(new ProjectPublished($project));
-                \Mail::to($u)->send(new ProjectPublished($project,$user));
+                \Mail::to($u)->send(new ProjectPublished($project,$u));
         }
         }
 
