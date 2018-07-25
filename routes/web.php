@@ -96,7 +96,7 @@ Route::get('admin/gallery', 'HomeController@galleryIndex');
 Route::get('admin/gallery/add', 'TagController@show');
 Route::get('/addPhotos', 'GalleryController@create');
 Route::delete('photos/{id}', 'GalleryController@destroy');
-Route::delete('/admin/gallery/{id}', 'HomeController@adminDestroy');
+Route::delete('/admin/gallery/{id}', 'HomeController@permanently_delete_image');
 Route::delete('admin/trash/{id}', 'HomeController@permanently_delete_image');
 Route::post('admin/trash/{id}', 'HomeController@restore_deleted_image');
 
