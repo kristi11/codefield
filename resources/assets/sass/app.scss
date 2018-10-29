@@ -4,16 +4,15 @@
 @import "node_modules/flexbin/flexbin.scss";
 /* Define the "system" font family */
 @font-face {
-  font-family: "Baloo,sans-serif";
+  font-family: system;
   font-style: normal;
-  font-size: 1.5em;
+  font-weight: 300;
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 
 /* Now, let's apply it on an element */
 body {
-  font-family: "Baloo,sans-serif";
-  font-size: 1.5em;
+  font-family: "system";
 }
 html{-webkit-backface-visibility: hidden;}
 .md-space-up{
