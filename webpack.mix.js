@@ -1,9 +1,5 @@
 const { mix } = require('laravel-mix');
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const path = require('path');
-const glob = require('glob-all');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -20,17 +16,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 
-  // mix.styles([
-  //   'public/css/bootstrap.min.css',
-  //   ],'public/css/bootstrap.min.css');
-
-  //  mix.styles([
-  //   'public/css/material-dashboard.css',
-  //   ],'public/css/material-dashboard.css');
-
-  //   mix.styles([
-  //   'public/css/app.css',
-  //   ],'public/css/app.css');
+  mix.styles([
+    'public/css/bootstrap.min.css',
+    '/css/material-dashboard.min.css',
+    '/css/app.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css',
+    '//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons',
+    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+    ],'public/css/all.css');
 
   // mix.scripts([
   // 	'public/js/app.js',
@@ -43,26 +36,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
   // 	],'public/js/app.js');
 mix.webpackConfig({
-   entry: {...},
-  output: {...},
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader'
-        })
-      }
-    ]
-  },
     plugins: [
-    new ExtractTextPlugin('[name].[contenthash].css'),
-    // Make sure this is after ExtractTextPlugin!
-    new PurifyCSSPlugin({
-      // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync(path.join(__dirname, 'app/*.html')),
-    }),
     new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',

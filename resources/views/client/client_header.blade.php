@@ -19,13 +19,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="manifest" href="/manifest.json">
     <title>{{ config('app.name', 'Codefield') }}</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    {{-- <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> --}}
 {{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
  --}}
- <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons' rel="stylesheet">
+{{--  <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons' rel="stylesheet"> --}}
     <meta property="og:image" content="{{url('storage/codefield_logo/29695003_1752978298091934_4637625344562561024_n.png')}}" />
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-76.png">
@@ -52,7 +52,7 @@
       }
       });
       </script> --}}
-    <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   {{--  <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
       <style name="FontAwesome">
             @font-face {
               font-family: 'FontAwesome';
