@@ -19,6 +19,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="manifest" href="/manifest.json">
     <title>{{ config('app.name', 'Codefield') }}</title>
+    <link href="/css/all.css" rel="stylesheet" type="text/css">
     {{-- <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
