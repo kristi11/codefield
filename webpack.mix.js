@@ -16,14 +16,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 
-  mix.styles([
-    'public/css/bootstrap.min.css',
-    '/css/material-dashboard.min.css',
-    '/css/app.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css',
-    '//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons',
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
-    ],'public/css/all.css');
+  // mix.styles([
+  //   'public/css/bootstrap.min.css',
+  //   '/css/material-dashboard.min.css',
+  //   '/css/app.css',
+  //   'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css',
+  //   '//fonts.googleapis.com/css?family=Roboto:400,700,300|Baloo|Material+Icons',
+  //   'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+  //   ],'public/css/all.css');
 
   // mix.scripts([
   // 	'public/js/app.js',
