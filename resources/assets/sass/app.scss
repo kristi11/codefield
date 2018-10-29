@@ -4,15 +4,16 @@
 @import "node_modules/flexbin/flexbin.scss";
 /* Define the "system" font family */
 @font-face {
-  font-family: system;
+  font-family: "Baloo,sans-serif";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 1.5em;
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 
 /* Now, let's apply it on an element */
 body {
-  font-family: "system";
+  font-family: "Baloo,sans-serif";
+  font-weight: 1.5em;
 }
 html{-webkit-backface-visibility: hidden;}
 .md-space-up{
@@ -410,7 +411,7 @@ opacity: .85;
      box-shadow: none;
 }
 .btn-flat:hover{
-      box-shadow: none; 
+      box-shadow: none;
 }
 .access{
   min-height: 100vh;
@@ -447,17 +448,17 @@ opacity: .85;
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
 
 .table-responsive::-webkit-scrollbar {

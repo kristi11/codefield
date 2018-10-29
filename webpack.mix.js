@@ -15,6 +15,9 @@ var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
+mix.styles([
+    'public/css/material-dashboard.css',
+    ],'public/css/material-dashboard.min.css');
 
   // mix.styles([
   //   'public/css/bootstrap.min.css',

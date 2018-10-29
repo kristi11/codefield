@@ -1,19 +1,19 @@
 /*!
-    
+
  =========================================================
  * Material Dashboard - v1.1.1
  =========================================================
- 
+
  * Product Page: http://www.creative-tim.com/product/material-dashboard
  * Copyright 2017 Creative Tim (http://www.creative-tim.com)
  * Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
- 
+
  =========================================================
- 
+
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- 
+
  */
- 
+
 /* ANIMATION */
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
@@ -43,14 +43,14 @@ trix-editor:empty:not(:focus)::before {
   }
 }
 @media (min-width:992px ) and (max-width: 1199px) {
-  
+
   .miniImg{
     height: 15px;
     width: 40px;
   }
 }
 @media (max-width:991px ){
-  
+
   .miniImg{
     height: 15px;
     width: 40px;
@@ -60,14 +60,14 @@ trix-editor:empty:not(:focus)::before {
 }
 }
 @media (max-width:767px ){
-  
+
   .miniImg{
     height: 15px;
     width: 40px;
   }
 }
 @media (max-width:479px ){
- 
+
   .miniImg{
     height: 15px;
     width: 40px;
@@ -644,7 +644,7 @@ h2.title {
   margin: 10px 10px;
   color: #FFFFFF;
   line-height: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: inherit;
 }
 .sidebar .logo .simple-text,
 .off-canvas-sidebar .logo .simple-text {
@@ -1578,13 +1578,13 @@ blockquote p {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: inherit;
   font-weight: 300;
   line-height: 1.5em;
 }
 
 .serif-font {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: inherit;
 }
 
 .page-header {
