@@ -6,14 +6,14 @@
 @font-face {
   font-family: "Baloo,sans-serif";
   font-style: normal;
-  font-weight: 1.5em;
+  font-size: 1.6em;
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 
 /* Now, let's apply it on an element */
 body {
   font-family: "Baloo,sans-serif";
-  font-weight: 1.5em;
+  font-size: 1.6em;
 }
 html{-webkit-backface-visibility: hidden;}
 .md-space-up{
