@@ -53,23 +53,4 @@
     </form>
  </div>
  </div>
-
- <script async defer src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gfnhsiax34xgkgxk89hb6mc24eo88l2utnhu4tvl2dc89kvg"></script>
-  <script type="text/javascript">
-  tinymce.init({
-    selector: '#body',
-     theme: 'modern',
-     branding: false,
-     min_height: 600,
-     plugins: [
-        "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste"
-    ],
-  mobile: {
-    theme: 'mobile',
-    plugins: [ 'autosave', 'lists', 'autolink' ]
-  }
-  });
-  </script>
 @endsection
