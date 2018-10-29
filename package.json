@@ -13,9 +13,12 @@
   "devDependencies": {
     "apache-server-configs": "^2.14.0",
     "axios": "^0.17.1",
+    "glob-all": "^3.1.0",
     "image-trace-loader": "^0.1.0",
     "laravel-mix": "^0.8.1",
     "lodash": "^4.17.4",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     "sw-precache-webpack-plugin": "^0.11.5",
     "vue": "^2.5.13"
   },

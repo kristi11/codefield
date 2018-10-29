@@ -1,5 +1,9 @@
 const { mix } = require('laravel-mix');
-  var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const path = require('path');
+const glob = require('glob-all');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -39,7 +43,26 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
   // 	],'public/js/app.js');
 mix.webpackConfig({
+   entry: {...},
+  output: {...},
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
+      }
+    ]
+  },
     plugins: [
+    new ExtractTextPlugin('[name].[contenthash].css'),
+    // Make sure this is after ExtractTextPlugin!
+    new PurifyCSSPlugin({
+      // Give paths to parse for rules. These should be absolute!
+      paths: glob.sync(path.join(__dirname, 'app/*.html')),
+    }),
     new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',
