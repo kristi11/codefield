@@ -2,6 +2,23 @@
 
 @section('edit_userProject')
 @include('errors')
+<script type="text/javascript">
+  tinymce.init({
+    selector: '#body',
+     theme: 'modern',
+     branding: false,
+     min_height: 600,
+     plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+  mobile: {
+    theme: 'mobile',
+    plugins: [ 'autosave', 'lists', 'autolink' ]
+  }
+  });
+</script>
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
     <form method="POST" action="{{ url('Uproducts/'.$project->id) }}" enctype="multipart/form-data">
