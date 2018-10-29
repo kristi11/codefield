@@ -11,6 +11,17 @@
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
 <script type="text/javascript">
+
+jQuery.event.special.touchstart = {
+  setup: function( _, ns, handle ){
+    if ( ns.includes("noPreventDefault") ) {
+      this.addEventListener("touchstart", handle, { passive: false });
+    } else {
+      this.addEventListener("touchstart", handle, { passive: true });
+    }
+  }
+};
+
     $("#categories").select2({
         placeholder:'Choose a category',
         width:'100%',
