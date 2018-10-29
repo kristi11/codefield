@@ -4,14 +4,14 @@
 @import "node_modules/flexbin/flexbin.scss";
 /* Define the "system" font family */
 @font-face {
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
   font-style: normal;
   font-size: 1.5em;
 }
 
 /* Now, let's apply it on an element */
 body {
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
   font-size: 1.5em;
 }
 html{-webkit-backface-visibility: hidden;}

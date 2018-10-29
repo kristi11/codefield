@@ -18,7 +18,7 @@
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
 trix-editor:empty:not(:focus)::before {
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
   font-size: 14px;
   line-height: 1.42857;
 }
@@ -644,7 +644,7 @@ h2.title {
   margin: 10px 10px;
   color: #FFFFFF;
   line-height: 20px;
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
 }
 .sidebar .logo .simple-text,
 .off-canvas-sidebar .logo .simple-text {
@@ -1578,12 +1578,12 @@ blockquote p {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
   font-size: 1.5em;
 }
 
 .serif-font {
-  font-family: "Baloo,sans-serif";
+  font-family: "apercu",sans-serif;
 }
 
 .page-header {
