@@ -34,7 +34,7 @@
     <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-180.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gfnhsiax34xgkgxk89hb6mc24eo88l2utnhu4tvl2dc89kvg"></script>
+    {{-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gfnhsiax34xgkgxk89hb6mc24eo88l2utnhu4tvl2dc89kvg"></script>
       <script type="text/javascript">
       tinymce.init({
         selector: '#body',
@@ -51,7 +51,7 @@
         plugins: [ 'autosave', 'lists', 'autolink' ]
       }
       });
-      </script>
+      </script> --}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <style name="FontAwesome">
             @font-face {
