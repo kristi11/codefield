@@ -10,24 +10,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
-<script async defer src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gfnhsiax34xgkgxk89hb6mc24eo88l2utnhu4tvl2dc89kvg"></script>
-  <script type="text/javascript">
-  tinymce.init({
-    selector: '#body',
-     theme: 'modern',
-     branding: false,
-     min_height: 600,
-     plugins: [
-        "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste"
-    ],
-  mobile: {
-    theme: 'mobile',
-    plugins: [ 'autosave', 'lists', 'autolink' ]
-  }
-  });
-  </script>
 <script type="text/javascript">
 
 jQuery.event.special.touchstart = {
