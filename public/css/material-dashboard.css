@@ -1578,9 +1578,8 @@ blockquote p {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: inherit;
-  font-weight: 300;
-  line-height: 1.5em;
+  font-family: "Baloo,sans-serif";
+  font-size: 1.5em;
 }
 
 .serif-font {
