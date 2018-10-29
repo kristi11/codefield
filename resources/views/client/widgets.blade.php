@@ -94,7 +94,7 @@
                 @endif
                 </div>
                 </div>
-                <div class="card-content">
+                <div class="card-content text-center">
                   <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
 {{--                   <p class="category">{{ str_limit($widget->body, 100) }}.</p>--}}
                   @if($widget->views == 0)
