@@ -264,7 +264,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
                 </div>
                 </div>
                 <div class="card-content">
-                <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
+                <h3 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h3>
                 @if($widget->zip_file)
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
