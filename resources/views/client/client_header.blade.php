@@ -62,8 +62,8 @@
                    url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
                    url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
                    url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
-              font-weight: normal;
-              font-style: normal;
+             /* font-weight: normal;
+              font-style: normal;*/
             }
             .blur-up {
               -webkit-filter: blur(5px);
