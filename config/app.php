@@ -162,7 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
 
         /*
          * Package Service Providers...
@@ -182,7 +182,7 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
         // Hootlex\Moderation\ModerationServiceProvider::class,
-       
+
 
         /*
          * Application Service Providers...
@@ -245,7 +245,7 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
+        // 'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'ImageOptimizer' => Spatie\LaravelImageOptimizer\ImageOptimizerFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
