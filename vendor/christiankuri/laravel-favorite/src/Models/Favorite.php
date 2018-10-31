@@ -4,7 +4,6 @@ namespace ChristianKuri\LaravelFavorite\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * This file is part of Laravel Favorite,
@@ -16,7 +15,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Favorite extends Model
 {
-    use SoftDeletes;
 	/**
      * The table associated with the model.
      *
@@ -30,8 +28,6 @@ class Favorite extends Model
      * @var array
      */
 	protected $fillable = ['user_id'];
-
-    protected $with = ['favorites'];
 
 	/**
      * Define a polymorphic, inverse one-to-one or many relationship.
@@ -47,10 +43,4 @@ class Favorite extends Model
     {
         return $this->belongsTo(Config::get('auth.providers.users.model'));
     }
-    
-        public function favorites()
-    {
-        return $this->morphMany(Favorite::class, 'favoriteable');
-    }
-
 }

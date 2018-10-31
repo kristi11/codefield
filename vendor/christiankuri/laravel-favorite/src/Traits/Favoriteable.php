@@ -44,7 +44,7 @@ trait Favoriteable
 	 */
 	public function removeFavorite($user_id = null)
 	{
-		$this->favorites()->where('user_id', ($user_id) ? $user_id : Auth::id())->forceDelete();
+		$this->favorites()->where('user_id', ($user_id) ? $user_id : Auth::id())->delete();
 	}
 
 	/**
@@ -63,18 +63,9 @@ trait Favoriteable
 	 * @param  int $user_id  [if  null its added to the auth user]
 	 * @return boolean
 	 */
-
-	//original query
-	// public function isFavorited($user_id = null)
-	// {
-	// 	return $this->favorites()->where('user_id', ($user_id) ? $user_id : Auth::id())->exists();
-	// }
-
-	//modified query
-
 	public function isFavorited($user_id = null)
 	{
-		return $this->favorites()->where('user_id', ($user_id) ? $user_id : Auth::id())->count();
+		return $this->favorites()->where('user_id', ($user_id) ? $user_id : Auth::id())->exists();
 	}
 
 	/**
@@ -94,17 +85,9 @@ trait Favoriteable
 	 * 
 	 * @return int
 	 */
-	//original query
-	// public function getFavoritesCountAttribute()
-	// {
-	// 	return $this->favorites()->count();
-	// }
-
-
-	//modified query
 	public function getFavoritesCountAttribute()
 	{
-		return $this->favorites->count();
+		return $this->favorites()->count();
 	}
 
 	/**
@@ -114,5 +97,4 @@ trait Favoriteable
 	{
 		return $this->favoritesCount;
 	}
-
 }
