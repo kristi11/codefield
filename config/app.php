@@ -172,7 +172,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        Spatie\Newsletter\NewsletterServiceProvider::class,
+        // Spatie\Newsletter\NewsletterServiceProvider::class,
         // Barryvdh\Debugbar\ServiceProvider::class,
         // Spatie\LaravelImageOptimizer\ImageOptimizerServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
