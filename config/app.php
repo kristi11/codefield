@@ -245,7 +245,6 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'ImageOptimizer' => Spatie\LaravelImageOptimizer\ImageOptimizerFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
