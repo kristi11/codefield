@@ -97,9 +97,7 @@ class Client
                     break;
                 case self::FAILING_HOSTS_CACHE:
                     if (! $value instanceof FailingHostsCache) {
-                        throw new \InvalidArgumentException(
-                            'failingHostsCache must be an instance of \AlgoliaSearch\FailingHostsCache.'
-                        );
+                        throw new \InvalidArgumentException('failingHostsCache must be an instance of \AlgoliaSearch\FailingHostsCache.');
                     }
                     break;
                 default:
@@ -108,13 +106,7 @@ class Client
         }
 
         $failingHostsCache = isset($options[self::FAILING_HOSTS_CACHE]) ? $options[self::FAILING_HOSTS_CACHE] : null;
-        $this->context = new ClientContext(
-            $applicationID,
-            $apiKey,
-            $hostsArray,
-            $this->placesEnabled,
-            $failingHostsCache
-        );
+        $this->context = new ClientContext($applicationID, $apiKey, $hostsArray, $this->placesEnabled, $failingHostsCache);
     }
 
     /**
@@ -136,16 +128,15 @@ class Client
      */
     public function setConnectTimeout($connectTimeout, $timeout = 30, $searchTimeout = 5)
     {
-        if ($connectTimeout < 1) {
-            $version = curl_version();
+        $version = curl_version();
+        $isPhpOld = version_compare(phpversion(), '5.2.3', '<');
+        $isCurlOld = version_compare($version['version'], '7.16.2', '<');
 
-            if (version_compare($version['version'], '7.16.2', '<')) {
-                throw new AlgoliaException(
-                    "The timeout can't be a float with a curl version less than 7.16.2"
-                );
-            }
+        if (($isPhpOld || $isCurlOld) && $this->context->connectTimeout < 1) {
+            throw new AlgoliaException(
+                "The timeout can't be a float with a PHP version less than 5.2.3 or a curl version less than 7.16.2"
+            );
         }
-
         $this->context->connectTimeout = $connectTimeout;
         $this->context->readTimeout = $timeout;
         $this->context->searchTimeout = $searchTimeout;
@@ -231,32 +222,6 @@ class Client
         $this->context->setExtraHeader($key, $value);
     }
 
-    public function waitTask($indexName, $taskID, $timeBeforeRetry = 100, $requestHeaders = array())
-    {
-        while (true) {
-            $res = $this->getTaskStatus($indexName, $taskID, $requestHeaders);
-            if ($res['status'] === 'published') {
-                return $res;
-            }
-            usleep($timeBeforeRetry * 1000);
-        }
-    }
-
-    public function getTaskStatus($indexName, $taskID, $requestHeaders = array())
-    {
-        return $this->request(
-            $this->context,
-            'GET',
-            sprintf('/1/indexes/%s/task/%s', urlencode($indexName), urlencode($taskID)),
-            null,
-            null,
-            $this->context->readHostsArray,
-            $this->context->connectTimeout,
-            $this->context->readTimeout,
-            $requestHeaders
-        );
-    }
-
     /**
      * This method allows to query multiple indexes with one API call.
      *
@@ -279,13 +244,12 @@ class Client
         }
         $requests = array();
         foreach ($queries as $query) {
-            if (!array_key_exists($indexNameKey, $query)) {
+            if (array_key_exists($indexNameKey, $query)) {
+                $indexes = $query[$indexNameKey];
+                unset($query[$indexNameKey]);
+            } else {
                 throw new \Exception('indexName is mandatory');
             }
-
-            $indexes = $query[$indexNameKey];
-            unset($query[$indexNameKey]);
-
             $req = array('indexName' => $indexes, 'params' => $this->buildQuery($query));
 
             array_push($requests, $req);
@@ -663,7 +627,7 @@ class Client
      * @return mixed
      * @throws AlgoliaException
      */
-    public function searchUserIDs($query, $clusterName = null, $page = 0, $hitsPerPage = 20)
+    public function searchUserIDs($query, $clusterName = null, $page = null, $hitsPerPage = null)
     {
         $requestHeaders = func_num_args() === 5 && is_array(func_get_arg(4)) ? func_get_arg(4) : array();
 
@@ -714,11 +678,6 @@ class Client
         }
 
         return new Index($this->context, $this, $indexName);
-    }
-
-    public function initAnalytics()
-    {
-        return new Analytics($this);
     }
 
     /**
@@ -957,18 +916,11 @@ class Client
     ) {
         $requestHeaders = func_num_args() === 7 && is_array(func_get_arg(6)) ? func_get_arg(6) : array();
 
-        if ($obj !== array_values($obj)) {
-            // if $obj doesn't have required entries, we add the default values
+        if ($obj !== array_values($obj)) { // is dict of value
             $params = $obj;
-            if ($validity != 0) {
-                $params['validity'] = $validity;
-            }
-            if ($maxQueriesPerIPPerHour != 0) {
-                $params['maxQueriesPerIPPerHour'] = $maxQueriesPerIPPerHour;
-            }
-            if ($maxHitsPerQuery != 0) {
-                $params['maxHitsPerQuery'] = $maxHitsPerQuery;
-            }
+            $params['validity'] = $validity;
+            $params['maxQueriesPerIPPerHour'] = $maxQueriesPerIPPerHour;
+            $params['maxHitsPerQuery'] = $maxHitsPerQuery;
         } else {
             $params = array(
                 'acl'                    => $obj,
@@ -977,7 +929,6 @@ class Client
                 'maxHitsPerQuery'        => $maxHitsPerQuery,
             );
         }
-
         if ($indexes != null) {
             $params['indexes'] = $indexes;
         }
@@ -1021,12 +972,12 @@ class Client
     /**
      * Send a batch request targeting multiple indices.
      *
-     * @param array $operations an associative array defining the batch request body
+     * @param array $requests an associative array defining the batch request body
      * @param array $requestHeaders
      *
      * @return mixed
      */
-    public function batch($operations)
+    public function batch($requests)
     {
         $requestHeaders = func_num_args() === 2 && is_array(func_get_arg(1)) ? func_get_arg(1) : array();
 
@@ -1035,7 +986,7 @@ class Client
             'POST',
             '/1/indexes/*/batch',
             array(),
-            array('requests' => $operations),
+            array('requests' => $requests),
             $this->context->writeHostsArray,
             $this->context->connectTimeout,
             $this->context->readTimeout,
@@ -1332,14 +1283,9 @@ class Client
             return;
         }
 
+        $answer = Json::decode($response, true);
         $context->releaseMHandle($curlHandle);
         curl_close($curlHandle);
-
-        if ($http_status == 204) {
-            return '';
-        }
-
-        $answer = Json::decode($response, true);
 
         if (intval($http_status / 100) == 4) {
             throw new AlgoliaException(isset($answer['message']) ? $answer['message'] : $http_status.' error', $http_status);

@@ -232,6 +232,6 @@ abstract class AbstractAsset
             return dechex(crc32($column));
         }, $columnNames));
 
-        return strtoupper(substr($prefix . '_' . $hash, 0, $maxSize));
+        return substr(strtoupper($prefix . "_" . $hash), 0, $maxSize);
     }
 }

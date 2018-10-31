@@ -113,7 +113,7 @@ class SQLServer2012Platform extends SQLServer2008Platform
      */
     protected function doModifyLimitQuery($query, $limit, $offset = null)
     {
-        if ($limit === null && $offset <= 0) {
+        if ($limit === null && $offset === null) {
             return $query;
         }
 

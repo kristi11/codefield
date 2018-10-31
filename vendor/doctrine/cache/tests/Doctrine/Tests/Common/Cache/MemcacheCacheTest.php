@@ -17,21 +17,17 @@ class MemcacheCacheTest extends CacheTest
     {
         $this->memcache = new Memcache();
 
-        if (@$this->memcache->connect('localhost', 11211) !== false) {
-            return;
+        if (@$this->memcache->connect('localhost', 11211) === false) {
+            unset($this->memcache);
+            $this->markTestSkipped('Cannot connect to Memcache.');
         }
-
-        unset($this->memcache);
-        $this->markTestSkipped('Cannot connect to Memcache.');
     }
 
     protected function tearDown() : void
     {
-        if (! ($this->memcache instanceof Memcache)) {
-            return;
+        if ($this->memcache instanceof Memcache) {
+            $this->memcache->flush();
         }
-
-        $this->memcache->flush();
     }
 
     /**
@@ -49,7 +45,7 @@ class MemcacheCacheTest extends CacheTest
 
     public function testGetMemcacheReturnsInstanceOfMemcache() : void
     {
-        self::assertInstanceOf('Memcache', $this->_getCacheDriver()->getMemcache());
+        $this->assertInstanceOf('Memcache', $this->_getCacheDriver()->getMemcache());
     }
 
     /**

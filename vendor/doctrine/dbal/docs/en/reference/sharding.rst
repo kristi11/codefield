@@ -100,15 +100,11 @@ platforms:
 
     <?php
     use Doctrine\DBAL\DriverManager;
-    use Ramsey\Uuid\Uuid;
 
     $conn = DriverManager::getConnection(/**..**/);
-    $guid = Uuid::uuid1();
+    $guid = $conn->fetchColumn('SELECT ' . $conn->getDatabasePlatform()->getGuidExpression());
 
-    $conn->insert('my_table', [
-        'id'  => $guid->toString(),
-        'foo' => 'bar',
-    ]);
+    $conn->insert("my_table", array("id" => $guid, "foo" => "bar"));
 
 In your application you should hide this details in Id-Generation services:
 
@@ -117,13 +113,15 @@ In your application you should hide this details in Id-Generation services:
     <?php
     namespace MyApplication;
 
-    use Ramsey\Uuid\Uuid;
-
     class IdGenerationService
     {
-        public function generateCustomerId() : Uuid
+        private $conn;
+
+        public function generateCustomerId()
         {
-            return Uuid::uuid1();
+            return $this->conn->fetchColumn('SELECT ' .
+                $this->conn->getDatabasePlatform()->getGuidExpression()
+            );
         }
     }
 

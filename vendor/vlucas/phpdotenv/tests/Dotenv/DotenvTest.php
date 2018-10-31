@@ -1,9 +1,8 @@
 <?php
 
 use Dotenv\Dotenv;
-use PHPUnit\Framework\TestCase;
 
-class DotenvTest extends TestCase
+class DotenvTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var string
@@ -23,12 +22,6 @@ class DotenvTest extends TestCase
     {
         $dotenv = new Dotenv(__DIR__);
         $dotenv->load();
-    }
-
-    public function testDotenvSkipsLoadingIfFileIsMissing()
-    {
-        $dotenv = new Dotenv(__DIR__);
-        $this->assertEmpty($dotenv->safeLoad());
     }
 
     public function testDotenvLoadsEnvironmentVars()
@@ -52,7 +45,6 @@ class DotenvTest extends TestCase
         $this->assertSame('a value with a # character', getenv('CQUOTES'));
         $this->assertSame('a value with a # character & a quote " character inside quotes', getenv('CQUOTESWITHQUOTE'));
         $this->assertEmpty(getenv('CNULL'));
-        $this->assertEmpty(getenv('EMPTY'));
     }
 
     public function testQuotedDotenvLoadsEnvironmentVars()
@@ -140,8 +132,6 @@ class DotenvTest extends TestCase
         $this->assertSame('{$NVAR1} {$NVAR2}', $_ENV['NVAR3']); // not resolved
         $this->assertSame('Hello World!', $_ENV['NVAR4']);
         $this->assertSame('$NVAR1 {NVAR2}', $_ENV['NVAR5']); // not resolved
-        $this->assertSame('Special Value', $_ENV['N.VAR6']); // new '.' (dot) in var name
-        $this->assertSame('Special Value', $_ENV['NVAR7']);  // nested '.' (dot) variable
     }
 
     /**
@@ -262,27 +252,23 @@ class DotenvTest extends TestCase
         $this->assertEmpty(getenv('ASSERTVAR2'));
         $this->assertEmpty(getenv('ASSERTVAR3'));
         $this->assertSame('0', getenv('ASSERTVAR4'));
-        $this->assertSame('#foo', getenv('ASSERTVAR5'));
 
         $dotenv->required(array(
             'ASSERTVAR1',
             'ASSERTVAR2',
             'ASSERTVAR3',
             'ASSERTVAR4',
-            'ASSERTVAR5',
         ));
 
         $dotenv->required(array(
             'ASSERTVAR1',
             'ASSERTVAR4',
-            'ASSERTVAR5',
         ))->notEmpty();
 
         $dotenv->required(array(
             'ASSERTVAR1',
             'ASSERTVAR4',
-            'ASSERTVAR5',
-        ))->notEmpty()->allowedValues(array('0', 'val1', '#foo'));
+        ))->notEmpty()->allowedValues(array('0', 'val1'));
 
         $this->assertTrue(true); // anything wrong an an exception will be thrown
     }
@@ -340,13 +326,5 @@ class DotenvTest extends TestCase
         $dotenv = new Dotenv($this->fixturesFolder);
         $dotenv->required('REQUIRED_VAR')->notEmpty();
         $this->assertTrue(true);
-    }
-
-    public function testGetEnvironmentVariablesList()
-    {
-        $dotenv = new Dotenv($this->fixturesFolder);
-        $dotenv->load();
-        $this->assertTrue(is_array($dotenv->getEnvironmentVariableNames()));
-        $this->assertSame(array('FOO', 'BAR', 'SPACED', 'NULL'), $dotenv->getEnvironmentVariableNames());
     }
 }

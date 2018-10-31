@@ -41,11 +41,6 @@ curl -s http://getcomposer.org/installer | php
 php composer.phar require vlucas/phpdotenv
 ```
 
-Or on Existing projects
-
-```shell
-composer require vlucas/phpdotenv
-```
 Usage
 -----
 The `.env` file is generally kept out of version control since it can contain
@@ -143,8 +138,9 @@ $dotenv->overload();
 Requiring Variables to be Set
 -----------------------------
 
-Using Dotenv, you can require specific ENV vars to be defined ($_ENV, $_SERVER or getenv()) - throws an exception otherwise.
-Note: It does not check for existence of a variable in a '.env' file. This is particularly useful to let people know any explicit required variables that your app will not work without.
+Using Dotenv, you can require specific ENV vars to be defined, and throw
+an Exception if they are not. This is particularly useful to let people know
+any explicit required variables that your app will not work without.
 
 You can use a single string:
 
@@ -181,7 +177,7 @@ One or more environment variables failed assertions: DATABASE_DSN is empty
 
 ### Integer Variables
 
-You might also need to ensure that the variable is of an integer value. You may do the following:
+You might also need to ensure the the variable is of an integer value. You may do the following:
 
 ```php
 $dotenv->required('FOO')->isInteger();
@@ -191,20 +187,6 @@ If the environment variable is not an integer, you'd get an Exception:
 
 ```
 One or more environment variables failed assertions: FOO is not an integer
-```
-
-### Boolean Variables
-
-You may need to ensure a variable is in the form of a boolean, accepting "On", "1", "Yes", "Off", "0" and "No". You may do the following:
-
-```php
-$dotenv->required('FOO')->isBoolean();
-```
-
-If the environment variable is not a boolean, you'd get an Exception:
-
-```
-One or more environment variables failed assertions: FOO is not a boolean
 ```
 
 ### Allowed Values

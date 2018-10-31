@@ -18,7 +18,6 @@ use function array_filter;
 use function array_keys;
 use function array_map;
 use function array_search;
-use function array_values;
 use function count;
 use function current;
 use function end;
@@ -26,7 +25,6 @@ use function explode;
 use function get_class;
 use function in_array;
 use function str_replace;
-use function strcasecmp;
 use function strlen;
 use function strtolower;
 use function substr;
@@ -125,7 +123,7 @@ class SchemaManagerFunctionalTestCase extends \Doctrine\Tests\DbalFunctionalTest
 
         $name = 'dropcreate_sequences_test_seq';
 
-        $this->_sm->dropAndCreateSequence(new Sequence($name, 20, 10));
+        $this->_sm->dropAndCreateSequence(new \Doctrine\DBAL\Schema\Sequence($name, 20, 10));
 
         self::assertTrue($this->hasElementWithName($this->_sm->listSequences(), $name));
     }
@@ -144,11 +142,11 @@ class SchemaManagerFunctionalTestCase extends \Doctrine\Tests\DbalFunctionalTest
 
     public function testListSequences()
     {
-        if (! $this->_conn->getDatabasePlatform()->supportsSequences()) {
-            $this->markTestSkipped($this->_conn->getDriver()->getName() . ' does not support sequences.');
+        if(!$this->_conn->getDatabasePlatform()->supportsSequences()) {
+            $this->markTestSkipped($this->_conn->getDriver()->getName().' does not support sequences.');
         }
 
-        $sequence = new Sequence('list_sequences_test_seq', 20, 10);
+        $sequence = new \Doctrine\DBAL\Schema\Sequence('list_sequences_test_seq', 20, 10);
         $this->_sm->createSequence($sequence);
 
         $sequences = $this->_sm->listSequences();
@@ -156,18 +154,16 @@ class SchemaManagerFunctionalTestCase extends \Doctrine\Tests\DbalFunctionalTest
         self::assertInternalType('array', $sequences, 'listSequences() should return an array.');
 
         $foundSequence = null;
-        foreach ($sequences as $sequence) {
-            self::assertInstanceOf(Sequence::class, $sequence, 'Array elements of listSequences() should be Sequence instances.');
-            if (strtolower($sequence->getName()) !== 'list_sequences_test_seq') {
-                continue;
+        foreach($sequences as $sequence) {
+            self::assertInstanceOf('Doctrine\DBAL\Schema\Sequence', $sequence, 'Array elements of listSequences() should be Sequence instances.');
+            if(strtolower($sequence->getName()) == 'list_sequences_test_seq') {
+                $foundSequence = $sequence;
             }
-
-            $foundSequence = $sequence;
         }
 
         self::assertNotNull($foundSequence, "Sequence with name 'list_sequences_test_seq' was not found.");
-        self::assertSame(20, $foundSequence->getAllocationSize(), 'Allocation Size is expected to be 20.');
-        self::assertSame(10, $foundSequence->getInitialValue(), 'Initial Value is expected to be 10.');
+        self::assertEquals(20, $foundSequence->getAllocationSize(), "Allocation Size is expected to be 20.");
+        self::assertEquals(10, $foundSequence->getInitialValue(), "Initial Value is expected to be 10.");
     }
 
     public function testListDatabases()
@@ -1455,66 +1451,5 @@ class SchemaManagerFunctionalTestCase extends \Doctrine\Tests\DbalFunctionalTest
         self::assertSame($sequence2Name, $actualSequence2->getName());
         self::assertEquals($sequence2AllocationSize, $actualSequence2->getAllocationSize());
         self::assertEquals($sequence2InitialValue, $actualSequence2->getInitialValue());
-    }
-
-    /**
-     * @group #3086
-     */
-    public function testComparisonWithAutoDetectedSequenceDefinition() : void
-    {
-        if (! $this->_sm->getDatabasePlatform()->supportsSequences()) {
-            self::markTestSkipped('This test is only supported on platforms that support sequences.');
-        }
-
-        $sequenceName           = 'sequence_auto_detect_test';
-        $sequenceAllocationSize = 5;
-        $sequenceInitialValue   = 10;
-        $sequence               = new Sequence($sequenceName, $sequenceAllocationSize, $sequenceInitialValue);
-
-        $this->_sm->dropAndCreateSequence($sequence);
-
-        $createdSequence = array_values(
-            array_filter(
-                $this->_sm->listSequences(),
-                function (Sequence $sequence) use ($sequenceName) : bool {
-                    return strcasecmp($sequence->getName(), $sequenceName) === 0;
-                }
-            )
-        )[0] ?? null;
-
-        self::assertNotNull($createdSequence);
-
-        $comparator = new Comparator();
-        $tableDiff  = $comparator->diffSequence($createdSequence, $sequence);
-
-        self::assertFalse($tableDiff);
-    }
-
-    /**
-     * @group DBAL-2921
-     */
-    public function testPrimaryKeyAutoIncrement()
-    {
-        $table = new Table('test_pk_auto_increment');
-        $table->addColumn('id', 'integer', ['autoincrement' => true]);
-        $table->addColumn('text', 'string');
-        $table->setPrimaryKey(['id']);
-        $this->_sm->dropAndCreateTable($table);
-
-        $this->_conn->insert('test_pk_auto_increment', ['text' => '1']);
-
-        $query = $this->_conn->query('SELECT id FROM test_pk_auto_increment WHERE text = \'1\'');
-        $query->execute();
-        $lastUsedIdBeforeDelete = (int) $query->fetchColumn();
-
-        $this->_conn->query('DELETE FROM test_pk_auto_increment');
-
-        $this->_conn->insert('test_pk_auto_increment', ['text' => '2']);
-
-        $query = $this->_conn->query('SELECT id FROM test_pk_auto_increment WHERE text = \'2\'');
-        $query->execute();
-        $lastUsedIdAfterDelete = (int) $query->fetchColumn();
-
-        $this->assertGreaterThan($lastUsedIdBeforeDelete, $lastUsedIdAfterDelete);
     }
 }

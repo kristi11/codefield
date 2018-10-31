@@ -5,20 +5,6 @@ namespace Doctrine\Tests\Common\Cache;
 use Doctrine\Common\Cache\FileCache;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use const DIRECTORY_SEPARATOR;
-use function bin2hex;
-use function file_exists;
-use function floor;
-use function get_class;
-use function hash;
-use function is_dir;
-use function rmdir;
-use function str_repeat;
-use function strlen;
-use function substr;
-use function sys_get_temp_dir;
-use function uniqid;
-use function unlink;
 
 abstract class BaseFileCacheTest extends CacheTest
 {
@@ -27,13 +13,13 @@ abstract class BaseFileCacheTest extends CacheTest
     protected function setUp() : void
     {
         do {
-            $this->directory = sys_get_temp_dir() . '/doctrine_cache_' . uniqid();
+            $this->directory = sys_get_temp_dir() . '/doctrine_cache_'. uniqid();
         } while (file_exists($this->directory));
     }
 
     protected function tearDown() : void
     {
-        if (! is_dir($this->directory)) {
+        if ( ! is_dir($this->directory)) {
             return;
         }
 
@@ -54,13 +40,13 @@ abstract class BaseFileCacheTest extends CacheTest
     {
         $cache = $this->_getCacheDriver();
 
-        self::assertTrue($cache->save('key1', 1));
-        self::assertTrue($cache->save('key2', 2));
-        self::assertTrue($cache->flushAll());
+        $this->assertTrue($cache->save('key1', 1));
+        $this->assertTrue($cache->save('key2', 2));
+        $this->assertTrue($cache->flushAll());
 
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->directory, \FilesystemIterator::SKIP_DOTS), \RecursiveIteratorIterator::CHILD_FIRST);
 
-        self::assertCount(0, $iterator);
+        $this->assertCount(0, $iterator);
     }
 
     protected function isSharedStorage() : bool
@@ -79,7 +65,7 @@ abstract class BaseFileCacheTest extends CacheTest
             [257, false],
             [258, false],
             [259, true],
-            [260, true],
+            [260, true]
         ];
     }
 
@@ -90,17 +76,17 @@ abstract class BaseFileCacheTest extends CacheTest
 
     private static function getKeyAndPathFittingLength(int $length, string $basePath) : array
     {
-        $baseDirLength             = strlen($basePath);
-        $extensionLength           = strlen('.doctrine.cache');
-        $directoryLength           = strlen(DIRECTORY_SEPARATOR . 'aa' . DIRECTORY_SEPARATOR);
-        $namespaceAndBracketLength = strlen(bin2hex('[][1]'));
-        $keyLength                 = $length
+        $baseDirLength = strlen($basePath);
+        $extensionLength = strlen('.doctrine.cache');
+        $directoryLength = strlen(DIRECTORY_SEPARATOR . 'aa' . DIRECTORY_SEPARATOR);
+        $namespaceAndBracketLength = strlen(bin2hex("[][1]"));
+        $keyLength = $length
             - ($baseDirLength
                 + $extensionLength
                 + $directoryLength
                 + $namespaceAndBracketLength);
 
-        $key           = str_repeat('a', floor($keyLength / 2));
+        $key = str_repeat('a', floor($keyLength / 2));
         $namespacedKey = '[' . $key . '][1]';
 
         $keyHash = hash('sha256', $namespacedKey);
@@ -131,15 +117,15 @@ abstract class BaseFileCacheTest extends CacheTest
 
         list($key, $keyPath, $hashedKeyPath) = self::getKeyAndPathFittingLength($length, $this->directory);
 
-        self::assertEquals($length, strlen($keyPath), 'Unhashed path should be of correct length.');
+        $this->assertEquals($length, strlen($keyPath), 'Unhashed path should be of correct length.');
 
         $cacheClass = get_class($this->_getCacheDriver());
-        /** @var FileCache $cache */
+        /* @var $cache \Doctrine\Common\Cache\FileCache */
         $cache = new $cacheClass($this->directory, '.doctrine.cache');
 
         // Trick it into thinking this is windows.
         $reflClass = new \ReflectionClass(FileCache::class);
-        $reflProp  = $reflClass->getProperty('isRunningOnWindows');
+        $reflProp = $reflClass->getProperty('isRunningOnWindows');
         $reflProp->setAccessible(true);
         $reflProp->setValue($cache, true);
         $reflProp->setAccessible(false);
@@ -147,13 +133,13 @@ abstract class BaseFileCacheTest extends CacheTest
         $value = uniqid('value', true);
 
         $cache->save($key, $value);
-        self::assertEquals($value, $cache->fetch($key));
+        $this->assertEquals($value, $cache->fetch($key));
 
         if ($pathShouldBeHashed) {
-            self::assertFileExists($hashedKeyPath, 'Path generated for key should be hashed.');
+            $this->assertFileExists($hashedKeyPath, 'Path generated for key should be hashed.');
             unlink($hashedKeyPath);
         } else {
-            self::assertFileExists($keyPath, 'Path generated for key should not be hashed.');
+            $this->assertFileExists($keyPath, 'Path generated for key should not be hashed.');
             unlink($keyPath);
         }
     }

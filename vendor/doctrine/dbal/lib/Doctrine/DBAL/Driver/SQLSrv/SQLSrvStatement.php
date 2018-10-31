@@ -44,7 +44,6 @@ use function sqlsrv_get_field;
 use function sqlsrv_next_result;
 use function sqlsrv_num_fields;
 use function SQLSRV_PHPTYPE_STREAM;
-use function SQLSRV_PHPTYPE_STRING;
 use function sqlsrv_prepare;
 use function sqlsrv_rows_affected;
 use function SQLSRV_SQLTYPE_VARBINARY;
@@ -75,7 +74,7 @@ class SQLSrvStatement implements IteratorAggregate, Statement
     /**
      * The SQLSRV statement resource.
      *
-     * @var resource|null
+     * @var resource
      */
     private $stmt;
 
@@ -114,7 +113,7 @@ class SQLSrvStatement implements IteratorAggregate, Statement
     /**
      * The constructor arguments for the default class to instantiate when fetching class instances.
      *
-     * @var mixed[]
+     * @var string
      */
     private $defaultFetchClassCtorArgs = [];
 
@@ -284,27 +283,15 @@ class SQLSrvStatement implements IteratorAggregate, Statement
         $params = [];
 
         foreach ($this->variables as $column => &$variable) {
-            switch ($this->types[$column]) {
-                case ParameterType::LARGE_OBJECT:
-                    $params[$column - 1] = [
-                        &$variable,
-                        SQLSRV_PARAM_IN,
-                        SQLSRV_PHPTYPE_STREAM(SQLSRV_ENC_BINARY),
-                        SQLSRV_SQLTYPE_VARBINARY('max'),
-                    ];
-                    break;
-
-                case ParameterType::BINARY:
-                    $params[$column - 1] = [
-                        &$variable,
-                        SQLSRV_PARAM_IN,
-                        SQLSRV_PHPTYPE_STRING(SQLSRV_ENC_BINARY),
-                    ];
-                    break;
-
-                default:
-                    $params[$column - 1] =& $variable;
-                    break;
+            if ($this->types[$column] === ParameterType::LARGE_OBJECT) {
+                $params[$column - 1] = [
+                    &$variable,
+                    SQLSRV_PARAM_IN,
+                    SQLSRV_PHPTYPE_STREAM(SQLSRV_ENC_BINARY),
+                    SQLSRV_SQLTYPE_VARBINARY('max'),
+                ];
+            } else {
+                $params[$column - 1] =& $variable;
             }
         }
 

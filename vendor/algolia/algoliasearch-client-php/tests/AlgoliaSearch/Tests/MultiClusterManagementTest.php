@@ -17,7 +17,7 @@ class MultiClusterManagementTest extends AlgoliaSearchTestCase
             return $name;
         }
 
-        return $name.'-job-'.getenv('TRAVIS_JOB_ID');
+        return $name.'-travis-'.getenv('TRAVIS_JOB_NUMBER');
     }
 
     protected function setUp()
@@ -28,6 +28,7 @@ class MultiClusterManagementTest extends AlgoliaSearchTestCase
 
     public function testListClusters() {
         $answer = $this->client->listClusters();
+
 
         $this->assertNotNull($answer['clusters']);
         $this->assertGreaterThan(0, count($answer['clusters']));

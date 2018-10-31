@@ -19,13 +19,14 @@
 
 namespace Doctrine\DBAL\Tools\Console\Command;
 
-use Doctrine\DBAL\Tools\Dumper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use function is_numeric;
+use function ob_get_clean;
+use function ob_start;
 use function stripos;
 
 /**
@@ -83,6 +84,10 @@ EOT
             $resultSet = $conn->executeUpdate($sql);
         }
 
-        $output->write(Dumper::dump($resultSet, (int) $depth));
+        ob_start();
+        \Doctrine\Common\Util\Debug::dump($resultSet, (int) $depth);
+        $message = ob_get_clean();
+
+        $output->write($message);
     }
 }

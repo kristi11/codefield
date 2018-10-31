@@ -32,7 +32,7 @@ class BinaryTest extends \Doctrine\Tests\DbalTestCase
 
     public function testReturnsBindingType()
     {
-        self::assertSame(ParameterType::BINARY, $this->type->getBindingType());
+        self::assertSame(ParameterType::LARGE_OBJECT, $this->type->getBindingType());
     }
 
     public function testReturnsName()

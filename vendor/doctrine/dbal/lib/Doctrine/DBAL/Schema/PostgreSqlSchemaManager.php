@@ -20,8 +20,6 @@
 namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Exception\DriverException;
-use Doctrine\DBAL\FetchMode;
-use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
 use Doctrine\DBAL\Types\Type;
 use const CASE_LOWER;
 use function array_change_key_case;
@@ -29,7 +27,6 @@ use function array_filter;
 use function array_keys;
 use function array_map;
 use function array_shift;
-use function assert;
 use function explode;
 use function in_array;
 use function join;
@@ -64,9 +61,9 @@ class PostgreSqlSchemaManager extends AbstractSchemaManager
      */
     public function getSchemaNames()
     {
-        $statement = $this->_conn->executeQuery("SELECT nspname FROM pg_namespace WHERE nspname !~ '^pg_.*' AND nspname != 'information_schema'");
+        $rows = $this->_conn->fetchAll("SELECT nspname as schema_name FROM pg_namespace WHERE nspname !~ '^pg_.*' and nspname != 'information_schema'");
 
-        return $statement->fetchAll(FetchMode::COLUMN);
+        return array_map(function ($v) { return $v['schema_name']; }, $rows);
     }
 
     /**
@@ -137,8 +134,6 @@ class PostgreSqlSchemaManager extends AbstractSchemaManager
                 throw $exception;
             }
 
-            assert($this->_platform instanceof PostgreSqlPlatform);
-
             $this->_execSql(
                 [
                     $this->_platform->getDisallowDatabaseConnectionsSQL($database),
@@ -155,11 +150,8 @@ class PostgreSqlSchemaManager extends AbstractSchemaManager
      */
     protected function _getPortableTableForeignKeyDefinition($tableForeignKey)
     {
-        $onUpdate       = null;
-        $onDelete       = null;
-        $localColumns   = null;
-        $foreignColumns = null;
-        $foreignTable   = null;
+        $onUpdate = null;
+        $onDelete = null;
 
         if (preg_match('(ON UPDATE ([a-zA-Z0-9]+( (NULL|ACTION|DEFAULT))?))', $tableForeignKey['condef'], $match)) {
             $onUpdate = $match[1];
@@ -315,13 +307,11 @@ class PostgreSqlSchemaManager extends AbstractSchemaManager
         }
 
         if ( ! isset($sequence['increment_by'], $sequence['min_value'])) {
-            /** @var string[] $data */
             $data      = $this->_conn->fetchAssoc('SELECT min_value, increment_by FROM ' . $this->_platform->quoteIdentifier($sequenceName));
-
             $sequence += $data;
         }
 
-        return new Sequence($sequenceName, (int) $sequence['increment_by'], (int) $sequence['min_value']);
+        return new Sequence($sequenceName, $sequence['increment_by'], $sequence['min_value']);
     }
 
     /**

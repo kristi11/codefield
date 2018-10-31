@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 class PrepareBodyMiddlewareTest extends TestCase
 {
+
     public function methodProvider()
     {
         $methods = ['GET', 'PUT', 'POST'];

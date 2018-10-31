@@ -17,7 +17,6 @@
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
          failOnRisky="true"
-         failOnWarning="true"
 >
     <php>
         <ini name="error_reporting" value="-1" />
@@ -51,12 +50,6 @@
             <directory>./tests/Doctrine/Tests/DBAL/Performance</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory suffix=".php">lib/Doctrine</directory>
-        </whitelist>
-    </filter>
 
     <listeners>
         <listener class="Doctrine\Tests\DbalPerformanceTestListener"/>

@@ -5,11 +5,9 @@ namespace Doctrine\Tests\Common\Cache;
 use Doctrine\Common\Cache\CacheProvider;
 use Doctrine\Common\Cache\SQLite3Cache;
 use SQLite3;
-use function tempnam;
-use function unlink;
 
 /**
- * @requires extension sqlite3 >= 3
+ * @requires extension sqlite3
  */
 class SQLite3CacheTest extends CacheTest
 {
@@ -31,7 +29,7 @@ class SQLite3CacheTest extends CacheTest
 
     public function testGetStats() : void
     {
-        self::assertNull($this->_getCacheDriver()->getStats());
+        $this->assertNull($this->_getCacheDriver()->getStats());
     }
 
     /**

@@ -11,8 +11,10 @@ class AlgoliaSearchTestCase extends TestCase
         if (getenv('TRAVIS') != 'true') {
             return $name;
         }
+        $s = explode('.', getenv('TRAVIS_JOB_NUMBER'));
+        $id = end($s);
 
-        return 'TRAVIS_php_'.$name.'_job-'.getenv('TRAVIS_JOB_ID');
+        return $name.'_travis-'.$id;
     }
 
     public function containsValue($array, $attr, $value)

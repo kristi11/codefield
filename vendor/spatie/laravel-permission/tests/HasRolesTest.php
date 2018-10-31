@@ -79,26 +79,6 @@ class HasRolesTest extends TestCase
     }
 
     /** @test */
-    public function it_does_not_remove_already_associated_roles_when_assigning_new_roles()
-    {
-        $this->testUser->assignRole($this->testUserRole->id);
-
-        $this->testUser->assignRole('testRole2');
-
-        $this->assertTrue($this->testUser->fresh()->hasRole('testRole'));
-    }
-
-    /** @test */
-    public function it_does_not_throw_an_exception_when_assigning_a_role_that_is_already_assigned()
-    {
-        $this->testUser->assignRole($this->testUserRole->id);
-
-        $this->testUser->assignRole($this->testUserRole->id);
-
-        $this->assertTrue($this->testUser->fresh()->hasRole('testRole'));
-    }
-
-    /** @test */
     public function it_throws_an_exception_when_assigning_a_role_that_does_not_exist()
     {
         $this->expectException(RoleDoesNotExist::class);
@@ -120,18 +100,6 @@ class HasRolesTest extends TestCase
         $this->expectException(GuardDoesNotMatch::class);
 
         $this->testUser->assignRole($this->testAdminRole);
-    }
-
-    /** @test */
-    public function it_ignores_null_roles_when_syncing()
-    {
-        $this->testUser->assignRole('testRole');
-
-        $this->testUser->syncRoles('testRole2', null);
-
-        $this->assertFalse($this->testUser->hasRole('testRole'));
-
-        $this->assertTrue($this->testUser->hasRole('testRole2'));
     }
 
     /** @test */
@@ -193,16 +161,6 @@ class HasRolesTest extends TestCase
     }
 
     /** @test */
-    public function it_will_sync_roles_to_a_model_that_is_not_persisted()
-    {
-        $user = new User(['email' => 'test@user.com']);
-        $user->syncRoles([$this->testUserRole]);
-        $user->save();
-
-        $this->assertTrue($user->hasRole($this->testUserRole));
-    }
-
-    /** @test */
     public function it_throws_an_exception_when_syncing_a_role_from_another_guard()
     {
         $this->expectException(RoleDoesNotExist::class);
@@ -222,13 +180,13 @@ class HasRolesTest extends TestCase
         $user->assignRole('testRole');
         $user->givePermissionTo('edit-articles');
 
-        $this->assertDatabaseHas('model_has_permissions', [config('permission.column_names.model_morph_key') => $user->id]);
-        $this->assertDatabaseHas('model_has_roles', [config('permission.column_names.model_morph_key') => $user->id]);
+        $this->assertDatabaseHas('model_has_permissions', ['model_id' => $user->id]);
+        $this->assertDatabaseHas('model_has_roles', ['model_id' => $user->id]);
 
         $user->delete();
 
-        $this->assertDatabaseMissing('model_has_permissions', [config('permission.column_names.model_morph_key') => $user->id]);
-        $this->assertDatabaseMissing('model_has_roles', [config('permission.column_names.model_morph_key') => $user->id]);
+        $this->assertDatabaseMissing('model_has_permissions', ['model_id' => $user->id]);
+        $this->assertDatabaseMissing('model_has_roles', ['model_id' => $user->id]);
     }
 
     /** @test */
@@ -253,30 +211,10 @@ class HasRolesTest extends TestCase
         $user2->assignRole('testRole2');
 
         $scopedUsers1 = User::role([$this->testUserRole])->get();
-
         $scopedUsers2 = User::role(['testRole', 'testRole2'])->get();
 
         $this->assertEquals($scopedUsers1->count(), 1);
         $this->assertEquals($scopedUsers2->count(), 2);
-    }
-
-    /** @test */
-    public function it_can_scope_users_using_an_array_of_ids_and_names()
-    {
-        $user1 = User::create(['email' => 'user1@test.com']);
-        $user2 = User::create(['email' => 'user2@test.com']);
-
-        $user1->assignRole($this->testUserRole);
-
-        $user2->assignRole('testRole2');
-
-        $roleName = $this->testUserRole->name;
-
-        $otherRoleId = app(Role::class)->find(2)->id;
-
-        $scopedUsers = User::role([$roleName, $otherRoleId])->get();
-
-        $this->assertEquals($scopedUsers->count(), 2);
     }
 
     /** @test */

@@ -76,7 +76,7 @@ class Schema extends AbstractAsset
     protected $_sequences = [];
 
     /**
-     * @var SchemaConfig
+     * @var \Doctrine\DBAL\Schema\SchemaConfig
      */
     protected $_schemaConfig = false;
 

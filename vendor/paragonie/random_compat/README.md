@@ -2,10 +2,6 @@
 
 [![Build Status](https://travis-ci.org/paragonie/random_compat.svg?branch=master)](https://travis-ci.org/paragonie/random_compat)
 [![Scrutinizer](https://scrutinizer-ci.com/g/paragonie/random_compat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/paragonie/random_compat)
-[![Latest Stable Version](https://poser.pugx.org/paragonie/random_compat/v/stable)](https://packagist.org/packages/paragonie/random_compat)
-[![Latest Unstable Version](https://poser.pugx.org/paragonie/random_compat/v/unstable)](https://packagist.org/packages/paragonie/random_compat)
-[![License](https://poser.pugx.org/paragonie/random_compat/license)](https://packagist.org/packages/paragonie/random_compat)
-[![Downloads](https://img.shields.io/packagist/dt/paragonie/random_compat.svg)](https://packagist.org/packages/paragonie/random_compat)
 
 PHP 5.x polyfill for `random_bytes()` and `random_int()` created and maintained
 by [Paragon Initiative Enterprises](https://paragonie.com).
@@ -36,12 +32,7 @@ to a newer version of PHP immediately.
 
 **With [Composer](https://getcomposer.org):**
 
-    # For libraries and frameworks that support PHP 5 but may be used by
-    # other software that only supports PHP 7:
-    composer require paragonie/random_compat:\>=2
-
-    # For software that explicitly needs PHP 5 support:
-    composer require paragonie/random_compat:\<9.99
+    composer require paragonie/random_compat
 
 **Signed PHP Archive:**
 
@@ -148,7 +139,7 @@ try {
 
 ### Troubleshooting
 
-#### Exception: "Could not gather sufficient random data"
+**Exception: "Could not gather sufficient random data"**
 
 If an Exception is thrown, then your operating system is not secure.
 
@@ -160,7 +151,7 @@ If an Exception is thrown, then your operating system is not secure.
 This library does not (and will not accept any patches to) fall back to
 an insecure random number generator.
 
-#### Version Conflict with [Other PHP Project]
+**Version Conflict with [Other PHP Project]**
 
 If you're using a project that has a line like this in its composer.json
 
@@ -181,41 +172,10 @@ version 2 and above to be used instead of hard-locking users to version 1.
 "require" {
     ...
 -    "paragonie/random_compat": "~1.1",
-+    "paragonie/random_compat": ">=1",
++    "paragonie/random_compat": "^1|^2",
     ...
 }
 ```
-
-#### Version 9.99.99
-
-**Note**: There is a special version called `9.99.99` which makes this
-library do nothing, but is only installable on PHP 7.
-
-If you're writing software (e.g. a library) that supports PHP 5, but may
-be used by software that doesn't, you'll want to allow `9.99.99` to be
-installed. The above diff is what you want.
-
-Conversely, if you're writing software that (in and of itself) supports
-PHP 5, you do not want 9.99.99 to be installed, so you'll want to make
-this change instead:
-
-```diff
-"require" {
-    ...
--    "paragonie/random_compat": "~1.1",
-+    "paragonie/random_compat": ">=1 <9.99",
-    ...
-}
-```
-
-#### Manifest Read Length Error
-
-If you're using the PHP Archive (Phar) approach rather than Composer, and
-you are getting an error message to the effect of "manifest read length
-was `{int1}` should be `{int2}`", the Phar extension may not be enabled.
-
-See [this comment](https://github.com/paragonie/random_compat/issues/134#issuecomment-365696289)
-for specific guidance on how to fix this issue.
 
 ## Contributors
 

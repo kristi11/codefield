@@ -19,9 +19,6 @@ matrix:
     - php: 7.1
       dist: trusty
       sudo: required
-    - php: 7.2
-      dist: trusty
-      sudo: required
     - php: hhvm
       dist: trusty
       sudo: required
@@ -35,10 +32,7 @@ branches:
     - master
 
 install:
-  - composer install
-
-before_script:
-  - wget https://alg.li/algolia-keys && chmod +x algolia-keys
+    - composer install
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ ! "$TRAVIS_PULL_REQUEST_SLUG" =~ ^algolia\/ ]]; then eval $(./algolia-keys export) && php vendor/bin/phpunit --testsuite community; else php vendor/bin/phpunit --testsuite all; fi
+  - vendor/bin/phpunit --debug -c phpunit.xml.dist

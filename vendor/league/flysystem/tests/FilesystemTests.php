@@ -1,7 +1,6 @@
 <?php
 
 use League\Flysystem\Config;
-use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Util;
 use Prophecy\Argument;
@@ -315,13 +314,6 @@ class FilesystemTests extends TestCase
         $this->assertFalse($output);
     }
 
-    public function testGetSizeOnFileThatDoesNotExist()
-    {
-        $this->expectException(FileNotFoundException::class);
-        $this->prophecy->has('path.txt')->willReturn(false);
-        $this->filesystem->getSize('path.txt');
-    }
-
     public function testAssertPresentThrowsException()
     {
         $this->expectException('League\Flysystem\FileExistsException');
@@ -343,13 +335,6 @@ class FilesystemTests extends TestCase
         $this->prophecy->setVisibility($path, 'public')->willReturn(['path' => $path, 'visibility' => 'public']);
         $output = $this->filesystem->setVisibility($path, 'public');
         $this->assertTrue($output);
-    }
-
-    public function testSetVisibilityOnFileThatDoesNotExist()
-    {
-        $this->expectException(FileNotFoundException::class);
-        $this->prophecy->has('path.txt')->willReturn(false);
-        $this->filesystem->setVisibility('path.txt', 'public');
     }
 
     public function testSetVisibilityFail()

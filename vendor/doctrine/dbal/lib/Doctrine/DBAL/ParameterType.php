@@ -43,11 +43,6 @@ final class ParameterType
     public const BOOLEAN = \PDO::PARAM_BOOL;
 
     /**
-     * Represents a binary string data type.
-     */
-    public const BINARY = 16;
-
-    /**
      * This class cannot be instantiated.
      */
     private function __construct()

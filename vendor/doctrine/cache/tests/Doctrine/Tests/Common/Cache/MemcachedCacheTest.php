@@ -5,8 +5,6 @@ namespace Doctrine\Tests\Common\Cache;
 use Doctrine\Common\Cache\CacheProvider;
 use Doctrine\Common\Cache\MemcachedCache;
 use Memcached;
-use function fsockopen;
-use function sprintf;
 
 /**
  * @requires extension memcached
@@ -21,21 +19,17 @@ class MemcachedCacheTest extends CacheTest
         $this->memcached->setOption(Memcached::OPT_COMPRESSION, false);
         $this->memcached->addServer('127.0.0.1', 11211);
 
-        if (@fsockopen('127.0.0.1', 11211) !== false) {
-            return;
+        if (@fsockopen('127.0.0.1', 11211) === false) {
+            unset($this->memcached);
+            $this->markTestSkipped('Cannot connect to Memcached.');
         }
-
-        unset($this->memcached);
-        $this->markTestSkipped('Cannot connect to Memcached.');
     }
 
     protected function tearDown() : void
     {
-        if (! ($this->memcached instanceof Memcached)) {
-            return;
+        if ($this->memcached instanceof Memcached) {
+            $this->memcached->flush();
         }
-
-        $this->memcached->flush();
     }
 
     /**
@@ -53,32 +47,32 @@ class MemcachedCacheTest extends CacheTest
 
     public function testGetMemcachedReturnsInstanceOfMemcached() : void
     {
-        self::assertInstanceOf('Memcached', $this->_getCacheDriver()->getMemcached());
+        $this->assertInstanceOf('Memcached', $this->_getCacheDriver()->getMemcached());
     }
 
     public function testContainsWithKeyWithFalseAsValue()
     {
-        $testKey    = __METHOD__;
-        $driver     = $this->_getCacheDriver();
+        $testKey = __METHOD__;
+        $driver = $this->_getCacheDriver();
         $reflection = new \ReflectionClass($driver);
-        $method     = $reflection->getMethod('getNamespacedId');
+        $method = $reflection->getMethod('getNamespacedId');
         $method->setAccessible(true);
         $testKeyNS = $method->invokeArgs($driver, [$testKey]);
         $this->memcached->set($testKeyNS, false);
 
-        self::assertTrue($driver->contains($testKey), sprintf('Expected key "%s" to be found in cache.', $testKey));
-        self::assertFalse($driver->contains($testKey . '1'), 'No set key should not be found.');
+        $this->assertTrue($driver->contains($testKey), sprintf('Expected key "%s" to be found in cache.', $testKey));
+        $this->assertFalse($driver->contains($testKey.'1'), 'No set key should not be found.');
     }
 
     public function testContainsWithKeyOnNonReachableCache()
     {
-        $testKey   = __METHOD__;
+        $testKey = __METHOD__;
         $memcached = new Memcached();
         $memcached->addServer('0.0.0.1', 11211); // fake server is not available
         $driver = new MemcachedCache();
         $driver->setMemcached($memcached);
 
-        self::assertFalse($driver->contains($testKey), sprintf('Expected key "%s" not to be found in cache.', $testKey));
+        $this->assertFalse($driver->contains($testKey), sprintf('Expected key "%s" not to be found in cache.', $testKey));
     }
 
     /**

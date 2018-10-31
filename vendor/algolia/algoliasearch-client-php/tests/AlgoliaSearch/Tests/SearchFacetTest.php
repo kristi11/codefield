@@ -75,9 +75,8 @@ class SearchFacetTest extends AlgoliaSearchTestCase
             )
         );
 
-        $settingsTask = $this->index->setSettings($settings);
+        $this->index->setSettings($settings);
         $task = $this->index->addObjects($objects);
-        $this->index->waitTask($settingsTask['taskID']);
         $this->index->waitTask($task['taskID']);
 
         # Straightforward search.

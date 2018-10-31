@@ -77,7 +77,7 @@ class Table extends AbstractAsset
     protected $_options = [];
 
     /**
-     * @var SchemaConfig|null
+     * @var SchemaConfig
      */
     protected $_schemaConfig = null;
 

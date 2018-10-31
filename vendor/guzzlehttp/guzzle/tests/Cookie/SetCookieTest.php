@@ -216,10 +216,10 @@ class SetCookieTest extends TestCase
                     'Domain' => 'allseeing-i.com',
                     'Path' => '/',
                     'PHPSESSID' => '6c951590e7a9359bcedde25cda73e43c',
-                    'Max-Age' => null,
+                    'Max-Age' => NULL,
                     'Expires' => 'Sat, 26-Jul-2008 17:00:42 GMT',
-                    'Secure' => null,
-                    'Discard' => null,
+                    'Secure' => NULL,
+                    'Discard' => NULL,
                     'Name' => 'ASIHTTPRequestTestCookie',
                     'Value' => 'This+is+the+value',
                     'HttpOnly' => false
@@ -406,8 +406,7 @@ class SetCookieTest extends TestCase
      *
      * @return array
      */
-    public function isExpiredProvider()
-    {
+    public function isExpiredProvider() {
         return array(
             array(
                 'FOO=bar; expires=Thu, 01 Jan 1970 00:00:00 GMT;',

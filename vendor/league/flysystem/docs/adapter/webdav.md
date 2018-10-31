@@ -1,20 +1,21 @@
 ---
 layout: default
-permalink: /docs/adapter/webdav/
-redirect_from: /adapter/webdav/
+permalink: /adapter/webdav/
 title: WebDAV Adapter
 ---
 
+# WebDAV Adapter
+
 ## Installation
 
-```bash
+~~~ bash
 composer require league/flysystem-webdav
-```
+~~~
 
 ## Usage
 
-```php
+~~~ php
 $client = new Sabre\DAV\Client($settings);
 $adapter = new League\Flysystem\WebDAV\WebDAVAdapter($client, 'optional/path/prefix');
 $flysystem = new League\Flysystem\Filesystem($adapter);
-```
+~~~

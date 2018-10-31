@@ -57,7 +57,7 @@ abstract class AbstractDecoder
     }
 
     /**
-     * Init from given URL
+     * Init from fiven URL
      *
      * @param  string $url
      * @return \Intervention\Image\Image

@@ -452,8 +452,10 @@ SQLDATA
      */
     public function testExceptionIsThrownForMissingParam($query, $params, $types = array())
     {
-        $this->expectException('Doctrine\DBAL\SQLParserUtilsException');
-        $this->expectExceptionMessage('Value for :param not found in params array. Params array key should be "param"');
+        $this->expectException(
+            'Doctrine\DBAL\SQLParserUtilsException',
+            'Value for :param not found in params array. Params array key should be "param"'
+        );
 
         SQLParserUtils::expandListParameters($query, $params, $types);
     }

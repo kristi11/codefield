@@ -88,6 +88,6 @@ class CreateFromTimeTest extends AbstractTestCase
 
         // tested without microseconds
         // because they appear withing calls to Carbon
-        $this->assertSame($now->format('c'), $dt->format('c'));
+        $this->assertEquals($now->format('c'), $dt->format('c'));
     }
 }

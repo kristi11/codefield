@@ -8,7 +8,6 @@ use Doctrine\Common\Cache\PredisCache;
 use Predis\Client;
 use Predis\ClientInterface;
 use Predis\Connection\ConnectionException;
-use function class_exists;
 
 class PredisCacheTest extends CacheTest
 {
@@ -16,7 +15,7 @@ class PredisCacheTest extends CacheTest
 
     protected function setUp() : void
     {
-        if (! class_exists(Client::class)) {
+        if (!class_exists(Client::class)) {
             $this->markTestSkipped('Predis\Client is missing. Make sure to "composer install" to have all dev dependencies.');
         }
 
@@ -34,8 +33,8 @@ class PredisCacheTest extends CacheTest
         $cache = $this->_getCacheDriver();
         $stats = $cache->getStats();
 
-        self::assertNotNull($stats[Cache::STATS_HITS]);
-        self::assertNotNull($stats[Cache::STATS_MISSES]);
+        $this->assertNotNull($stats[Cache::STATS_HITS]);
+        $this->assertNotNull($stats[Cache::STATS_MISSES]);
     }
 
     /**
@@ -53,7 +52,7 @@ class PredisCacheTest extends CacheTest
      */
     public function testSetContainsFetchDelete($value) : void
     {
-        if ($value === []) {
+        if ([] === $value) {
             $this->markTestIncomplete(
                 'Predis currently doesn\'t support saving empty array values. '
                 . 'See https://github.com/nrk/predis/issues/241'
@@ -70,7 +69,7 @@ class PredisCacheTest extends CacheTest
      */
     public function testUpdateExistingEntry($value) : void
     {
-        if ($value === []) {
+        if ([] === $value) {
             $this->markTestIncomplete(
                 'Predis currently doesn\'t support saving empty array values. '
                 . 'See https://github.com/nrk/predis/issues/241'
@@ -82,9 +81,9 @@ class PredisCacheTest extends CacheTest
 
     public function testAllowsGenericPredisClient() : void
     {
-        /** @var ClientInterface $predisClient */
+        /* @var $predisClient ClientInterface */
         $predisClient = $this->createMock(ClientInterface::class);
 
-        self::assertInstanceOf(PredisCache::class, new PredisCache($predisClient));
+        $this->assertInstanceOf(PredisCache::class, new PredisCache($predisClient));
     }
 }

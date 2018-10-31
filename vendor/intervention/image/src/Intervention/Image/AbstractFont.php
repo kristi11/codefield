@@ -14,7 +14,7 @@ abstract class AbstractFont
     /**
      * Text size in pixels
      *
-     * @var int
+     * @var integer
      */
     public $size = 12;
 
@@ -28,7 +28,7 @@ abstract class AbstractFont
     /**
      * Rotation angle of the text
      *
-     * @var int
+     * @var integer
      */
     public $angle = 0;
 
@@ -57,18 +57,11 @@ abstract class AbstractFont
      * Draws font to given image on given position
      *
      * @param  Image   $image
-     * @param  int     $posx
-     * @param  int     $posy
+     * @param  integer $posx
+     * @param  integer $posy
      * @return boolean
      */
     abstract public function applyToImage(Image $image, $posx = 0, $posy = 0);
-    
-    /**
-     * Calculates bounding box of current font setting
-     *
-     * @return array
-     */
-    abstract public function getBoxSize();
 
     /**
      * Create a new instance of Font
@@ -106,7 +99,7 @@ abstract class AbstractFont
     /**
      * Set font size in pixels
      *
-     * @param  int $size
+     * @param  integer $size
      * @return void
      */
     public function size($size)
@@ -119,7 +112,7 @@ abstract class AbstractFont
     /**
      * Get font size in pixels
      *
-     * @return int
+     * @return integer
      */
     public function getSize()
     {
@@ -152,7 +145,7 @@ abstract class AbstractFont
     /**
      * Set rotation angle of text
      *
-     * @param  int $angle
+     * @param  integer $angle
      * @return void
      */
     public function angle($angle)
@@ -165,7 +158,7 @@ abstract class AbstractFont
     /**
      * Get rotation angle of text
      *
-     * @return int
+     * @return integer
      */
     public function getAngle()
     {
@@ -258,7 +251,7 @@ abstract class AbstractFont
     /**
      * Counts lines of text to be written
      *
-     * @return int
+     * @return integer
      */
     public function countLines()
     {

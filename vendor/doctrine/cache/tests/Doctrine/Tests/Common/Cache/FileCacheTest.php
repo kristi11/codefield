@@ -4,32 +4,16 @@ namespace Doctrine\Tests\Common\Cache;
 
 use Doctrine\Common\Cache\Cache;
 use Doctrine\Common\Cache\FileCache;
-use Doctrine\Tests\DoctrineTestCase;
 use InvalidArgumentException;
-use const DIRECTORY_SEPARATOR;
-use const PATHINFO_DIRNAME;
-use function basename;
-use function bin2hex;
-use function define;
-use function defined;
-use function floor;
-use function hash;
-use function mkdir;
-use function pathinfo;
-use function realpath;
-use function sprintf;
-use function str_repeat;
-use function strlen;
-use function substr;
-use function sys_get_temp_dir;
-use function uniqid;
 
 /**
  * @group DCOM-101
  */
-class FileCacheTest extends DoctrineTestCase
+class FileCacheTest extends \Doctrine\Tests\DoctrineTestCase
 {
-    /** @var FileCache */
+    /**
+     * @var \Doctrine\Common\Cache\FileCache
+     */
     private $driver;
 
     protected function setUp() : void
@@ -43,17 +27,17 @@ class FileCacheTest extends DoctrineTestCase
 
     public function testFilenameShouldCreateThePathWithOneSubDirectory() : void
     {
-        $cache       = $this->driver;
-        $method      = new \ReflectionMethod($cache, 'getFilename');
-        $key         = 'item-key';
-        $expectedDir = '84';
+        $cache          = $this->driver;
+        $method         = new \ReflectionMethod($cache, 'getFilename');
+        $key            = 'item-key';
+        $expectedDir    = '84';
 
         $method->setAccessible(true);
 
-        $path    = $method->invoke($cache, $key);
-        $dirname = pathinfo($path, PATHINFO_DIRNAME);
+        $path       = $method->invoke($cache, $key);
+        $dirname    = pathinfo($path, PATHINFO_DIRNAME);
 
-        self::assertEquals(DIRECTORY_SEPARATOR . $expectedDir, $dirname);
+        $this->assertEquals(DIRECTORY_SEPARATOR . $expectedDir, $dirname);
     }
 
     public function testFileExtensionCorrectlyEscaped() : void
@@ -77,8 +61,8 @@ class FileCacheTest extends DoctrineTestCase
         $stats1 = $doGetStats->invoke($driver1);
         $stats2 = $doGetStats->invoke($driver2);
 
-        self::assertSame(0, $stats1[Cache::STATS_MEMORY_USAGE]);
-        self::assertGreaterThan(0, $stats2[Cache::STATS_MEMORY_USAGE]);
+        $this->assertSame(0, $stats1[Cache::STATS_MEMORY_USAGE]);
+        $this->assertGreaterThan(0, $stats2[Cache::STATS_MEMORY_USAGE]);
     }
 
     /**
@@ -98,7 +82,7 @@ class FileCacheTest extends DoctrineTestCase
 
         $stats = $doGetStats->invoke($driver);
 
-        self::assertGreaterThan(0, $stats[Cache::STATS_MEMORY_USAGE]);
+        $this->assertGreaterThan(0, $stats[Cache::STATS_MEMORY_USAGE]);
     }
 
     public function testNonIntUmaskThrowsInvalidArgumentException() : void
@@ -124,10 +108,10 @@ class FileCacheTest extends DoctrineTestCase
 
         $doGetDirectory = new \ReflectionMethod($driver, 'getDirectory');
 
-        $actualDirectory   = $doGetDirectory->invoke($driver);
+        $actualDirectory = $doGetDirectory->invoke($driver);
         $expectedDirectory = realpath($directory);
 
-        self::assertEquals($expectedDirectory, $actualDirectory);
+        $this->assertEquals($expectedDirectory, $actualDirectory);
     }
 
     public function testGetExtensionReturnsExtensionString() : void
@@ -145,10 +129,10 @@ class FileCacheTest extends DoctrineTestCase
 
         $actualExtension = $doGetExtension->invoke($driver);
 
-        self::assertEquals($extension, $actualExtension);
+        $this->assertEquals($extension, $actualExtension);
     }
 
-    public const WIN_MAX_PATH_LEN = 258;
+    const WIN_MAX_PATH_LEN = 258;
 
     public static function getBasePathForWindowsPathLengthTests(int $pathLength) : string
     {
@@ -168,7 +152,7 @@ class FileCacheTest extends DoctrineTestCase
         // len(desired) = len(base path) + len(slash . bin2hex($key))
         //          odd = even           + odd
         //         even = odd            + odd
-        $basePathLengthShouldBeOdd = ! $desiredPathLengthIsOdd;
+        $basePathLengthShouldBeOdd = !$desiredPathLengthIsOdd;
 
         $basePathLengthIsOdd = (strlen($basePath) % 2) == 1;
 
@@ -178,7 +162,7 @@ class FileCacheTest extends DoctrineTestCase
         // a path that is exactly the length we want to test IF the path length limit
         // were not in place in FileCache.
         if ($basePathLengthIsOdd != $basePathLengthShouldBeOdd) {
-            $basePath .= DIRECTORY_SEPARATOR . 'aa';
+            $basePath .= DIRECTORY_SEPARATOR . "aa";
         }
 
         return $basePath;
@@ -186,10 +170,10 @@ class FileCacheTest extends DoctrineTestCase
 
     public static function getKeyAndPathFittingLength(int $length, string $basePath) : array
     {
-        $baseDirLength   = strlen($basePath);
+        $baseDirLength = strlen($basePath);
         $extensionLength = strlen('.doctrine.cache');
         $directoryLength = strlen(DIRECTORY_SEPARATOR . 'aa' . DIRECTORY_SEPARATOR);
-        $keyLength       = $length - ($baseDirLength + $extensionLength + $directoryLength); // - 1 because of slash
+        $keyLength = $length - ($baseDirLength + $extensionLength + $directoryLength); // - 1 because of slash
 
         $key = str_repeat('a', floor($keyLength / 2));
 
@@ -221,7 +205,7 @@ class FileCacheTest extends DoctrineTestCase
             [257, false],
             [258, false],
             [259, true],
-            [260, true],
+            [260, true]
         ];
     }
 
@@ -249,7 +233,7 @@ class FileCacheTest extends DoctrineTestCase
 
         $getFileName->setAccessible(true);
 
-        self::assertEquals(
+        $this->assertEquals(
             $length,
             strlen($keyPath),
             sprintf('Path expected to be %d characters long is %d characters long', $length, strlen($keyPath))
@@ -260,13 +244,13 @@ class FileCacheTest extends DoctrineTestCase
         }
 
         if ($pathShouldBeHashed) {
-            self::assertSame(
+            $this->assertSame(
                 $hashedKeyPath,
                 $getFileName->invoke($fileCache, $key),
                 'Keys should be hashed correctly if they are over the limit.'
             );
         } else {
-            self::assertSame(
+            $this->assertSame(
                 $keyPath,
                 $getFileName->invoke($fileCache, $key),
                 'Keys below limit of the allowed length are used directly, unhashed'

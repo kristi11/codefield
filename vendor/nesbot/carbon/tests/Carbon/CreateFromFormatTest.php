@@ -77,12 +77,7 @@ class CreateFromFormatTest extends AbstractTestCase
 
     public function testCreateLastErrorsCanBeAccessedByExtendingClass()
     {
-        $this->assertSame(array(
-            'warning_count' => 0,
-            'warnings' => array(),
-            'error_count' => 0,
-            'errors' => array(),
-        ), MyCarbon::getLastErrors());
+        MyCarbon::getLastErrors();
     }
 
     public function testCreateFromFormatHandlesLastErrors()

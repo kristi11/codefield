@@ -4,10 +4,9 @@ namespace Doctrine\Tests\DBAL\Types;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\Tests\DBAL\Mocks\MockPlatform;
-use Doctrine\Tests\DbalTestCase;
 use function get_class;
 
-class GuidTypeTest extends DbalTestCase
+class GuidTest extends \Doctrine\Tests\DbalTestCase
 {
     /**
      * @var MockPlatform

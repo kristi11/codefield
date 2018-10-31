@@ -79,6 +79,6 @@ class BinaryType extends Type
      */
     public function getBindingType()
     {
-        return ParameterType::BINARY;
+        return ParameterType::LARGE_OBJECT;
     }
 }

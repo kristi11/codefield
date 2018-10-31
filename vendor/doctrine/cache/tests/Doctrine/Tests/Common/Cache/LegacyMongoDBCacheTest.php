@@ -9,14 +9,15 @@ use Doctrine\Common\Cache\MongoDBCache;
 use MongoClient;
 use MongoCollection;
 use MongoConnectionException;
-use function sleep;
 
 /**
  * @requires extension mongodb
  */
 class LegacyMongoDBCacheTest extends CacheTest
 {
-    /** @var MongoCollection */
+    /**
+     * @var MongoCollection
+     */
     private $collection;
 
     protected function setUp() : void
@@ -33,11 +34,9 @@ class LegacyMongoDBCacheTest extends CacheTest
 
     protected function tearDown() : void
     {
-        if (! ($this->collection instanceof MongoCollection)) {
-            return;
+        if ($this->collection instanceof MongoCollection) {
+            $this->collection->drop();
         }
-
-        $this->collection->drop();
     }
 
     public function testGetStats() : void
@@ -45,11 +44,11 @@ class LegacyMongoDBCacheTest extends CacheTest
         $cache = $this->_getCacheDriver();
         $stats = $cache->getStats();
 
-        self::assertNull($stats[Cache::STATS_HITS]);
-        self::assertNull($stats[Cache::STATS_MISSES]);
-        self::assertGreaterThan(0, $stats[Cache::STATS_UPTIME]);
-        self::assertEquals(0, $stats[Cache::STATS_MEMORY_USAGE]);
-        self::assertNull($stats[Cache::STATS_MEMORY_AVAILABLE]);
+        $this->assertNull($stats[Cache::STATS_HITS]);
+        $this->assertNull($stats[Cache::STATS_MISSES]);
+        $this->assertGreaterThan(0, $stats[Cache::STATS_UPTIME]);
+        $this->assertEquals(0, $stats[Cache::STATS_MEMORY_USAGE]);
+        $this->assertNull($stats[Cache::STATS_MEMORY_AVAILABLE]);
     }
 
     /**
@@ -57,7 +56,7 @@ class LegacyMongoDBCacheTest extends CacheTest
      */
     public function testMongoCursorExceptionsDoNotBubbleUp() : void
     {
-        /** @var \MongoCollection|\PHPUnit_Framework_MockObject_MockObject $collection */
+        /* @var $collection \MongoCollection|\PHPUnit_Framework_MockObject_MockObject */
         $collection = $this
             ->getMockBuilder(\MongoCollection::class)
             ->disableOriginalConstructor()
@@ -74,11 +73,11 @@ class LegacyMongoDBCacheTest extends CacheTest
     {
         $cache = $this->_getCacheDriver();
         $cache->save('expire', 'value', 1);
-        self::assertCount(1, $this->collection->getIndexInfo());
-        self::assertTrue($cache->contains('expire'), 'Data should not be expired yet');
+        $this->assertCount(1, $this->collection->getIndexInfo());
+        $this->assertTrue($cache->contains('expire'), 'Data should not be expired yet');
         sleep(2);
-        self::assertFalse($cache->contains('expire'), 'Data should be expired');
-        self::assertCount(2, $this->collection->getIndexInfo());
+        $this->assertFalse($cache->contains('expire'), 'Data should be expired');
+        $this->assertCount(2, $this->collection->getIndexInfo());
     }
 
     protected function _getCacheDriver() : CacheProvider

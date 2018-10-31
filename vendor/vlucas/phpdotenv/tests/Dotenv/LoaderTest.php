@@ -1,9 +1,8 @@
 <?php
 
 use Dotenv\Loader;
-use PHPUnit\Framework\TestCase;
 
-class LoaderTest extends TestCase
+class LoaderTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var \Dotenv\Loader
@@ -14,7 +13,7 @@ class LoaderTest extends TestCase
      * @var \Dotenv\Loader
      */
     private $mutableLoader;
-
+    
     public function setUp()
     {
         $folder = dirname(__DIR__) . '/fixtures/env';
@@ -75,17 +74,6 @@ class LoaderTest extends TestCase
         return reset($keyVal);
     }
 
-    public function testMutableLoaderSetUnsetImmutable()
-    {
-        $immutable = $this->mutableLoader->getImmutable();
-
-        // Set Immutable.
-        $this->mutableLoader->setImmutable(!$immutable);
-        $this->assertSame(!$immutable, $this->mutableLoader->getImmutable());
-        $this->mutableLoader->setImmutable($immutable);
-        $this->assertSame($immutable, $this->mutableLoader->getImmutable());
-    }
-
     public function testMutableLoaderClearsEnvironmentVars()
     {
         // Set an environment variable.
@@ -97,20 +85,6 @@ class LoaderTest extends TestCase
         $this->assertSame(false, getenv($this->key()));
         $this->assertSame(false, isset($_ENV[$this->key()]));
         $this->assertSame(false, isset($_SERVER[$this->key()]));
-        $this->assertTrue(is_array($this->mutableLoader->variableNames));
-        $this->assertFalse(empty($this->mutableLoader->variableNames));
-
-    }
-
-    public function testImmutableLoaderSetUnsetImmutable()
-    {
-        $immutable = $this->immutableLoader->getImmutable();
-
-        // Set Immutable.
-        $this->immutableLoader->setImmutable(!$immutable);
-        $this->assertSame(!$immutable, $this->immutableLoader->getImmutable());
-        $this->immutableLoader->setImmutable($immutable);
-        $this->assertSame($immutable, $this->immutableLoader->getImmutable());
     }
 
     public function testImmutableLoaderCannotClearEnvironmentVars()
@@ -124,7 +98,5 @@ class LoaderTest extends TestCase
         $this->assertSame($this->value(), getenv($this->key()));
         $this->assertSame(true, isset($_ENV[$this->key()]));
         $this->assertSame(true, isset($_SERVER[$this->key()]));
-        $this->assertTrue(is_array($this->immutableLoader->variableNames));
-        $this->assertFalse(empty($this->immutableLoader->variableNames));
     }
 }

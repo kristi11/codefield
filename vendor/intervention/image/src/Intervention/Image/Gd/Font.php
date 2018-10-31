@@ -9,7 +9,7 @@ class Font extends \Intervention\Image\AbstractFont
     /**
      * Get font size in points
      *
-     * @return int
+     * @return integer
      */
     protected function getPointSize()
     {
@@ -19,7 +19,7 @@ class Font extends \Intervention\Image\AbstractFont
     /**
      * Filter function to access internal integer font values
      *
-     * @return int
+     * @return integer
      */
     private function getInternalFont()
     {
@@ -38,7 +38,7 @@ class Font extends \Intervention\Image\AbstractFont
     /**
      * Get width of an internal font character
      *
-     * @return int
+     * @return integer
      */
     private function getInternalFontWidth()
     {
@@ -48,7 +48,7 @@ class Font extends \Intervention\Image\AbstractFont
     /**
      * Get height of an internal font character
      *
-     * @return int
+     * @return integer
      */
     private function getInternalFontHeight()
     {
@@ -124,8 +124,8 @@ class Font extends \Intervention\Image\AbstractFont
      * Draws font to given image at given position
      *
      * @param  Image   $image
-     * @param  int     $posx
-     * @param  int     $posy
+     * @param  integer $posx
+     * @param  integer $posy
      * @return void
      */
     public function applyToImage(Image $image, $posx = 0, $posy = 0)

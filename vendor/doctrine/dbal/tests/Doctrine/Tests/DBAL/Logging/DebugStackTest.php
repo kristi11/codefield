@@ -2,16 +2,11 @@
 
 namespace Doctrine\Tests\DBAL\Logging;
 
-use Doctrine\DBAL\Logging\DebugStack;
-
 class DebugStackTest extends \Doctrine\Tests\DbalTestCase
 {
-    /** @var DebugStack */
-    private $logger;
-
     protected function setUp()
     {
-        $this->logger = new DebugStack();
+        $this->logger = new \Doctrine\DBAL\Logging\DebugStack();
     }
 
     protected function tearDown()

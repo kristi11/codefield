@@ -3,8 +3,6 @@
 namespace League\Flysystem\Adapter;
 
 use League\Flysystem\Config;
-use League\Flysystem\FileNotFoundException;
-use League\Flysystem\Filesystem;
 use PHPUnit\Framework\TestCase;
 
 function fopen($result, $mode)
@@ -100,9 +98,9 @@ class LocalAdapterTests extends TestCase
 
     public function testRelativeRootsAreSupportes()
     {
-        (new Local(__DIR__ . '/files'))->write('file.txt', 'contents', new Config());
+        (new Local(__DIR__.'/files'))->write('file.txt', 'contents', new Config());
 
-        $adapter = new Local(__DIR__ . '/files/../files');
+        $adapter = new Local(__DIR__.'/files/../files');
         $this->assertCount(1, $adapter->listContents());
     }
 
@@ -457,17 +455,6 @@ class LocalAdapterTests extends TestCase
         $adapter = new Local(__DIR__ . '/files/', LOCK_EX);
         $adapter->write('test.xlsx', '', new Config);
         $this->assertEquals('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', $adapter->getMimetype('test.xlsx')['mimetype']);
-    }
-
-    public function testDeleteFileShouldReturnTrue(){
-        $root = __DIR__ . '/files/';
-        $original = $root . 'delete.txt';
-        file_put_contents($original, 'something');
-        $this->assertTrue($this->adapter->delete('delete.txt'));
-    }
-
-    public function testDeleteMissingFileShouldReturnFalse(){
-        $this->assertFalse($this->adapter->delete('missing.txt'));
     }
 
     /**

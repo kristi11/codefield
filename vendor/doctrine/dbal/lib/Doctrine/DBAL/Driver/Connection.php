@@ -36,7 +36,7 @@ interface Connection
      *
      * @param string $prepareString
      *
-     * @return Statement
+     * @return \Doctrine\DBAL\Driver\Statement
      */
     public function prepare($prepareString);
 

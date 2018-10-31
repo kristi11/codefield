@@ -204,7 +204,7 @@ class Comparator
      * @param \Doctrine\DBAL\Schema\Table $table1
      * @param \Doctrine\DBAL\Schema\Table $table2
      *
-     * @return TableDiff|false
+     * @return bool|\Doctrine\DBAL\Schema\TableDiff
      */
     public function diffTable(Table $table1, Table $table2)
     {
@@ -312,6 +312,8 @@ class Comparator
      * Try to find columns that only changed their name, rename operations maybe cheaper than add/drop
      * however ambiguities between different possibilities should not lead to renaming at all.
      *
+     * @param \Doctrine\DBAL\Schema\TableDiff $tableDifferences
+     *
      * @return void
      */
     private function detectColumnRenamings(TableDiff $tableDifferences)
@@ -345,6 +347,8 @@ class Comparator
     /**
      * Try to find indexes that only changed their name, rename operations maybe cheaper than add/drop
      * however ambiguities between different possibilities should not lead to renaming at all.
+     *
+     * @param \Doctrine\DBAL\Schema\TableDiff $tableDifferences
      *
      * @return void
      */

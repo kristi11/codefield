@@ -16,11 +16,11 @@ class OAuthOneTest extends PHPUnit_Framework_TestCase
 
     public function testRedirectGeneratesTheProperIlluminateRedirectResponse()
     {
-        $server = m::mock(\League\OAuth1\Client\Server\Twitter::class);
+        $server = m::mock('League\OAuth1\Client\Server\Twitter');
         $server->shouldReceive('getTemporaryCredentials')->once()->andReturn('temp');
         $server->shouldReceive('getAuthorizationUrl')->once()->with('temp')->andReturn('http://auth.url');
         $request = Request::create('foo');
-        $request->setLaravelSession($session = m::mock(\Illuminate\Contracts\Session\Session::class));
+        $request->setLaravelSession($session = m::mock('Illuminate\Contracts\Session\Session'));
         $session->shouldReceive('put')->once()->with('oauth.temp', 'temp');
 
         $provider = new OAuthOneTestProviderStub($request, $server);
@@ -32,19 +32,19 @@ class OAuthOneTest extends PHPUnit_Framework_TestCase
 
     public function testUserReturnsAUserInstanceForTheAuthenticatedRequest()
     {
-        $server = m::mock(\League\OAuth1\Client\Server\Twitter::class);
-        $temp = m::mock(\League\OAuth1\Client\Credentials\TemporaryCredentials::class);
+        $server = m::mock('League\OAuth1\Client\Server\Twitter');
+        $temp = m::mock('League\OAuth1\Client\Credentials\TemporaryCredentials');
         $server->shouldReceive('getTokenCredentials')->once()->with($temp, 'oauth_token', 'oauth_verifier')->andReturn(
-            $token = m::mock(\League\OAuth1\Client\Credentials\TokenCredentials::class)
+            $token = m::mock('League\OAuth1\Client\Credentials\TokenCredentials')
         );
-        $server->shouldReceive('getUserDetails')->once()->with($token, false)->andReturn($user = m::mock(\League\OAuth1\Client\Server\User::class));
-        $token->shouldReceive('getIdentifier')->twice()->andReturn('identifier');
-        $token->shouldReceive('getSecret')->twice()->andReturn('secret');
+        $server->shouldReceive('getUserDetails')->once()->with($token)->andReturn($user = m::mock('League\OAuth1\Client\Server\User'));
+        $token->shouldReceive('getIdentifier')->once()->andReturn('identifier');
+        $token->shouldReceive('getSecret')->once()->andReturn('secret');
         $user->uid = 'uid';
         $user->email = 'foo@bar.com';
         $user->extra = ['extra' => 'extra'];
         $request = Request::create('foo', 'GET', ['oauth_token' => 'oauth_token', 'oauth_verifier' => 'oauth_verifier']);
-        $request->setLaravelSession($session = m::mock(\Illuminate\Contracts\Session\Session::class));
+        $request->setLaravelSession($session = m::mock('Illuminate\Contracts\Session\Session'));
         $session->shouldReceive('get')->once()->with('oauth.temp')->andReturn($temp);
 
         $provider = new OAuthOneTestProviderStub($request, $server);
@@ -61,9 +61,9 @@ class OAuthOneTest extends PHPUnit_Framework_TestCase
      */
     public function testExceptionIsThrownWhenVerifierIsMissing()
     {
-        $server = m::mock(\League\OAuth1\Client\Server\Twitter::class);
+        $server = m::mock('League\OAuth1\Client\Server\Twitter');
         $request = Request::create('foo');
-        $request->setLaravelSession($session = m::mock(\Illuminate\Contracts\Session\Session::class));
+        $request->setLaravelSession($session = m::mock('Illuminate\Contracts\Session\Session'));
 
         $provider = new OAuthOneTestProviderStub($request, $server);
         $provider->user();

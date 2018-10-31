@@ -39,6 +39,7 @@ use function func_get_args;
 use function implode;
 use function is_array;
 use function is_bool;
+use function is_null;
 use function is_numeric;
 use function is_string;
 use function preg_match;
@@ -303,7 +304,7 @@ class SQLServerPlatform extends AbstractPlatform
         }
         $query .= ')';
 
-        $sql = [$query];
+        $sql[] = $query;
 
         if (isset($options['indexes']) && !empty($options['indexes'])) {
             foreach ($options['indexes'] as $index) {
@@ -1025,8 +1026,6 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-     *
-     * @deprecated Use application-generated UUIDs instead
      */
     public function getGuidExpression()
     {
@@ -1128,7 +1127,7 @@ class SQLServerPlatform extends AbstractPlatform
      */
     public function getSubstringExpression($value, $from, $length = null)
     {
-        if ($length !== null) {
+        if (!is_null($length)) {
             return 'SUBSTRING(' . $value . ', ' . $from . ', ' . $length . ')';
         }
 
@@ -1307,7 +1306,7 @@ class SQLServerPlatform extends AbstractPlatform
      * Remove ORDER BY clauses in subqueries - they're not supported by SQL Server.
      * Caveat: will leave ORDER BY in TOP N subqueries.
      *
-     * @param string $query
+     * @param $query
      * @return string
      */
     private function scrubInnerOrderBy($query)

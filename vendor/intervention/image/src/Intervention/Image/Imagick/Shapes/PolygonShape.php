@@ -28,8 +28,8 @@ class PolygonShape extends \Intervention\Image\AbstractShape
      * Draw polygon on given image
      *
      * @param  Image   $image
-     * @param  int     $x
-     * @param  int     $y
+     * @param  integer $x
+     * @param  integer $y
      * @return boolean
      */
     public function applyToImage(Image $image, $x = 0, $y = 0)

@@ -2,9 +2,7 @@
 
 namespace Doctrine\Tests\DBAL\Functional;
 
-use Doctrine\DBAL\Driver\PDOSqlsrv\Driver as PDOSQLSrvDriver;
 use Doctrine\DBAL\ParameterType;
-use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Types\Type;
 use const CASE_LOWER;
 use function array_change_key_case;
@@ -19,19 +17,25 @@ class BlobTest extends \Doctrine\Tests\DbalFunctionalTestCase
     {
         parent::setUp();
 
-        if ($this->_conn->getDriver() instanceof PDOSQLSrvDriver) {
+        if ($this->_conn->getDriver() instanceof \Doctrine\DBAL\Driver\PDOSqlsrv\Driver) {
             $this->markTestSkipped('This test does not work on pdo_sqlsrv driver due to a bug. See: http://social.msdn.microsoft.com/Forums/sqlserver/en-US/5a755bdd-41e9-45cb-9166-c9da4475bb94/how-to-set-null-for-varbinarymax-using-bindvalue-using-pdosqlsrv?forum=sqldriverforphp');
         }
 
-        /* @var $sm \Doctrine\DBAL\Schema\AbstractSchemaManager */
-        $table = new Table('blob_table');
-        $table->addColumn('id', 'integer');
-        $table->addColumn('clobfield', 'text');
-        $table->addColumn('blobfield', 'blob');
-        $table->setPrimaryKey(['id']);
+        try {
+            /* @var $sm \Doctrine\DBAL\Schema\AbstractSchemaManager */
+            $table = new \Doctrine\DBAL\Schema\Table("blob_table");
+            $table->addColumn('id', 'integer');
+            $table->addColumn('clobfield', 'text');
+            $table->addColumn('blobfield', 'blob');
+            $table->addColumn('binaryfield', 'binary', array('length' => 50));
+            $table->setPrimaryKey(array('id'));
 
-        $sm = $this->_conn->getSchemaManager();
-        $sm->dropAndCreateTable($table);
+            $sm = $this->_conn->getSchemaManager();
+            $sm->createTable($table);
+        } catch(\Exception $e) {
+
+        }
+        $this->_conn->exec($this->_conn->getDatabasePlatform()->getTruncateTableSQL('blob_table'));
     }
 
     public function testInsert()
@@ -40,9 +44,11 @@ class BlobTest extends \Doctrine\Tests\DbalFunctionalTestCase
             'id'          => 1,
             'clobfield'   => 'test',
             'blobfield'   => 'test',
+            'binaryfield' => 'test',
         ], [
             ParameterType::INTEGER,
             ParameterType::STRING,
+            ParameterType::LARGE_OBJECT,
             ParameterType::LARGE_OBJECT,
         ]);
 
@@ -55,9 +61,11 @@ class BlobTest extends \Doctrine\Tests\DbalFunctionalTestCase
             'id'          => 1,
             'clobfield'   => 'test',
             'blobfield'   => 'test',
+            'binaryfield' => 'test',
         ], [
             ParameterType::INTEGER,
             ParameterType::STRING,
+            ParameterType::LARGE_OBJECT,
             ParameterType::LARGE_OBJECT,
         ]);
 
@@ -70,20 +78,38 @@ class BlobTest extends \Doctrine\Tests\DbalFunctionalTestCase
             'id' => 1,
             'clobfield' => 'test',
             'blobfield' => 'test',
+            'binaryfield' => 'test',
         ], [
             ParameterType::INTEGER,
             ParameterType::STRING,
+            ParameterType::LARGE_OBJECT,
             ParameterType::LARGE_OBJECT,
         ]);
 
         $this->_conn->update('blob_table', [
             'blobfield' => 'test2',
+            'binaryfield' => 'test2',
         ], ['id' => 1], [
+            ParameterType::LARGE_OBJECT,
             ParameterType::LARGE_OBJECT,
             ParameterType::INTEGER,
         ]);
 
         $this->assertBlobContains('test2');
+        $this->assertBinaryContains('test2');
+    }
+
+    private function assertBinaryContains($text)
+    {
+        $rows = $this->_conn->fetchAll('SELECT * FROM blob_table');
+
+        self::assertCount(1, $rows);
+        $row = array_change_key_case($rows[0], CASE_LOWER);
+
+        $blobValue = Type::getType('binary')->convertToPHPValue($row['binaryfield'], $this->_conn->getDatabasePlatform());
+
+        self::assertInternalType('resource', $blobValue);
+        self::assertEquals($text, stream_get_contents($blobValue));
     }
 
     private function assertBlobContains($text)

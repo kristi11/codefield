@@ -8,17 +8,18 @@ use Doctrine\Common\Cache\MongoDBCache;
 use MongoDB\Client;
 use MongoDB\Collection;
 use MongoDB\Driver\Exception\Exception;
-use function sleep;
 
 /**
  * @requires extension mongodb
  */
 class ExtMongoDBCacheTest extends CacheTest
 {
-    /** @var Collection */
+    /**
+     * @var Collection
+     */
     private $collection;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         try {
             $mongo = new Client();
@@ -30,41 +31,39 @@ class ExtMongoDBCacheTest extends CacheTest
         $this->collection = $mongo->selectCollection('doctrine_common_cache', 'test');
     }
 
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
-        if (! ($this->collection instanceof Collection)) {
-            return;
+        if ($this->collection instanceof Collection) {
+            $this->collection->drop();
         }
-
-        $this->collection->drop();
     }
 
-    public function testGetStats() : void
+    public function testGetStats(): void
     {
         $cache = $this->_getCacheDriver();
         // Run a query to create the collection
         $this->collection->find([]);
         $stats = $cache->getStats();
 
-        self::assertNull($stats[Cache::STATS_HITS]);
-        self::assertNull($stats[Cache::STATS_MISSES]);
-        self::assertGreaterThan(0, $stats[Cache::STATS_UPTIME]);
-        self::assertEquals(0, $stats[Cache::STATS_MEMORY_USAGE]);
-        self::assertNull($stats[Cache::STATS_MEMORY_AVAILABLE]);
+        $this->assertNull($stats[Cache::STATS_HITS]);
+        $this->assertNull($stats[Cache::STATS_MISSES]);
+        $this->assertGreaterThan(0, $stats[Cache::STATS_UPTIME]);
+        $this->assertEquals(0, $stats[Cache::STATS_MEMORY_USAGE]);
+        $this->assertNull($stats[Cache::STATS_MEMORY_AVAILABLE]);
     }
 
     public function testLifetime() : void
     {
         $cache = $this->_getCacheDriver();
         $cache->save('expire', 'value', 1);
-        self::assertCount(1, $this->collection->listIndexes());
-        self::assertTrue($cache->contains('expire'), 'Data should not be expired yet');
+        $this->assertCount(1, $this->collection->listIndexes());
+        $this->assertTrue($cache->contains('expire'), 'Data should not be expired yet');
         sleep(2);
-        self::assertFalse($cache->contains('expire'), 'Data should be expired');
-        self::assertCount(2, $this->collection->listIndexes());
+        $this->assertFalse($cache->contains('expire'), 'Data should be expired');
+        $this->assertCount(2, $this->collection->listIndexes());
     }
 
-    protected function _getCacheDriver() : CacheProvider
+    protected function _getCacheDriver(): CacheProvider
     {
         return new MongoDBCache($this->collection);
     }

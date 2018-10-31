@@ -42,7 +42,6 @@ use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\TransactionIsolationLevel;
 use Doctrine\DBAL\Types;
 use Doctrine\DBAL\Types\Type;
-use const E_USER_DEPRECATED;
 use function addcslashes;
 use function array_map;
 use function array_merge;
@@ -50,9 +49,7 @@ use function array_unique;
 use function array_values;
 use function count;
 use function explode;
-use function func_get_arg;
 use function func_get_args;
-use function func_num_args;
 use function get_class;
 use function implode;
 use function in_array;
@@ -69,7 +66,6 @@ use function strlen;
 use function strpos;
 use function strtolower;
 use function strtoupper;
-use function trigger_error;
 
 /**
  * Base class for all DatabasePlatforms. The DatabasePlatforms are the central
@@ -301,11 +297,7 @@ abstract class AbstractPlatform
 
         $fixed = $field['fixed'] ?? false;
 
-        $maxLength = $fixed
-            ? $this->getCharMaxLength()
-            : $this->getVarcharMaxLength();
-
-        if ($field['length'] > $maxLength) {
+        if ($field['length'] > $this->getVarcharMaxLength()) {
             return $this->getClobTypeDeclarationSQL($field);
         }
 
@@ -327,17 +319,7 @@ abstract class AbstractPlatform
 
         $fixed = $field['fixed'] ?? false;
 
-        $maxLength = $this->getBinaryMaxLength();
-
-        if ($field['length'] > $maxLength) {
-            if ($maxLength > 0) {
-                @trigger_error(sprintf(
-                    'Binary field length %d is greater than supported by the platform (%d). Reduce the field length or use a BLOB field instead.',
-                    $field['length'],
-                    $maxLength
-                ), E_USER_DEPRECATED);
-            }
-
+        if ($field['length'] > $this->getBinaryMaxLength()) {
             return $this->getBlobTypeDeclarationSQL($field);
         }
 
@@ -611,14 +593,6 @@ abstract class AbstractPlatform
     }
 
     /**
-     * Gets the maximum length of a char field.
-     */
-    public function getCharMaxLength() : int
-    {
-        return $this->getVarcharMaxLength();
-    }
-
-    /**
      * Gets the maximum length of a varchar field.
      *
      * @return int
@@ -686,8 +660,6 @@ abstract class AbstractPlatform
      * @return string
      *
      * @throws \Doctrine\DBAL\DBALException If not supported on this platform.
-     *
-     * @deprecated Use application-generated UUIDs instead
      */
     public function getGuidExpression()
     {
@@ -3408,27 +3380,22 @@ abstract class AbstractPlatform
             $limit = (int) $limit;
         }
 
-        $offset = (int) $offset;
+        if ($offset !== null) {
+            $offset = (int) $offset;
 
-        if ($offset < 0) {
-            throw new DBALException(sprintf(
-                'Offset must be a positive integer or zero, %d given',
-                $offset
-            ));
-        }
-
-        if ($offset > 0 && ! $this->supportsLimitOffset()) {
-            throw new DBALException(sprintf(
-                'Platform %s does not support offset values in limit queries.',
-                $this->getName()
-            ));
+            if ($offset < 0) {
+                throw new DBALException("LIMIT argument offset=$offset is not valid");
+            }
+            if ($offset > 0 && ! $this->supportsLimitOffset()) {
+                throw new DBALException(sprintf("Platform %s does not support offset values in limit queries.", $this->getName()));
+            }
         }
 
         return $this->doModifyLimitQuery($query, $limit, $offset);
     }
 
     /**
-     * Adds an platform-specific LIMIT clause to the query.
+     * Adds an driver-specific LIMIT clause to the query.
      *
      * @param string   $query
      * @param int|null $limit
@@ -3442,7 +3409,7 @@ abstract class AbstractPlatform
             $query .= ' LIMIT ' . $limit;
         }
 
-        if ($offset > 0) {
+        if ($offset !== null) {
             $query .= ' OFFSET ' . $offset;
         }
 
@@ -3532,9 +3499,7 @@ abstract class AbstractPlatform
      */
     public function getDummySelectSQL()
     {
-        $expression = func_num_args() > 0 ? func_get_arg(0) : '1';
-
-        return sprintf('SELECT %s', $expression);
+        return 'SELECT 1';
     }
 
     /**

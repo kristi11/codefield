@@ -70,7 +70,7 @@ class SQLAnywhereStatement implements IteratorAggregate, Statement
     private $defaultFetchClass = '\stdClass';
 
     /**
-     * @var mixed[] Constructor arguments for the default class to instantiate when fetching class instances.
+     * @var string Constructor arguments for the default class to instantiate when fetching class instances.
      */
     private $defaultFetchClassCtorArgs = [];
 
@@ -132,7 +132,6 @@ class SQLAnywhereStatement implements IteratorAggregate, Statement
 
             case ParameterType::NULL:
             case ParameterType::STRING:
-            case ParameterType::BINARY:
                 $type = 's';
                 break;
 
@@ -336,7 +335,7 @@ class SQLAnywhereStatement implements IteratorAggregate, Statement
     public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null)
     {
         $this->defaultFetchMode          = $fetchMode;
-        $this->defaultFetchClass         = $arg2 ?: $this->defaultFetchClass;
+        $this->defaultFetchClass         = $arg2 ? $arg2 : $this->defaultFetchClass;
         $this->defaultFetchClassCtorArgs = $arg3 ? (array) $arg3 : $this->defaultFetchClassCtorArgs;
     }
 

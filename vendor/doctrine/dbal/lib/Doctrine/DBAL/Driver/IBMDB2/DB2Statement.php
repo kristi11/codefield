@@ -66,7 +66,7 @@ class DB2Statement implements \IteratorAggregate, Statement
     private $defaultFetchClass = '\stdClass';
 
     /**
-     * @var mixed[] Constructor arguments for the default class to instantiate when fetching class instances.
+     * @var string Constructor arguments for the default class to instantiate when fetching class instances.
      */
     private $defaultFetchClassCtorArgs = [];
 
@@ -215,7 +215,7 @@ class DB2Statement implements \IteratorAggregate, Statement
     public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null)
     {
         $this->_defaultFetchMode         = $fetchMode;
-        $this->defaultFetchClass         = $arg2 ?: $this->defaultFetchClass;
+        $this->defaultFetchClass         = $arg2 ? $arg2 : $this->defaultFetchClass;
         $this->defaultFetchClassCtorArgs = $arg3 ? (array) $arg3 : $this->defaultFetchClassCtorArgs;
 
         return true;
@@ -289,17 +289,17 @@ class DB2Statement implements \IteratorAggregate, Statement
 
         switch ($fetchMode) {
             case FetchMode::CUSTOM_OBJECT:
-                while (($row = $this->fetch(...func_get_args())) !== false) {
+                while ($row = call_user_func_array([$this, 'fetch'], func_get_args())) {
                     $rows[] = $row;
                 }
                 break;
             case FetchMode::COLUMN:
-                while (($row = $this->fetchColumn()) !== false) {
+                while ($row = $this->fetchColumn()) {
                     $rows[] = $row;
                 }
                 break;
             default:
-                while (($row = $this->fetch($fetchMode)) !== false) {
+                while ($row = $this->fetch($fetchMode)) {
                     $rows[] = $row;
                 }
         }

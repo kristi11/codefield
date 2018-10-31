@@ -1,36 +1,31 @@
 ---
 layout: default
-permalink: /docs/adapter/azure/
-redirect_from: /adapter/azure/
+permalink: /adapter/azure/
 title: Azure Blob Storage
 ---
 
+# Azure Blob Storage
+
 ## Installation
 
-```bash
-composer require league/flysystem-azure-blob-storage
-```
+~~~ bash
+composer require league/flysystem-azure
+~~~
 
 ## Usage
 
-```php
-use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
+~~~ php
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use League\Flysystem\Filesystem;
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use League\Flysystem\Azure\AzureAdapter;
 
-include __DIR__.'/vendor/autoload.php';
+$endpoint = sprintf(
+    'DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s',
+    'account-name',
+    'api-key'
+);
 
-$client = BlobRestProxy::createBlobService('DefaultEndpointsProtocol=https;AccountName={YOUR_ACCOUNT_NAME};AccountKey={YOUR_ACCOUNT_KEY};');
-$adapter = new AzureBlobStorageAdapter($client, 'container_name');
-$filesystem = new Filesystem($adapter);
-var_dump($filesystem->listContents());
-```
+$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($endpoint);
 
-## Sponsored by:
-
-<div class="flex my-6">
-    <a target="_blank" href="https://azure.microsoft.com/free/?utm_source=flysystem&utm_medium=banner&utm_campaign=flysystem_sponsorship" class="flex-no-grow w-1/3 bg-white rounded shadow-md mr-4 overflow-hidden">
-        <img src="/img/azure.svg" class="max-w-full m-6 sm:m-8" alt="Azure.com"/>
-        <span style="background-color: #00a1f1;" class="text-center text-xl hidden sm:block py-4 bg-indigo-dark text-white bg-grey-lightest">Azure.com</span>
-    </a>
-</div>
+$filesystem = new Filesystem(new AzureAdapter($blobRestProxy, 'my-container'));
+~~~

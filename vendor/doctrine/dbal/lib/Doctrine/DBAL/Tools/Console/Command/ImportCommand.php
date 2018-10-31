@@ -19,13 +19,11 @@
 
 namespace Doctrine\DBAL\Tools\Console\Command;
 
-use Doctrine\DBAL\Driver\PDOStatement;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use const PHP_EOL;
-use function assert;
 use function file_exists;
 use function file_get_contents;
 use function is_readable;
@@ -99,8 +97,6 @@ EOT
                         $lines = 0;
 
                         $stmt = $conn->prepare($sql);
-                        assert($stmt instanceof PDOStatement);
-
                         $stmt->execute();
 
                         do {
