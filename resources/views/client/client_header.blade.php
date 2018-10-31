@@ -34,24 +34,6 @@
     <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-180.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    {{-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gfnhsiax34xgkgxk89hb6mc24eo88l2utnhu4tvl2dc89kvg"></script>
-      <script type="text/javascript">
-      tinymce.init({
-        selector: '#body',
-         theme: 'modern',
-         branding: false,
-         min_height: 600,
-         plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste"
-        ],
-      mobile: {
-        theme: 'mobile',
-        plugins: [ 'autosave', 'lists', 'autolink' ]
-      }
-      });
-      </script> --}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <style name="FontAwesome">
             @font-face {
@@ -78,20 +60,6 @@
             .table-responsive::-webkit-scrollbar {
     display: none;
 }
-  /*.table-responsive {
-    padding: 1em;
-    border: none;
-  }
-  .table>tbody>tr>td,
-  .table>tbody>tr>th,
-  .table>tfoot>tr>td,
-  .table>tfoot>tr>th,
-  .table>thead>tr>td,
-  .table>thead>tr>th {
-    border: none;
-    min-width: 20em;
-    max-width: 20em;
-}*/
         </style>
         <script type="application/ld+json">
         {

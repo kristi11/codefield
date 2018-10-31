@@ -34,7 +34,11 @@ class Permission extends Model implements PermissionContract
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? Guard::getDefaultName(static::class);
 
-        if (static::getPermissions()->where('name', $attributes['name'])->where('guard_name', $attributes['guard_name'])->first()) {
+        $permission = static::getPermissions()->filter(function ($permission) use ($attributes) {
+            return $permission->name === $attributes['name'] && $permission->guard_name === $attributes['guard_name'];
+        })->first();
+
+        if ($permission) {
             throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
         }
 
@@ -66,7 +70,7 @@ class Permission extends Model implements PermissionContract
             'model',
             config('permission.table_names.model_has_permissions'),
             'permission_id',
-            'model_id'
+            config('permission.column_names.model_morph_key')
         );
     }
 
@@ -84,7 +88,9 @@ class Permission extends Model implements PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $permission = static::getPermissions()->where('name', $name)->where('guard_name', $guardName)->first();
+        $permission = static::getPermissions()->filter(function ($permission) use ($name, $guardName) {
+            return $permission->name === $name && $permission->guard_name === $guardName;
+        })->first();
 
         if (! $permission) {
             throw PermissionDoesNotExist::create($name, $guardName);
@@ -107,7 +113,9 @@ class Permission extends Model implements PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $permission = static::getPermissions()->where('id', $id)->where('guard_name', $guardName)->first();
+        $permission = static::getPermissions()->filter(function ($permission) use ($id, $guardName) {
+            return $permission->id === $id && $permission->guard_name === $guardName;
+        })->first();
 
         if (! $permission) {
             throw PermissionDoesNotExist::withId($id, $guardName);
@@ -128,10 +136,12 @@ class Permission extends Model implements PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $permission = static::getPermissions()->where('name', $name)->where('guard_name', $guardName)->first();
+        $permission = static::getPermissions()->filter(function ($permission) use ($name, $guardName) {
+            return $permission->name === $name && $permission->guard_name === $guardName;
+        })->first();
 
         if (! $permission) {
-            return static::create(['name' => $name, 'guard_name' => $guardName]);
+            return static::query()->create(['name' => $name, 'guard_name' => $guardName]);
         }
 
         return $permission;
