@@ -139,7 +139,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
 </style>
 <div class="wrapper">
     <div class="header">
-<h1 class="brand">CODEFIELD tsa</h1>
+<h1 class="brand">CODEFIELD</h1>
 
     <h4 class="description">Codefield is a small new platform helping developers,designers and even photographers find tools that will make completing their next project a whole lot easier. From photos to simple html templates to different more complex projects you'll find it all in here.</h4>
     </div>
