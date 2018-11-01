@@ -213,6 +213,9 @@ autocomplete('#aa-search-input',
             // suggestion._highlightResult.team.value + '</span>';
         }
     }
+}).on('autocomplete:selected', function(event, suggestion, dataset) {
+    console.log(suggestion, dataset);
+    //set_form_action();
 });
 </script>
              {{-- <form class="navbar-form navbar-right" role="search" method="GET" action="{{ url('clientSearch') }}"> --}}
