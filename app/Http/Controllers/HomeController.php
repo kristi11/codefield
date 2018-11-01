@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','role:admin']);
+        $this->middleware(['guest']);
     }
 
     /**
@@ -30,7 +30,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function index()
     {
         $title = 'Dashboard';
@@ -75,11 +75,11 @@ class HomeController extends Controller
 
 
     public function update($id, UserUpdateRequest $request)
-    {    
+    {
         $this->validate(request(), [
             'name'  => 'required',
             'email' => 'required',
-        ]);    
+        ]);
         $admins = User::findOrFail($id);
 
         $admins->name = request('name');
@@ -87,16 +87,16 @@ class HomeController extends Controller
         $admins->save();
         $request->session()->flash('success', "{$admins->name}".' updated');
         return back()->withInput($request->all());
-    
+
         $request->session()->flash('failure', 'Please enter the right credentials');
-        return back()->withInput($request->all());      
+        return back()->withInput($request->all());
     }
 
     public function updatePassword($id, UserUpdateRequest $request)
-    {   
+    {
         $this->validate(request(), [
             'password'  => 'required',
-        ]);     
+        ]);
         $admins = User::findOrFail($id);
         $hashedPassword = $admins->password;
         if (Hash::check($request->old, $hashedPassword)) {
@@ -106,14 +106,14 @@ class HomeController extends Controller
         return back()->withInput($request->all());
         }
         $request->session()->flash('failure', 'Please enter the right credentials');
-        return back()->withInput($request->all());      
+        return back()->withInput($request->all());
     }
 
     public function updatePic($id, UserUpdateRequest $request)
-    {  
+    {
         $this->validate(request(), [
             'avatar'  => 'required',
-        ]);      
+        ]);
         $admins = User::findOrFail($id);
         $profiles_storage = public_path('storage/profiles/');
         Storage::delete('storage/profiles/'.$admins->profile);
@@ -126,9 +126,9 @@ class HomeController extends Controller
         $admins->save();
         $request->session()->flash('success', 'Profile pic changed');
         return back()->withInput($request->all());
-        
+
         $request->session()->flash('failure', 'Please enter the right credentials');
-        return back()->withInput($request->all());      
+        return back()->withInput($request->all());
     }
 
     public function destroy($id)
@@ -240,7 +240,7 @@ class HomeController extends Controller
         $paginationNr = PaginationCounter::first();
         $galleryNr = $paginationNr->gallery;
         $gallery = Gallery::orderBy('id', 'desc')->Paginate($galleryNr);
-        if (count($gallery)<=0) 
+        if (count($gallery)<=0)
             return view('admin.empty_trash',compact('title'));
         else
         return view('admin.gallery', compact('title','gallery'));
@@ -252,13 +252,13 @@ class HomeController extends Controller
             $gallery->delete();
             $gallery->favorites()->delete();
             // Storage::move('storage/galleries/'.$gallery->image, 'storage/trash/'.$gallery->image);
-            // Storage::move('storage/large_photos/'.'large-'.$gallery->gallery_image, 
+            // Storage::move('storage/large_photos/'.'large-'.$gallery->gallery_image,
             //                 'storage/trash/'.'large-'.$gallery->gallery_image);
-            // Storage::move('storage/medium_photos/'.'medium-'.$gallery->gallery_image, 
+            // Storage::move('storage/medium_photos/'.'medium-'.$gallery->gallery_image,
             //                 'storage/trash/'.'medium-'.$gallery->gallery_image);
-            // Storage::move('storage/mobile_photos/'.'mobile-'.$gallery->gallery_image, 
+            // Storage::move('storage/mobile_photos/'.'mobile-'.$gallery->gallery_image,
             //                 'storage/trash/'.'mobile-'.$gallery->gallery_image);
-            // Storage::move('storage/tiny_photos/'.'tiny-'.$gallery->gallery_image, 
+            // Storage::move('storage/tiny_photos/'.'tiny-'.$gallery->gallery_image,
             //                 'storage/trash/'.'tiny-'.$gallery->gallery_image);
             session()->flash('message','Image sent to Trash');
             return back();
@@ -281,16 +281,16 @@ class HomeController extends Controller
         $deleted_images = Gallery::onlyTrashed()->find($id);
         // Storage::move('storage/trash/'.$deleted_images->image, 'storage/galleries/'.$deleted_images->image);
 
-        //     Storage::move('storage/trash/'.'large-'.$deleted_images->gallery_image, 
+        //     Storage::move('storage/trash/'.'large-'.$deleted_images->gallery_image,
         //                     'storage/large_photos/'.'large-'.$deleted_images->gallery_image);
 
-        //     Storage::move('storage/trash/'.'medium-'.$deleted_images->gallery_image, 
+        //     Storage::move('storage/trash/'.'medium-'.$deleted_images->gallery_image,
         //                     'storage/medium_photos/'.'medium-'.$deleted_images->gallery_image);
 
-        //     Storage::move('storage/trash/'.'mobile-'.$deleted_images->gallery_image, 
+        //     Storage::move('storage/trash/'.'mobile-'.$deleted_images->gallery_image,
         //                     'storage/mobile_photos/'.'mobile-'.$deleted_images->gallery_image);
 
-        //     Storage::move('storage/trash/'.'tiny-'.$deleted_images->gallery_image, 
+        //     Storage::move('storage/trash/'.'tiny-'.$deleted_images->gallery_image,
         //                     'storage/tiny_photos/'.'tiny-'.$deleted_images->gallery_image);
         $deleted_images -> restore();
         $deleted_images->favorites()->restore();
