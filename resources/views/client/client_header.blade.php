@@ -22,8 +22,6 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/material-dashboard.min.css" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 {{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
  --}}
@@ -170,25 +168,5 @@
     });
 }
  </script>
- <script>
-var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
-var index = client.initIndex('title');
-//initialize autocomplete on search input (ID selector must match)
-autocomplete('#aa-search-input',
-{ hint: false }, {
-    source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-    //value to be displayed in input control after user's suggestion selection
-    displayKey: 'title',
-    //hash of templates used when rendering dataset
-    templates: {
-        //'suggestion' templating function used to render a single suggestion
-        suggestion: function(suggestion) {
-          return '<span>' +
-            suggestion._highlightResult.title.value + '</span>'
-            // <span>' +
-            // suggestion._highlightResult.team.value + '</span>';
-        }
-    }
-});
-</script>
+
 </head>
