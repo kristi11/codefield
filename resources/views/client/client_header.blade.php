@@ -60,10 +60,6 @@
             .table-responsive::-webkit-scrollbar {
     display: none;
 }
-
-
-
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 .aa-input-container {
   display: inline-block;
   position: relative; }
@@ -137,6 +133,12 @@
   font-style: normal;
   background-color: rgba(58, 150, 207, 0.1);
   padding: 2px 0 2px 2px; }
+
+  @media (max-width: 992px) {
+    .aa-input-search {
+      width: 20rem;
+    }
+  }
         </style>
         <script type="application/ld+json">
         {
