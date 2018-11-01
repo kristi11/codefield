@@ -199,7 +199,7 @@ var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
 var index = client.initIndex('projects');
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input',
-{ hint: false }, {
+{ hint: false, debug: true }, {
     source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
     //value to be displayed in input control after user's suggestion selection
     displayKey: 'title',
