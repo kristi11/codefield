@@ -10,6 +10,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://use.fontawesome.com/034c41ac18.js"></script>
 <script id="dsq-count-scr" src="//rek-studio.disqus.com/count.js" async></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    <script>
+var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
+var index = client.initIndex('projects');
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#aa-search-input',
+{ hint: false, debug: true }, {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
+    //value to be displayed in input control after user's suggestion selection
+    displayKey: 'title',
+    //hash of templates used when rendering dataset
+    templates: {
+        //'suggestion' templating function used to render a single suggestion
+        suggestion: function(suggestion) {
+          return '<span>' +
+            suggestion._highlightResult.title.value + '</span>'
+            // <span>' +
+            // suggestion._highlightResult.team.value + '</span>';
+        }
+    }
+});
+</script>
 <script type="text/javascript">
 
 jQuery.event.special.touchstart = {
