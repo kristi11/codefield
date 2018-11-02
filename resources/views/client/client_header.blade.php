@@ -138,6 +138,9 @@
     .aa-input-search {
       width: 20rem;
     }
+    .aa-dropdown-menu {
+      width: 20rem;
+    }
   }
         </style>
         <script type="application/ld+json">
