@@ -80,7 +80,7 @@
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
         </div>
         <div class="form-group">
-        <label class="control-label">Choose a category</label>
+        <label>Choose a category</label>
           <select class="form-control" name="categories[]" id="categories" multiple="multiple" required="">
             @foreach($categories as $category)
               <option value="{{$category->id}}">{{$category->name}}</option>
