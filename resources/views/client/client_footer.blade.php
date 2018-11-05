@@ -58,7 +58,9 @@ lazySizes.init();
 <script async>
 	$(function() {
         $("div#photo").show();
-    }),
+    })
+</script>
+<script>
     $(function() {
         $("div#postProduct").show();
     })
