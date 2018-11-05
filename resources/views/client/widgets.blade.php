@@ -8,7 +8,7 @@
         </a>
         <ul style="width: 75vw;" class="dropdown-menu">
           @foreach ($categories as $category)
-            <li style="display: inline-grid;padding:0.3em;"><a class="btn btn-round btn-category" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
+            <li style="display: inline-grid;padding:0.3em;"><a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
           @endforeach
         </ul>
       </li>
