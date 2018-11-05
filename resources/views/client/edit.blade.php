@@ -31,13 +31,13 @@
         </div>
       <div class="card-content">
         <div class="form-group label-floating">
-        <label class="control-label">Project title</label>
+        <label class="control-label">Product name</label>
           <input type="text" name="title" id="title" value="{{ $project->dsc_title }}" class="form-control" required>
         </div>
   {{-- <input id="body" value="{!! Purify::clean($project->body) !!}" type="hidden" name="body">
   <trix-editor input="body"></trix-editor> --}}
       <div class="form-group label-floating">
-      <label class="control-label">Description</label>
+      <label>Say something about this product</label>
           <div name="body" id="body" class="form-control fr-view" required >{!! Purify::clean($project->body) !!}</div>
       </div>
         <div class="form-group label-floating">

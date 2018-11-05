@@ -114,7 +114,7 @@ public function __construct()
 
     public function edit($id)
     {
-        $title = 'Edit project';
+        $title = 'Edit product';
         $project = Project::findOrFail($id);
         $categories = $project->categories;
         $allCategories = Category::select('name','id')->get();
