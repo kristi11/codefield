@@ -38,8 +38,8 @@
 			value="{{ old('gallery_image') }}"
 			class="filestyle" data-buttonText="Choose photos" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-primary" multiple="multiple">
 			</div>
-			<div class="form-group">
-	        	<label class="text-left">Choose a category</label>
+			<div class="form-group text-left">
+	        	<label>Choose a category</label>
 				<select class="form-control" name="tags[]" id="tags" multiple="multiple" required="">
 				<option value=""></option>
 					@foreach($tags as $tag)
