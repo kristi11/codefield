@@ -9,8 +9,9 @@
      theme: 'modern',
      branding: false,
      min_height: 600,
+     placeholder: 'Say something about your product',
      plugins: [
-        "advlist autolink lists link image charmap print preview anchor",
+        "advlist autolink lists link charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
         "insertdatetime media table contextmenu paste"
     ],
