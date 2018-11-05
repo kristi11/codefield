@@ -44,13 +44,12 @@ a {
             @endif
             <h5 class="category">Size: {{$size.' Mb'}}</h5>
           @endif
-
-          <h5 class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</h5>
           <h5 class="category">Category:
                @foreach($category as $c)
                  <a href="{{ url('products/category/'.$c->name) }}"> {{ $c->name }}</a>
                @endforeach
            </h5>
+           <p class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</p>
         </div>
       <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <h5>{!! Purify::clean($widget->body) !!}</h5>

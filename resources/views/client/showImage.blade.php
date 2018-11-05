@@ -11,56 +11,56 @@ a {
 </style>
 <div class="col-md-8 col-md-offset-2">
 <div class="card">
-    <form method="POST" action="{{ url('i/'.$gallery->id) }}">    
-      {{ csrf_field() }}        
+    <form method="POST" action="{{ url('i/'.$gallery->id) }}">
+      {{ csrf_field() }}
         <div class="card-header card-chart">
           <picture>
             <source
             media = "(min-width:860px)"
             data-srcset="{{asset('storage/large_photos/'.$gallery->gallery_image.' 860w')}}">
-            <source 
+            <source
             media = "(min-width:420px)"
             data-srcset = "{{asset('storage/medium_photos/'.$gallery->gallery_image.' 640w')}}" >
-            <source 
+            <source
             media = "(max-width:420px)"
             data-srcset = "{{asset('storage/mobile_photos/'.$gallery->gallery_image.' 420w')}}" >
-            <img style="height:100%;object-fit: cover;" class="lazyload blur-up" 
-            src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}" 
-            data-src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}" 
+            <img style="height:100%;object-fit: cover;" class="lazyload blur-up"
+            src="{{asset('storage/tiny_photos/'.$gallery->gallery_image)}}"
+            data-src="{{asset('storage/medium_photos/'.$gallery->gallery_image)}}"
             alt="{{$gallery->alternative_text}}">
           </picture>
         </div>
       <div class="card-content">
       	<div class="row text-center">
-          <p class="category">{{ ucwords(substr($gallery->alternative_text,0,-12)) }}</p>                
+          <h5 class="category">{{ ucwords(substr($gallery->alternative_text,0,-12)) }}</h5>
           @if($gallery->views == 0)
-            <p class="category">No views</p>
+            <h5 class="category">No views</h5>
           @elseif($gallery->views == 1)
-            <p class="category">{{$gallery->views}} view</p>
+            <h5 class="category">{{$gallery->views}} view</h5>
           @else
-            <p class="category">{{$gallery->views}} views</p>
+            <h5 class="category">{{$gallery->views}} views</h5>
           @endif
 
           @if($gallery->downloads == 0)
-            <p class="category">No downloads</p>
+            <h5 class="category">No downloads</h5>
           @elseif($gallery->downloads == 1)
-            <p class="category">{{$gallery->downloads}} download</p>
+            <h5 class="category">{{$gallery->downloads}} download</h5>
           @else
-            <p class="category">{{$gallery->downloads}} downloads</p>
+            <h5 class="category">{{$gallery->downloads}} downloads</h5>
           @endif
-	         <p class="category">Dimensions: {{ $w.'x'.$h.' px' }}</p>                
-	         <p class="category">Size: {{$size.' Mb'}}</p>
-	         <p class="category">Type: {{$type}}</p>
-	         <p class="category">Category:
+	         <h5 class="category">Dimensions: {{ $w.'x'.$h.' px' }}</h5>
+	         <h5 class="category">Size: {{$size.' Mb'}}</h5>
+	         <h5 class="category">Type: {{$type}}</h5>
+	         <h5 class="category">Category:
 	             @foreach($category as $c)
 	             	 <a href="{{ url('category/'.$c->name) }}"> {{ $c->name }}</a>
 	             @endforeach
-	         </p>
+	         </h5>
 	         <p class="category">
 	         	Posted  {{ $gallery->created_at->diffForHumans() }}
 	         </p>
 		</div>
-      <h4 class="title" id="title">{{ $gallery->title }}</h4>    
+      <h4 class="title" id="title">{{ $gallery->title }}</h4>
       <div class="text-right">
       <button class="btn btn-{{$item->font_color}}" type="submit" id="p_edit">
         Download
@@ -68,6 +68,6 @@ a {
       </div>
       </div>
     </form>
- </div>                          
+ </div>
  </div>
 @endsection
