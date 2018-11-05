@@ -70,7 +70,7 @@ class ClientController extends Controller
         // $cacheKey = md5(vsprintf('%s.%s', [auth()->user()->id,auth()->user()->email]))
 
        // return Cache::remember(auth()->user()->id.'articles.all', 60, function ()  {
-        $title = 'Projects';
+        $title = 'Products';
         $paginationNr = PaginationCounter::first();
         $projectsNr = $paginationNr->projects;
         $categories = Category::has('projects')->select('name','id')->get();
