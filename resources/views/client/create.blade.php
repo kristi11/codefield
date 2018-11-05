@@ -18,16 +18,6 @@
     theme: 'mobile',
     plugins: [ 'autosave', 'lists', 'autolink' ]
   }
-
-    editor.on('init', function(){
-      if (tinymce.get('Text').getContent() == ''){
-        tinymce.get('Text').setContent("<p id='#imThePlaceholder'>Your nice text here!</p>");
-      }
-    });
-    //and remove it on focus
-    editor.on('focus',function(){
-      $('iframe').contents().find('#imThePlaceholder').remove();
-    });
   });
 </script>
 
