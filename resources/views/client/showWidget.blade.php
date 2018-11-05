@@ -49,7 +49,7 @@ a {
                  <a href="{{ url('products/category/'.$c->name) }}"> {{ $c->name }}</a>
                @endforeach
            </h5>
-           <p class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</p>
+           <h5 class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</h5>
         </div>
       <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <h5>{!! Purify::clean($widget->body) !!}</h5>

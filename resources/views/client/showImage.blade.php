@@ -56,9 +56,9 @@ a {
 	             	 <a href="{{ url('category/'.$c->name) }}"> {{ $c->name }}</a>
 	             @endforeach
 	         </h5>
-	         <p class="category">
+	         <h5 class="category">
 	         	Posted  {{ $gallery->created_at->diffForHumans() }}
-	         </p>
+	         </h5>
 		</div>
       <h4 class="title" id="title">{{ $gallery->title }}</h4>
       <div class="text-right">
