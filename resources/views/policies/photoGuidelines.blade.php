@@ -10,8 +10,6 @@
 
 			<h5>Photos should be at least 3 Megabytes or our system will automatically reject them.We do this to ensure you upload high quality photos.</h5>
 
-			<h5>Photo standarts</h5>
-
 			<h5>Please make sure that uploaded photos:
 				<ul>
 					<li>
