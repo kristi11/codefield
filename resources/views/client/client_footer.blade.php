@@ -55,8 +55,11 @@ lazySizes.init();
 </script> --}}
 <script async>
 	$(function() {
-    $("div#photo").show();
-})
+        $("div#photo").show();
+    }),
+    $(function() {
+        $("div#postProduct").show();
+    })
 </script>
 <script async>
 $('.reksearchloader').click(function(){
