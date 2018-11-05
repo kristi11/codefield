@@ -9,17 +9,25 @@
      theme: 'modern',
      branding: false,
      min_height: 600,
-     placeholder: 'Say something about your product',
      plugins: [
         "advlist autolink lists link charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste",
-        "placeholder"
+        "insertdatetime media table contextmenu paste"
     ],
   mobile: {
     theme: 'mobile',
-    plugins: [ 'autosave', 'lists', 'autolink' , 'placeholder']
+    plugins: [ 'autosave', 'lists', 'autolink' ]
   }
+
+    editor.on('init', function(){
+      if (tinymce.get('Text').getContent() == ''){
+        tinymce.get('Text').setContent("<p id='#imThePlaceholder'>Your nice text here!</p>");
+      }
+    });
+    //and remove it on focus
+    editor.on('focus',function(){
+      $('iframe').contents().find('#imThePlaceholder').remove();
+    });
   });
 </script>
 
