@@ -55,7 +55,7 @@
       </ul>
     </div>
   </div>
-<div class="card" id="postProduct" >
+<div class="card" id="postProduct" style="display:none;">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New Product</h4>
   </div>
@@ -75,7 +75,7 @@
           <div id="body" name="body" class="form-control" required>{{ old('body') }}</div>
         </div>
 
-        <div class="form-group label-floating" id="actions" style="display:none;">
+        <div class="form-group label-floating">
         <label class="control-label">Youtube tutorial (optional)</label>
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
         </div>
