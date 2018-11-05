@@ -55,22 +55,22 @@
       </ul>
     </div>
   </div>
-<div class="card" id="postProduct" style="display:none;">
-  <div class="card-header" data-background-color="{{ $item->app_color }}">
+{{-- <div class="card" id="postProduct" style="display:none;"> --}}
+  {{-- <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New Product</h4>
-  </div>
-<div class="card-content">
+  </div> --}}
+<div class="card-content" id="postProduct" style="display:none;">
     <form method="POST" action="{{ asset('/store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       @include('errors')
 
         <div class="form-group label-floating">
-        <label class="control-label">Title</label>
+        <label class="control-label">Product name</label>
           <input id="title" type="text" name="title" class="form-control" value="{{ old('title') }}" required>
         </div>
       {{-- <input id="body" type="hidden" name="body">
       <trix-editor input="body"></trix-editor> --}}
-        <div class="form-group label-floating">
+        <div class="form-group">
         {{-- <label class="control-label">Description</label> --}}
           <div id="body" name="body" class="form-control" required>{{ old('body') }}</div>
         </div>
@@ -104,7 +104,7 @@
       </div>
     </form>
   </div>
-  </div>
+ {{--  </div> --}}
 {{-- <div class="card">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New category</h4>
