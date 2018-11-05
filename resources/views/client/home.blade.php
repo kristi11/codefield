@@ -77,7 +77,7 @@ a {
         </a>
       </li>
 
-      <li{{ setActive('favorites') }}>
+{{--       <li{{ setActive('favorites') }}>
         <a href="{{ asset('/favorites') }}">
           <i class="material-icons">favorite</i>
           <p>Favorites
@@ -89,7 +89,7 @@ a {
           @endif
       </p>
         </a>
-      </li>
+      </li> --}}
 
       <li{{ setActive('license') }}>
         <a href="{{ asset('/license') }}">

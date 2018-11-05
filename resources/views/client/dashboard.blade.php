@@ -186,7 +186,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
         </div>
     </div>
 </div>
-<div class="col-lg-3 col-md-6 col-sm-6">
+{{-- <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
         <div class="card-header" data-background-color="red">
             <i class="material-icons">favorite</i>
@@ -202,7 +202,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, {
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <p class="navbar-brand hidden-xs">Latest products</p>
 <div class="col-xs-12 col-sm-12 hidden-xs">
 @foreach ($latestDbItem as $firstTwo)

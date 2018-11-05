@@ -70,7 +70,7 @@
 								</button>
 								</form>
 								</button>
-								@if($img->isFavorited())
+{{-- 								@if($img->isFavorited())
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('addToFavorties/'.$img->id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="In your favorites">
 									<i style="color: black" class="material-icons">favorite</i></a>
@@ -78,7 +78,7 @@
 									<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs" href="{{ url('addToFavorties/'.$img->id) }}"
 									rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
 									<i style="color: black" class="material-icons">favorite_border</i></a>
-								@endif
+								@endif --}}
 								<a type="button" class="btn btn-white btn-just-icon btn-xs btn-round hidden-xs"
 								 href="{{ url($img->user->slug.'/u/photos') }}"
 								 rel="tooltip" data-placement="bottom" title="" data-original-title="{{$img->user->name}}">
