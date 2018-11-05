@@ -79,6 +79,7 @@
         <label class="control-label">Youtube tutorial (optional)</label>
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
         </div>
+        <label class="control-label">Choose a category</label>
         <select class="form-control" name="categories[]" id="categories" multiple="multiple" required="">
           {{-- <option value=""></option> --}}
           @foreach($categories as $category)
