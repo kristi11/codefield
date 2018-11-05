@@ -71,7 +71,7 @@
       {{-- <input id="body" type="hidden" name="body">
       <trix-editor input="body"></trix-editor> --}}
         <div class="form-group">
-        <label class="control-label">Say something about this project</label>
+        <label>Say something about this product</label>
           <div id="body" name="body" class="form-control" required>{{ old('body') }}</div>
         </div>
 
