@@ -62,7 +62,7 @@ lazySizes.init();
 </script>
 <script>
     $(function() {
-        $("div#body").show();
+        $("div#actions").show();
     })
 </script>
 <script async>

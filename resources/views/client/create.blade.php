@@ -72,10 +72,10 @@
       <trix-editor input="body"></trix-editor> --}}
         <div class="form-group label-floating">
         {{-- <label class="control-label">Description</label> --}}
-          <div id="body" name="body" class="form-control" required style="display:none;">{{ old('body') }}</div>
+          <div id="body" name="body" class="form-control" required>{{ old('body') }}</div>
         </div>
 
-        <div class="form-group label-floating">
+        <div class="form-group label-floating" id="actions" style="display:none;">
         <label class="control-label">Youtube tutorial (optional)</label>
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
         </div>
