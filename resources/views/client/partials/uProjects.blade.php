@@ -40,7 +40,7 @@
           <i class="material-icons">videocam</i>
         </a>
       @endif
-      @if($widget->isFavorited())
+{{--       @if($widget->isFavorited())
     <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
       rel="tooltip" data-placement="bottom" title="" data-original-title="In your favorites">
       <i class="material-icons">favorite</i></a>
@@ -48,7 +48,7 @@
       <a type="button" class="btn btn-success btn-simple" href="{{ url('addToFavorties/'.$widget->id) }}"
       rel="tooltip" data-placement="bottom" title="" data-original-title="Add to favorites">
       <i class="material-icons">favorite_border</i></a>
-    @endif
+    @endif --}}
     </div>
     </div>
     <div class="card-content">
