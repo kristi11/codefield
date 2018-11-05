@@ -33,7 +33,7 @@ autocomplete('#aa-search-input',
     }
 });
 </script>
-<script type="text/javascript">
+<script>
 
 jQuery.event.special.touchstart = {
   setup: function( _, ns, handle ){
@@ -44,6 +44,8 @@ jQuery.event.special.touchstart = {
     }
   }
 };
+</script>
+<script>
 
     $("#categories").select2({
         placeholder:'Choose a category',
