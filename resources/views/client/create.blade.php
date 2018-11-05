@@ -55,11 +55,11 @@
       </ul>
     </div>
   </div>
-{{-- <div class="card" id="postProduct" style="display:none;"> --}}
+<div class="card" id="postProduct" style="display:none;">
   {{-- <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New Product</h4>
   </div> --}}
-<div class="card-content" id="postProduct" style="display:none;">
+<div class="card-content">
     <form method="POST" action="{{ asset('/store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       @include('errors')
@@ -104,7 +104,7 @@
       </div>
     </form>
   </div>
- {{--  </div> --}}
+  </div>
 {{-- <div class="card">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New category</h4>
