@@ -79,13 +79,14 @@
         <label class="control-label">Youtube tutorial (optional)</label>
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
         </div>
+        <div class="form-group">
         <label class="control-label">Choose a category</label>
-        <select class="form-control" name="categories[]" id="categories" multiple="multiple" required="">
-          {{-- <option value=""></option> --}}
-          @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
-          @endforeach
-      </select>
+          <select class="form-control" name="categories[]" id="categories" multiple="multiple" required="">
+            @foreach($categories as $category)
+              <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+          </select>
+        </div>
 
         <div class="card-content text-center">
         <div class="btn btn-{{$item->font_color}} btn-simple">
