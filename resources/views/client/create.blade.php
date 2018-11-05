@@ -55,7 +55,7 @@
       </ul>
     </div>
   </div>
-<div class="card" id="postProduct" style="display:none;">
+<div class="card" id="postProduct" >
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New Product</h4>
   </div>
@@ -72,7 +72,7 @@
       <trix-editor input="body"></trix-editor> --}}
         <div class="form-group label-floating">
         {{-- <label class="control-label">Description</label> --}}
-          <div id="body" name="body" class="form-control" required>{{ old('body') }}</div>
+          <div id="body" name="body" class="form-control" required style="display:none;">{{ old('body') }}</div>
         </div>
 
         <div class="form-group label-floating">
