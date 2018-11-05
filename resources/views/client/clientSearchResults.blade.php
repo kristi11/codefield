@@ -56,19 +56,19 @@
             <div class="card-content">
                   <h4 class="title" id="title">{{ str_limit($result->dsc_title,30) }}</h4>
         @if($result->views == 0)
-          <p class="category">No views</p>
+          <h5 class="category">No views</h5>
         @elseif($result->views == 1)
-          <p class="category">{{$result->views}} view</p>
+          <h5 class="category">{{$result->views}} view</h5>
         @else
-          <p class="category">{{$result->views}} views</p>
+          <h5 class="category">{{$result->views}} views</h5>
         @endif
 
         @if($result->downloads == 0)
-          <p class="category">No downloads</p>
+          <h5 class="category">No downloads</h5>
         @elseif($result->downloads == 1)
-          <p class="category">{{$result->downloads}} download</p>
+          <h5 class="category">{{$result->downloads}} download</h5>
         @else
-          <p class="category">{{$result->downloads}} downloads</p>
+          <h5 class="category">{{$result->downloads}} downloads</h5>
         @endif                </div>
                 <div class="card-footer">
                   <div class="stats">
