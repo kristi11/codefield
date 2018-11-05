@@ -13,11 +13,12 @@
      plugins: [
         "advlist autolink lists link charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste"
+        "insertdatetime media table contextmenu paste",
+        "placeholder"
     ],
   mobile: {
     theme: 'mobile',
-    plugins: [ 'autosave', 'lists', 'autolink' ]
+    plugins: [ 'autosave', 'lists', 'autolink' , 'placeholder']
   }
   });
 </script>
