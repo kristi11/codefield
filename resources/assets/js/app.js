@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-// require('jquery-ujs'); 
+// require('jquery-ujs');
 
 
 // /**
@@ -29,4 +29,4 @@ require('./bootstrap');
 // import Turbolinks from 'turbolinks';
 // Turbolinks.start();
 
-import Trix from 'trix';
+// import Trix from 'trix';
