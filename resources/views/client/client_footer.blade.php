@@ -20,13 +20,13 @@ autocomplete('#aa-search-input',
 { hint: false, debug: true }, {
     source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
     //value to be displayed in input control after user's suggestion selection
-    displayKey: 'title',
+    displayKey: 'dsc_title',
     //hash of templates used when rendering dataset
     templates: {
         //'suggestion' templating function used to render a single suggestion
         suggestion: function(suggestion) {
           return '<span>' +
-            suggestion._highlightResult.title.value + '</span>'
+            suggestion._highlightResult.dsc_title.value + '</span>'
             // <span>' +
             // suggestion._highlightResult.team.value + '</span>';
         }
