@@ -161,6 +161,9 @@
     </script>
 {{--<script src='https://www.google.com/recaptcha/api.js'></script> --}}
  <script>
+  if (!navigator.onLine) {
+    return 'offline.html';
+  }
   if ('serviceWorker' in navigator ) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {

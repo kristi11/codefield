@@ -51,7 +51,7 @@ mix.webpackConfig({
         //     '/': ['resources/views/client/home.blade.php']
         // },
         staticFileGlobsIgnorePatterns: [/\.map$/, /mix-manifest\.json$/, /manifest\.json$/, /service-worker\.js$/],
-        navigateFallback: 'offline.html',
+        navigateFallback: '/',
         runtimeCaching: [
             {
                 urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
