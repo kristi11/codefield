@@ -650,6 +650,6 @@ class ClientController extends Controller
         }
         $user->favorites()->forceDelete();
         $user->forceDelete();
-        return back();
+        return redirect('/');
     }
 }

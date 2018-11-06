@@ -40,12 +40,7 @@ mix.styles([
   // 	],'public/js/app.js');
 mix.webpackConfig({
     plugins: [
-    new SWPrecacheWebpackPlugin(
-      if (!navigator.onLine) {
-        navigateFallback: '/offline.html',
-      }
-
-      {
+    new SWPrecacheWebpackPlugin({
         cacheId: 'pwa',
         filename: 'service-worker.js',
         staticFileGlobs: ['public/**/*.{css,eot,svg,ttf,woff,woff2,js,html,jpg,jpeg,png}'],
