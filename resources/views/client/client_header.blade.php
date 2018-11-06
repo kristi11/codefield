@@ -163,7 +163,7 @@
  <script>
   function handleConnectionChange(event){
   if(event.type == "offline"){
-        console.log("You lost connection.");
+       return 'offline.html';
     }
   }
     window.addEventListener('offline', handleConnectionChange);
