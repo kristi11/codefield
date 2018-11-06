@@ -161,9 +161,10 @@
     </script>
 {{--<script src='https://www.google.com/recaptcha/api.js'></script> --}}
  <script>
-  if (!navigator.onLine) {
-    return 'offline.html';
-  }
+  if(event.type == "offline"){
+        console.log("You lost connection.");
+    }
+    window.addEventListener('offline', handleConnectionChange);
   if ('serviceWorker' in navigator ) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
