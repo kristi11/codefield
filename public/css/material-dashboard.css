@@ -529,11 +529,13 @@ h2.title {
 .sidebar,
 .off-canvas-sidebar {
   position: absolute;
+  background-color: #ffffff99;
   /*top: 0;*/
   bottom: 0;
   left: 0;
-  z-index: 1;
-  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+/*  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+*/  box-shadow: 9px 17px 3px -12px rgba(0,0,0,.42), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
@@ -586,7 +588,7 @@ h2.title {
 .off-canvas-sidebar .nav p {
   margin: 0;
   line-height: 30px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .sidebar .nav i,
 .off-canvas-sidebar .nav i {
@@ -733,6 +735,7 @@ h2.title {
 }
 
 .main-panel {
+  background-color: #fbfbfd;
   position: relative;
   z-index: 2;
   float: right;
@@ -4858,7 +4861,7 @@ footer .btn {
     left: auto;
     z-index: 1032;
     visibility: visible;
-    background-color: #9A9A9A;
+    background-color: #ffffff99;
     overflow-y: visible;
     border-top: none;
     text-align: left;
@@ -4890,7 +4893,7 @@ footer .btn {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #282828;
+    background-color: #ffffff99;
     display: block;
     content: "";
     z-index: 1;
