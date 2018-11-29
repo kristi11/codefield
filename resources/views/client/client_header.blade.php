@@ -17,8 +17,7 @@
     <meta name="keywords" content="download everything for free,share your work,share your photography,gain exposure on the web,build your portfolio,work with API,progressive web apps">
     <meta name="description" content="{{config("app.name")}} is a small new platform helping developers,designers and even photographers find tools that will make completing their next project a whole lot easier. From photos to simple html templates to different more complex projects you'll find it all in here.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- change to live site fb app id --}}
-    <meta property="fb:app_id" content="1059091104272941" />
+    <meta property="fb:app_id" content="179144595974114" />
     <meta property="og:type" content="article" />
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@CodefieldC" />
@@ -60,20 +59,6 @@
     <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-180.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-{{--     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <style name="FontAwesome">
-            @font-face {
-              font-family: 'FontAwesome';
-              src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot');
-              src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-                   url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),
-                   url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
-                   url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
-                   url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
-              font-weight: normal;
-              font-style: normal;
-            }
-        </style> --}}
         <script type="application/ld+json">
         {
           "@context" : "http://schema.org",
@@ -90,7 +75,6 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-{{--<script src='https://www.google.com/recaptcha/api.js'></script> --}}
  <script>
   function handleConnectionChange(event){
   if(event.type == "offline"){
