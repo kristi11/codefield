@@ -92,8 +92,8 @@ a {
       </li> --}}
 
       <li{{ setActive('license') }}>
-        <a href="{{ asset('/license') }}">
-          <i class="material-icons">book</i>
+        <a href="{{ asset('/licenses') }}">
+          <i class="material-icons">description</i>
           <p>Licenses</p>
         </a>
       </li>
@@ -105,13 +105,20 @@ a {
         </a>
       </li>
 
+      <li{{ setActive('legal') }}>
+        <a href="{{ asset('/legal') }}">
+          <i class="material-icons">report</i>
+          <p>Legal</p>
+        </a>
+      </li>
+
       <li class="active">
         <a href="#">
         <p>Contact us at support@codefield.io</p>
       </a>
       </li>
   </div>
-  {{-- <div class="sidebar-background" style="background-image: url('/img/sidebar-1.jpg') "></div> --}}
+ {{--  <div class="sidebar-background" style="background-image: url('/img/sidebar-1.jpg') "></div> --}}
 </div>
 <div class="main-panel">
       <nav class="navbar navbar-transparent navbar-absolute">
@@ -244,6 +251,9 @@ a {
                 @yield('edit_PFile')
                 @yield('edit_userProject')
                 @yield('create_userProject')
+                {{-- add to live site --}}
+                @yield('legal')
+                {{-- end --}}
               </div>
           </div>
       </div>

@@ -31,10 +31,10 @@ class AppServiceProvider extends ServiceProvider
          });
 
          view()->composer(['admin.sidebar','admin.empty_projects','admin.gallery','admin.projects','admin.trash','admin.administrators','admin.Subscribers','admin.add','auth.register','auth.login','admin.create','admin.edit','admin.mdl-bootstrap','admin.edit_admin','admin.edit_admin_pic','admin.update_admin_password','admin.edit_tag','admin.edit_category','admin.editUploads','admin.pending_projects',
-            'admin.submitted_projects','auth.passwords.email','auth.passwords.reset','client.home','client.showWidget','client.showImage','client.clientGallery','client.googleFonts',
+            'admin.submitted_projects','admin.addLicense','auth.passwords.email','auth.passwords.reset','client.home','client.showWidget','client.showImage','client.clientGallery','client.googleFonts',
             'client.submit_request','client.submits','client.addPhotos','client.userProfile','client.editClient',
             'client.searchUserProfile','client.create','client.edit','client.editPAvatar','client.editPFile',
-            'client.widgets','policies.mitLicense','policies.photoGuidelines','guest.g_photo','guest.g_project'],function($view){
+            'client.widgets','client.licenses','policies.legal','policies.photoGuidelines','guest.g_photo','guest.g_project'],function($view){
             $view->with('item',\App\App_color::firstOrFail());
          });
 
@@ -54,6 +54,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('countProjects',count(\App\Project::all()));
             $view->with('countImages',count(\App\Gallery::all()));
             $view->with('countFavorites',count(\App\Favorite::where('user_id',Auth::id())->get()));
+            // add to live site
+            $view->with('countLicenses',count(\App\License::all()));
+            // end
             $view->with('result',json_decode(file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c" )));
 
          });

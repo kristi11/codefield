@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\UserUpdateRequest;
 use App\PaginationCounter;
+use App\License;
 
 class HomeController extends Controller
 {
@@ -299,4 +300,30 @@ class HomeController extends Controller
         return back();
     }
 
+    // add to live site
+    public function addLicense () {
+        $title = 'Post a license';
+        return view('admin.addLicense',compact('title'));
+    }
+
+    public function storeLicense (Request $request) {
+        $this->validate(request(), [
+            'licenseName'     => 'required',
+            'shortIdentifier' => 'required',
+            'licenseText'     => 'required',
+            'licenseCategory' => 'required'
+        ]);
+
+        $license =  new License;
+        $license -> user_id = auth()->id();
+        $license -> licenseName = request('licenseName');
+        $license -> shortIdentifier = request('shortIdentifier');
+        $license -> licenseText = request('licenseText');
+        $license -> licenseCategory = request('licenseCategory');
+        $license -> save();
+
+        session()->flash('message',"{$license->licenseName}".' created');
+        return back();
+    }
+    // end
 }

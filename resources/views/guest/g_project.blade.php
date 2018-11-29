@@ -1,6 +1,6 @@
 @extends('client.client')
 @section('g_project')
-
+{{-- @include('client.partials.meta_info') --}}
 <style>
   a:active, a:hover {
    color: #4caf50;
@@ -26,33 +26,44 @@ a {
             data-src="{{asset('storage/avatars/'.$widget->image)}}"
             alt="{{$widget->alternative_text}}">
         </div>
-      <div class="card-content">
-        <div class="row text-center">
-{{--           @if($widget->views == 0)
-            <p class="category">No views</p>
-          @elseif($widget->views == 1)
-            <p class="category">{{$widget->views}} view</p>
-          @else
-            <p class="category">{{$widget->views}} views</p>
-          @endif --}}
-
-          @if($widget->zip_file)
-            @if($widget->downloads == 0)
-              <h5 class="category">No downloads</h5>
-            @elseif($widget->downloads == 1)
-              <h5 class="category">{{$widget->downloads}} download</h5>
-            @else
-              <h5 class="category">{{$widget->downloads}} downloads</h5>
+        <div class="card-content">
+           <div class="text-center">
+              <div class="addthis_inline_share_toolbox_gh70" data-url="{{ url('g_product/'.$widget->title) }}" data-title="{{ $widget->dsc_title }}" data-media="{{ asset('storage/avatars/'.$widget->image) }}"></div>
+            </div>
+          <div class="col-xs-12 text-center form-group">
+            <div class="col-xs-4">
+            <h5 class="category"><i class="material-icons">remove_red_eye</i> <span class="hidden-xs">Views</span></h5>
+              @if($widget->views == 0)
+                <p>No views</p>
+              @elseif($widget->views == 1)
+                <p>{{$widget->views}}</p>
+              @else
+                <p>{{$widget->views}}</p>
+              @endif
+          </div>
+            @if($widget->zip_file)
+              <div class="col-xs-4">
+                <h5 class="category"><i class="material-icons">get_app</i> <span class="hidden-xs">Downloads</span></h5>
+                @if($widget->downloads == 0)
+                  <p>No downloads</p>
+                @elseif($widget->downloads == 1)
+                  <p>{{$widget->downloads}}</p>
+                @else
+                  <p>{{$widget->downloads}}</p>
+                @endif
+              </div>
+              <div class="col-xs-4">
+                <h5 class="category"><i class="material-icons">attachment</i> <span class="hidden-xs">Size</span></h5>
+                      <p>{{$size.' Mb'}}</p>
+              </div>
             @endif
-            <p class="category">Size: {{$size.' Mb'}}</p>
-          @endif
-          <p class="category ">Posted  {{ $widget->created_at->diffForHumans() }}</p>
-{{--           <p class="category">Category:
-               @foreach($category as $c)
-                 <a href="{{ url('projects/category/'.$c->name) }}"> {{ $c->name }}</a>
-               @endforeach
-           </p> --}}
+              <div class="col-xs-4">
+                <h5 class="category"><i class="material-icons">access_time</i> <span class="hidden-xs">Posted</span></h5>
+                <p> {{ $widget->created_at->diffForHumans() }} </p>
+              </div>
+          </div>
         </div>
+      <div class="card-content">
       <h3 style="font-weight: bold;" class="title" id="title">{{ $widget->dsc_title }}</h3>
       <p>{!! substr(Purify::clean($widget->body),0,-150) !!}
       </p><button hidden=""><a>...</a></button><p>...</p>{{-- <button disabled="" class="btn btn-simple btn-xs"><a href="">...</a></button> --}}
@@ -68,9 +79,6 @@ a {
 </div>
 </div>
 </div>
-{{-- <div class="col-xs-12">
-@include('guest.partials.footer')
-</div>    --}}
 </div>
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfcbfee60b9e4b3"></script>
 @endsection

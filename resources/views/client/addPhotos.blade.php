@@ -14,13 +14,13 @@
 		<ul class="collapse nav" id="showReadme">
 			<li>
 				<p>
-					Please select the photo/photos that you want to upload and also the categories that this photo/photos you think fall under and click submit.Please read the Photo Guidelines to make sure all of your photos get approved.
+					Please select the photo/photos that you want to upload and also the categories that this photo/photos you think fall under and click submit. Please read the Photo Guidelines to make sure your photos don't get removed.
 				</p>
 				<p>Minimum photo size should be 3Mb</p>
 				<p>Maximum upload size is 200Mb</p>
 
 				<h3>Quick Tip</h3>
-				<p>If you see your photos display on a different orientation from the one on your device (e.g. on your device it displays vertically but on the website is flipped), is because the device you're uploading the photos from is sending the wrong dimensions.This is very common with Android devices.One quick fix to this it to open your photo from photoshop and when exporting it choose the save for web option like this:</p>
+				<p>If you see your photos display on a different orientation from the one on your device (e.g. on your device it displays vertically but on the website is flipped), is because the device you're uploading the photos from is sending the wrong dimensions. This is very common with Android devices. One quick fix to this it to open your photo from photoshop and when exporting it choose the save for web option like this:</p>
 				<b><xmp>File > Export > Save for Web</xmp></b>
 			</li>
 		</ul>

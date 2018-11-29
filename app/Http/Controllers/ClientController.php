@@ -13,6 +13,7 @@ use Auth;
 use Cache;
 use App\Favorite;
 use App\PaginationCounter;
+use App\License;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redis;
@@ -41,6 +42,7 @@ class ClientController extends Controller
                 // $favorites = Favorite::where('user_id',Auth::id())->get();
                 $projects = Project::latest()->limit(5)->get();
                 $photos = Gallery::latest()->limit(5)->get();
+                $licenses = License::latest()->limit(3)->get();
                 $latestDbItem = Project::orderBy('created_at', 'desc')->take(2)->get();
                 $secondDownDbItem = Project::orderBy('created_at', 'desc')->skip(2)->take(3)->get();
                 $latestDbImages = Gallery::orderBy('created_at', 'desc')->take(2)->get();
@@ -50,12 +52,13 @@ class ClientController extends Controller
         //         }
         // else
         //         $countFavorites;
-                return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages','projects','photos'));
+                return view('client.dashboard',compact('title','latestDbItem','secondDownDbItem','latestDbImages','secondDownDbImages','projects','photos','licenses'));
           }
           else
-                $projects = Project::orderBy('id', 'desc')->limit(4)->get();
-                $photos =  Gallery::orderBy('views', 'desc')->limit(4)->get();
-                return view('client.signIn',compact('projects','photos'));
+                $widgets = Project::orderBy('id', 'desc')->limit(4)->get();
+                $gallery =  Gallery::orderBy('views', 'desc')->limit(4)->get();
+                $licenses = License::latest()->limit(3)->get();
+                return view('client.signIn',compact('widgets','gallery','licenses'));
     }
 
  //    public function signIn()
@@ -481,12 +484,6 @@ class ClientController extends Controller
         return view('policies.cookiePolicy');
     }
 
-    public function license()
-    {
-        $title = 'License';
-        return view('policies.mitLicense',compact('title'));
-    }
-
     // public function userProfile($slug){
     //     $title = "Profile";
     //     $data = SubmitRequest::where('user_id',auth()->id())->latest()->Paginate(25);
@@ -612,6 +609,7 @@ class ClientController extends Controller
     }
 
     public function g_photo($unique_id) {
+        $widget = Project::orderBy('id', 'desc')->limit(4)->get();
         $gallery = Gallery::where('unique_id', $unique_id)->first();
         $gallery_image = $gallery->gallery_image;
         $file_size = Storage::size('storage/galleries/'.$gallery->gallery_image);
@@ -625,7 +623,7 @@ class ClientController extends Controller
                 session()->push('visited_images', $gallery_image);
                 $gallery->increment('views');
             }
-        return view('guest.g_photo',compact('gallery','size','w','h','type'))->render();
+        return view('guest.g_photo',compact('widget','gallery','size','w','h','type'))->render();
     }
 
     public function delete_account($id) {
@@ -652,4 +650,28 @@ class ClientController extends Controller
         $user->forceDelete();
         return redirect('/');
     }
+
+    // add to live site
+    public function license()
+    {
+        $title = 'Licenses';
+        $licenses = License::where('licenseCategory' , 'popular')->orderBy('id', 'desc')->get();
+        $ns_licenses = License::where('licenseCategory' , 'ns')->orderBy('id', 'desc')->get();
+
+        // if (count($licenses)<=0)
+
+        //     return view('client.empty',compact('title'));
+
+        // else
+
+        return view('client.licenses',compact('title','licenses','ns_licenses'));
+    }
+
+        public function legal()
+    {
+        $title = 'Legal';
+        return view('policies.legal',compact('title'));
+    }
+
+    // end
 }

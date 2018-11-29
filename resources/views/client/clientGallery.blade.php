@@ -1,36 +1,40 @@
 @extends('client.home')
 @section('gallery')
-<div class="col-xs-12">
-	<ul class="nav nav-pills " role="tablist">
-		<li class="hidden-xs hidden-sm hidden-md dropdown">
-		      <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
-		       Category
-		      </a>
-		      <ul style="width: 75vw;" class="dropdown-menu">
-		        @foreach ($tags as $tag)
-		          <li style="display: inline-grid;padding:0.3em;"><a class="btn btn-round btn-{{ $item->font_color }}"
-		          	href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
-		        @endforeach
-		      </ul>
-		    </li>
-			<li class="dropdown">
-				<a href="#" role="tab" href="#"  data-toggle="dropdown">
-					Sort by
-				</a>
-				<ul class="dropdown-menu">
-					<li><a href="{{ url('trending') }}">Trending</a></li>
-					<li><a href="{{ url('mostPopular') }}">Most popular</a></li>
-					<li><a href="{{ url('newest') }}">Newest</a></li>
-					<li><a href="{{ url('oldest') }}">Oldest</a></li>
-				</ul>
-			</li>
-	</ul>
-
-	<div class="table-responsive hidden-lg">
+	<div style="padding: 0;" class="table-responsive hidden-lg">
+		<h6 style="margin: 0;" class="container">Sort by</h6>
 	    <table class="table">
 	      <tr>
 	        <td>
-	        	<nav style="box-shadow: none;" class="scroll bg-light">
+	        	<nav style="box-shadow: none; background-color: #fbfbfd;" class="scroll bg-light">
+
+					  <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('trending') }}">
+					  	Trending
+					  </a>
+
+					  <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('mostPopular') }}">
+					  	Most popular
+					  </a>
+
+					  <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('newest') }}">
+					  	Newest
+					  </a>
+
+					  <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('oldest') }}">
+					  	Oldest
+					  </a>
+
+	        	</nav>
+	        </td>
+	      </tr>
+	    </table>
+  	</div>
+
+	<div style="padding: 0;" class="table-responsive hidden-lg">
+		<h6 style="margin: 0;" class="container">Categories</h6>
+	    <table class="table">
+	      <tr>
+	        <td>
+	        	<nav style="box-shadow: none; background-color: #fbfbfd;" class="scroll bg-light">
 					@foreach ($tags as $tag)
 					  <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('category/'.$tag->name) }}">
 					  	{{$tag->name}}
@@ -42,6 +46,31 @@
 	    </table>
   	</div>
 
+<div class="col-xs-12">
+	<ul class="nav nav-pills " role="tablist">
+		<li class="hidden-xs hidden-sm hidden-md dropdown">
+		      <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
+		       Category
+		      </a>
+		      <ul style="display: flex;" class="dropdown-menu dd-list">
+		        @foreach ($tags as $tag)
+		          <li style="display: inline-grid;padding:0.3em;"><a class="btn btn-simple"
+		          	href="{{ url('category/'.$tag->name) }}">{{$tag->name}}</a></li>
+		        @endforeach
+		      </ul>
+		    </li>
+			<li class="hidden-xs hidden-sm hidden-md dropdown">
+				<a href="#" role="tab" href="#"  data-toggle="dropdown">
+					Sort by
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="{{ url('trending') }}">Trending</a></li>
+					<li><a href="{{ url('mostPopular') }}">Most popular</a></li>
+					<li><a href="{{ url('newest') }}">Newest</a></li>
+					<li><a href="{{ url('oldest') }}">Oldest</a></li>
+				</ul>
+			</li>
+	</ul>
 	<div class="card">
 		{{-- <div class="card-content"> --}}
 			<div class="flexbin flexbin-margin" >

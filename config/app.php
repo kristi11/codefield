@@ -182,6 +182,7 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
         // Hootlex\Moderation\ModerationServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
 
         /*
@@ -250,6 +251,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Purify' => 'Stevebauman\Purify\Facades\Purify',
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ],
 
 ];

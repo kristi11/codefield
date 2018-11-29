@@ -4,9 +4,9 @@
 <div class="wrapper" id="app">
 
   @if (Auth::guest())
-  
+
     <a class="" href="{{ route('login') }}"></a>
-   
+
   @else
   @if($flash = session('message'))
     <div class="text-center"> @include('flashMessages.flashMessage')</div>
@@ -48,7 +48,7 @@
       </li>
     </div>
     </ul>
-    </div> 
+    </div>
 
 
     <ul class="nav">
@@ -71,7 +71,7 @@
       <li{{ setActive('admin/submitted_projects') }}>
         <a href="{{ asset('admin/submitted_projects') }}">
           <i class="material-icons">note_add</i>
-          <p>Requests 
+          <p>Requests
             @if ($pending_projects != 0)
               <span class="label label-danger">New</span>
             @endif
@@ -184,11 +184,19 @@
                 </a>
               </li>
               <li>
-                <a href="{{ url('/admin/projects/create') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Create project">
+                <a href="{{ url('/admin/projects/create') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Create category">
                   <i class="material-icons">subject</i>
-                  <p class="hidden-lg hidden-md">Create project</p>
+                  <p class="hidden-lg hidden-md">Create category</p>
                 </a>
               </li>
+              {{-- to be added to live site --}}
+              <li>
+                <a href="{{ url('/admin/addLicense') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Post a license">
+                  <i class="material-icons">note_add</i>
+                  <p class="hidden-lg hidden-md">Post a license</p>
+                </a>
+              </li>
+              {{-- end --}}
               <li>
                 <a href="{{ url('/admin/gallery/add') }}" class="dropdown-toggle" rel="tooltip" data-placement="bottom" title="" data-original-title="Add tags">
                   <i class="material-icons">label</i>
@@ -271,6 +279,9 @@
                 @yield('search_results')
                 @yield('checkForPermission')
                 @yield('pending_projects')
+                {{-- add to live site --}}
+                 @yield('addLicense')
+                {{-- end --}}
              </div>
           </div>
       {{-- <footer class="footer">

@@ -29,7 +29,8 @@ Route::get('notLoggedIn', array('as' => 'notLoggedIn', 'uses' => 'ClientControll
 Route::get('/privacyPolicy', 'ClientController@privacyPolicy');
 Route::get('/termsAndConditions', 'ClientController@termsAndConditions');
 Route::get('/cookiePolicy', 'ClientController@cookiePolicy');
-Route::get('/license', 'ClientController@license');
+// change to licenses
+Route::get('/licenses', 'ClientController@license');
 Route::get('/{slug}/products', 'ClientController@userProfile');
 Route::get('/{slug}/photos', 'ClientController@userProfilePhotos');
 Route::get('/{slug}/u/photos', 'ClientController@searchUserProfile');
@@ -137,6 +138,13 @@ Route::delete('deleteProduct/{id}', 'ProductsController@delete_product');
 Route::delete('delete_account/{id}', 'ClientController@delete_account');
 
 Route::get('/admin/decompose','\Lubusin\Decomposer\Controllers\DecomposerController@index');
+
+// add to live site
+Route::get('/admin/addLicense', 'HomeController@addLicense');
+Route::post('/admin/storeLicense', 'HomeController@storeLicense');
+Route::get('/legal', 'ClientController@legal');
+
+// end
 
 // Route::get('/store', 'ProjectsController@shop');
 // Route::get('/projects', 'ProjectsController@index');

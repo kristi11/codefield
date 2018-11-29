@@ -3,7 +3,7 @@
 @section('create_project')
 
 <div class="col-sm-8 col-sm-offset-2">
-<div class="card">
+{{-- <div class="card">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New project</h4>
   </div>
@@ -11,18 +11,14 @@
     <form method="POST" action="{{ asset('/admin/projects/store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       @include('errors')
-      
+
         <div class="form-group label-floating">
         <label class="control-label">Title</label>
           <input id="title" type="text" name="title" class="form-control" value="{{ old('title') }}" required>
         </div>
       <input id="body" type="hidden" name="body">
       <trix-editor input="body"></trix-editor>
-       {{--  <div class="form-group label-floating">
-        <label class="control-label">Body</label>
-          <textarea id="body" name="body" class="form-control" required>{{ old('body') }}</textarea>
-        </div> --}}
-      
+
         <div class="form-group label-floating">
         <label class="control-label">Youtube tutorial</label>
           <input id="tutorial" type="text" name="tutorial" class="form-control" value="{{ old('tutorial') }}">
@@ -40,7 +36,7 @@
           <input type="file" name="avatar" id="avatar" value="{{ old('avatar') }}" required=""
           class="filestyle" data-buttonText="choose image" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-{{$item->font_color}}">
         </div>
-      
+
         <div class="btn btn-{{$item->font_color}} btn-simple">
           <input type="file" name="zip_file" id="zip_file" value="{{ old('zip_file') }}"
           class="filestyle" data-buttonText="choose file" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-{{$item->font_color}}">
@@ -51,12 +47,12 @@
       </div>
     </form>
   </div>
-  </div>
+  </div> --}}
 <div class="card">
   <div class="card-header" data-background-color="{{ $item->app_color }}">
     <h4 class="title">New category</h4>
   </div>
-  <div class="card-content" style="padding-bottom: 0px;">   
+  <div class="card-content" style="padding-bottom: 0px;">
     <form method="POST" action="{{ url('addCategory') }}">
       {{ csrf_field() }}
       <div class="card-content">
@@ -64,12 +60,12 @@
           <label class="control-label">Category name</label>
           <input type="text" name="name" id="name" required="" class="form-control" >
         </div>
-      
+
         <div class=" text-right">
           <button id="add_category" class="btn btn-{{$item->font_color}}" type="submit">Add category</button>
           <div class="clearfix"></div>
         </div>
-        
+
       </div>
     </form>
   </div>

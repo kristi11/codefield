@@ -1,5 +1,6 @@
 {
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
-  "/css/material-dashboard.min.css": "/css/material-dashboard.min.css"
+  "/css/material-dashboard.min.css": "/css/material-dashboard.min.css",
+  "/css/custom_css.min.css": "/css/custom_css.min.css"
 }

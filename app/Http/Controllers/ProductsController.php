@@ -184,8 +184,8 @@ public function __construct()
         $constraint->aspectRatio();
         })->blur(1)->save($profiles_storage.'placeholder-'.$profile->hashName(),85);
         $project -> save();
-        $category = $request->input('categories');
-        $project->categories()->sync($category);
+        // $category = $request->input('categories');
+        // $project->categories()->sync($category);
         session()->flash('message','Photo was updated');
         return back()->withInput(Input::all());
     }
@@ -204,8 +204,8 @@ public function __construct()
         request()-> file('zip_file')->store('storage/zip_files/');
         $project -> zip_file = request()->file('zip_file')->hashName();
         $project -> save();
-        $category = $request->input('categories');
-        $project->categories()->sync($category);
+        // $category = $request->input('categories');
+        // $project->categories()->sync($category);
         session()->flash('message','File was updated');
         return back()->withInput(Input::all());
     }

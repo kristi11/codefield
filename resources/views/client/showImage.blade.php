@@ -31,34 +31,70 @@ a {
           </picture>
         </div>
       <div class="card-content">
-      	<div class="row text-center">
-          <h5 class="category">{{ ucwords(substr($gallery->alternative_text,0,-12)) }}</h5>
-          @if($gallery->views == 0)
-            <h5 class="category">No views</h5>
-          @elseif($gallery->views == 1)
-            <h5 class="category">{{$gallery->views}} view</h5>
-          @else
-            <h5 class="category">{{$gallery->views}} views</h5>
-          @endif
+        <div class="text-center">
+              <div class="addthis_inline_share_toolbox_gh70"
+                data-url="{{ url('g_photo/'.$gallery->unique_id) }}"
+                data-title="{{ $gallery->alternative_text }}"
+                data-media="{{ asset('storage/medium_photos/'.$gallery->gallery_image) }}">
+              </div>
+        </div>
+      	<div class="col-xs-12 text-center form-group">
 
-          @if($gallery->downloads == 0)
-            <h5 class="category">No downloads</h5>
-          @elseif($gallery->downloads == 1)
-            <h5 class="category">{{$gallery->downloads}} download</h5>
+        <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">person</i> <span class="hidden-xs">Author</span></h5>
+          <p>{{ ucwords(substr($gallery->alternative_text,0,-19)) }}</p>
+        </div>
+
+        <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">remove_red_eye</i> <span class="hidden-xs">Views</span></h5>
+          @if($gallery->views == 0)
+            <p>No views</p>
+          @elseif($gallery->views == 1)
+            <p>{{$gallery->views}}</p>
           @else
-            <h5 class="category">{{$gallery->downloads}} downloads</h5>
+            <p>{{$gallery->views}}</p>
           @endif
-	         <h5 class="category">Dimensions: {{ $w.'x'.$h.' px' }}</h5>
-	         <h5 class="category">Size: {{$size.' Mb'}}</h5>
-	         <h5 class="category">Type: {{$type}}</h5>
-	         <h5 class="category">Category:
-	             @foreach($category as $c)
-	             	 <a href="{{ url('category/'.$c->name) }}"> {{ $c->name }}</a>
-	             @endforeach
-	         </h5>
-	         <h5 class="category">
-	         	Posted  {{ $gallery->created_at->diffForHumans() }}
-	         </h5>
+        </div>
+
+        <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">get_app</i> <span class="hidden-xs">Downloads</span></h5>
+          @if($gallery->downloads == 0)
+            <p>No downloads</p>
+          @elseif($gallery->downloads == 1)
+            <p>{{$gallery->downloads}}</p>
+          @else
+            <p>{{$gallery->downloads}}</p>
+          @endif
+        </div>
+
+        <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">photo_size_select_large</i> <span class="hidden-xs">Dimensions</span></h5>
+          <p>{{ $w.'x'.$h.' px' }}</p>
+        </div>
+
+         <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">photo_size_select_actual</i> <span class="hidden-xs">Size</span></h5>
+          <p>{{$size.' Mb'}}</p>
+         </div>
+
+         <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">extension</i> <span class="hidden-xs">Type</span></h5>
+          <p>{{$type}}</p>
+         </div>
+
+         <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">filter_list</i> <span class="hidden-xs">Category</span></h5>
+            <p>
+              @foreach($category as $c)
+              	<a href="{{ url('category/'.$c->name) }}"> {{ $c->name }}</a>
+              @endforeach
+            </p>
+         </div>
+
+         <div class="col-xs-6">
+          <h5 class="category"><i class="material-icons">access_time</i> <span class="hidden-xs">Posted</span></h5>
+	        <p>{{ $gallery->created_at->diffForHumans() }}</p>
+         </div>
 		</div>
       <h4 class="title" id="title">{{ $gallery->title }}</h4>
       <div class="text-right">
@@ -70,4 +106,5 @@ a {
     </form>
  </div>
  </div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfcbfee60b9e4b3"></script>
 @endsection

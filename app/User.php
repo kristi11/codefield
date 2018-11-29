@@ -49,6 +49,10 @@ class User extends Authenticatable
        return $this->hasMany(Gallery::class);
     }
 
+    public function license(){
+        return $this->hasMany(License::class);
+    }
+
     public function submitRequests(){
        return $this->hasMany(SubmitRequest::class);
     }

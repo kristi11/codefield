@@ -1,33 +1,33 @@
 @extends('client.home')
 @section('widgets')
-<div class="col-xs-12">
-    <ul class="nav nav-pills " role="tablist">
-      <li class="hidden-xs hidden-sm hidden-md dropdown">
-        <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
-         Category
-        </a>
-        <ul style="width: 75vw;" class="dropdown-menu">
-          @foreach ($categories as $category)
-            <li style="display: inline-grid;padding:0.3em;"><a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
-          @endforeach
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#" role="tab" href="#"  data-toggle="dropdown">
-          Sort by
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="{{ url('mostDownloadedProducts') }}">Most downloaded</a></li>
-          <li><a href="{{ url('mostViewedProducts') }}">Most viewed</a></li>
-        </ul>
-      </li>
-    </ul>
-    <br>
-    <div class="table-responsive hidden-lg">
+
+    <div style="padding: 0;" class="table-responsive hidden-lg">
+      <h6 style="margin: 0;" class="container">Sort by</h6>
       <table class="table">
         <tr>
           <td>
-            <nav style="box-shadow: none;" class="scroll bg-light">
+            <nav style="box-shadow: none; background-color: #fbfbfd;" class="scroll bg-light">
+
+                <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('mostDownloadedProducts') }}">
+                  Most downloaded
+                </a>
+
+                 <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('mostViewedProducts') }}">
+                  Most viewed
+                </a>
+
+            </nav>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+      <div style="padding: 0;" class="table-responsive hidden-lg">
+      <h6 style="margin: 0;" class="container">Categories</h6>
+      <table class="table">
+        <tr>
+          <td>
+            <nav style="box-shadow: none; background-color: #fbfbfd;" class="scroll bg-light">
               @foreach ($categories as $category)
                 <a class="btn btn-round btn-{{ $item->font_color }}" href="{{ url('/products/category/'.$category->name) }}">
                   {{$category->name}}
@@ -39,8 +39,31 @@
       </table>
     </div>
 
+<div class="col-xs-12">
+    <ul class="nav nav-pills " role="tablist">
+      <li class="hidden-xs hidden-sm hidden-md dropdown">
+        <a href="#" role="tab" href="#"  data-toggle="dropdown" class="">
+         Category
+        </a>
+        <ul style="display: flex;" class="dropdown-menu dd-list">
+          @foreach ($categories as $category)
+            <li><a class="btn btn-simple" href="{{ url('/products/category/'.$category->name) }}">{{$category->name}}</a></li>
+          @endforeach
+        </ul>
+      </li>
+      <li class="hidden-xs hidden-sm hidden-md dropdown">
+        <a href="#" role="tab" href="#"  data-toggle="dropdown">
+          Sort by
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ url('mostDownloadedProducts') }}">Most downloaded</a></li>
+          <li><a href="{{ url('mostViewedProducts') }}">Most viewed</a></li>
+        </ul>
+      </li>
+    </ul>
+
 @foreach ($widgets as $widget)
-<div class="{{$class}}">
+<div class="{{$class}} mt-30">
               <div class="card fe_pr">
                 <div class="pr_img">
                   <div class="ct-chart" id="dailySalesChart">
