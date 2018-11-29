@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script>
         {{-- algolia search --}}
-var client = algoliasearch('MDT0DVY5FL', '96aee440462a2bb026e4bc1190a14066');
+var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
 var index = client.initIndex('projects');
 autocomplete('#aa-search-input',
 { hint: false, debug: true }, {
