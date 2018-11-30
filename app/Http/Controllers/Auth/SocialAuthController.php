@@ -57,24 +57,23 @@ class SocialAuthController extends Controller
     }
 
     protected function findOrCreateUser($SocialUser,$provider)
-    {
-        $user = User::firstOrNew(['provider_id' => $SocialUser->id]);
+        {
+        $user = User::firstOrNew(['email' => $SocialUser->email]);
 
             if ($user->exists) return $user;
-    	$user->fill([
+      $user->fill([
         'name' => $SocialUser->nickname?:$SocialUser->name,
         'slug' => str_slug($SocialUser->nickname?:$SocialUser->name).'-'.uniqid(),
-    		'email' => $SocialUser->email,
-    		'avatar' => $SocialUser->avatar,
-    		'profile' => Hash::make('no pic'),
-    		'password' => Hash::make('no need for password token based'),
-        // 'website' => 'add a website',
-        // 'github_profile' => 'add github profile',
+
+        'avatar' => $SocialUser->avatar,
+        'provider_id' => $SocialUser->id,
+        'profile' => Hash::make('no pic'),
+        'password' => Hash::make('no need for password token based'),
         'email_notifications' => 1
-    	])->save();
+      ])->save();
         $user->assignRole('user');
         \Mail::to($user)->send(new Welcome($user));
         session()->flash('message','Welcome to '.config('app.name').' '.$user->name);
-    	return $user;
+      return $user;
     }
 }
