@@ -52,9 +52,7 @@ public function __construct()
             'title'    => 'required',
             'body'     => 'required',
             'categories'  => 'required|array|min:1',
-            // 'tutorial' => 'required|max:1000',
             'avatar'   => 'required|mimes:jpeg,png',
-            // 'zip_file' => 'required|mimes:zip,rar',
         ]);
         $user = User::all();
         $profiles_storage = 'storage/avatars/';
