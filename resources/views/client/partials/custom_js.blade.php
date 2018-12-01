@@ -95,10 +95,10 @@ var title;
     avatar = document.getElementById("avatar").value;
     // zip_file = document.getElementById("zip_file").value;
     if (title == "") {
-        alert('Choose Title')
+        alert('Enter product name')
         return false;
     }else if (body == "") {
-        alert('Enter description')
+        alert('We need you to provide some info about your product')
         return false;
     }
     // else if (tutorial == "") {
@@ -106,7 +106,7 @@ var title;
     //     return false;
     // }
     else if (avatar == "") {
-        alert('Choose Image')
+        alert('Choose an Image')
         return false;
     };
     // else if (zip_file == "") {
@@ -114,7 +114,7 @@ var title;
     //     return false;
     // };
 this.disabled=true;
-this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Creating..';
+this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Posting..';
 this.form.submit();
 });
 
@@ -131,7 +131,7 @@ var title;
     img = document.getElementById("img").value;
     // zip_file = document.getElementById("zip_file").value;
     if (title == "") {
-        alert('Choose Title')
+        alert('Enter product name')
         return false;
     }else if (body == "") {
         alert('Edit description')
