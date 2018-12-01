@@ -90,7 +90,7 @@ var title;
    var avatar;
     // var zip_file;
     title = document.getElementById("title").value;
-    body = document.getElementById("tinymce").value;
+    body = document.getElementById("body_ifr").value;
     // tutorial = document.getElementById("tutorial").value;
     avatar = document.getElementById("avatar").value;
     // zip_file = document.getElementById("zip_file").value;
