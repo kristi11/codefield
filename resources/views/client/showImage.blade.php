@@ -43,6 +43,7 @@ a {
         <div class="col-xs-6">
           <h5 class="category"><i class="material-icons">person</i> <span class="hidden-xs">Author</span></h5>
           <p>{{ ucwords(substr($gallery->alternative_text,0,-19)) }}</p>
+          <a href="{{ url($gallery->user->slug.'/u/photos') }}">{{$gallery->user->name}}</a>
         </div>
 
         <div class="col-xs-6">
