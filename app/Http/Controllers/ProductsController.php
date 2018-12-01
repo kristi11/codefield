@@ -51,6 +51,7 @@ public function __construct()
         $this->validate(request(), [
             'title'    => 'required',
             'body'     => 'required',
+            'categories[]'     => 'required',
             // 'tutorial' => 'required|max:1000',
             'avatar'   => 'required|mimes:jpeg,png',
             // 'zip_file' => 'required|mimes:zip,rar',
