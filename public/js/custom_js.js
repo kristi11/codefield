@@ -1,53 +1,71 @@
-var client = algoliasearch('MDT0DVY5FL', '96aee440462a2bb026e4bc1190a14066');
+<script>
+        {{-- algolia search --}}
+var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
 var index = client.initIndex('projects');
-//initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input',
 { hint: false, debug: true }, {
     source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-    //value to be displayed in input control after user's suggestion selection
     displayKey: 'dsc_title',
-    //hash of templates used when rendering dataset
     templates: {
-        //'suggestion' templating function used to render a single suggestion
         suggestion: function(suggestion) {
           return '<span>' +
             suggestion._highlightResult.dsc_title.value + '</span>'
-            // <span>' +
-            // suggestion._highlightResult.team.value + '</span>';
-        }
+        },
+        footer: '<a href="https://www.algolia.com/" target="_blank"><img style="float: right;width: 90px; padding: 10px;" src="/storage/algolia_logo/sba_logo.png" /></a>'
     }
 });
 
+//  add passive listeners for better scrolling performance
+jQuery.event.special.touchstart = {
+  setup: function( _, ns, handle ){
+    if ( ns.includes("noPreventDefault") ) {
+      this.addEventListener("touchstart", handle, { passive: false });
+    } else {
+      this.addEventListener("touchstart", handle, { passive: true });
+    }
+  }
+};
 
+// select2
     $("#categories").select2({
         placeholder:'Choose a category',
         width:'100%',
     });
+// initiate images faster
+lazySizes.init();
 
+// hide photos and products until the whole page is loaded
     $(function() {
         $("div#photo").show();
     })
 
-     $(function() {
+    $(function() {
         $("div#postProduct").show();
     })
 
-     $('.reksearchloader').click(function(){
-// var query;
-//     query = document.getElementById("query").value;
-//      if (query == "") {
-//      alert('What are you searching for?')
-//         return false;
-//     };
-if ($('input:text').val().length == 0) {
-    alert('What are you searching for?')
-         return false;
-    };
-this.disabled=true;
-this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>';
-this.form.submit();
-});
+// $('.reksearchloader').click(function(){
+// // var query;
+// //     query = document.getElementById("query").value;
+// //      if (query == "") {
+// //       alert('What are you searching for?')
+// //         return false;
+// //     };
+// if ($('input:text').val().length == 0) {
+//  alert('What are you searching for?')
+//          return false;
+//  };
+// this.disabled=true;
+// this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>';
+// this.form.submit();
+// });
 
+// select2
+    $("#tags").select2({
+        placeholder:'Choose a category',
+        width:'100%',
+    });
+
+// add animation on image upload
 $('#gallery_upload_kt').click(function(){
 var x; var y;
     x = document.getElementById("gallery_image").value;
@@ -64,6 +82,7 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Working on it
 this.form.submit();
 });
 
+// add animation on product post
 $('#p_create').click(function(){
 var title;
  var body;
@@ -99,6 +118,7 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Creating..';
 this.form.submit();
 });
 
+// add animation on product edit
 $('#p_edit').click(function(){
 var title;
  var body;
@@ -134,6 +154,7 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
 this.form.submit();
 });
 
+// add animation on file upload
 $('#p_zf').click(function(){
     var zip_file;
     zip_file = document.getElementById("zip_file_1").value;
@@ -146,6 +167,7 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
 this.form.submit();
 });
 
+// add animation on post image update upload
 $('#p_edit_1').click(function(){
     var img;
     img = document.getElementById("img_1").value;
@@ -158,6 +180,19 @@ this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Updating..';
 this.form.submit();
 });
 
+// facebook
+$('#fb_click').click(function(){
+    $( '#fb_click' ).attr( 'disabled', 'disabled' );
+    this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Working..';
+});
+
+// github
+$('#gh_click').click(function(){
+    $( '#gh_click' ).attr( 'disabled', 'disabled' );
+    this.innerHTML='<i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Working..';
+});
+
+// copy test onclick
 function copyText(element) {
   var range, selection, worked;
 
@@ -181,3 +216,5 @@ function copyText(element) {
     alert('unable to copy text');
   }
 }
+
+ </script>

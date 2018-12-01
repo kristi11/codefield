@@ -12,7 +12,7 @@
 {{-- dont forget to update disqus comments to the live site!!!! --}}
 <script id="dsq-count-scr" src="//codefield-1.disqus.com/count.js" async></script>
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script>
         {{-- algolia search --}}
 var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');

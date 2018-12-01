@@ -33,7 +33,7 @@
         <ul class="collapse nav" id="showTags">
           <li>
             <p>
-              Submitting a product to {{ config('app.name') }} is a good opportunity for any developer/designer to be exposed to the world. To show other developers/designers, companies etc. what you can do. It is an opportunity for you to gain popularity amongst others which will be a huge improvement on your career. If you are ready to show your work to the world we're here to make that happen.
+              Submitting a product to {{ config('app.name') }} is a good opportunity to gain popularity amongst the community. To show everyone what you can do. If you are ready to show your work to the world we're here to make that happen.
             </p>
             <p>
               A product can be anything from a Github repo,a web/mobile app, a tutorial about something,a collection of resources etc..
