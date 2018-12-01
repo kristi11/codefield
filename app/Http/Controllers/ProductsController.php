@@ -51,9 +51,8 @@ public function __construct()
         $this->validate(request(), [
             'title'    => 'required',
             'body'     => 'required',
-            // 'tutorial' => 'required|max:1000',
+            'category' => 'required',
             'avatar'   => 'required|mimes:jpeg,png',
-            // 'zip_file' => 'required|mimes:zip,rar',
         ]);
         $user = User::all();
         $profiles_storage = 'storage/avatars/';
