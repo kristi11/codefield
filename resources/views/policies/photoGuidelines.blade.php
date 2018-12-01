@@ -6,7 +6,7 @@
 		<div class="card-content">
 			<h2 class="text-center">Photo Submission Guidelines</h2>
 
-			<h5>Please acknowledge that photos uploaded on {{config('app.name')}} not following the guidelines will be eventually deleted.</h5>
+			<h5>Please note that photos uploaded on {{config('app.name')}} not following the guidelines will be eventually deleted.</h5>
 
 			<h5>Photos should be at least 3 Megabytes or our system will automatically reject them. We do this to ensure you upload high quality photos.</h5>
 
