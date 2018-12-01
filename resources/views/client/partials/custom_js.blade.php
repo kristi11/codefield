@@ -90,7 +90,7 @@ var title;
    var avatar;
     // var zip_file;
     title = document.getElementById("title").value;
-    body = document.getElementById("mceu_14-body").value;
+    body = document.getElementById("mceu_14").value;
     // tutorial = document.getElementById("tutorial").value;
     avatar = document.getElementById("avatar").value;
     // zip_file = document.getElementById("zip_file").value;
