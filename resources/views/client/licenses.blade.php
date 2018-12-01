@@ -4,7 +4,7 @@
 <div class="col-xs-12">
 	<div class="card">
 	    <div class="card-content text-center">
-	    	<h4>To add a license to your project just copy the text from one of the licenses below and paste it to either a <code>.txt</code> or <code>.MD</code> file. For example for the <b>MIT license</b> just copy the content and paste it to a <code>LICENSE.txt</code> or <code>LICENSE.MD</code> file. The license usually goes on the root of your project so it's easily accessible to anyone that needs the license information.</h4>
+	    	<h5>To add a license to your project just copy the text from one of the licenses below and paste it to either a <code>.txt</code> or <code>.MD</code> file. For example for the <b>MIT license</b> just copy the content and paste it to a <code>LICENSE.txt</code> or <code>LICENSE.MD</code> file. The license usually goes on the root of your project so it's easily accessible to anyone that needs the license information.</h5>
 	    </div>
 	</div>
 	<h4>Popular licenses</h4>
@@ -32,7 +32,7 @@
           	</li>
         	 <p class="card-description">Click anywhere on the text to copy it</p>
           <li>
-            <pre {{-- id='display' --}} onClick='copyText(this)'> {{ $license->licenseText }} </pre>
+            <pre onClick='copyText(this)'> {{ $license->licenseText }} </pre>
           </li>
         </ul>
       </ul>
