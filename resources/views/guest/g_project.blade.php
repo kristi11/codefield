@@ -31,10 +31,6 @@ a {
               <div class="addthis_inline_share_toolbox_gh70" data-url="{{ url('g_product/'.$widget->title) }}" data-title="{{ $widget->dsc_title }}" data-media="{{ asset('storage/avatars/'.$widget->image) }}"></div>
             </div>
           <div class="col-xs-12 text-center form-group">
-          <div class="col-xs-6">
-            <h5 class="category"><i class="material-icons">person</i> <span class="hidden-xs">Author</span></h5>
-            <p>{{ ucwords(substr($widget->user->name)) }}</p>
-          </div>
             <div class="col-xs-4">
             <h5 class="category"><i class="material-icons">remove_red_eye</i> <span class="hidden-xs">Views</span></h5>
               @if($widget->views == 0)
