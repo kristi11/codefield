@@ -65,6 +65,8 @@ public function __construct()
         $project -> tutorial = request('tutorial');
         $project -> views = '0';
         $project -> downloads = '0';
+        $category = $request->input('categories');
+        $project->categories()->sync($category);
         $project -> alternative_text = request('title').' '.'project on'.' '.config('app.name') ;
         $profile = request()->file('avatar');
         // $profile->store('profiles');
@@ -80,8 +82,7 @@ public function __construct()
             $project -> zip_file = request()->file('zip_file')->hashName();
         }
         $project -> save();
-        $category = $request->input('categories');
-        $project->categories()->sync($category);
+
         foreach ($user as $u) {
             if ($u->email_notifications != 0) {
             // $u->notify(new ProjectPublished($project));
