@@ -13,4 +13,4 @@
 <script id="dsq-count-scr" src="//codefield-1.disqus.com/count.js" async></script>
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-@include('client.partials.custom_js')
+@include('client.partials.custom_js_min')
