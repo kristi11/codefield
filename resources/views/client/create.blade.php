@@ -80,7 +80,7 @@
         <label>Choose a category</label>
           <select class="form-control" name="categories[]" id="categories" multiple="multiple" required="">
             @foreach($categories as $category)
-              <option value="{{$category->id}}">{{$category->name}}</option>
+              <option value="{{$category->id}}">{{ucfirst($category->name)}}</option>
             @endforeach
           </select>
         </div>
