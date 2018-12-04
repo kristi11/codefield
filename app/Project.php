@@ -27,8 +27,8 @@ use Favoriteable;
     public function user(){
     	return $this->belongsTo(User::class);
     }
-    
-    public function getRouteKeyName()   
+
+    public function getRouteKeyName()
 		{
 		return 'title';
 		}
@@ -40,6 +40,14 @@ use Favoriteable;
     public function categories()
     {
         return $this->belongsToMany(Category::class)->withTimestamps();
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'id'   => $this->id,
+            'dsc_title'   => $this->dsc_title,
+        ];
     }
 
     // public function GetCategoryListAttribute()
