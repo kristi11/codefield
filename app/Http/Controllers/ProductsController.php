@@ -51,7 +51,7 @@ public function __construct()
         $this->validate(request(), [
             'title'    => 'required',
             'body'     => 'required',
-            // 'categories'  => 'required|array|min:1',
+            'categories'  => 'required|array|min:1',
             'avatar'   => 'required|mimes:jpeg,png',
         ]);
         $user = User::all();
