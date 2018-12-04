@@ -25,7 +25,8 @@
                 </div>
                 </div>
                 <div class="card-content">
-                <h3 class="title" id="title">{{ str_limit($widget->dsc_title,23) }}</h3>
+                <h3 class="title hidden-xs- hidden-sm hidden-md" id="title">{{ str_limit($widget->dsc_title,23) }}</h3>
+                <h3 class="title hidden-lg" id="title">{{ str_limit($widget->dsc_title,15) }}</h3>
                 @if($widget->zip_file)
                   @if($widget->downloads == 0)
                     <h5 class="category">No downloads</h5>
