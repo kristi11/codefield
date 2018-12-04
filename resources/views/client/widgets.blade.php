@@ -118,7 +118,8 @@
                 </div>
                 </div>
                 <div class="card-content text-center">
-                  <h4 class="title text-center" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
+                <h3 class="title hidden-xs hidden-sm hidden-md" id="title">{{ str_limit($widget->dsc_title,23) }}</h3>
+                <h3 class="title hidden-lg" id="title">{{ str_limit($widget->dsc_title,15) }}</h3>
 {{--                   <p class="category">{{ str_limit($widget->body, 100) }}.</p>--}}
                   @if($widget->views == 0)
                     <h5 class="category">No views</h5>

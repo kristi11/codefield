@@ -190,7 +190,8 @@
                 </div>
                 </div>
                 <div class="card-content">
-                  <h4 class="title" id="title">{{ str_limit($widget->dsc_title,30) }}</h4>
+                  <h3 class="title hidden-xs hidden-sm hidden-md" id="title">{{ str_limit($widget->dsc_title,23) }}</h3>
+                  <h3 class="title hidden-lg" id="title">{{ str_limit($widget->dsc_title,15) }}</h3>
                   @if($widget->views == 0)
                     <h5 class="category">No views</h5>
                   @elseif($widget->views == 1)
