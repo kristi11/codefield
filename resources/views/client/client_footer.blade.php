@@ -3,7 +3,7 @@
 {{-- <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
  --}}
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/js/material.min.js" type="text/javascript" defer></script>
+<script src="/js/material.min.js" type="text/javascript" ></script>
 <script src="/js/material-dashboard.min.js" type="text/javascript" defer></script>
 <script src="/js/bootstrap-filestyle.min.js" type="text/javascript" defer></script>
 <script src="/js/lazysizes.min.js" type="text/javascript" async></script>
