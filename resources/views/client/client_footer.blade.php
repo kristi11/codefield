@@ -4,7 +4,7 @@
  --}}
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/js/material.min.js" type="text/javascript" ></script>
-<script src="/js/material-dashboard.min.js" type="text/javascript" defer></script>
+<script src="/js/material-dashboard.min.js" type="text/javascript" ></script>
 <script src="/js/bootstrap-filestyle.min.js" type="text/javascript" defer></script>
 <script src="/js/lazysizes.min.js" type="text/javascript" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" async></script>
