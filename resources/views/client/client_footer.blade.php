@@ -8,7 +8,7 @@
 <script src="/js/bootstrap-filestyle.min.js" type="text/javascript" defer></script>
 <script src="/js/lazysizes.min.js" type="text/javascript" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" async></script>
-<script src="https://use.fontawesome.com/034c41ac18.js" async></script>
+<script src="https://use.fontawesome.com/034c41ac18.js"></script>
 {{-- dont forget to update disqus comments to the live site!!!! --}}
 <script id="dsq-count-scr" src="//codefield-1.disqus.com/count.js" async></script>
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
