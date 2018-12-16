@@ -143,14 +143,13 @@ public function __construct()
          $this->validate(request(), [
             'title'    => 'required',
             'body'     => 'required'
-            // 'tutorial' => 'required|max:1000',
         ]);
 
         $profiles_storage = public_path('storage/avatars/');
         $project =  Project::findOrFail($id);
         $project -> user_id = auth()->id();
         $project -> dsc_title = request('title');
-        $project -> title = str_slug(request('title').'-'.uniqid());
+        // $project -> title = str_slug(request('title').'-'.uniqid());
         $project -> body = request('body');
         $project -> tutorial = request('tutorial');
         $project -> alternative_text = config('app.name').' '.request('title').' '.'project';
