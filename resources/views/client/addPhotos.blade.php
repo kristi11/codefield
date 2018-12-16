@@ -38,6 +38,14 @@
 			value="{{ old('gallery_image') }}"
 			class="filestyle" data-buttonText="Choose photos" data-input="false" data-iconName="" data-buttonName="btn btn-{{$item->font_color}} btn-simple" data-buttonClass="btn btn-primary" multiple="multiple">
 			</div>
+			<div class="form-group label-floating text-left">
+	        	<label class="control-label">Add a photo title (optional)</label>
+				<input type="text" name="description" class="form-control">
+			</div>
+			<div class="form-group label-floating text-left">
+	        	<label class="control-label">Add a photo location (optional)</label>
+				<input type="text" name="location" class="form-control">
+			</div>
 			<div class="form-group text-left">
 	        	<label>Choose a category</label>
 				<select class="form-control" name="tags[]" id="tags" multiple="multiple" required="">

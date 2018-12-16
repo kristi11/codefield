@@ -32,7 +32,7 @@ class GalleryController extends Controller
         $paginationNr = PaginationCounter::first();
         $galleryNr = $paginationNr->gallery;
         $gallery = Gallery::orderBy('id', 'desc')->Paginate($galleryNr);
-        if (count($gallery)<=0) 
+        if (count($gallery)<=0)
             return view('admin.empty_trash',compact('title'));
         else
         return view('admin.gallery', compact('title','gallery'));
@@ -58,12 +58,12 @@ class GalleryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
+    {
         $this->validate(request(), [
             'gallery_image'    => 'required',
             'tags'    => 'required'
         ]);
-       
+
         $gallery_storage = public_path('storage/galleries/');
         $large_photos_storage = public_path('storage/large_photos/');
         $medium_photos_storage = public_path('storage/medium_photos/');
@@ -74,12 +74,14 @@ class GalleryController extends Controller
         foreach ($files as $file) {
             if ($file->getClientSize() < 3145728) {
                 session()->flash('message','Photos should be at least 3 Mb');
-                return back();               
+                return back();
             }else
         $gallery = new Gallery;
         $gallery -> user_id = auth()->id();
         $gallery -> unique_id = uniqid();
         $gallery -> alternative_text = Auth::user()->name.' '.'photos on'.' '.config('app.name');
+        $gallery -> description = request('description');
+        $gallery -> location = request('location');
         $gallery -> gallery_image = $file->hashName();
         $image = Image::make($file->getRealPath());
 
@@ -121,7 +123,7 @@ class GalleryController extends Controller
         // }
         // session()->flash('message','Image(s) added');
         // return back();
-       
+
     }
 
     /**
@@ -176,5 +178,5 @@ class GalleryController extends Controller
             Storage::delete('storage/tiny_photos/'.$gallery->gallery_image);
             session()->flash('message','Photo deleted');
             return back();
-        } 
+        }
 }

@@ -43,6 +43,12 @@ a {
                     data-media="{{ asset('storage/medium_photos/'.$gallery->gallery_image) }}">
               </div>
           </div>
+          @if ($gallery->description)
+            <h3 class="text-center">{{ $gallery->description }}</h3>
+          @endif
+          @if ($gallery->location)
+            <p class="form-group category text-center"><i class="material-icons">location_on</i> {{ $gallery->location }}</p>
+          @endif
           <div class="col-xs-12 text-center form-group">
 
           <div class="col-xs-6">
