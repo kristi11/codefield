@@ -15,7 +15,7 @@
 		<div class="card-content">
 			<h2 class="text-center">Photos license</h2>
 			<p class="text-center">
-				<b>All the photos on this site are under the {{ucfirst(config('app.name'))}} license which can be found below.</b>
+				<b>All the photos on this site are under the CC0 license which can be found in our <a target="_blank" rel="noopener" href="/licenses">licenses section</a>  or on the <a target="_blank" rel="noopener" href="https://creativecommons.org/publicdomain/zero/1.0/">Creative commons website</a>.</b>
 			</p>
 		</div>
 	</div>
@@ -37,7 +37,7 @@
 		</div>
 	</div> --}}
 
-	<div class="card">
+{{-- 	<div class="card">
 		<div class="card-content">
 			<h2 class="text-center">{{ucfirst(config('app.name'))}} License</h2>
 
@@ -66,7 +66,7 @@
 				If you download photos with any of these depicted in them, you may need the permission of the brand owner of the brand or work of authorship or individual depending on how you use the Photo.
 			</h5>
 		</div>
-	</div>
+	</div> --}}
 	{{-- <div class="alert alert-{{$item->font_color}} text-center" role="alert">
       	<strong>Please do note</strong><br>
 		This service will be free until at least July 2019.<br>
