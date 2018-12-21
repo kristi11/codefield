@@ -44,6 +44,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // added by me
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+        return redirect('/');
+    }
+    // end by me
         return parent::render($request, $exception);
     }
 
@@ -62,14 +67,4 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest(route('login'));
     }
-
-    //added my me
-    public function render($request, Exception $exception)
-{
-    if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
-        return redirect('/');
-    }
-
-    return parent::render($request, $exception);
-}
 }
