@@ -1,6 +1,6 @@
 <script>
         {{-- algolia search --}}
-var client = algoliasearch('1OQ6WIFJ2I', '65fa7043c9a493a7eb9e7f4c953787e4');
+var client = algoliasearch('Application ID', 'Search-Only API Key');
 var index = client.initIndex('projects');
 autocomplete('#aa-search-input',
 { hint: false, debug: true }, {

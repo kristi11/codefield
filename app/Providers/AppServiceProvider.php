@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('countAdmins',count(\App\User::Role('admin')->get()));
             $view->with('countSubscribers',count(\App\User::role('user')->get()));
             $view->with('countImages',count(\App\Gallery::all()));
-            $view->with('result',json_decode(file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDsCHWKh6jyNvXCJRFgDB2yio9lUCu9O0c" )));
+            $view->with('result',json_decode(file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key={{your key}}" )));
 
 
          });
